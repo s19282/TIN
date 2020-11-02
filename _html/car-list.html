@@ -3,20 +3,20 @@
     <head>
         <meta charset="UTF-8">
         <title>Wydział komunikacji</title>
-        <link rel="stylesheet" href="_css/style.css">
-        <script src="_js/script.js"></script>
+        <link rel="stylesheet" href="../_css/style_.css">
+        <script src="../_js/script.js"></script>
     </head>
     <body>
         <header>
             <h1>Wydział komunikacji</h1>
-            <img src="_images/icon.png" alt="WK logo">
+            <img src="../_images/icon.png" alt="WK logo">
         </header>
         <nav>
-            <ul>
-                <li><a href="">Strona główna</a></li>
-                <li><a href="">Właściciele</a></li>
-                <li><a href="">Pojazdy właścicieli</a></li>
-                <li><a href="">Pojazdy</a></li>
+            <ul class="list-actions">
+                <li><a href="../index.html" class="active">Strona główna</a></li>
+                <li><a href="../_html/owner-list.html">Właściciele</a></li>
+                <li><a href="../_html/ownersCars-list.html">Pojazdy właścicieli</a></li>
+                <li><a href="../_html/car-list.html">Zarejestrowane Pojazdy</a></li>
             </ul>
         </nav>
         <main>
@@ -38,15 +38,15 @@
                         <td>j.kowalski@tmp.mail</td>
                         <td>876234566</td>
                         <td>
-                            <ul>
+                            <ul class="list-actions">
                                 <li>
-                                    <a href="">Szczegóły</a>
+                                    <a href="../_html/owner-details.html" class="list-actions-button-details">Szczegóły</a>
                                 </li>
                                 <li>
-                                    <a href="">Edytuj</a>
+                                    <a href="" class="list-actions-button-edit">Edytuj</a>
                                 </li>
                                 <li>
-                                    <a href="">Usuń</a>
+                                    <a href="" class="list-actions-button-delete ">Usuń</a>
                                 </li>
                             </ul>
                         </td>
@@ -57,15 +57,15 @@
                         <td>m.pawlowski@tmp.mail</td>
                         <td>986234234</td>
                         <td>
-                            <ul>
+                            <ul class="list-actions">
                                 <li>
-                                    <a href="">Szczegóły</a>
+                                    <a href="../_html/owner-details.html" class="list-actions-button-details">Szczegóły</a>
                                 </li>
                                 <li>
-                                    <a href="">Edytuj</a>
+                                    <a href="" class="list-actions-button-edit">Edytuj</a>
                                 </li>
                                 <li>
-                                    <a href="">Usuń</a>
+                                    <a href="" class="list-actions-button-delete ">Usuń</a>
                                 </li>
                             </ul>
                         </td>
@@ -76,15 +76,15 @@
                         <td>k.adamska@tmp.mail</td>
                         <td>925734456</td>
                         <td>
-                            <ul>
+                            <ul class="list-actions">
                                 <li>
-                                    <a href="">Szczegóły</a>
+                                    <a href="../_html/owner-details.html" class="list-actions-button-details">Szczegóły</a>
                                 </li>
                                 <li>
-                                    <a href="">Edytuj</a>
+                                    <a href="" class="list-actions-button-edit">Edytuj</a>
                                 </li>
                                 <li>
-                                    <a href="">Usuń</a>
+                                    <a href="" class="list-actions-button-delete ">Usuń</a>
                                 </li>
                             </ul>
                         </td>
@@ -110,7 +110,7 @@
                     </tr>
                 </tbody>
             </table>
-            <p><a href="" class="button-add">Dodaj nowego właściciela</a> </p>
+            <p><a href="owner-form.html" class="button-add">Dodaj nowego właściciela</a> </p>
         </main>
         <footer>
             Mateusz, Godlewski, s19282, Copyright &copy;

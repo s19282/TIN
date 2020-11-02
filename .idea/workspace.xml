@@ -24,14 +24,21 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c30579d-2c75-430e-b994-d1812f02c7a1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_images/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/owner-details.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/owner-form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/owner-list.html" afterDir="false" />
+    <list default="true" id="5c30579d-2c75-430e-b994-d1812f02c7a1" name="Default Changelist" comment="owner almost finished, sample css">
+      <change afterPath="$PROJECT_DIR$/_css/style_.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_html/car-details.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_html/car-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_html/car-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_html/ownersCars-details.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_html/ownersCars-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_html/ownersCars-list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/_css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/_js/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/owner-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/owner-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/owner-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/owner-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/owner-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/owner-list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +49,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -62,11 +70,16 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/_html" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN\_html" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN\_html" />
       <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN" />
     </key>
   </component>
@@ -81,8 +94,17 @@
       <workItem from="1604057647638" duration="325000" />
       <workItem from="1604061067705" duration="2025000" />
       <workItem from="1604233268930" duration="61000" />
-      <workItem from="1604312871428" duration="5523000" />
+      <workItem from="1604312871428" duration="6249000" />
+      <workItem from="1604333843764" duration="5721000" />
     </task>
+    <task id="LOCAL-00001" summary="owner almost finished, sample css">
+      <created>1604333181101</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604333181101</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,8 +124,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="owner almost finished, sample css" />
+    <option name="LAST_COMMIT_MESSAGE" value="owner almost finished, sample css" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1604333193141">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860/1440.0.1440.860@0.0.1440.860" timestamp="1604333193141" />
     <state x="383" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1604061704656">
       <screen x="0" y="0" width="1440" height="860" />
     </state>

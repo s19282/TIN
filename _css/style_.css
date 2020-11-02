@@ -6,6 +6,7 @@ html
 body
 {
     min-width: 600px;
+    //border-radius: 25px;
 }
 header, main, footer
 {
