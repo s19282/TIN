@@ -20,23 +20,27 @@
             </ul>
         </nav>
         <main>
-            <h2>Dodaj właściciela</h2>
+            <h2>Dodaj pojazd</h2>
             <form class="form">
                 <div>
-                    <label for="firstName">Imię:<sup>*</sup></label>
-                    <input type="text" name="firstName" id="firstName">
+                    <label for="vin">Numer VIN:<sup>*</sup></label>
+                    <input type="text" name="vin" id="vin">
                 </div>
                 <div>
-                    <label for="lastName">Nazwisko:<sup>*</sup></label>
-                    <input type="text" name="lastName" id="lastName">
+                    <label for="name">Marka:<sup>*</sup></label>
+                    <input type="text" name="name" id="name">
                 </div>
                 <div>
-                    <label for="email">Email:<sup>*</sup></label>
-                    <input type="text" name="email" id="email">
+                    <label for="model">Model:<sup>*</sup></label>
+                    <input type="text" name="model" id="model">
                 </div>
                 <div>
-                    <label for="phoneNumber">Numer telefonu:<sup>*</sup></label>
-                    <input type="text" name="phoneNumber" id="phoneNumber">
+                    <label for="firstRegistrationDate">Data pierwszej rejestracji:<sup>*</sup></label>
+                    <input type="date" name="firstRegistrationDate" id="firstRegistrationDate">
+                </div>
+                <div>
+                    <label for="engineCapacity">Pojemność silnika</label>
+                    <input type="number" name="engineCapacity" id="engineCapacity">
                 </div>
                 <div>
                     <input type="submit" value="Dodaj" />
