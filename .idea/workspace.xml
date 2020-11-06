@@ -24,11 +24,19 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c30579d-2c75-430e-b994-d1812f02c7a1" name="Default Changelist" comment="links work">
+    <list default="true" id="5c30579d-2c75-430e-b994-d1812f02c7a1" name="Default Changelist" comment="car finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_css/style_.css" beforeDir="false" afterPath="$PROJECT_DIR$/_css/style_.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/car-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/car-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/car-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/car-form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/car-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/car-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_html/owner-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/owner-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_html/owner-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/owner-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_html/owner-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/owner-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_html/ownersCars-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/ownersCars-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_html/ownersCars-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/ownersCars-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_html/ownersCars-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/ownersCars-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +93,7 @@
       <workItem from="1604061067705" duration="2025000" />
       <workItem from="1604233268930" duration="61000" />
       <workItem from="1604312871428" duration="6249000" />
-      <workItem from="1604333843764" duration="9518000" />
+      <workItem from="1604333843764" duration="25369000" />
     </task>
     <task id="LOCAL-00001" summary="owner almost finished, sample css">
       <created>1604333181101</created>
@@ -101,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604349280323</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="car finished">
+      <created>1604397917125</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604397917125</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,7 +138,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="owner almost finished, sample css" />
     <MESSAGE value="links work" />
-    <option name="LAST_COMMIT_MESSAGE" value="links work" />
+    <MESSAGE value="car finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="car finished" />
   </component>
   <component name="WindowStateProjectService">
     <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1604333193141">

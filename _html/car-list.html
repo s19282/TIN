@@ -5,117 +5,129 @@
         <title>Wydział komunikacji</title>
         <link rel="stylesheet" href="../_css/style_.css">
         <script src="../_js/script.js"></script>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
     </head>
     <body>
         <header>
             <h1>Wydział komunikacji</h1>
             <img src="../_images/icon.png" alt="WK logo">
         </header>
-        <nav>
-            <ul class="list-actions">
-                <li><a href="../index.html" class="active">Strona główna</a></li>
-                <li><a href="../_html/owner-list.html">Właściciele</a></li>
-                <li><a href="../_html/ownersCars-list.html">Pojazdy właścicieli</a></li>
-                <li><a href="../_html/car-list.html">Zarejestrowane Pojazdy</a></li>
-            </ul>
-        </nav>
-        <main>
-            <h2>Lista pojazdów</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>VIN</th>
-                        <th>Marka</th>
-                        <th>Model</th>
-                        <th>Data pierwszej rejestracji</th>
-                        <th>Pojemność silnika</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>JM1FE17N000000001</td>
-                        <td>Mazda</td>
-                        <td>Rx-8</td>
-                        <td>01.02.2003</td>
-                        <td>1300</td>
-                        <td>
-                            <ul class="list-actions">
-                                <li>
-                                    <a href="../_html/car-details.html" class="list-actions-button-details">Szczegóły</a>
-                                </li>
-                                <li>
-                                    <a href="" class="list-actions-button-edit">Edytuj</a>
-                                </li>
-                                <li>
-                                    <a href="" class="list-actions-button-delete ">Usuń</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>JF1GR8H64BL000001</td>
-                        <td>Subaru</td>
-                        <td>Impreza WRX STI</td>
-                        <td>10.11.2012</td>
-                        <td>2500</td>
-                        <td>
-                            <ul class="list-actions">
-                                <li>
-                                    <a href="../_html/car-details.html" class="list-actions-button-details">Szczegóły</a>
-                                </li>
-                                <li>
-                                    <a href="" class="list-actions-button-edit">Edytuj</a>
-                                </li>
-                                <li>
-                                    <a href="" class="list-actions-button-delete ">Usuń</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>JTHBC96S000000001</td>
-                        <td>Lexus</td>
-                        <td>GS450H</td>
-                        <td>05.06.2007</td>
-                        <td>3500</td>
-                        <td>
-                            <ul class="list-actions">
-                                <li>
-                                    <a href="../_html/car-details.html" class="list-actions-button-details">Szczegóły</a>
-                                </li>
-                                <li>
-                                    <a href="" class="list-actions-button-edit">Edytuj</a>
-                                </li>
-                                <li>
-                                    <a href="" class="list-actions-button-delete ">Usuń</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>JN8BS1MW8AM000001</td>
-                        <td>Infiniti</td>
-                        <td>Fx50</td>
-                        <td>08.09.2010</td>
-                        <td>5000</td>
-                        <td>
-                            <ul class="list-actions">
-                                <li>
-                                    <a href="../_html/car-details.html" class="list-actions-button-details">Szczegóły</a>
-                                </li>
-                                <li>
-                                    <a href="" class="list-actions-button-edit">Edytuj</a>
-                                </li>
-                                <li>
-                                    <a href="" class="list-actions-button-delete ">Usuń</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <p><a href="../_html/car-form.html" class="button-add">Dodaj nowy pojazd</a> </p>
-        </main>
+        <div class="centerBox">
+            <nav>
+                <ul class="list-actions">
+                    <li><a href="../index.html">Strona główna</a></li>
+                    <li><a href="../_html/owner-list.html">Właściciele</a></li>
+                    <li><a href="../_html/ownersCars-list.html">Pojazdy właścicieli</a></li>
+                    <li><a href="../_html/car-list.html" class="active">Zarejestrowane Pojazdy</a></li>
+                </ul>
+            </nav>
+            <main>
+                <h2>Lista pojazdów</h2>
+                <table class="table-list">
+                    <thead>
+                        <tr>
+                            <th>VIN</th>
+                            <th>Marka</th>
+                            <th>Model</th>
+                            <th>Data pierwszej rejestracji</th>
+                            <th>Pojemność silnika</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>JM1FE17N000000001</td>
+                            <td>Mazda</td>
+                            <td>Rx-8</td>
+                            <td>01.02.2003</td>
+                            <td>1300</td>
+                            <td>
+                                <ul class="list-actions">
+                                    <li>
+                                        <a href="../_html/car-details.html" class="list-actions-button-details">Szczegóły</a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="list-actions-button-edit">Edytuj</a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="list-actions-button-delete ">Usuń</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>JF1GR8H64BL000001</td>
+                            <td>Subaru</td>
+                            <td>Impreza WRX STI</td>
+                            <td>10.11.2012</td>
+                            <td>2500</td>
+                            <td>
+                                <ul class="list-actions">
+                                    <li>
+                                        <a href="../_html/car-details.html" class="list-actions-button-details">Szczegóły</a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="list-actions-button-edit">Edytuj</a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="list-actions-button-delete ">Usuń</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>JTHBC96S000000001</td>
+                            <td>Lexus</td>
+                            <td>GS450H</td>
+                            <td>05.06.2007</td>
+                            <td>3500</td>
+                            <td>
+                                <ul class="list-actions">
+                                    <li>
+                                        <a href="../_html/car-details.html" class="list-actions-button-details">Szczegóły</a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="list-actions-button-edit">Edytuj</a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="list-actions-button-delete ">Usuń</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>JN8BS1MW8AM000001</td>
+                            <td>Infiniti</td>
+                            <td>Fx50</td>
+                            <td>08.09.2010</td>
+                            <td>5000</td>
+                            <td>
+                                <ul class="list-actions">
+                                    <li>
+                                        <a href="../_html/car-details.html" class="list-actions-button-details">Szczegóły</a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="list-actions-button-edit">Edytuj</a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="list-actions-button-delete ">Usuń</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><a href="../_html/car-form.html" class="button-add">Dodaj nowy pojazd</a> </p>
+            </main>
+            <div class="rightPanel">
+                <h4>
+                    Przypominamy, że z powodu obecnej sytuacji epidemiologicznej obsługa interesantów
+                    odbywa się wyłącznie telefonicznie lub mailowo.
+                </h4>
+                <h4>
+                    W związku z epidemią czas na rejestrację pojazdu zostaje wydłużony z 30 do 180 dni.
+                </h4>
+            </div>
+        </div>
         <footer>
             Mateusz, Godlewski, s19282, Copyright &copy;
         </footer>

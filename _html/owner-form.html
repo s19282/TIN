@@ -5,45 +5,49 @@
         <title>Wydział komunikacji</title>
         <link rel="stylesheet" href="../_css/style_.css">
         <script src="../_js/script.js"></script>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
     </head>
     <body>
         <header>
             <h1>Wydział komunikacji</h1>
             <img src="../_images/icon.png" alt="WK logo">
         </header>
-        <nav>
-            <ul class="list-actions">
-                <li><a href="../index.html" class="active">Strona główna</a></li>
-                <li><a href="../_html/owner-list.html">Właściciele</a></li>
-                <li><a href="../_html/ownersCars-list.html">Pojazdy właścicieli</a></li>
-                <li><a href="../_html/car-list.html">Zarejestrowane Pojazdy</a></li>
-            </ul>
-        </nav>
-        <main>
-            <h2>Dodaj właściciela</h2>
-            <form class="form">
-                <div>
-                    <label for="firstName">Imię:<sup>*</sup></label>
-                    <input type="text" name="firstName" id="firstName">
-                </div>
-                <div>
-                    <label for="lastName">Nazwisko:<sup>*</sup></label>
-                    <input type="text" name="lastName" id="lastName">
-                </div>
-                <div>
-                    <label for="email">Email:<sup>*</sup></label>
-                    <input type="text" name="email" id="email">
-                </div>
-                <div>
-                    <label for="phoneNumber">Numer telefonu:<sup>*</sup></label>
-                    <input type="text" name="phoneNumber" id="phoneNumber">
-                </div>
-                <div>
-                    <input type="submit" value="Dodaj" />
-                    <a href="../index.html">Anuluj</a>
-                </div>
-            </form>
-        </main>
+        <div class="centerBox">
+            <nav>
+                <ul class="list-actions">
+                    <li><a href="../index.html">Strona główna</a></li>
+                    <li><a href="../_html/owner-list.html" class="active">Właściciele</a></li>
+                    <li><a href="../_html/ownersCars-list.html">Pojazdy właścicieli</a></li>
+                    <li><a href="../_html/car-list.html">Zarejestrowane Pojazdy</a></li>
+                </ul>
+            </nav>
+            <main>
+                <h2>Dodaj właściciela</h2>
+                <form class="form">
+                        <label for="firstName">Imię:<sup>*</sup></label>
+                        <input type="text" name="firstName" id="firstName">
+                        <label for="lastName">Nazwisko:<sup>*</sup></label>
+                        <input type="text" name="lastName" id="lastName">
+                        <label for="email">Email:<sup>*</sup></label>
+                        <input type="text" name="email" id="email">
+                        <label for="phoneNumber">Numer telefonu:<sup>*</sup></label>
+                        <input type="text" name="phoneNumber" id="phoneNumber">
+                    <div class="form-buttons">
+                        <input type="submit" value="Dodaj" class="form-button-submit" />
+                        <a href="../index.html" class="form-button-cancel">Anuluj</a>
+                    </div>
+                </form>
+            </main>
+            <div class="rightPanel">
+                <h4>
+                    Przypominamy, że z powodu obecnej sytuacji epidemiologicznej obsługa interesantów
+                    odbywa się wyłącznie telefonicznie lub mailowo.
+                </h4>
+                <h4>
+                    W związku z epidemią czas na rejestrację pojazdu zostaje wydłużony z 30 do 180 dni.
+                </h4>
+            </div>
+        </div>
         <footer>
             Mateusz, Godlewski, s19282, Copyright &copy;
         </footer>
