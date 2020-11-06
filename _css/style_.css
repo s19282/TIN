@@ -1,64 +1,4 @@
-@media all and (max-width: 720px)
-{
-    header
-    {
-        flex-direction: column;
-    }
-    header h1
-    {
-        text-align: center;
-    }
-    header img
-    {
-        align-self: center;
-        width: 10%;
-        height: 10%;
-    }
-    nav ul
-    {
-        flex-wrap: wrap;
-    }
-    nav ul li
-    {
-        flex-basis: 50%;
-        text-align: center;
-    }
-    nav ul li a
-    {
-        display: block;
-    }
-
-    .form
-    {
-        row-gap: unset;
-        margin-left: unset;
-        grid-template-columns: unset;
-    }
-
-    .form input[type="text"],
-    .form input[type="number"],
-    .form input[type="date"],
-    .form select
-    {
-        margin-bottom: 1rem;
-    }
-    .centerBox
-    {
-        flex-direction: column;
-    }
-    .rightPanel
-    {
-        order: -1;
-        min-width: 100%;
-    }
-}
-@media all and (max-width: 400px)
-{
-    nav ul li
-    {
-        flex-basis: 100%;
-    }
-}
+/*usunąć obramowanie w wersji mobilnej*/
 
 .centerBox
 {
@@ -125,7 +65,6 @@ nav ul
     display: flex;
     list-style-type: none;
 }
-
 nav ul li a
 {
     display: inline-block;
@@ -345,7 +284,88 @@ abbr[title='required']
     margin-bottom: 0.5rem;
 }
 
+.centerBox
+{
+    display: flex;
+    justify-content:space-between;
+}
+.rightPanel
+{
+    max-width: 15%;
+}
 
+.rightPanel h4
+{
+    background-color: #c0392b;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+
+
+@media all and (max-width: 720px)
+{
+    header
+    {
+        flex-direction: column;
+    }
+    header h1
+    {
+        text-align: center;
+    }
+    header img
+    {
+        align-self: center;
+        min-width: 100px;
+        min-height: 80px;
+        width: 10%;
+        height: 10%;
+    }
+    nav ul
+    {
+        flex-wrap: wrap;
+    }
+    nav ul li
+    {
+        flex-basis: 50%;
+        text-align: center;
+    }
+    nav ul li a
+    {
+        display: inline-block;
+    }
+
+    .form
+    {
+        row-gap: unset;
+        margin-left: unset;
+        grid-template-columns: 1fr;
+    }
+
+    .form input[type="text"],
+    .form input[type="number"],
+    .form input[type="date"],
+    .form select
+    {
+        margin-bottom: 1rem;
+    }
+    .centerBox
+    {
+        flex-direction: column;
+    }
+    .rightPanel
+    {
+        order: -1;
+        min-width: 100%;
+    }
+}
+@media all and (max-width: 400px)
+{
+    nav ul li
+    {
+        flex-basis: 100%;
+    }
+}
 
 
 

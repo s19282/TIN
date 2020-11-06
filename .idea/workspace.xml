@@ -24,19 +24,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c30579d-2c75-430e-b994-d1812f02c7a1" name="Default Changelist" comment="car finished">
+    <list default="true" id="5c30579d-2c75-430e-b994-d1812f02c7a1" name="Default Changelist" comment="owners cars finished, grid , flex added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_css/style_.css" beforeDir="false" afterPath="$PROJECT_DIR$/_css/style_.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/car-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/car-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/car-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/car-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/car-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/car-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/owner-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/owner-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/owner-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/owner-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/owner-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/owner-list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/ownersCars-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/ownersCars-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/ownersCars-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/ownersCars-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/ownersCars-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/ownersCars-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +85,7 @@
       <workItem from="1604061067705" duration="2025000" />
       <workItem from="1604233268930" duration="61000" />
       <workItem from="1604312871428" duration="6249000" />
-      <workItem from="1604333843764" duration="25369000" />
+      <workItem from="1604333843764" duration="30768000" />
     </task>
     <task id="LOCAL-00001" summary="owner almost finished, sample css">
       <created>1604333181101</created>
@@ -116,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604397917125</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="owners cars finished, grid , flex added">
+      <created>1604659837753</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1604659837753</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,13 +138,15 @@
     <MESSAGE value="owner almost finished, sample css" />
     <MESSAGE value="links work" />
     <MESSAGE value="car finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="car finished" />
+    <MESSAGE value="owners cars finished, grid , flex added" />
+    <option name="LAST_COMMIT_MESSAGE" value="owners cars finished, grid , flex added" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1604333193141">
-      <screen x="0" y="0" width="1440" height="860" />
+    <state x="1752" y="163" key="Vcs.Push.Dialog.v2" timestamp="1604659843013">
+      <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860/1440.0.1440.860@0.0.1440.860" timestamp="1604333193141" />
+    <state x="1752" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860/1440.0.1440.860@1440.0.1440.860" timestamp="1604659843013" />
     <state x="383" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1604061704656">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
