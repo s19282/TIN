@@ -23,39 +23,23 @@
                 </ul>
             </nav>
             <main>
-                <h2>Dane pojazdu</h2>
+                <h2>Dodaj pojazd</h2>
                 <form class="form">
-                    <label for="vin">Numer VIN:</label>
-                    <input type="text" name="vin" id="vin" value="JM1FE17N000000001" disabled>
-                    <label for="name">Marka:</label>
-                    <input type="text" name="name" id="name" value="Mazda" disabled>
-                    <label for="model">Model:</label>
-                    <input type="text" name="model" id="model" value="Rx-8" disabled>
-                    <label for="firstRegistrationDate">Data pierwszej rejestracji:</label>
-                    <input type="text" name="firstRegistrationDate" id="firstRegistrationDate" value="01.02.2003" disabled>
-                    <label for="engineCapacity">Pojemność silnika:</label>
-                    <input type="text" name="engineCapacity" id="engineCapacity" value="1300" disabled>
+                    <label for="vin">Numer VIN:<sup>*</sup></label>
+                    <input type="text" name="vin" id="vin" value="JM1FE17N000000001">
+                    <label for="name">Marka:<sup>*</sup></label>
+                    <input type="text" name="name" id="name" value="Mazda">
+                    <label for="model">Model:<sup>*</sup></label>
+                    <input type="text" name="model" id="model" value="Rx-8">
+                    <label for="firstRegistrationDate">Data pierwszej rejestracji:<sup>*</sup></label>
+                    <input type="date" name="firstRegistrationDate" id="firstRegistrationDate" value="2003-01-02">
+                    <label for="engineCapacity">Pojemność silnika</label>
+                    <input type="number" name="engineCapacity" id="engineCapacity" value="1300">
                     <div class="form-buttons">
-                        <a href="../_html/car-form.html" class="list-actions-button-edit">Edytuj</a>
+                        <input type="submit" value="Dodaj" class="form-button-submit" />
+                        <a href="../index.html" class="form-button-cancel">Anuluj</a>
                     </div>
                 </form>
-                <h2>Właściciele auta</h2>
-                <table class="table-list">
-                    <tr>
-                        <th>Imię</th>
-                        <th>Nazwisko</th>
-                        <th>Adres email</th>
-                        <th>Numer telefonu</th>
-                        <th>Akcje</th>
-                    </tr>
-                    <tr>
-                        <td>Jan</td>
-                        <td>Kowalski</td>
-                        <td>j.kowalski@tmp.mail</td>
-                        <td>876234566</td>
-                    </tr>
-                </table>
-                <a href="../_html/car-list.html">Powrót</a>
             </main>
             <div class="rightPanel">
                 <h4>
