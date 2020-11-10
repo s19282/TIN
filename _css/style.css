@@ -24,6 +24,11 @@ header img
     width: 100px;
     height: 69px;
 }
+footer p
+{
+
+    animation: left_to_right 3s ease;
+}
 .centerBox
 {
     display: grid;
@@ -64,6 +69,13 @@ nav
 {
     background: #cf4435;
     border-radius: 5px;
+    transition: 1.5s;
+    padding: 2px;
+}
+.rightPanel h4:hover
+{
+    color: #cf4435;
+    background: black;
 }
 nav
 {
@@ -83,6 +95,8 @@ nav ul li a
     color: #000000;
     padding: 1rem 2rem;
     text-decoration: none;
+    transition: .9s;
+    border-radius: 5px;
 }
 nav ul li a:hover
 {
@@ -157,6 +171,7 @@ main h2
 
 {
     background-color: #2980b9;
+    transition: 1s;
 }
 .list-actions-button-details:hover
 {
@@ -165,6 +180,7 @@ main h2
 .list-actions-button-edit
 {
     background-color: #f39c12;
+    transition: 1s;
 }
 .list-actions-button-edit:hover
 {
@@ -174,6 +190,7 @@ main h2
 .list-actions-button-delete
 {
     background-color: #c0392b;
+    transition: 1s;
 }
 
 .form-button-cancel:hover,
@@ -205,6 +222,7 @@ main h2
 .form-button-submit
 {
     background-color: #1b8346;
+    transition: 1s;
 }
 .button-add:hover,
 .form-button-submit:hover
@@ -274,17 +292,21 @@ abbr[title='required']
 
 
 
-@media all and (max-width: 720px) {
-    header {
+@media all and (max-width: 720px)
+{
+    header
+    {
         flex-direction: column;
     }
 
-    .centerBox {
+    .centerBox
+    {
         display: flex;
         flex-direction: column;
     }
 
-    .rightPanel {
+    .rightPanel
+    {
         order: -1;
     }
 
@@ -292,32 +314,38 @@ abbr[title='required']
     main,
     footer,
     nav,
-    .rightPanel {
+    .rightPanel
+    {
         margin: .3rem;
     }
 
     header,
     main,
     nav,
-    .rightPanel {
+    .rightPanel
+    {
         margin-bottom: 1rem;
     }
 
-    nav ul {
+    nav ul
+    {
         flex-direction: row;
         flex-wrap: wrap;
     }
 
-    nav ul li {
+    nav ul li
+    {
         flex-basis: 50%;
         text-align: center;
     }
 
-    nav ul li a {
+    nav ul li a
+    {
         display: block;
     }
 
-    .form {
+    .form
+    {
         grid-template-columns: 1fr;
         row-gap: unset;
         margin-left: unset;
@@ -326,13 +354,14 @@ abbr[title='required']
     .form input[type="text"],
     .form input[type="number"],
     .form input[type="date"],
-    .form select {
+    .form select
+    {
         margin-bottom: 1rem;
     }
 
     .table-list
     {
-        word-break: break-word;
+        word-break: break-all;
     }
     td .list-actions
     {
