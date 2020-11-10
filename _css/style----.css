@@ -1,10 +1,5 @@
 /*usunąć obramowanie w wersji mobilnej*/
 
-.centerBox
-{
-    display: flex;
-    justify-content:space-between;
-}
 .rightPanel
 {
     max-width: 15%;
@@ -13,8 +8,7 @@
 .rightPanel h4
 {
     background-color: #c0392b;
-    margin-bottom: 5px;
-    padding: 10px;
+    padding: 1rem;
 }
 
 html
@@ -32,7 +26,7 @@ header, main, footer
 {
     background-color: white;
 }
-header, main, footer, nav
+header, main, footer, nav, .rightPanel
 {
     margin: 1rem;
 }
@@ -289,22 +283,18 @@ abbr[title='required']
     display: flex;
     justify-content:space-between;
 }
-.rightPanel
-{
-    max-width: 15%;
-}
-
-.rightPanel h4
-{
-    background-color: #c0392b;
-    margin-bottom: 5px;
-    padding: 10px;
-}
-
 
 
 @media all and (max-width: 720px)
 {
+    header, main, footer, nav
+    {
+        margin: 0;
+    }
+    header, footer
+    {
+        padding: 0;
+    }
     header
     {
         flex-direction: column;
@@ -320,6 +310,7 @@ abbr[title='required']
         min-height: 80px;
         width: 10%;
         height: 10%;
+        margin-bottom: 1rem;
     }
     nav ul
     {
@@ -356,11 +347,9 @@ abbr[title='required']
     .rightPanel
     {
         order: -1;
+        max-width: 100%;
     }
-    .rightPanel h4
-    {
-        display: block;
-    }
+
 }
 @media all and (max-width: 400px)
 {
