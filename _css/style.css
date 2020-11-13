@@ -50,7 +50,6 @@ header,
 main,
 footer,
 nav,
-
 .rightPanel
 {
     margin: .7rem;
@@ -101,11 +100,15 @@ nav ul li a
 nav ul li a:hover
 {
     background-color: darkgreen;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #004700;
     color: #ecf0f1;
 }
 nav ul li a.active
 {
     background-color: darkgreen;
+    border-style: none;
     color: #ecf0f1;
 }
 main h2
