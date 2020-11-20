@@ -6,6 +6,7 @@
         <link rel="icon" type="image/png" href="../_images/icon.png"/>
         <link rel="stylesheet" href="../_css/style.css">
         <script src="../_js/script.js"></script>
+        <script src="../_js/validationCommon.js"></script>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
     </head>
     <body>
@@ -33,6 +34,7 @@
                         <option value="3">Kinga Adamska</option>
                         <option value="4">Blanka Michalska</option>
                     </select>
+                    <p id="errorsOwner" class="errors-text"></p>
                     <label for="vehicle">Pojazd:<sup>*</sup></label>
                     <select name="vehicles" id="vehicle">
                         <option value="">Wybierz</option>
@@ -41,15 +43,18 @@
                         <option value="3">Lexus GS450H</option>
                         <option value="4">Infiniti Fx50</option>
                     </select>
+                    <p id="errorsVehicle" class="errors-text"></p>
                     <label for="dateFrom">Data aktualnej rejestracji od:<sup>*</sup></label>
                     <input type="date" name="dateFrom" id="dateFrom">
-<!--                    <label for="dateTo">Data aktualnej rejestraci do:</label>-->
-<!--                    <input type="date" name="dateTo" id="dateTo">-->
+                    <p id="errorsDateFrom" class="errors-text"></p>
                     <label for="registrationNumber">Numer rejestracyjny:<sup>*</sup></label>
                     <input type="text" name="registrationNumber" id="registrationNumber">
+                    <p id="errorsRegistrationNumber" class="errors-text"></p>
                     <label for="insuranceNumber">Numer ubezpieczenia:</label>
                     <input type="text" name="insuranceNumber" id="insuranceNumber">
+                    <p id="errorsInsuranceNumber" class="errors-text"></p>
                     <div class="form-buttons">
+                        <p id="errorsSummary" class="errors-text"></p>
                         <input type="submit" value="Dodaj" class="form-button-submit"/>
                         <a href="../index.html" class="form-button-cancel">Anuluj</a>
                     </div>

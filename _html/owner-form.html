@@ -6,6 +6,7 @@
         <link rel="icon" type="image/png" href="../_images/icon.png"/>
         <link rel="stylesheet" href="../_css/style.css">
         <script src="../_js/script.js"></script>
+        <script src="../_js/validationCommon.js"></script>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
     </head>
     <body>
@@ -25,15 +26,20 @@
             <main>
                 <h2>Dodaj właściciela</h2>
                 <form class="form">
-                        <label for="firstName">Imię:<sup>*</sup></label>
-                        <input type="text" name="firstName" id="firstName">
-                        <label for="lastName">Nazwisko:<sup>*</sup></label>
-                        <input type="text" name="lastName" id="lastName">
-                        <label for="email">Email:<sup>*</sup></label>
-                        <input type="text" name="email" id="email">
-                        <label for="phoneNumber">Numer telefonu:<sup>*</sup></label>
-                        <input type="text" name="phoneNumber" id="phoneNumber">
+                    <label for="firstName">Imię:<sup>*</sup></label>
+                    <input type="text" name="firstName" id="firstName" placeholder="2-60 znaków">
+                    <span id="errorFirstName" class="errors-text"></span>
+                    <label for="lastName">Nazwisko:<sup>*</sup></label>
+                    <input type="text" name="lastName" id="lastName" placeholder="2-60 znaków">
+                    <span id="errorLastName" class="errors-text"></span>
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" id="email" placeholder="5-60 znaków">
+                    <span id="errorEmail" class="errors-text"></span>
+                    <label for="phoneNumber">Numer telefonu:<sup>*</sup></label>
+                    <input type="text" name="phoneNumber" id="phoneNumber" placeholder="7-12 znaków">
+                    <span id="errorPhoneNumber" class="errors-text"></span>
                     <div class="form-buttons">
+                        <p id="errorsSummary" class="errors-text"></p>
                         <input type="submit" value="Dodaj" class="form-button-submit" />
                         <a href="../index.html" class="form-button-cancel">Anuluj</a>
                     </div>

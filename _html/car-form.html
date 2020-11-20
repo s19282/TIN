@@ -6,6 +6,7 @@
         <link rel="icon" type="image/png" href="../_images/icon.png"/>
         <link rel="stylesheet" href="../_css/style.css">
         <script src="../_js/script.js"></script>
+        <script src="../_js/validationCommon.js"></script>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
     </head>
     <body>
@@ -26,16 +27,22 @@
                 <h2>Dodaj pojazd</h2>
                 <form class="form">
                     <label for="vin">Numer VIN:<sup>*</sup></label>
-                    <input type="text" name="vin" id="vin">
+                    <input type="text" name="vin" id="vin" placeholder="8-30 znaków">
+                    <span id="errorVin" class="errors-text"></span>
                     <label for="name">Marka:<sup>*</sup></label>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name" placeholder="2-30 znaków">
+                    <span id="errorname" class="errors-text"></span>
                     <label for="model">Model:<sup>*</sup></label>
-                    <input type="text" name="model" id="model">
+                    <input type="text" name="model" id="model" placeholder="1-30 znaków">
+                    <span id="errorModel" class="errors-text"></span>
                     <label for="firstRegistrationDate">Data pierwszej rejestracji:<sup>*</sup></label>
                     <input type="date" name="firstRegistrationDate" id="firstRegistrationDate">
-                    <label for="engineCapacity">Pojemność silnika</label>
+                    <span id="errorFirstRegistrationDate" class="errors-text"></span>
+                    <label for="engineCapacity">Pojemność silnika:<sup>*</sup></label>
                     <input type="number" name="engineCapacity" id="engineCapacity">
+                    <span id="errorEngineCapacity" class="errors-text"></span>
                     <div class="form-buttons">
+                        <p id="errorsSummary" class="errors-text"></p>
                         <input type="submit" value="Dodaj" class="form-button-submit" />
                         <a href="../index.html" class="form-button-cancel">Anuluj</a>
                     </div>

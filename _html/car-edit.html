@@ -6,6 +6,7 @@
         <link rel="icon" type="image/png" href="../_images/icon.png"/>
         <link rel="stylesheet" href="../_css/style.css">
         <script src="../_js/script.js"></script>
+        <script src="../_js/validationCommon.js"></script>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
     </head>
     <body>
@@ -27,15 +28,21 @@
                 <form class="form">
                     <label for="vin">Numer VIN:<sup>*</sup></label>
                     <input type="text" name="vin" id="vin" value="JM1FE17N000000001">
+                    <span id="errorVin" class="errors-text"></span>
                     <label for="name">Marka:<sup>*</sup></label>
                     <input type="text" name="name" id="name" value="Mazda">
+                    <span id="errorName" class="errors-text"></span>
                     <label for="model">Model:<sup>*</sup></label>
                     <input type="text" name="model" id="model" value="Rx-8">
+                    <span id="errorModel" class="errors-text"></span>
                     <label for="firstRegistrationDate">Data pierwszej rejestracji:<sup>*</sup></label>
                     <input type="date" name="firstRegistrationDate" id="firstRegistrationDate" value="2003-01-02">
+                    <span id="errorFirstRegistrationDate" class="errors-text"></span>
                     <label for="engineCapacity">Pojemność silnika</label>
                     <input type="number" name="engineCapacity" id="engineCapacity" value="1300">
+                    <span id="errorEngineCapacity" class="errors-text"></span>
                     <div class="form-buttons">
+                        <p id="errorsSummary" class="errors-text"></p>
                         <input type="submit" value="Dodaj" class="form-button-submit" />
                         <a href="../index.html" class="form-button-cancel">Anuluj</a>
                     </div>
