@@ -24,23 +24,21 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c30579d-2c75-430e-b994-d1812f02c7a1" name="Default Changelist" comment="added more details in ownersCars">
-      <change afterPath="$PROJECT_DIR$/_js/validationCommon.js" afterDir="false" />
+    <list default="true" id="5c30579d-2c75-430e-b994-d1812f02c7a1" name="Default Changelist" comment="added error fields">
+      <change afterPath="$PROJECT_DIR$/_js/validationCarForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_js/validationOwnerForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/_css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/car-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/car-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/car-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/car-edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/car-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/car-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/car-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/car-list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/owner-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/owner-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/owner-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/owner-edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/owner-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/owner-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/owner-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/owner-list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/ownersCars-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/ownersCars-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/ownersCars-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/ownersCars-edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/ownersCars-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/ownersCars-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/ownersCars-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/ownersCars-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_js/validationCommon.js" beforeDir="false" afterPath="$PROJECT_DIR$/_js/validationCommon.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,12 +79,13 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN\_html" />
-      <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN\_html" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN\_js" />
+      <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN\_html" />
+      <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -110,7 +109,11 @@
       <workItem from="1605199790220" duration="35000" />
       <workItem from="1605265111629" duration="5514000" />
       <workItem from="1605290558732" duration="169000" />
-      <workItem from="1605862647244" duration="4080000" />
+      <workItem from="1605862647244" duration="8108000" />
+      <workItem from="1606224258540" duration="3628000" />
+      <workItem from="1606412798049" duration="68000" />
+      <workItem from="1607083284067" duration="809000" />
+      <workItem from="1607094641575" duration="1642000" />
     </task>
     <task id="LOCAL-00001" summary="owner almost finished, sample css">
       <created>1604333181101</created>
@@ -168,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605277435562</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added error fields">
+      <created>1605867854342</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1605867854342</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,21 +206,7 @@
     <MESSAGE value="new css" />
     <MESSAGE value="added transitions and simple js script" />
     <MESSAGE value="added more details in ownersCars" />
-    <option name="LAST_COMMIT_MESSAGE" value="added more details in ownersCars" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="500" y="185" key="FileChooserDialogImpl" timestamp="1605290727575">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="500" y="185" key="FileChooserDialogImpl/0.0.1440.860/1440.0.1440.860@0.0.1440.860" timestamp="1605290727575" />
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1605277437238">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860/1440.0.1440.860@0.0.1440.860" timestamp="1605277437238" />
-    <state x="1752" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860/1440.0.1440.860@1440.0.1440.860" timestamp="1605009846635" />
-    <state x="383" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1604061704656">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="383" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1440.860/1440.0.1440.860@0.0.1440.860" timestamp="1604061704656" />
+    <MESSAGE value="added error fields" />
+    <option name="LAST_COMMIT_MESSAGE" value="added error fields" />
   </component>
 </project>
