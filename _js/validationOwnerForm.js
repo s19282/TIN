@@ -1,25 +1,9 @@
-function checkRequired(value) {
-    return false;
-}
-
-function checkTextLengthRange(value, number, number2) {
-    return false;
-}
-
-function resetErrors(htmlElements, htmlElements2, errorsSummary) {
-    
-}
-
-function checkEmail(value) {
-    return false;
-}
-
 function validateForm()
 {
     const firstNameInput = document.getElementById('firstName');
     const lastNameInput = document.getElementById('lastName');
     const emailInput = document.getElementById('email');
-    const phoneNumber = document.getElementById('phoneNumber');
+    const phoneNumberInput = document.getElementById('phoneNumber');
 
     const errorFirstName = document.getElementById('errorFirstName');
     const errorLastName = document.getElementById('errorLastName');
@@ -27,11 +11,12 @@ function validateForm()
     const errorPhoneNumber = document.getElementById('errorPhoneNumber');
     const errorsSummary = document.getElementById('errorsSummary');
 
-    resetErrors([firstNameInput, lastNameInput, emailInput, phoneNumber], [errorFirstName, errorLastName, errorEmail, errorPhoneNumber], errorsSummary);
+    resetErrors([firstNameInput, lastNameInput, emailInput, phoneNumberInput], [errorFirstName, errorLastName, errorEmail, errorPhoneNumber], errorsSummary);
 
     let valid = true;
 
-    if (!checkRequired(firstNameInput.value)) {
+    if (!checkRequired(firstNameInput.value))
+    {
         valid = false;
         firstNameInput.classList.add("error-input");
         errorFirstName.innerText = "Pole jest wymagane";
@@ -51,15 +36,20 @@ function validateForm()
         errorLastName.innerText = "Pole powinno zawierać od 2 do 60 znaków";
     }
 
-    if (!checkRequired(emailInput.value)) {
+    if (!checkRequired(phoneNumberInput.value)) {
         valid = false;
-        emailInput.classList.add("error-input");
-        errorEmail.innerText = "Pole jest wymagane";
-    } else if (!checkTextLengthRange(emailInput.value, 5, 60)) {
+        phoneNumberInput.classList.add("error-input");
+        errorPhoneNumber.innerText = "Pole jest wymagane";
+    } else if (!checkTextLengthRange(phoneNumberInput.value, 7, 12)) {
         valid = false;
-        emailInput.classList.add("error-input");
-        errorEmail.innerText = "Pole powinno zawierać od 5 do 60 znaków";
-    } else if (!checkEmail(emailInput.value)) {
+        phoneNumberInput.classList.add("error-input");
+        errorPhoneNumber.innerText = "Pole powinno zawierać od 5 do 60 znaków";
+    } else if (!checkNumber(phoneNumberInput.value)) {
+        valid = false;
+        phoneNumberInput.classList.add("error-input");
+        errorPhoneNumber.innerText = "Pole powinno być liczbą";
+    }
+    if (checkRequired(emailInput.value) && !checkEmail(emailInput.value)) {
         valid = false;
         emailInput.classList.add("error-input");
         errorEmail.innerText = "Pole powinno zawierać prawidłowy adres email";

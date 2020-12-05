@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="../_css/style.css">
         <script src="../_js/script.js"></script>
         <script src="../_js/validationCommon.js"></script>
+        <script src="../_js/validationCarForm.js"></script>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
     </head>
     <body>
@@ -25,13 +26,13 @@
             </nav>
             <main>
                 <h2>Dodaj pojazd</h2>
-                <form class="form">
+                <form class="form" novalidate onsubmit="return validateForm()">
                     <label for="vin">Numer VIN:<sup>*</sup></label>
-                    <input type="text" name="vin" id="vin" placeholder="8-30 znaków">
+                    <input type="text" name="vin" id="vin" placeholder="5-30 znaków">
                     <span id="errorVin" class="errors-text"></span>
                     <label for="name">Marka:<sup>*</sup></label>
                     <input type="text" name="name" id="name" placeholder="2-30 znaków">
-                    <span id="errorname" class="errors-text"></span>
+                    <span id="errorName" class="errors-text"></span>
                     <label for="model">Model:<sup>*</sup></label>
                     <input type="text" name="model" id="model" placeholder="1-30 znaków">
                     <span id="errorModel" class="errors-text"></span>
@@ -39,7 +40,7 @@
                     <input type="date" name="firstRegistrationDate" id="firstRegistrationDate">
                     <span id="errorFirstRegistrationDate" class="errors-text"></span>
                     <label for="engineCapacity">Pojemność silnika:<sup>*</sup></label>
-                    <input type="number" name="engineCapacity" id="engineCapacity">
+                    <input type="text" name="engineCapacity" id="engineCapacity">
                     <span id="errorEngineCapacity" class="errors-text"></span>
                     <div class="form-buttons">
                         <p id="errorsSummary" class="errors-text"></p>

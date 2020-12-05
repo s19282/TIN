@@ -24,21 +24,20 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c30579d-2c75-430e-b994-d1812f02c7a1" name="Default Changelist" comment="added error fields">
-      <change afterPath="$PROJECT_DIR$/_js/validationCarForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_js/validationOwnerForm.js" afterDir="false" />
+    <list default="true" id="5c30579d-2c75-430e-b994-d1812f02c7a1" name="Default Changelist" comment="cancel buttons fixed,fixed form height, added some columns according to project requirements">
+      <change afterPath="$PROJECT_DIR$/_js/validationOwnersCarsForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/_css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/car-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/car-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/car-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/car-edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/car-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/car-form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/owner-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/owner-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/owner-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/owner-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/owner-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/owner-form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/ownersCars-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/ownersCars-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/ownersCars-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/ownersCars-edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/ownersCars-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/ownersCars-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_js/validationCarForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/_js/validationCarForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_js/validationCommon.js" beforeDir="false" afterPath="$PROJECT_DIR$/_js/validationCommon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_js/validationOwnerForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/_js/validationOwnerForm.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,19 +73,29 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/_js" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN\_html" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN\_js" />
       <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN\_html" />
       <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN\_html" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="car-form.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/TIN/_html/car-form.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.car-form.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -114,6 +123,8 @@
       <workItem from="1606412798049" duration="68000" />
       <workItem from="1607083284067" duration="809000" />
       <workItem from="1607094641575" duration="1642000" />
+      <workItem from="1607096911068" duration="2118000" />
+      <workItem from="1607171984144" duration="17516000" />
     </task>
     <task id="LOCAL-00001" summary="owner almost finished, sample css">
       <created>1604333181101</created>
@@ -178,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605867854342</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="cancel buttons fixed,fixed form height, added some columns according to project requirements">
+      <created>1607097225643</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1607097225643</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +225,24 @@
     <MESSAGE value="added transitions and simple js script" />
     <MESSAGE value="added more details in ownersCars" />
     <MESSAGE value="added error fields" />
-    <option name="LAST_COMMIT_MESSAGE" value="added error fields" />
+    <MESSAGE value="cancel buttons fixed,fixed form height, added some columns according to project requirements" />
+    <option name="LAST_COMMIT_MESSAGE" value="cancel buttons fixed,fixed form height, added some columns according to project requirements" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/_js/validationOwnerForm.js</url>
+          <line>17</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/_js/validationCommon.js</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
