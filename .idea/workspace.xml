@@ -24,20 +24,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c30579d-2c75-430e-b994-d1812f02c7a1" name="Default Changelist" comment="cancel buttons fixed,fixed form height, added some columns according to project requirements">
-      <change afterPath="$PROJECT_DIR$/_js/validationOwnersCarsForm.js" afterDir="false" />
+    <list default="true" id="5c30579d-2c75-430e-b994-d1812f02c7a1" name="Default Changelist" comment="added client side js validation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/_css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/car-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/car-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/car-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/car-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/car-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/car-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/owner-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/owner-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/ownersCars-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/ownersCars-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/ownersCars-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/ownersCars-edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_html/ownersCars-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/_html/ownersCars-form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_js/validationCarForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/_js/validationCarForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_js/validationCommon.js" beforeDir="false" afterPath="$PROJECT_DIR$/_js/validationCommon.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_js/validationOwnerForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/_js/validationOwnerForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_js/validationOwnersCarsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/_js/validationOwnersCarsForm.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +119,8 @@
       <workItem from="1607083284067" duration="809000" />
       <workItem from="1607094641575" duration="1642000" />
       <workItem from="1607096911068" duration="2118000" />
-      <workItem from="1607171984144" duration="17516000" />
+      <workItem from="1607171984144" duration="17638000" />
+      <workItem from="1607256981550" duration="2148000" />
     </task>
     <task id="LOCAL-00001" summary="owner almost finished, sample css">
       <created>1604333181101</created>
@@ -196,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607097225643</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added client side js validation">
+      <created>1607207960866</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1607207960866</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,23 +229,7 @@
     <MESSAGE value="added more details in ownersCars" />
     <MESSAGE value="added error fields" />
     <MESSAGE value="cancel buttons fixed,fixed form height, added some columns according to project requirements" />
-    <option name="LAST_COMMIT_MESSAGE" value="cancel buttons fixed,fixed form height, added some columns according to project requirements" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/_js/validationOwnerForm.js</url>
-          <line>17</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/_js/validationCommon.js</url>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="added client side js validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="added client side js validation" />
   </component>
 </project>

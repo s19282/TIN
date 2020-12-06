@@ -20,42 +20,53 @@ function validateForm()
         valid = false;
         firstNameInput.classList.add("error-input");
         errorFirstName.innerText = "Pole jest wymagane";
-    } else if (!checkTextLengthRange(firstNameInput.value, 2, 60)) {
+    }
+    else if (!checkTextLengthRange(firstNameInput.value, 2, 60))
+    {
         valid = false;
         firstNameInput.classList.add("error-input");
         errorFirstName.innerText = "Pole powinno zawierać od 2 do 60 znaków";
     }
 
-    if (!checkRequired(lastNameInput.value)) {
+    if (!checkRequired(lastNameInput.value))
+    {
         valid = false;
         lastNameInput.classList.add("error-input");
         errorLastName.innerText = "Pole jest wymagane";
-    } else if (!checkTextLengthRange(lastNameInput.value, 2, 60)) {
+    }
+    else if (!checkTextLengthRange(lastNameInput.value, 2, 60))
+    {
         valid = false;
         lastNameInput.classList.add("error-input");
         errorLastName.innerText = "Pole powinno zawierać od 2 do 60 znaków";
     }
 
-    if (!checkRequired(phoneNumberInput.value)) {
+    if (!checkRequired(phoneNumberInput.value))
+    {
         valid = false;
         phoneNumberInput.classList.add("error-input");
         errorPhoneNumber.innerText = "Pole jest wymagane";
-    } else if (!checkTextLengthRange(phoneNumberInput.value, 7, 12)) {
+    }
+    else if (!checkTextLengthRange(phoneNumberInput.value, 7, 12))
+    {
         valid = false;
         phoneNumberInput.classList.add("error-input");
-        errorPhoneNumber.innerText = "Pole powinno zawierać od 5 do 60 znaków";
-    } else if (!checkNumber(phoneNumberInput.value)) {
+        errorPhoneNumber.innerText = "Pole powinno zawierać od 7 do 60 znaków";
+    }
+    else if (!checkNumber(phoneNumberInput.value))
+    {
         valid = false;
         phoneNumberInput.classList.add("error-input");
         errorPhoneNumber.innerText = "Pole powinno być liczbą";
     }
-    if (checkRequired(emailInput.value) && !checkEmail(emailInput.value)) {
+    if (checkRequired(emailInput.value) && !checkEmail(emailInput.value))
+    {
         valid = false;
         emailInput.classList.add("error-input");
         errorEmail.innerText = "Pole powinno zawierać prawidłowy adres email";
     }
-
-    if (!valid) {
+    if (!valid)
+    {
         errorsSummary.innerText = "Formularz zawiera błędy";
     }
 

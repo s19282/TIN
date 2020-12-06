@@ -17,10 +17,6 @@ function validateForm()
 
     resetErrors([ownerInput, vehicleInput, dateFromInput,dateToInput, registrationNumberInput, insuranceNumberInput], [errorOwner, errorVehicle, errorDateFrom,errorDateTo, errorRegistrationNumber,errorInsuranceNumber], errorsSummary);
 
-    // let sel = document.getElementsByTagName('select');
-    // for(let i=0; i<sel.length; i++)
-    //     sel[i].classList.remove('error_input');
-
     let valid = true;
 
     if (!checkRequired(ownerInput.value))
@@ -30,7 +26,8 @@ function validateForm()
         errorOwner.innerText = "Pole jest wymagane";
     }
 
-    if (!checkRequired(vehicleInput.value)) {
+    if (!checkRequired(vehicleInput.value))
+    {
         valid = false;
         vehicleInput.classList.add("error-input");
         errorVehicle.innerText = "Pole jest wymagane";
@@ -47,27 +44,34 @@ function validateForm()
         day = '0' + day;
     const nowString = [year, month, day].join('-');
 
-    if (!checkRequired(dateFromInput.value)) {
+    if (!checkRequired(dateFromInput.value))
+    {
         valid = false;
         dateFromInput.classList.add("error-input");
         errorDateFrom.innerText = "Pole jest wymagane";
-    } else if (!checkDate(dateFromInput.value)) {
+    }
+    else if (!checkDate(dateFromInput.value))
+    {
         valid = false;
         dateFromInput.classList.add("error-input");
         errorDateFrom.innerText = "Pole powinno zawierać datę w formacie yyyy-MM-dd (np. 2000-01-01)";
-    } else if (checkDateIfAfter(dateFromInput.value, nowString)) {
+    }
+    else if (checkDateIfAfter(dateFromInput.value, nowString))
+    {
         valid = false;
         dateFromInput.classList.add("error-input");
         errorDateFrom.innerText = "Data nie może być z przyszłości";
-    } else if (checkRequired(dateToInput.value) && checkDate(dateToInput.value)
-        && !checkDateIfAfter(dateToInput.value, dateFromInput.value)) {
+    }
+    else if (checkRequired(dateToInput.value) && checkDate(dateToInput.value)
+        && !checkDateIfAfter(dateToInput.value, dateFromInput.value))
+    {
         valid = false;
         dateToInput.classList.add("error-input");
         errorDateTo.innerText = "Data do powinna być późniejsza niż data od";
     }
 
-
-    if (!checkRequired(registrationNumberInput.value)) {
+    if (!checkRequired(registrationNumberInput.value))
+    {
         valid = false;
         registrationNumberInput.classList.add("error-input");
         errorRegistrationNumber.innerText = "Pole jest wymagane";
@@ -79,7 +83,8 @@ function validateForm()
         errorRegistrationNumber.innerText = "Pole powinno zawierać prawidłowy numer rejestracyjny";
     }
 
-    if (!checkRequired(insuranceNumberInput.value)) {
+    if (!checkRequired(insuranceNumberInput.value))
+    {
         valid = false;
         insuranceNumberInput.classList.add("error-input");
         errorInsuranceNumber.innerText = "Pole jest wymagane";
@@ -91,7 +96,8 @@ function validateForm()
         errorInsuranceNumber.innerText = "Pole powinno zawierać prawidłowy numer ubezpieczenia";
     }
 
-    if (!valid) {
+    if (!valid)
+    {
         errorsSummary.innerText = "Formularz zawiera błędy";
     }
 
