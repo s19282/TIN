@@ -3,24 +3,24 @@
     <head>
         <meta charset="UTF-8">
         <title>Wydział komunikacji</title>
-        <link rel="icon" type="image/png" href="../_images/icon.png"/>
-        <link rel="stylesheet" href="../_css/style.css">
-        <script src="../_js/script.js"></script>
-        <script src="../_js/validationCommon.js"></script>
-        <script src="../_js/validationOwnerForm.js"></script>
+        <link rel="icon" type="image/png" href="public/_images/icon.png"/>
+        <link rel="stylesheet" href="public/_css/style.css">
+        <script src="public/_js/script.js"></script>
+        <script src="public/_js/validationCommon.js"></script>
+        <script src="public/_js/validationOwnerForm.js"></script>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
     </head>
     <body>
         <header>
             <h1>Wydział komunikacji</h1>
-            <img src="../_images/icon.png" alt="WK logo">
+            <img src="public/_images/icon.png" alt="WK logo">
         </header>
         <div class="centerBox">
             <nav>
                 <ul class="list-actions">
-                    <li><a href="../index.html">Strona główna</a></li>
-                    <li><a href="../_html/owner-list.html" class="active">Właściciele</a></li>
-                    <li><a href="../_html/ownersCars-list.html">Pojazdy właścicieli</a></li>
+                    <li><a href="public/index.html">Strona główna</a></li>
+                    <li><a href="list.ejs" class="active">Właściciele</a></li>
+                    <li><a href="public/_html/ownersCars-list.html">Pojazdy właścicieli</a></li>
                     <li><a href="../_html/car-list.html">Zarejestrowane Pojazdy</a></li>
                 </ul>
             </nav>
@@ -28,21 +28,21 @@
                 <h2>Dodaj właściciela</h2>
                 <form class="form" novalidate onsubmit="return validateForm()">
                     <label for="firstName">Imię:<sup>*</sup></label>
-                    <input type="text" name="firstName" id="firstName" value="Jan">
+                    <input type="text" name="firstName" id="firstName" placeholder="2-60 znaków">
                     <span id="errorFirstName" class="errors-text"></span>
                     <label for="lastName">Nazwisko:<sup>*</sup></label>
-                    <input type="text" name="lastName" id="lastName" value="Kowalski">
+                    <input type="text" name="lastName" id="lastName" placeholder="2-60 znaków">
                     <span id="errorLastName" class="errors-text"></span>
                     <label for="email">Email:</label>
-                    <input type="text" name="email" id="email" value="j.kowalski@tmp.mail">
+                    <input type="text" name="email" id="email" placeholder="5-60 znaków">
                     <span id="errorEmail" class="errors-text"></span>
                     <label for="phoneNumber">Numer telefonu:<sup>*</sup></label>
-                    <input type="text" name="phoneNumber" id="phoneNumber" value="876234566">
+                    <input type="text" name="phoneNumber" id="phoneNumber" placeholder="7-12 znaków">
                     <span id="errorPhoneNumber" class="errors-text"></span>
                     <div class="form-buttons">
                         <p id="errorsSummary" class="errors-text"></p>
                         <input type="submit" value="Dodaj" class="form-button-submit" />
-                        <a href="../_html/owner-list.html" class="form-button-cancel">Anuluj</a>
+                        <a href="list.ejs" class="form-button-cancel">Anuluj</a>
                     </div>
                 </form>
             </main>

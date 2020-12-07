@@ -24,49 +24,21 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c30579d-2c75-430e-b994-d1812f02c7a1" name="Default Changelist" comment="fixed input border, added registration number regex, added insurance number checking, fixed formatting">
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/car-details.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/car-edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/car-form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/car-list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/owner-details.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/owner-edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/owner-form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/owner-list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/ownersCars-details.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/ownersCars-edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/ownersCars-form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/ownersCars-list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_images/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_js/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_js/validationCarForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_js/validationCommon.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_js/validationOwnerForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_js/validationOwnersCarsForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/car-details.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/car-edit.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/car-form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/car-list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/owner-details.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/owner-edit.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/owner-form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/owner-list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/ownersCars-details.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/ownersCars-edit.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/ownersCars-form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_html/ownersCars-list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_images/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_js/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_js/validationCarForm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_js/validationCommon.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_js/validationOwnerForm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_js/validationOwnersCarsForm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+    <list default="true" id="5c30579d-2c75-430e-b994-d1812f02c7a1" name="Default Changelist" comment="Node.js">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/car-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/views/pages/vehicle/car-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/car-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/views/pages/vehicle/car-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/car-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/views/pages/vehicle/car-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/car-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/views/pages/vehicle/car-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/owner-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/views/pages/owner/owner-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/owner-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/views/pages/owner/owner-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/owner-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/views/pages/owner/owner-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/owner-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/views/pages/owner/owner-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/ownersCars-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/views/pages/ownerVehicle/ownersCars-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/ownersCars-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/views/pages/ownerVehicle/ownersCars-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/ownersCars-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/views/pages/ownerVehicle/ownersCars-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/_html/ownersCars-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/views/pages/ownerVehicle/ownersCars-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tin-projekt-godlewski-s19282/views/pages/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,8 +73,9 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/_js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tin-projekt-godlewski-s19282" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -113,6 +86,10 @@
       <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN\tin-projekt-godlewski-s19282\views\pages" />
+      <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN\tin-projekt-godlewski-s19282\views\pages\ownerVehicle" />
+      <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN\tin-projekt-godlewski-s19282\views\pages\owner" />
+      <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN\tin-projekt-godlewski-s19282\views\pages\vehicle" />
       <recent name="C:\Users\Mateusz\Desktop\PJATK\Rok 3\Semestr 1\TIN\Github\TIN\_html" />
     </key>
   </component>
@@ -156,7 +133,9 @@
       <workItem from="1607171984144" duration="17638000" />
       <workItem from="1607256981550" duration="3027000" />
       <workItem from="1607355910244" duration="449000" />
-      <workItem from="1607357002113" duration="621000" />
+      <workItem from="1607357002113" duration="1491000" />
+      <workItem from="1607374453067" duration="1186000" />
+      <workItem from="1607377115925" duration="127000" />
     </task>
     <task id="LOCAL-00001" summary="owner almost finished, sample css">
       <created>1604333181101</created>
@@ -242,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607260468159</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Node.js">
+      <created>1607359547006</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1607359547006</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,6 +260,7 @@
     <MESSAGE value="cancel buttons fixed,fixed form height, added some columns according to project requirements" />
     <MESSAGE value="added client side js validation" />
     <MESSAGE value="fixed input border, added registration number regex, added insurance number checking, fixed formatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed input border, added registration number regex, added insurance number checking, fixed formatting" />
+    <MESSAGE value="Node.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="Node.js" />
   </component>
 </project>

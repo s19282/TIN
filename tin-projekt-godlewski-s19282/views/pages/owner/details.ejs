@@ -3,23 +3,23 @@
     <head>
         <meta charset="UTF-8">
         <title>Wydział komunikacji</title>
-        <link rel="icon" type="image/png" href="../_images/icon.png"/>
-        <link rel="stylesheet" href="../_css/style.css">
-        <script src="../_js/script.js"></script>
-        <script src="../_js/validationCommon.js"></script>
+        <link rel="icon" type="image/png" href="public/_images/icon.png"/>
+        <link rel="stylesheet" href="public/_css/style.css">
+        <script src="public/_js/script.js"></script>
+        <script src="public/_js/validationCommon.js"></script>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
     </head>
     <body>
         <header>
             <h1>Wydział komunikacji</h1>
-            <img src="../_images/icon.png" alt="WK logo">
+            <img src="public/_images/icon.png" alt="WK logo">
         </header>
         <div class="centerBox">
         <nav>
             <ul class="list-actions">
-                <li><a href="../index.html">Strona główna</a></li>
-                <li><a href="../_html/owner-list.html" class="active">Właściciele</a></li>
-                <li><a href=../_html/ownersCars-list.html>Pojazdy właścicieli</a></li>
+                <li><a href="public/index.html">Strona główna</a></li>
+                <li><a href="list.ejs" class="active">Właściciele</a></li>
+                <li><a href=public/_html/ownersCars-list.html>Pojazdy właścicieli</a></li>
                 <li><a href="../_html/car-list.html">Zarejestrowane Pojazdy</a></li>
             </ul>
         </nav>
@@ -35,7 +35,7 @@
                 <label for="phoneNumber">Numer telefonu:</label>
                 <input type="text" name="phoneNumber" id="phoneNumber" value="876234566" disabled>
                 <div class="form-buttons">
-                    <a href="owner-edit.html" class="list-actions-button-edit">Edytuj</a>
+                    <a href="edit.ejs" class="list-actions-button-edit">Edytuj</a>
                 </div>
             </form>
             <h2>Auta właściciela</h2>
@@ -59,7 +59,7 @@
                     </tr>
                 </tbody>
             </table>
-            <a href="owner-list.html" class="list-actions-button-details">Powrót</a>
+            <a href="list.ejs" class="list-actions-button-details">Powrót</a>
         </main>
             <div class="rightPanel">
                 <h4>

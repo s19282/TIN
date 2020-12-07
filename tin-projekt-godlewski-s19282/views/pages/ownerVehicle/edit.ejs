@@ -3,24 +3,24 @@
     <head>
         <meta charset="UTF-8">
         <title>Wydział komunikacji</title>
-        <link rel="icon" type="image/png" href="../_images/icon.png"/>
-        <link rel="stylesheet" href="../_css/style.css">
-        <script src="../_js/script.js"></script>
-        <script src="../_js/validationCommon.js"></script>
-        <script src="../_js/validationOwnersCarsForm.js"></script>
+        <link rel="icon" type="image/png" href="public/_images/icon.png"/>
+        <link rel="stylesheet" href="public/_css/style.css">
+        <script src="public/_js/script.js"></script>
+        <script src="public/_js/validationCommon.js"></script>
+        <script src="public/_js/validationOwnersCarsForm.js"></script>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
     </head>
     <body>
         <header>
             <h1>Wydział komunikacji</h1>
-            <img src="../_images/icon.png" alt="WK logo">
+            <img src="public/_images/icon.png" alt="WK logo">
         </header>
         <div class="centerBox">
             <nav>
                 <ul class="list-actions">
-                    <li><a href="../index.html">Strona główna</a></li>
+                    <li><a href="public/index.html">Strona główna</a></li>
                     <li><a href="../_html/owner-list.html">Właściciele</a></li>
-                    <li><a href="../_html/ownersCars-list.html" class="active">Pojazdy właścicieli</a></li>
+                    <li><a href="list.ejs" class="active">Pojazdy właścicieli</a></li>
                     <li><a href="../_html/car-list.html">Zarejestrowane Pojazdy</a></li>
                 </ul>
             </nav>
@@ -29,7 +29,6 @@
                 <form class="form" novalidate onsubmit="return validateForm()">
                     <label for="owner">Właściciel:<sup>*</sup></label>
                     <select name="owners" id="owner">
-                        <option value="">Wybierz</option>
                         <option value="1">Jan Kowalski</option>
                         <option value="2">Mirosław Pawłowski</option>
                         <option value="3">Kinga Adamska</option>
@@ -38,7 +37,6 @@
                     <span id="errorOwner" class="errors-text"></span>
                     <label for="vehicle">Pojazd:<sup>*</sup></label>
                     <select name="vehicles" id="vehicle">
-                        <option value="">Wybierz</option>
                         <option value="1">Mazda Rx-8</option>
                         <option value="2">Subaru Impreza WRX STI</option>
                         <option value="3">Lexus GS450H</option>
@@ -46,21 +44,21 @@
                     </select>
                     <span id="errorVehicle" class="errors-text"></span>
                     <label for="dateFrom">Data aktualnej rejestracji od:<sup>*</sup></label>
-                    <input type="date" name="dateFrom" id="dateFrom">
+                    <input type="date" name="dateFrom" id="dateFrom" value="2007-06-01">
                     <span id="errorDateFrom" class="errors-text"></span>
                     <label for="dateTo">Data aktualnej rejestraci do:</label>
                     <input type="date" name="dateTo" id="dateTo">
                     <span id="errorsDateTo" class="errors-text"></span>
                     <label for="registrationNumber">Numer rejestracyjny:<sup>*</sup></label>
-                    <input type="text" name="registrationNumber" id="registrationNumber">
+                    <input type="text" name="registrationNumber" id="registrationNumber" value="ABB 68433">
                     <span id="errorRegistrationNumber" class="errors-text"></span>
                     <label for="insuranceNumber">Numer ubezpieczenia:<sup>*</sup></label>
-                    <input type="text" name="insuranceNumber" id="insuranceNumber">
+                    <input type="text" name="insuranceNumber" id="insuranceNumber" value="1564879231456">
                     <span id="errorInsuranceNumber" class="errors-text"></span>
                     <div class="form-buttons">
                         <p id="errorsSummary" class="errors-text"></p>
                         <input type="submit" value="Dodaj" class="form-button-submit"/>
-                        <a href="../_html/ownersCars-list.html" class="form-button-cancel">Anuluj</a>
+                        <a href="list.ejs" class="form-button-cancel">Anuluj</a>
                     </div>
                 </form>
             </main>
