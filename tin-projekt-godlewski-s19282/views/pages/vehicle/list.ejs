@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-<html lang="pl-PL">
-    <head>
-        <meta charset="UTF-8">
-        <title>Wydział komunikacji</title>
-        <link rel="icon" type="image/png" href="public/_images/icon.png"/>
-        <link rel="stylesheet" href="../../../public/_css/style.css">
-        <script src="public/_js/script.js"></script>
-        <script src="public/_js/validationCommon.js"></script>
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-    </head>
-    <body>
-        <header>
-            <h1>Wydział komunikacji</h1>
-            <img src="public/_images/icon.png" alt="WK logo">
-        </header>
-        <div class="centerBox">
-            <nav>
-                <ul class="list-actions">
-                    <li><a href="public/index.html">Strona główna</a></li>
-                    <li><a href="public/_html/owner-list.html">Właściciele</a></li>
-                    <li><a href="public/_html/ownersCars-list.html">Pojazdy właścicieli</a></li>
-                    <li><a href="list.ejs" class="active">Zarejestrowane Pojazdy</a></li>
-                </ul>
-            </nav>
+<%- include('../../fragments/header.ejs') %>
             <main>
                 <h2>Lista pojazdów</h2>
                 <table class="table-list">
@@ -46,10 +22,10 @@
                             <td>
                                 <ul class="list-actions">
                                     <li>
-                                        <a href="details.ejs" class="list-actions-button-details">Szczegóły</a>
+                                        <a href="/vehicles/details" class="list-actions-button-details">Szczegóły</a>
                                     </li>
                                     <li>
-                                        <a href="edit.ejs" class="list-actions-button-edit">Edytuj</a>
+                                        <a href="/vehicles/edit" class="list-actions-button-edit">Edytuj</a>
                                     </li>
                                     <li>
                                         <a href="" class="list-actions-button-delete ">Usuń</a>
@@ -66,10 +42,10 @@
                             <td>
                                 <ul class="list-actions">
                                     <li>
-                                        <a href="details.ejs" class="list-actions-button-details">Szczegóły</a>
+                                        <a href="/vehicles/details" class="list-actions-button-details">Szczegóły</a>
                                     </li>
                                     <li>
-                                        <a href="edit.ejs" class="list-actions-button-edit">Edytuj</a>
+                                        <a href="/vehicles/edit" class="list-actions-button-edit">Edytuj</a>
                                     </li>
                                     <li>
                                         <a href="" class="list-actions-button-delete ">Usuń</a>
@@ -86,10 +62,10 @@
                             <td>
                                 <ul class="list-actions">
                                     <li>
-                                        <a href="details.ejs" class="list-actions-button-details">Szczegóły</a>
+                                        <a href="/vehicles/details" class="list-actions-button-details">Szczegóły</a>
                                     </li>
                                     <li>
-                                        <a href="edit.ejs" class="list-actions-button-edit">Edytuj</a>
+                                        <a href="/vehicles/edit" class="list-actions-button-edit">Edytuj</a>
                                     </li>
                                     <li>
                                         <a href="" class="list-actions-button-delete ">Usuń</a>
@@ -106,10 +82,10 @@
                             <td>
                                 <ul class="list-actions">
                                     <li>
-                                        <a href="details.ejs" class="list-actions-button-details">Szczegóły</a>
+                                        <a href="/vehicles/details" class="list-actions-button-details">Szczegóły</a>
                                     </li>
                                     <li>
-                                        <a href="edit.ejs" class="list-actions-button-edit">Edytuj</a>
+                                        <a href="/vehicles/edit" class="list-actions-button-edit">Edytuj</a>
                                     </li>
                                     <li>
                                         <a href="" class="list-actions-button-delete ">Usuń</a>
@@ -119,20 +95,6 @@
                         </tr>
                     </tbody>
                 </table>
-                <p><a href="form.ejs" class="button-add">Dodaj nowy pojazd</a> </p>
+                <p><a href="/vehicles/add" class="button-add">Dodaj nowy pojazd</a> </p>
             </main>
-            <div class="rightPanel">
-                <h4>
-                    Przypominamy, że z powodu obecnej sytuacji epidemiologicznej obsługa interesantów
-                    odbywa się wyłącznie telefonicznie lub mailowo.
-                </h4>
-                <h4>
-                    W związku z epidemią czas na rejestrację pojazdu zostaje wydłużony z 30 do 180 dni.
-                </h4>
-            </div>
-        </div>
-        <footer onmouseenter="changeFooter()">
-            Mateusz, Godlewski, s19282, Copyright &copy;
-        </footer>
-    </body>
-</html>
+<%- include('../../fragments/footer.ejs') %>

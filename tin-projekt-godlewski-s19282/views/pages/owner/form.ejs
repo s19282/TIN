@@ -1,29 +1,4 @@
-<!DOCTYPE html>
-<html lang="pl-PL">
-    <head>
-        <meta charset="UTF-8">
-        <title>Wydział komunikacji</title>
-        <link rel="icon" type="image/png" href="public/_images/icon.png"/>
-        <link rel="stylesheet" href="../../../public/_css/style.css">
-        <script src="public/_js/script.js"></script>
-        <script src="public/_js/validationCommon.js"></script>
-        <script src="public/_js/validationOwnerForm.js"></script>
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-    </head>
-    <body>
-        <header>
-            <h1>Wydział komunikacji</h1>
-            <img src="public/_images/icon.png" alt="WK logo">
-        </header>
-        <div class="centerBox">
-            <nav>
-                <ul class="list-actions">
-                    <li><a href="public/index.html">Strona główna</a></li>
-                    <li><a href="list.ejs" class="active">Właściciele</a></li>
-                    <li><a href="public/_html/ownersCars-list.html">Pojazdy właścicieli</a></li>
-                    <li><a href="../_html/car-list.html">Zarejestrowane Pojazdy</a></li>
-                </ul>
-            </nav>
+<%- include('../../fragments/header.ejs') %>
             <main>
                 <h2>Dodaj właściciela</h2>
                 <form class="form" novalidate onsubmit="return validateForm()">
@@ -42,22 +17,8 @@
                     <div class="form-buttons">
                         <p id="errorsSummary" class="errors-text"></p>
                         <input type="submit" value="Dodaj" class="form-button-submit" />
-                        <a href="list.ejs" class="form-button-cancel">Anuluj</a>
+                        <a href="/owners/" class="form-button-cancel">Anuluj</a>
                     </div>
                 </form>
             </main>
-            <div class="rightPanel">
-                <h4>
-                    Przypominamy, że z powodu obecnej sytuacji epidemiologicznej obsługa interesantów
-                    odbywa się wyłącznie telefonicznie lub mailowo.
-                </h4>
-                <h4>
-                    W związku z epidemią czas na rejestrację pojazdu zostaje wydłużony z 30 do 180 dni.
-                </h4>
-            </div>
-        </div>
-        <footer onmouseenter="changeFooter()">
-            Mateusz, Godlewski, s19282, Copyright &copy;
-        </footer>
-    </body>
-</html>
+<%- include('../../fragments/footer.ejs') %>
