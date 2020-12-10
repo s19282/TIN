@@ -7,6 +7,10 @@
         <link rel="stylesheet" href="/_css/style.css">
         <script src="/_js/script.js"></script>
         <script src="/_js/validationCommon.js"></script>
+        <script src="<%= validation === 'owner' ? '/_js/validationOwnerForm.js' :
+                         validation === 'ownerVehicle' ? '/_js/validationOwnersCarsForm.js' :
+                         validation === 'vehicle' ? '/_js/validationCarForm.js' : '' %>">
+        </script>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
     </head>
     <body>
