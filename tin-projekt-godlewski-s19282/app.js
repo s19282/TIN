@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var ownerRouter = require('./routes/ownerRoute');
 var ownerVehicleRouter = require('./routes/ownerVehicleRoute');
 var vehicleRouter = require('./routes/vehicleRoute');
+const sequelizeInit = require('./config/sequelize/init');
 
 var app = express();
 
@@ -41,5 +42,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+sequelizeInit()
+    .catch(err => {
+        console.log(err);
+    });
 
 module.exports = app;
