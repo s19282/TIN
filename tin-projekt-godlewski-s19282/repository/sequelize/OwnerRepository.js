@@ -35,7 +35,7 @@ exports.updateOwner = (ownerId, ownerData) => {
     const lastName = ownerData.lastName;
     const email = ownerData.email;
     const phoneNumber = ownerData.phoneNumber;
-    return Owner.update(ownerData, {where: {_id: ownerId }});
+    return Owner.update(ownerData, {where: {id: ownerId }});
 };
 
 exports.deleteOwner = (ownerId) => {

@@ -9,6 +9,7 @@ var ownerRouter = require('./routes/ownerRoute');
 var ownerVehicleRouter = require('./routes/ownerVehicleRoute');
 var vehicleRouter = require('./routes/vehicleRoute');
 const sequelizeInit = require('./config/sequelize/init');
+const ownerApiRouter = require('./routes/api/OwnerApiRoute');
 
 var app = express();
 
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/api/owners', ownerApiRouter);
 
 app.use('/', indexRouter);
 app.use('/owners', ownerRouter);

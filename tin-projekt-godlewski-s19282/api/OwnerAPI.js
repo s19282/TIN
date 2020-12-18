@@ -1,31 +1,31 @@
-const EmployeeRepository = require('../repository/mysql2/OwnerRepository');
+const OwnerRepository = require('../repository/sequelize/OwnerRepository');
 
-exports.getEmployees = (req, res, next) => {
-    EmployeeRepository.getEmployees()
-        .then(emps => {
-            res.status(200).json(emps);
+exports.getOwners = (req, res, next) => {
+    OwnerRepository.getOwners()
+        .then(owners => {
+            res.status(200).json(owners);
         })
         .catch(err => {
             console.log(err);
         });
 };
 
-exports.getEmployeeById = (req, res, next) => {
-    const empId = req.params.empId;
-    EmployeeRepository.getEmployeeById(empId)
-        .then(emp => {
-            if(!emp) {
+exports.getOwnerById = (req, res, next) => {
+    const ownerId = req.params.ownerId;
+    OwnerRepository.getOwnerById(ownerId)
+        .then(owner => {
+            if(!owner) {
                 res.status(404).json({
-                    message: 'Employee with id: '+empId+' not found'
+                    message: 'Owner with id: '+ownerId+' not found'
                 })
             } else {
-                res.status(200).json(emp);
+                res.status(200).json(owner);
             }
         });
 };
 
-exports.createEmployee = (req, res, next) => {
-    EmployeeRepository.createEmployee(req.body)
+exports.createOwner = (req, res, next) => {
+    OwnerRepository.createOwner(req.body)
         .then(newObj => {
             res.status(201).json(newObj);
         })
@@ -37,11 +37,11 @@ exports.createEmployee = (req, res, next) => {
         });
 };
 
-exports.updateEmployee = (req, res, next) => {
-    const empId = req.params.empId;
-    EmployeeRepository.updateEmployee(empId, req.body)
+exports.updateOwner = (req, res, next) => {
+    const ownerId = req.params.ownerId;
+    OwnerRepository.updateOwner(ownerId, req.body)
         .then(result => {
-            res.status(200).json({message: 'Employee updated!', emp: result});
+            res.status(200).json({message: 'Owner updated!', rowsModified: result});
         })
         .catch(err => {
             if (!err.statusCode) {
@@ -52,11 +52,11 @@ exports.updateEmployee = (req, res, next) => {
 
 };
 
-exports.deleteEmployee = (req, res, next) => {
-    const empId = req.params.empId;
-    EmployeeRepository.deleteEmployee(empId)
+exports.deleteOwner = (req, res, next) => {
+    const ownerId = req.params.ownerId;
+    OwnerRepository.deleteOwner(ownerId)
         .then(result => {
-            res.status(200).json({message: 'Removed employee', emp: result});
+            res.status(200).json({message: 'Removed owner', rowsRemoved: result});
         })
         .catch(err => {
             if (!err.statusCode) {
