@@ -16,19 +16,19 @@ const OwnerVehicle = sequelize.define('OwnerVehicle', {
         type: Sequelize.DATEONLY,
         allowNull: true
     },
-    registrationNumer: {
-        type: Sequelize.STRING(8),
+    registrationNumber: {
+        type: Sequelize.STRING(9),
         allowNull: false
     },
     insuranceNumber: {
         type: Sequelize.INTEGER,
         allowNull: true
     },
-    ownerId: {
+    owner_id: {
         type: Sequelize.INTEGER,
         allowNull: false
     },
-    vehicleId: {
+    vehicle_id: {
         type: Sequelize.INTEGER,
         allowNull: false
     }
