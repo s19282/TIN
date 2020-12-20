@@ -50,7 +50,7 @@ exports.updateRegistration = (registrationId, data) => {
 
 exports.deleteRegistration = (registrationId) => {
     return Registration.destroy({
-        where: { _id: registrationId }
+        where: { id: registrationId }
     });
 }
 

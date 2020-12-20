@@ -22,7 +22,7 @@ exports.getVehicleById = (vehicleId) => {
 };
 
 exports.createVehicle = (newVehicleData) => {
-    return Owner.create({
+    return Vehicle.create({
         vin: newVehicleData.vin,
         make: newVehicleData.make,
         model: newVehicleData.model,
