@@ -1,23 +1,71 @@
 <%- include('../../fragments/header.ejs') %>
             <main>
-                <h2>Dodaj właściciela</h2>
-                <form class="form" novalidate onsubmit="return validateForm()">
+                <script type="application/javascript" src="/_js/validationOwnerForm.js"></script>
+                <h2><%= pageTitle%></h2>
+
+                <form class="form" method="post" action="<%= formAction %>" novalidate onsubmit="return validateForm()">
+                    <input type="hidden" name="id" value="<%= owner.id %>">
+
                     <label for="firstName">Imię:<sup>*</sup></label>
-                    <input type="text" name="firstName" id="firstName" placeholder="2-60 znaków">
+                    <input type="text" name="firstName" id="firstName" placeholder="2-60 znaków"
+                           value="<%= owner.firstName %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
                     <span id="errorFirstName" class="errors-text"></span>
+
                     <label for="lastName">Nazwisko:<sup>*</sup></label>
-                    <input type="text" name="lastName" id="lastName" placeholder="2-60 znaków">
+                    <input type="text" name="lastName" id="lastName" placeholder="2-60 znaków"
+                           value="<%= owner.lastName %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
                     <span id="errorLastName" class="errors-text"></span>
+
                     <label for="email">Email:</label>
-                    <input type="text" name="email" id="email" placeholder="5-60 znaków">
+                    <input type="text" name="email" id="email" placeholder="5-60 znaków"
+                           value="<%= owner.email %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
                     <span id="errorEmail" class="errors-text"></span>
+
                     <label for="phoneNumber">Numer telefonu:<sup>*</sup></label>
-                    <input type="text" name="phoneNumber" id="phoneNumber" placeholder="7-12 znaków">
+                    <input type="text" name="phoneNumber" id="phoneNumber" placeholder="7-12 znaków"
+                           value="<%= owner.phoneNumber %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
                     <span id="errorPhoneNumber" class="errors-text"></span>
+
+                    <% if(formMode === 'showDetails') { %>
+                        <div class="section-buttons">
+                            <a href="/owners/edit/<%= owner.id %>" class="list-actions-button-edit">Edytuj</a>
+                        </div>
+                    <% } %>
+                    <% if (formMode === 'showDetails' || formMode === 'edit') { %>
+                        <h2>
+                            Szczegóły rejestracji
+                        </h2>
+                        <table class="table-list">
+                            <thead>
+                            <tr>
+                                <th>Vin</th>
+                                <th>Data aktualnej rejestracji od</th>
+                                <th>Data aktualnej rejestracji do</th>
+                                <th>Numer rejestracyjny</th>
+                                <th>Numer ubezpieczenia</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% for (let r of owner.ownerVehicles) { %>
+                                <tr>
+                                    <td><a href="/vehicles/details/<%= r.vehicle.id %>"><%= r.vehicle.make %></a></td>
+                                    <td><%= r.dateFrom %></td>
+                                    <td><%= r.dateTo %></td>
+                                    <td><%= r.registrationNumber %></td>
+                                    <td><%= r.insuranceNumber %></td>
+                                </tr>
+                            <% } %>
+                            </tbody>
+                        </table>
+                    <% } %>
                     <div class="form-buttons">
                         <p id="errorsSummary" class="errors-text"></p>
-                        <input type="submit" value="Dodaj" class="form-button-submit" />
-                        <a href="/owners/" class="form-button-cancel">Anuluj</a>
+                        <% if (formMode !== 'showDetails') { %>
+                        <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                        <a class="form-button-cancel" href="/owners">Anuluj</a>
+                        <% } else { %>
+                            <a class="form-button-cancel" href="/owners">Powrót</a>
+                        <% } %>
                     </div>
                 </form>
             </main>

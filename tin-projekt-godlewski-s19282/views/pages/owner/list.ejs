@@ -12,82 +12,27 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Jan</td>
-                        <td>Kowalski</td>
-                        <td>j.kowalski@tmp.mail</td>
-                        <td>876234566</td>
-                        <td>
-                            <ul class="list-actions">
-                                <li>
-                                    <a href="/owners/details/:ownerId" class="list-actions-button-details">Szczegóły</a>
-                                </li>
-                                <li>
-                                    <a href="/owners/edit" class="list-actions-button-edit">Edytuj</a>
-                                </li>
-                                <li>
-                                    <a href="" class="list-actions-button-delete ">Usuń</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Miłosław</td>
-                        <td>Pawłowski</td>
-                        <td>m.pawlowski@tmp.mail</td>
-                        <td>986234234</td>
-                        <td>
-                            <ul class="list-actions">
-                                <li>
-                                    <a href="/owners/details/:ownerId" class="list-actions-button-details">Szczegóły</a>
-                                </li>
-                                <li>
-                                    <a href="/owners/edit" class="list-actions-button-edit">Edytuj</a>
-                                </li>
-                                <li>
-                                    <a href="" class="list-actions-button-delete ">Usuń</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Kinga</td>
-                        <td>Adamska</td>
-                        <td>k.adamska@tmp.mail</td>
-                        <td>925734456</td>
-                        <td>
-                            <ul class="list-actions">
-                                <li>
-                                    <a href="/owners/details/:ownerId" class="list-actions-button-details">Szczegóły</a>
-                                </li>
-                                <li>
-                                    <a href="/owners/edit" class="list-actions-button-edit">Edytuj</a>
-                                </li>
-                                <li>
-                                    <a href="" class="list-actions-button-delete ">Usuń</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Blanka</td>
-                        <td>Michalska</td>
-                        <td>b.michalska@tmp.mail</td>
-                        <td>812642753</td>
-                        <td>
-                            <ul class="list-actions">
-                                <li>
-                                    <a href="/owners/details/:ownerId" class="list-actions-button-details">Szczegóły</a>
-                                </li>
-                                <li>
-                                    <a href="/owners/edit" class="list-actions-button-edit">Edytuj</a>
-                                </li>
-                                <li>
-                                    <a href="" class="list-actions-button-delete ">Usuń</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
+                    <% for(let owner of owners) { %>
+                        <tr>
+                            <td><%= owner.firstName %></td>
+                            <td><%= owner.lastName %></td>
+                            <td><%= owner.email %></td>
+                            <td><%= owner.phoneNumber %></td>
+                            <td>
+                                <ul class="list-actions">
+                                    <li>
+                                        <a href="/owners/details/<%=owner.id%>" class="list-actions-button-details">Szczegóły</a>
+                                    </li>
+                                    <li>
+                                        <a href="/owners/edit/<%=owner.id%>" class="list-actions-button-edit">Edytuj</a>
+                                    </li>
+                                    <li>
+                                        <a href="/owners/delete/<%=owner.id%>" class="list-actions-button-delete ">Usuń</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    <% } %>
                     </tbody>
                 </table>
                 <p><a href="/owners/add" class="button-add">Dodaj nowego właściciela</a> </p>
