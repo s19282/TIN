@@ -13,68 +13,31 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Jan</td>
-                        <td>Kowalski</td>
-                        <td>Mazda</td>
-                        <td>Rx-8</td>
-                        <td>ABB 68433</td>
-                        <td>
-                            <ul class="list-actions">
-                                <li>
-                                    <a href="/ownerVehicles/details/:ownerVehicleId" class="list-actions-button-details">Szczegóły</a>
-                                </li>
-                                <li>
-                                    <a href="/ownerVehicles/edit" class="list-actions-button-edit">Edytuj</a>
-                                </li>
-                                <li>
-                                    <a href="" class="list-actions-button-delete ">Usuń</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Jan</td>
-                        <td>Kowalski</td>
-                        <td>Lexus</td>
-                        <td>GS450H</td>
-                        <td>ABC 30303</td>
-                        <td>
-                            <ul class="list-actions">
-                                <li>
-                                    <a href="/ownerVehicles/details/:ownerVehicleId" class="list-actions-button-details">Szczegóły</a>
-                                </li>
-                                <li>
-                                    <a href="/ownerVehicles/edit" class="list-actions-button-edit">Edytuj</a>
-                                </li>
-                                <li>
-                                    <a href="" class="list-actions-button-delete ">Usuń</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Kinga</td>
-                        <td>Adamska</td>
-                        <td>Infiniti</td>
-                        <td>Fx50</td>
-                        <td>BAE 98313</td>
-                        <td>
-                            <ul class="list-actions">
-                                <li>
-                                    <a href="/ownerVehicles/details/:ownerVehicleId" class="list-actions-button-details">Szczegóły</a>
-                                </li>
-                                <li>
-                                    <a href="/ownerVehicles/edit" class="list-actions-button-edit">Edytuj</a>
-                                </li>
-                                <li>
-                                    <a href="" class="list-actions-button-delete ">Usuń</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
+                    <% for(let registration of registrations) { %>
+                        <tr>
+
+                            <td><%= registration.owner.firstName%></td>
+                            <td><%= registration.owner.lastName%></td>
+                            <td><%= registration.vehicle.make%></td>
+                            <td><%= registration.vehicle.model%></td>
+                            <td><%= registration.registrationNumber %></td>
+                            <td>
+                                <ul class="list-actions">
+                                    <li>
+                                        <a href="/registrations/details/<%=registration.id%>" class="list-actions-button-details">Szczegóły</a>
+                                    </li>
+                                    <li>
+                                        <a href="/registrations/edit/<%=registration.id%>" class="list-actions-button-edit">Edytuj</a>
+                                    </li>
+                                    <li>
+                                        <a href="/registrations/delete/<%=registration.id%>" class="list-actions-button-delete ">Usuń</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    <% } %>
                     </tbody>
                 </table>
-                <p><a href="/ownerVehicles/add" class="button-add">Dodaj nowego właściciela auta</a> </p>
+                <p><a href="/registrations/add" class="button-add">Dodaj nowego właściciela auta</a> </p>
             </main>
 <%- include('../../fragments/footer.ejs') %>

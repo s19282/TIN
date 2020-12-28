@@ -31,10 +31,6 @@ exports.createOwner = (newOwnerData) => {
 };
 
 exports.updateOwner = (ownerId, ownerData) => {
-    const firstName = ownerData.firstName;
-    const lastName = ownerData.lastName;
-    const email = ownerData.email;
-    const phoneNumber = ownerData.phoneNumber;
     return Owner.update(ownerData, {where: {id: ownerId }});
 };
 

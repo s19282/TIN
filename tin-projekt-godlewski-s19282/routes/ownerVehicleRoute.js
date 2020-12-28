@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const ownerController = require('../controllers/ownerVehicleController');
+const registrationController = require('../controllers/ownerVehicleController');
 
-router.get('/',ownerController.showOwnerVehicleList);
-router.get('/add',ownerController.showAddOwnerVehicleForm);
-router.get('/edit',ownerController.showEditOwnerVehicleForm);
-router.get('/details/:ownerVehicleId', ownerController.showOwnerVehicleDetails);
+router.get('/',registrationController.showOwnerVehicleList);
+router.get('/add',registrationController.showAddOwnerVehicleForm);
+router.get('/edit/:registrationId',registrationController.showEditOwnerVehicleForm);
+router.get('/details/:registrationId', registrationController.showOwnerVehicleDetails);
+router.get('/delete/:registrationId',registrationController.deleteRegistration);
+router.post('/add',registrationController.addRegistration);
+router.post('/edit',registrationController.updateRegistration);
 
 module.exports = router;

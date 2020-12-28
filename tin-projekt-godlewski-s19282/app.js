@@ -25,12 +25,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/owners', ownerApiRouter);
-app.use('/api/ownerVehicles', ownerVehicleApiRouter);
+app.use('/api/registrations', ownerVehicleApiRouter);
 app.use('/api/vehicles', vehicleApiRouter);
 
 app.use('/', indexRouter);
 app.use('/owners', ownerRouter);
-app.use('/ownerVehicles', ownerVehicleRouter);
+app.use('/registrations', ownerVehicleRouter);
 app.use('/vehicles', vehicleRouter);
 
 // catch 404 and forward to error handler

@@ -1,41 +1,66 @@
 <%- include('../../fragments/header.ejs') %>
             <main>
-                <h2>Dodaj rejestrację</h2>
-                <form class="form" novalidate onsubmit="return validateForm()">
+                <script type="application/javascript" src="/_js/validationOwnerForm.js"></script>
+                <h2><%= pageTitle%></h2>
+
+                <form class="form" method="post"  action="<%= formAction%>" novalidate onsubmit="return validateForm();">
+                    <input type="hidden" name="id" value="<%= registration.id %>">
+
                     <label for="owner">Właściciel:<sup>*</sup></label>
-                    <select name="owners" id="owner">
-                        <option value="">Wybierz</option>
-                        <option value="1">Jan Kowalski</option>
-                        <option value="2">Mirosław Pawłowski</option>
-                        <option value="3">Kinga Adamska</option>
-                        <option value="4">Blanka Michalska</option>
+                    <select name="owner_id" id="owner" required <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
+                        <option value="" selected>--- Wybierz właściciela ---</option>
+                        <% for(let i=0; i<allOwners.length; i++) { let owner = allOwners[i]; %>
+                               <option value="<%= owner.id %>"
+                                       label="<%= owner.firstName + ' ' + owner.lastName %>"
+                                    <%= (registration.id && owner.id.toString() === registration.owner.id.toString()) ? 'selected' : ''%>></option>
+                        <% } %>
                     </select>
                     <span id="errorOwner" class="errors-text"></span>
+
                     <label for="vehicle">Pojazd:<sup>*</sup></label>
-                    <select name="vehicles" id="vehicle">
-                        <option value="">Wybierz</option>
-                        <option value="1">Mazda Rx-8</option>
-                        <option value="2">Subaru Impreza WRX STI</option>
-                        <option value="3">Lexus GS450H</option>
-                        <option value="4">Infiniti Fx50</option>
+                    <select name="vehicle_id" id="vehicle" required <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
+                        <option value="" selected>--- Wybierz pojazd ---</option>
+                        <% for(let i=0; i<allVehicles.length; i++) { let vehicle = allVehicles[i]; %>
+                        <option value="<%= vehicle.id %>" label="<%= vehicle.make + ' ' + vehicle.model %>"
+                                <%= (registration.id && vehicle.id.toString() === registration.vehicle.id.toString()) ? 'selected' : ''%>></option>
+                        <% } %>
                     </select>
                     <span id="errorVehicle" class="errors-text"></span>
+
                     <label for="dateFrom">Data aktualnej rejestracji od:<sup>*</sup></label>
-                    <input type="date" name="dateFrom" id="dateFrom">
+                    <input type="date" name="dateFrom" id="dateFrom"
+                           value="<%= registration.dateFrom %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
                     <span id="errorDateFrom" class="errors-text"></span>
+
                     <label for="dateTo">Data aktualnej rejestraci do:</label>
-                    <input type="date" name="dateTo" id="dateTo">
+                    <input type="date" name="dateTo" id="dateTo"
+                           value="<%= registration.dateTo %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
                     <span id="errorsDateTo" class="errors-text"></span>
+
                     <label for="registrationNumber">Numer rejestracyjny:<sup>*</sup></label>
-                    <input type="text" name="registrationNumber" id="registrationNumber">
+                    <input type="text" name="registrationNumber" id="registrationNumber"
+                           value="<%= registration.registrationNumber %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
                     <span id="errorRegistrationNumber" class="errors-text"></span>
+
                     <label for="insuranceNumber">Numer ubezpieczenia:<sup>*</sup></label>
-                    <input type="text" name="insuranceNumber" id="insuranceNumber">
+                    <input type="text" name="insuranceNumber" id="insuranceNumber"
+                           value="<%= registration.insuranceNumber %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
                     <span id="errorInsuranceNumber" class="errors-text"></span>
+
+                    <% if(formMode === 'showDetails') { %>
+                        <div class="section-buttons">
+                            <a href="/registrations/edit/<%= registration.id %>" class="list-actions-button-edit">Edytuj</a>
+                        </div>
+                    <% } %>
+
                     <div class="form-buttons">
                         <p id="errorsSummary" class="errors-text"></p>
-                        <input type="submit" value="Dodaj" class="form-button-submit"/>
-                        <a href="/ownerVehicles/" class="form-button-cancel">Anuluj</a>
+                        <% if (formMode !== 'showDetails') { %>
+                        <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                        <a class="form-button-cancel" href="/registrations">Anuluj</a>
+                        <% } else { %>
+                            <a class="form-button-cancel" href="/registrations">Powrót</a>
+                        <% } %>
                     </div>
                 </form>
             </main>
