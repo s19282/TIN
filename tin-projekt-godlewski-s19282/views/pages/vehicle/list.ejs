@@ -13,86 +13,28 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <% for(let vehicle of vehicles) { %>
                         <tr>
-                            <td>JM1FE17N000000001</td>
-                            <td>Mazda</td>
-                            <td>Rx-8</td>
-                            <td>01.02.2003</td>
-                            <td>1300</td>
+                            <td><%= vehicle.vin %></td>
+                            <td><%= vehicle.make %></td>
+                            <td><%= vehicle.model %></td>
+                            <td><%= vehicle.firstRegistrationDate %></td>
+                            <td><%= vehicle.engineCapacity %></td>
                             <td>
                                 <ul class="list-actions">
                                     <li>
-                                        <a href="/vehicles/details/:vehicleId" class="list-actions-button-details">Szczegóły</a>
+                                        <a href="/vehicles/details/<%=vehicle.id%>" class="list-actions-button-details">Szczegóły</a>
                                     </li>
                                     <li>
-                                        <a href="/vehicles/edit" class="list-actions-button-edit">Edytuj</a>
+                                        <a href="/vehicles/edit/<%=vehicle.id%>" class="list-actions-button-edit">Edytuj</a>
                                     </li>
                                     <li>
-                                        <a href="" class="list-actions-button-delete ">Usuń</a>
+                                        <a href="/vehicles/delete/<%=vehicle.id%>" class="list-actions-button-delete ">Usuń</a>
                                     </li>
                                 </ul>
                             </td>
                         </tr>
-                        <tr>
-                            <td>JF1GR8H64BL000001</td>
-                            <td>Subaru</td>
-                            <td>Impreza WRX STI</td>
-                            <td>10.11.2012</td>
-                            <td>2500</td>
-                            <td>
-                                <ul class="list-actions">
-                                    <li>
-                                        <a href="/vehicles/details/:vehicleId" class="list-actions-button-details">Szczegóły</a>
-                                    </li>
-                                    <li>
-                                        <a href="/vehicles/edit" class="list-actions-button-edit">Edytuj</a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="list-actions-button-delete ">Usuń</a>
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>JTHBC96S000000001</td>
-                            <td>Lexus</td>
-                            <td>GS450H</td>
-                            <td>05.06.2007</td>
-                            <td>3500</td>
-                            <td>
-                                <ul class="list-actions">
-                                    <li>
-                                        <a href="/vehicles/details/:vehicleId" class="list-actions-button-details">Szczegóły</a>
-                                    </li>
-                                    <li>
-                                        <a href="/vehicles/edit" class="list-actions-button-edit">Edytuj</a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="list-actions-button-delete ">Usuń</a>
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>JN8BS1MW8AM000001</td>
-                            <td>Infiniti</td>
-                            <td>Fx50</td>
-                            <td>08.09.2010</td>
-                            <td>5000</td>
-                            <td>
-                                <ul class="list-actions">
-                                    <li>
-                                        <a href="/vehicles/details/:vehicleId" class="list-actions-button-details">Szczegóły</a>
-                                    </li>
-                                    <li>
-                                        <a href="/vehicles/edit" class="list-actions-button-edit">Edytuj</a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="list-actions-button-delete ">Usuń</a>
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
+                        <% } %>
                     </tbody>
                 </table>
                 <p><a href="/vehicles/add" class="button-add">Dodaj nowy pojazd</a> </p>

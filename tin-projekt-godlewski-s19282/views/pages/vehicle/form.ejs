@@ -1,26 +1,106 @@
 <%- include('../../fragments/header.ejs') %>
             <main>
-                <h2>Dodaj pojazd</h2>
-                <form class="form" novalidate onsubmit="return validateForm()">
+                <script type="application/javascript" src="/_js/validationCarForm.js"></script>
+                <h2><%= pageTitle%></h2>
+
+                <form class="form" method="post" action="<%= formAction%>" novalidate onsubmit="return validateForm()">
+                    <input type="hidden" name="id" value="<%= vehicle.id%>">
+
                     <label for="vin">Numer VIN:<sup>*</sup></label>
-                    <input type="text" name="vin" id="vin" placeholder="5-30 znaków">
+                    <input type="text" name="vin" id="vin" placeholder="5-30 znaków"
+                           value="<%= vehicle.vin %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
                     <span id="errorVin" class="errors-text"></span>
-                    <label for="name">Marka:<sup>*</sup></label>
-                    <input type="text" name="name" id="name" placeholder="2-30 znaków">
-                    <span id="errorName" class="errors-text"></span>
+
+                    <label for="make">Marka:<sup>*</sup></label>
+                    <input type="text" name="make" id="make" placeholder="2-30 znaków"
+                           value="<%= vehicle.make %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
+                    <span id="errorMake" class="errors-text"></span>
+
                     <label for="model">Model:<sup>*</sup></label>
-                    <input type="text" name="model" id="model" placeholder="1-30 znaków">
+                    <input type="text" name="model" id="model" placeholder="1-30 znaków"
+                           value="<%= vehicle.model %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
                     <span id="errorModel" class="errors-text"></span>
+
                     <label for="firstRegistrationDate">Data pierwszej rejestracji:<sup>*</sup></label>
-                    <input type="date" name="firstRegistrationDate" id="firstRegistrationDate">
+                    <input type="date" name="firstRegistrationDate" id="firstRegistrationDate"
+                           value="<%= vehicle.firstRegistrationDate %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
                     <span id="errorFirstRegistrationDate" class="errors-text"></span>
+
                     <label for="engineCapacity">Pojemność silnika:<sup>*</sup></label>
-                    <input type="text" name="engineCapacity" id="engineCapacity">
+                    <input type="text" name="engineCapacity" id="engineCapacity"
+                           value="<%= vehicle.engineCapacity %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
                     <span id="errorEngineCapacity" class="errors-text"></span>
+
+                    <% if(formMode === 'showDetails') { %>
+                        <div class="section-buttons">
+                            <a href="/vehicles/edit/<%= vehicle.id %>" class="list-actions-button-edit">Edytuj</a>
+                        </div>
+                    <% } %>
+                    <% if (formMode === 'showDetails' || formMode === 'edit') { %>
+                        <h2>
+                            Aktualni właściciele auta
+                        </h2>
+                        <table class="table-list">
+                            <thead>
+                            <tr>
+                                <th>Imię</th>
+                                <th>Nazwisko</th>
+                                <th>Adres email</th>
+                                <th>Data rejestracji od</th>
+                                <th>Numer rejestracyjny</th>
+                                <th>Numer ubezpieczenia</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% for (let r of vehicle.ownerVehicles) { /*if (r.dateTo!=null) continue;*/%>
+                                <tr>
+                                    <td><a href="/owners/details/<%= r.owner.id %>"><%= r.owner.firstName %></a></td>
+                                    <td><%= r.lastName %></td>
+                                    <td><%= r.email%></td>
+                                    <td><%= r.dateFrom %></td>
+                                    <td><%= r.registrationNumber %></td>
+                                    <td><%= r.insuranceNumber %></td>
+                                </tr>
+                            <% } %>
+                            </tbody>
+                        </table>
+                        <h2>
+                            Poprzedni właściciele auta
+                        </h2>
+                        <table class="table-list">
+                            <thead>
+                            <tr>
+                                <th>Imię</th>
+                                <th>Nazwisko</th>
+                                <th>Adres email</th>
+                                <th>Data rejestracji od</th>
+                                <th>Data rejestracji do</th>
+                                <th>Numer rejestracyjny</th>
+                                <th>Numer ubezpieczenia</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% for (let r of vehicle.ownerVehicles) { if (r.dateTo==null) continue;%>
+                                <tr>
+                                    <td><a href="/owners/details/<%= r.owner.id %>"><%= r.owner.firstName %></a></td>
+                                    <td><%= r.lastName %></td>
+                                    <td><%= r.email%></td>
+                                    <td><%= r.dateFrom %></td>
+                                    <td><%= r.registrationNumber %></td>
+                                    <td><%= r.insuranceNumber %></td>
+                                </tr>
+                            <% } %>
+                            </tbody>
+                        </table>
+                    <% } %>
                     <div class="form-buttons">
                         <p id="errorsSummary" class="errors-text"></p>
-                        <input type="submit" value="Dodaj" class="form-button-submit" />
-                        <a href="/vehicles" class="form-button-cancel">Anuluj</a>
+                        <% if (formMode !== 'showDetails') { %>
+                        <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                        <a class="form-button-cancel" href="/vehicles">Anuluj</a>
+                        <% } else { %>
+                            <a class="form-button-cancel" href="/vehicles">Powrót</a>
+                        <% } %>
                     </div>
                 </form>
             </main>

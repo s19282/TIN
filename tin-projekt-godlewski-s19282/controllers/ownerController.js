@@ -50,7 +50,7 @@ exports.showEditOwnerForm = (req,res, next) =>
                 btnLabel: 'Edytuj',
                 formAction: '/owners/edit',
                 navLocation: 'owner',
-                validation: 'owner',
+                validation: 'owner'
             });
         });
 }

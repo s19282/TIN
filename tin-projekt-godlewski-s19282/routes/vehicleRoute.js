@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const ownerController = require('../controllers/vehicleController');
+const vehicleController = require('../controllers/vehicleController');
 
-router.get('/',ownerController.showVehicleList);
-router.get('/add',ownerController.showAddVehicleForm);
-router.get('/edit',ownerController.showEditVehicleForm);
-router.get('/details/:vehicleId', ownerController.showVehicleDetails);
+router.get('/',vehicleController.showVehicleList);
+router.get('/add',vehicleController.showAddVehicleForm);
+router.get('/edit/:vehicleId',vehicleController.showEditVehicleForm);
+router.get('/details/:vehicleId',vehicleController.showVehicleDetails);
+router.get('/delete/:vehicleId',vehicleController.deleteVehicle);
+router.post('/add',vehicleController.addVehicle);
+router.post('/edit',vehicleController.updateVehicle);
 
 module.exports = router;
