@@ -4,7 +4,7 @@ const Vehicle = require("../../model/sequelize/Vehicle_");
 
 exports.getVehicles = () =>
 {
-    return Vehicle.findAll();
+     return Vehicle.findAll();
 }
 
 exports.getVehicleById = (vehicleId) => {

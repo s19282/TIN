@@ -99,17 +99,14 @@ exports.deleteRegistration = (req,res, next) =>
 }
 exports.updateRegistration = (req,res, next) =>
 {
-    console.log(req.body);
     if(req.body.dateTo==='')    req.body.dateTo=null;
-    console.log(req.body);
+
     RegistrationRepository.updateRegistration(req.body.id,req.body)
         .then( () => res.redirect('/registrations'));
 }
 exports.addRegistration = (req,res, next) =>
 {
-    console.log(req.body);
     if(req.body.dateTo==='')    req.body.dateTo=null;
-    console.log(req.body);
 
     RegistrationRepository.createRegistration(req.body)
         .then( () => res.redirect('/registrations'));
