@@ -53,7 +53,6 @@ exports.showEditVehicleForm = (req,res, next) =>
                 validation: 'vehicle'
             });
         });
-    res.render('pages/vehicle/edit',{ navLocation: 'vehicle',validation:'vehicle' });
 }
 exports.deleteVehicle = (req,res, next) =>
 {
@@ -62,11 +61,15 @@ exports.deleteVehicle = (req,res, next) =>
 }
 exports.updateVehicle = (req,res, next) =>
 {
+     if(req.body.dateTo=='')    req.body.dateTo=null;
+
     VehicleRepository.updateVehicle(req.body.id,req.body)
         .then( () => res.redirect('/vehicles'));
 }
 exports.addVehicle = (req,res, next) =>
 {
+    if(req.body.dateTo=='')    req.body.dateTo=null;
+
     VehicleRepository.createVehicle(req.body)
         .then( () => res.redirect('/vehicles'));
 }

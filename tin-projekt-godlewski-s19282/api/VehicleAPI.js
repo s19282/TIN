@@ -39,6 +39,7 @@ exports.createVehicle = (req, res, next) => {
 
 exports.updateVehicle = (req, res, next) => {
     const vehicleId = req.params.vehicleId;
+
     VehicleRepository.updateVehicle(vehicleId, req.body)
         .then(result => {
             res.status(200).json({message: 'Vehicle updated!', rowsModified: result});
