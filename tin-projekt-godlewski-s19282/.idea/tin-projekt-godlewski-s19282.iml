@@ -11,5 +11,8 @@
     <orderEntry type="library" name="@types/node" level="application" />
     <orderEntry type="library" name="@types/node-dir" level="application" />
     <orderEntry type="library" name="@types/typescript-deferred" level="application" />
+    <orderEntry type="library" name="@types/express" level="application" />
+    <orderEntry type="library" name="@types/sequelize" level="application" />
+    <orderEntry type="library" name="@types/express-ejs-layouts" level="application" />
   </component>
 </module>

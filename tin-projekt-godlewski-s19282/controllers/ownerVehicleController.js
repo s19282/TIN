@@ -101,14 +101,65 @@ exports.updateRegistration = (req,res, next) =>
 {
     if(req.body.dateTo==='')    req.body.dateTo=null;
 
-    RegistrationRepository.updateRegistration(req.body.id,req.body)
-        .then( () => res.redirect('/registrations'));
+    let allOwners, allVehicles, registration;
+
+    OwnerRepository.getOwners()
+        .then(owners => {
+            allOwners=owners;
+            return VehicleRepository.getVehicles();
+        })
+        .then(vehicles => {
+            allVehicles = vehicles;
+            return RegistrationRepository.updateRegistration(req.body.id,req.body)
+        })
+        .then( (reg) => {
+            registration = reg;
+            res.redirect('/registrations');
+        })
+        .catch(err => {
+            res.render('pages/employee/form', {
+                registration: registration,
+                allOwners: allOwners,
+                allVehicles: allVehicles,
+                formMode: 'edit',
+                pageTitle: 'Edytuj dane rejestracji',
+                btnLabel: 'Edytuj',
+                formAction: '/registrations/edit',
+                navLocation: 'ownerVehicle',
+                validation: 'ownerVehicle',
+                validationErrors: err.errors
+            });
+        });
 }
 exports.addRegistration = (req,res, next) =>
 {
     if(req.body.dateTo==='')    req.body.dateTo=null;
 
-    RegistrationRepository.createRegistration(req.body)
-        .then( () => res.redirect('/registrations'));
+    let allOwners, allVehicles;
+
+    OwnerRepository.getOwners()
+        .then(owners => {
+            allOwners=owners;
+            return VehicleRepository.getVehicles();
+        })
+        .then(vehicles => {
+            allVehicles = vehicles;
+            return RegistrationRepository.createRegistration(req.body);
+        })
+        .then( () => res.redirect('/registrations'))
+        .catch(err => {
+            res.render('pages/employee/form', {
+                registration: {},
+                allOwners: allOwners,
+                allVehicles: allVehicles,
+                pageTitle: 'Dodaj rejestrację',
+                formMode: 'createNew',
+                btnLabel: 'Dodaj',
+                formAction: '/registrations/add',
+                navLocation: 'ownerVehicle',
+                validation: 'ownerVehicle',
+                validationErrors: err.errors
+            });
+        });
 }
 

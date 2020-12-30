@@ -62,10 +62,34 @@ exports.deleteVehicle = (req,res, next) =>
 exports.updateVehicle = (req,res, next) =>
 {
     VehicleRepository.updateVehicle(req.body.id,req.body)
-        .then( () => res.redirect('/vehicles'));
+        .then( () => res.redirect('/vehicles'))
+        .catch(err => {
+            res.render('pages/owner/form', {
+                vehicle: req.body,
+                pageTitle: 'Edytuj pojazd',
+                formMode: 'createNew',
+                btnLabel: 'Edytuj',
+                formAction: '/vehicles/edit',
+                navLocation: 'vehicle',
+                validation: 'vehicle',
+                validationErrors: err.errors
+            });
+        });
 }
 exports.addVehicle = (req,res, next) =>
 {
     VehicleRepository.createVehicle(req.body)
-        .then( () => res.redirect('/vehicles'));
+        .then( () => res.redirect('/vehicles'))
+        .catch(err => {
+            res.render('pages/owner/form', {
+                vehicle: req.body,
+                pageTitle: 'Dodaj pojazd',
+                formMode: 'createNew',
+                btnLabel: 'Dodaj',
+                formAction: '/vehicles/add',
+                navLocation: 'vehicle',
+                validation: 'vehicle',
+                validationErrors: err.errors
+            });
+        });
 }

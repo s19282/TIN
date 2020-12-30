@@ -62,10 +62,42 @@ exports.deleteOwner = (req,res, next) =>
 exports.updateOwner = (req,res, next) =>
 {
     OwnerRepository.updateOwner(req.body.id,req.body)
-        .then( () => res.redirect('/owners'));
+        .then( () => res.redirect('/owners'))
+        .catch(err => {
+            res.render('pages/owner/form', {
+                owner: req.body,
+                formMode: 'edit',
+                pageTitle: 'Edytuj dane właściciela',
+                btnLabel: 'Edytuj',
+                formAction: '/owners/edit',
+                navLocation: 'owner',
+                validation: 'owner',
+                validationErrors: err.errors.forEach(e => {
+                    if(e.path.includes('email') && e.type === 'unique violation') {
+                        e.message = "Podany adres email jest już używany";
+                    }
+                })
+            });
+        });
 }
 exports.addOwner = (req,res, next) =>
 {
     OwnerRepository.createOwner(req.body)
-        .then( () => res.redirect('/owners'));
+        .then( () => res.redirect('/owners'))
+        .catch(err => {
+            res.render('pages/owner/form', {
+                owner: req.body,
+                pageTitle: 'Dodaj właściciela',
+                formMode: 'createNew',
+                btnLabel: 'Dodaj',
+                formAction: '/owners/add',
+                navLocation: 'owner',
+                validation: 'owner',
+                validationErrors: err.errors.forEach(e => {
+                    if(e.path.includes('email') && e.type === 'unique violation') {
+                        e.message = "Podany adres email jest już używany";
+                    }
+                })
+            });
+        });
 }
