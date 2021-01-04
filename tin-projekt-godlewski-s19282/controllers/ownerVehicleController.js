@@ -8,7 +8,8 @@ exports.showOwnerVehicleList = (req,res,next) => {
             res.render('pages/ownerVehicle/list',{
                 registrations: registrations,
                 navLocation: 'ownerVehicle',
-                validation: 'none'
+                validation: 'none',
+                validationErrors:''
             });
         });
 }
@@ -32,7 +33,8 @@ exports.showAddOwnerVehicleForm = (req,res, next) =>
                 btnLabel: 'Dodaj',
                 formAction: '/registrations/add',
                 navLocation: 'ownerVehicle',
-                validation: 'ownerVehicle'
+                validation: 'ownerVehicle',
+                validationErrors:''
             });
         });
 }
@@ -59,7 +61,8 @@ exports.showOwnerVehicleDetails = (req,res, next) =>
                 pageTitle: 'Dane rejestracji',
                 formAction: '',
                 navLocation: 'ownerVehicle',
-                validation: 'none'
+                validation: 'none',
+                validationErrors:''
             });
         });
 }
@@ -88,6 +91,7 @@ exports.showEditOwnerVehicleForm = (req,res, next) =>
                 formAction: '/registrations/edit',
                 navLocation: 'ownerVehicle',
                 validation: 'ownerVehicle',
+                validationErrors:''
             });
         });
 }

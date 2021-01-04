@@ -8,23 +8,43 @@
 
                     <label for="firstName">Imię:<sup>*</sup></label>
                     <input type="text" name="firstName" id="firstName" placeholder="2-60 znaków"
-                           value="<%= owner.firstName %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
-                    <span id="errorFirstName" class="errors-text"></span>
+                           value="<%= owner.firstName %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
+                           class="<%= validationErrors.search(e => e.path.includes('firstName')) ? 'error-input' : '' %>" >
+                    <span id="errorFirstName" class="errors-text">
+                        <% if (validationErrors.search(e => e.path.includes('firstName'))) { %>
+                            <%= validationErrors.search(e => e.path.includes('firstName')).message %>
+                        <% } %>
+                    </span>
 
                     <label for="lastName">Nazwisko:<sup>*</sup></label>
                     <input type="text" name="lastName" id="lastName" placeholder="2-60 znaków"
-                           value="<%= owner.lastName %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
-                    <span id="errorLastName" class="errors-text"></span>
+                           value="<%= owner.lastName %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
+                           class="<%= validationErrors.search(e => e.path.includes('lastName')) ? 'error-input' : '' %>" >
+                    <span id="errorLastName" class="errors-text">
+                        <% if (validationErrors.search(e => e.path.includes('lastName'))) { %>
+                            <%= validationErrors.search(e => e.path.includes('lastName')).message %>
+                        <% } %>
+                    </span>
 
                     <label for="email">Email:</label>
                     <input type="text" name="email" id="email" placeholder="5-60 znaków"
-                           value="<%= owner.email %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
-                    <span id="errorEmail" class="errors-text"></span>
+                           value="<%= owner.email %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
+                           class="<%= validationErrors.search(e => e.path.includes('email')) ? 'error-input' : '' %>" >
+                    <span id="errorEmail" class="errors-text">
+                        <% if (validationErrors.search(e => e.path.includes('email'))) { %>
+                            <%= validationErrors.search(e => e.path.includes('email')).message %>
+                        <% } %>
+                    </span>
 
                     <label for="phoneNumber">Numer telefonu:<sup>*</sup></label>
                     <input type="text" name="phoneNumber" id="phoneNumber" placeholder="7-12 znaków"
-                           value="<%= owner.phoneNumber %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
-                    <span id="errorPhoneNumber" class="errors-text"></span>
+                           value="<%= owner.phoneNumber %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
+                           class="<%= validationErrors.search(e => e.path.includes('phoneNumber')) ? 'error-input' : '' %>" >
+                    <span id="errorPhoneNumber" class="errors-text">
+                        <% if (validationErrors.search(e => e.path.includes('phoneNumber'))) { %>
+                            <%= validationErrors.search(e => e.path.includes('phoneNumber')).message %>
+                        <% } %>
+                    </span>
 
                     <% if(formMode === 'showDetails') { %>
                         <div class="section-buttons">

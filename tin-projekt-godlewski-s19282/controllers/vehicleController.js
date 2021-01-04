@@ -6,7 +6,8 @@ exports.showVehicleList = (req,res,next) => {
             res.render('pages/vehicle/list',{
                 vehicles: vehicles,
                 navLocation: 'vehicle',
-                validation: 'none'
+                validation: 'none',
+                validationErrors:''
             });
         });
 }
@@ -20,7 +21,8 @@ exports.showAddVehicleForm = (req,res, next) =>
         btnLabel: 'Dodaj',
         formAction: '/vehicles/add',
         navLocation: 'vehicle',
-        validation: 'vehicle'
+        validation: 'vehicle',
+        validationErrors:''
     });
 }
 exports.showVehicleDetails = (req,res, next) =>
@@ -34,7 +36,8 @@ exports.showVehicleDetails = (req,res, next) =>
                 pageTitle: 'Dane pojazdu',
                 formAction: '',
                 navLocation: 'vehicle',
-                validation: 'none'
+                validation: 'none',
+                validationErrors:''
             })
         })
 }
@@ -50,7 +53,8 @@ exports.showEditVehicleForm = (req,res, next) =>
                 btnLabel: 'Edytuj',
                 formAction: '/vehicles/edit',
                 navLocation: 'vehicle',
-                validation: 'vehicle'
+                validation: 'vehicle',
+                validationErrors:''
             });
         });
 }

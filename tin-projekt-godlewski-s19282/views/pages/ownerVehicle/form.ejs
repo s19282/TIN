@@ -7,7 +7,8 @@
                     <input type="hidden" name="id" value="<%= registration.id %>">
 
                     <label for="owner">Właściciel:<sup>*</sup></label>
-                    <select name="owner_id" id="owner" required <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
+                    <select name="owner_id" id="owner" required <%= (formMode === 'showDetails') ? 'disabled' : '' %>
+                            class="<%= validationErrors.search(e => e.path.includes('owner')) ? 'error-input' : '' %>" >
                         <option value="" selected>--- Wybierz właściciela ---</option>
                         <% for(let i=0; i<allOwners.length; i++) { let owner = allOwners[i]; %>
                                <option value="<%= owner.id %>"
@@ -15,37 +16,66 @@
                                     <%= (registration.id && owner.id.toString() === registration.owner.id.toString()) ? 'selected' : ''%>></option>
                         <% } %>
                     </select>
-                    <span id="errorOwner" class="errors-text"></span>
+                    <span id="errorOwner" class="errors-text">
+                        <% if (validationErrors.search(e => e.path.includes('owner'))) { %>
+                            <%= validationErrors.search(e => e.path.includes('owner')).message %>
+                        <% } %>
+                    </span>
 
                     <label for="vehicle">Pojazd:<sup>*</sup></label>
-                    <select name="vehicle_id" id="vehicle" required <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
+                    <select name="vehicle_id" id="vehicle" required <%= (formMode === 'showDetails') ? 'disabled' : '' %> disabled
+                            class="<%= validationErrors.search(e => e.path.includes('vehicle')) ? 'error-input' : '' %>" >
                         <option value="" selected>--- Wybierz pojazd ---</option>
                         <% for(let i=0; i<allVehicles.length; i++) { let vehicle = allVehicles[i]; %>
                         <option value="<%= vehicle.id %>" label="<%= vehicle.make + ' ' + vehicle.model %>"
                                 <%= (registration.id && vehicle.id.toString() === registration.vehicle.id.toString()) ? 'selected' : ''%>></option>
                         <% } %>
                     </select>
-                    <span id="errorVehicle" class="errors-text"></span>
+                    <span id="errorVehicle" class="errors-text">
+                        <% if (validationErrors.search(e => e.path.includes('vehicle'))) { %>
+                            <%= validationErrors.search(e => e.path.includes('vehicle')).message %>
+                        <% } %>
+                    </span>
 
                     <label for="dateFrom">Data aktualnej rejestracji od:<sup>*</sup></label>
                     <input type="date" name="dateFrom" id="dateFrom"
-                           value="<%= registration.dateFrom %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
-                    <span id="errorDateFrom" class="errors-text"></span>
+                           value="<%= registration.dateFrom %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
+                           class="<%= validationErrors.search(e => e.path.includes('dateFrom')) ? 'error-input' : '' %>" >
+                    <span id="errorDateFrom" class="errors-text">
+                        <% if (validationErrors.search(e => e.path.includes('dateFrom'))) { %>
+                            <%= validationErrors.search(e => e.path.includes('dateFrom')).message %>
+                        <% } %>
+                    </span>
 
                     <label for="dateTo">Data aktualnej rejestraci do:</label>
                     <input type="date" name="dateTo" id="dateTo"
-                           value="<%= registration.dateTo %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
-                    <span id="errorsDateTo" class="errors-text"></span>
+                           value="<%= registration.dateTo %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
+                           class="<%= validationErrors.search(e => e.path.includes('dateTo')) ? 'error-input' : '' %>" >
+                    <span id="errorsDateTo" class="errors-text">
+                        <% if (validationErrors.search(e => e.path.includes('dateTo'))) { %>
+                            <%= validationErrors.search(e => e.path.includes('dateTo')).message %>
+                        <% } %>
+                    </span>
 
                     <label for="registrationNumber">Numer rejestracyjny:<sup>*</sup></label>
                     <input type="text" name="registrationNumber" id="registrationNumber"
-                           value="<%= registration.registrationNumber %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
-                    <span id="errorRegistrationNumber" class="errors-text"></span>
+                           value="<%= registration.registrationNumber %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
+                           class="<%= validationErrors.search(e => e.path.includes('registrationNumber')) ? 'error-input' : '' %>" >
+                    <span id="errorRegistrationNumber" class="errors-text">
+                        <% if (validationErrors.search(e => e.path.includes('registrationNumber'))) { %>
+                            <%= validationErrors.search(e => e.path.includes('registrationNumber')).message %>
+                        <% } %>
+                    </span>
 
                     <label for="insuranceNumber">Numer ubezpieczenia:<sup>*</sup></label>
                     <input type="text" name="insuranceNumber" id="insuranceNumber"
-                           value="<%= registration.insuranceNumber %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
-                    <span id="errorInsuranceNumber" class="errors-text"></span>
+                           value="<%= registration.insuranceNumber %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
+                           class="<%= validationErrors.search(e => e.path.includes('insuranceNumber')) ? 'error-input' : '' %>" >
+                    <span id="errorInsuranceNumber" class="errors-text">
+                        <% if (validationErrors.search(e => e.path.includes('insuranceNumber'))) { %>
+                            <%= validationErrors.search(e => e.path.includes('insuranceNumber')).message %>
+                        <% } %>
+                    </span>
 
                     <% if(formMode === 'showDetails') { %>
                         <div class="section-buttons">
