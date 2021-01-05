@@ -6,11 +6,7 @@
         <link rel="icon" type="image/png" href="/_images/icon.png"/>
         <link rel="stylesheet" href="/_css/style.css">
         <script src="/_js/script.js"></script>
-        <script src="/_js/validationCommon.js"></script>
-        <script src="<%= validation === 'owner' ? '/_js/validationOwnerForm.js' :
-                         validation === 'ownerVehicle' ? '/_js/validationOwnersCarsForm.js' :
-                         validation === 'vehicle' ? '/_js/validationCarForm.js' : '' %>">
-        </script>
+        <!--TODO: clientSideValidation-->
         <meta name="viewport" content="width=device-width,initial-scale=1" />
     </head>
     <body>
@@ -23,7 +19,7 @@
                 <ul class="list-actions">
                     <li><a href="/" class="<%= navLocation === 'main' ? 'active' : ''%>">Strona główna</a></li>
                     <li><a href="/owners" class="<%= navLocation === 'owner' ? 'active' : ''%>">Właściciele</a></li>
-                    <li><a href="/registrations" <%= navLocation === 'ownerVehicle' ? 'active' : ''%>>Pojazdy właścicieli</a></li>
+                    <li><a href="/registrations" class="<%= navLocation === 'ownerVehicle' ? 'active' : ''%>">Pojazdy właścicieli</a></li>
                     <li><a href="/vehicles" class="<%= navLocation === 'vehicle' ? 'active' : ''%>">Zarejestrowane Pojazdy</a></li>
                 </ul>
             </nav>

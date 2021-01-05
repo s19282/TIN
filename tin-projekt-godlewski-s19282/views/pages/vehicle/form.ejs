@@ -10,50 +10,51 @@
                     <label for="vin">Numer VIN:<sup>*</sup></label>
                     <input type="text" name="vin" id="vin" placeholder="5-30 znaków"
                            value="<%= vehicle.vin %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
-                           class="<%= validationErrors.search(e => e.path.includes('vin')) ? 'error-input' : '' %>" >
+                           class="<%= validationErrors.find(e => e.path.includes('vin')) ? 'error-input' : '' %>" >
                     <span id="errorVin" class="errors-text">
-                        <% if (validationErrors.search(e => e.path.includes('vin'))) { %>
-                            <%= validationErrors.search(e => e.path.includes('vin')).message %>
+                        <% if (validationErrors.find(e => e.path.includes('vin'))) { %>
+                            <%= validationErrors.find(e => e.path.includes('vin')).message %>
                         <% } %>
                     </span>
 
                     <label for="make">Marka:<sup>*</sup></label>
                     <input type="text" name="make" id="make" placeholder="2-30 znaków"
                            value="<%= vehicle.make %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
-                           class="<%= validationErrors.search(e => e.path.includes('make')) ? 'error-input' : '' %>" >
+                           class="<%= validationErrors.find(e => e.path.includes('make')) ? 'error-input' : '' %>" >
                     <span id="errorMake" class="errors-text">
-                        <% if (validationErrors.search(e => e.path.includes('make'))) { %>
-                            <%= validationErrors.search(e => e.path.includes('make')).message %>
+                        <% if (validationErrors.find(e => e.path.includes('make'))) { %>
+                            <%= validationErrors.find(e => e.path.includes('make')).message %>
                         <% } %>
                     </span>
 
                     <label for="model">Model:<sup>*</sup></label>
                     <input type="text" name="model" id="model" placeholder="1-30 znaków"
                            value="<%= vehicle.model %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
-                           class="<%= validationErrors.search(e => e.path.includes('model')) ? 'error-input' : '' %>" >
+                           class="<%= validationErrors.find(e => e.path.includes('model')) ? 'error-input' : '' %>" >
                     <span id="errorModel" class="errors-text">
-                        <% if (validationErrors.search(e => e.path.includes('model'))) { %>
-                            <%= validationErrors.search(e => e.path.includes('model')).message %>
+                        <% if (validationErrors.find(e => e.path.includes('model'))) { %>
+                            <%= validationErrors.find(e => e.path.includes('model')).message %>
                         <% } %>
                     </span>
 
+<!--                    TODO: fix incorrect date format-->
                     <label for="firstRegistrationDate">Data pierwszej rejestracji:<sup>*</sup></label>
                     <input type="date" name="firstRegistrationDate" id="firstRegistrationDate"
                            value="<%= vehicle.firstRegistrationDate %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
-                           class="<%= validationErrors.search(e => e.path.includes('firstRegistrationDate')) ? 'error-input' : '' %>" >
+                           class="<%= validationErrors.find(e => e.path.includes('firstRegistrationDate')) ? 'error-input' : '' %>" >
                     <span id="errorFirstRegistrationDate" class="errors-text">
-                        <% if (validationErrors.search(e => e.path.includes('firstRegistrationDate'))) { %>
-                            <%= validationErrors.search(e => e.path.includes('firstRegistrationDate')).message %>
+                        <% if (validationErrors.find(e => e.path.includes('firstRegistrationDate'))) { %>
+                            <%= validationErrors.find(e => e.path.includes('firstRegistrationDate')).message %>
                         <% } %>
                     </span>
 
                     <label for="engineCapacity">Pojemność silnika:<sup>*</sup></label>
                     <input type="text" name="engineCapacity" id="engineCapacity"
                            value="<%= vehicle.engineCapacity %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
-                           class="<%= validationErrors.search(e => e.path.includes('engineCapacity')) ? 'error-input' : '' %>" >
+                           class="<%= validationErrors.find(e => e.path.includes('engineCapacity')) ? 'error-input' : '' %>" >
                     <span id="errorEngineCapacity" class="errors-text">
-                        <% if (validationErrors.search(e => e.path.includes('engineCapacity'))) { %>
-                            <%= validationErrors.search(e => e.path.includes('engineCapacity')).message %>
+                        <% if (validationErrors.find(e => e.path.includes('engineCapacity'))) { %>
+                            <%= validationErrors.find(e => e.path.includes('engineCapacity')).message %>
                         <% } %>
                     </span>
 

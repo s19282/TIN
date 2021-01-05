@@ -65,7 +65,7 @@ const Vehicle = sequelize.define('Vehicle', {
                 msg: "Pole jest wymagane"
             },
             isMoreThanZero(val) {
-                if(val>0)
+                if(val<=0)
                     throw new Error('Pojemność silnika musi być większa od zera')
             }
         }

@@ -9,7 +9,7 @@ exports.showOwnerVehicleList = (req,res,next) => {
                 registrations: registrations,
                 navLocation: 'ownerVehicle',
                 validation: 'none',
-                validationErrors:''
+                validationErrors:[]
             });
         });
 }
@@ -34,7 +34,7 @@ exports.showAddOwnerVehicleForm = (req,res, next) =>
                 formAction: '/registrations/add',
                 navLocation: 'ownerVehicle',
                 validation: 'ownerVehicle',
-                validationErrors:''
+                validationErrors:[]
             });
         });
 }
@@ -62,7 +62,7 @@ exports.showOwnerVehicleDetails = (req,res, next) =>
                 formAction: '',
                 navLocation: 'ownerVehicle',
                 validation: 'none',
-                validationErrors:''
+                validationErrors:[]
             });
         });
 }
@@ -91,7 +91,7 @@ exports.showEditOwnerVehicleForm = (req,res, next) =>
                 formAction: '/registrations/edit',
                 navLocation: 'ownerVehicle',
                 validation: 'ownerVehicle',
-                validationErrors:''
+                validationErrors:[]
             });
         });
 }
@@ -106,7 +106,7 @@ exports.updateRegistration = (req,res, next) =>
     if(req.body.dateTo==='')    req.body.dateTo=null;
 
     let allOwners, allVehicles, registration;
-
+    //todo: remove registration variable
     OwnerRepository.getOwners()
         .then(owners => {
             allOwners=owners;
@@ -121,8 +121,8 @@ exports.updateRegistration = (req,res, next) =>
             res.redirect('/registrations');
         })
         .catch(err => {
-            res.render('pages/employee/form', {
-                registration: registration,
+            res.render('pages/ownerVehicle/form', {
+                registration: req.body,
                 allOwners: allOwners,
                 allVehicles: allVehicles,
                 formMode: 'edit',
@@ -152,7 +152,7 @@ exports.addRegistration = (req,res, next) =>
         })
         .then( () => res.redirect('/registrations'))
         .catch(err => {
-            res.render('pages/employee/form', {
+            res.render('pages/ownerVehicle/form', {
                 registration: {},
                 allOwners: allOwners,
                 allVehicles: allVehicles,

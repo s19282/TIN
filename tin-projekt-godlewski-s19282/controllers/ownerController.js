@@ -7,7 +7,7 @@ exports.showOwnerList = (req,res,next) => {
                 owners: owners,
                 navLocation: 'owner',
                 validation: 'none',
-                validationErrors:''
+                validationErrors:[]
             });
         });
 }
@@ -22,7 +22,7 @@ exports.showAddOwnerForm = (req,res, next) =>
         formAction: '/owners/add',
         navLocation: 'owner',
         validation: 'owner',
-        validationErrors:''
+        validationErrors:[]
     });
 }
 exports.showOwnerDetails = (req,res, next) =>
@@ -37,7 +37,7 @@ exports.showOwnerDetails = (req,res, next) =>
                 formAction: '',
                 navLocation: 'owner',
                 validation: 'none',
-                validationErrors:''
+                validationErrors:[]
             });
         });
 }
@@ -54,7 +54,7 @@ exports.showEditOwnerForm = (req,res, next) =>
                 formAction: '/owners/edit',
                 navLocation: 'owner',
                 validation: 'owner',
-                validationErrors:''
+                validationErrors:[]
             });
         });
 }
@@ -76,11 +76,8 @@ exports.updateOwner = (req,res, next) =>
                 formAction: '/owners/edit',
                 navLocation: 'owner',
                 validation: 'owner',
-                validationErrors: err.errors.forEach(e => {
-                    if(e.path.includes('email') && e.type === 'unique violation') {
-                        e.message = "Podany adres email jest już używany";
-                    }
-                })
+                validationErrors: err.errors
+            //    TODO: email uniqe validation
             });
         });
 }
@@ -97,11 +94,7 @@ exports.addOwner = (req,res, next) =>
                 formAction: '/owners/add',
                 navLocation: 'owner',
                 validation: 'owner',
-                validationErrors: err.errors.forEach(e => {
-                    if(e.path.includes('email') && e.type === 'unique violation') {
-                        e.message = "Podany adres email jest już używany";
-                    }
-                })
+                validationErrors: err.errors
             });
         });
 }

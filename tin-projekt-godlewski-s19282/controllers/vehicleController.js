@@ -7,7 +7,7 @@ exports.showVehicleList = (req,res,next) => {
                 vehicles: vehicles,
                 navLocation: 'vehicle',
                 validation: 'none',
-                validationErrors:''
+                validationErrors:[]
             });
         });
 }
@@ -22,7 +22,7 @@ exports.showAddVehicleForm = (req,res, next) =>
         formAction: '/vehicles/add',
         navLocation: 'vehicle',
         validation: 'vehicle',
-        validationErrors:''
+        validationErrors:[]
     });
 }
 exports.showVehicleDetails = (req,res, next) =>
@@ -37,7 +37,7 @@ exports.showVehicleDetails = (req,res, next) =>
                 formAction: '',
                 navLocation: 'vehicle',
                 validation: 'none',
-                validationErrors:''
+                validationErrors:[]
             })
         })
 }
@@ -54,7 +54,7 @@ exports.showEditVehicleForm = (req,res, next) =>
                 formAction: '/vehicles/edit',
                 navLocation: 'vehicle',
                 validation: 'vehicle',
-                validationErrors:''
+                validationErrors:[]
             });
         });
 }
@@ -68,7 +68,7 @@ exports.updateVehicle = (req,res, next) =>
     VehicleRepository.updateVehicle(req.body.id,req.body)
         .then( () => res.redirect('/vehicles'))
         .catch(err => {
-            res.render('pages/owner/form', {
+            res.render('pages/vehicle/form', {
                 vehicle: req.body,
                 pageTitle: 'Edytuj pojazd',
                 formMode: 'createNew',
@@ -85,7 +85,7 @@ exports.addVehicle = (req,res, next) =>
     VehicleRepository.createVehicle(req.body)
         .then( () => res.redirect('/vehicles'))
         .catch(err => {
-            res.render('pages/owner/form', {
+            res.render('pages/vehicle/form', {
                 vehicle: req.body,
                 pageTitle: 'Dodaj pojazd',
                 formMode: 'createNew',
