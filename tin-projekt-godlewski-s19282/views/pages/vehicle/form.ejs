@@ -120,7 +120,9 @@
                         </table>
                     <% } %>
                     <div class="form-buttons">
-                        <p id="errorsSummary" class="errors-text"></p>
+                        <p id="errorsSummary" class="errors-text"><% if(validationErrors.length>0){%>
+                                <%= "Formularz zawiera błędy" %>
+                            <% } %></p>
                         <% if (formMode !== 'showDetails') { %>
                         <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
                         <a class="form-button-cancel" href="/vehicles">Anuluj</a>

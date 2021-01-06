@@ -6,7 +6,7 @@ exports.showOwnerList = (req,res,next) => {
             res.render('pages/owner/list',{
                 owners: owners,
                 navLocation: 'owner',
-                validation: 'none',
+                formMode: '',
                 validationErrors:[]
             });
         });
@@ -21,7 +21,6 @@ exports.showAddOwnerForm = (req,res, next) =>
         btnLabel: 'Dodaj',
         formAction: '/owners/add',
         navLocation: 'owner',
-        validation: 'owner',
         validationErrors:[]
     });
 }
@@ -36,7 +35,6 @@ exports.showOwnerDetails = (req,res, next) =>
                 pageTitle: 'Dane właściciela',
                 formAction: '',
                 navLocation: 'owner',
-                validation: 'none',
                 validationErrors:[]
             });
         });
@@ -53,7 +51,6 @@ exports.showEditOwnerForm = (req,res, next) =>
                 btnLabel: 'Edytuj',
                 formAction: '/owners/edit',
                 navLocation: 'owner',
-                validation: 'owner',
                 validationErrors:[]
             });
         });
@@ -75,9 +72,7 @@ exports.updateOwner = (req,res, next) =>
                 btnLabel: 'Edytuj',
                 formAction: '/owners/edit',
                 navLocation: 'owner',
-                validation: 'owner',
                 validationErrors: err.errors
-            //    TODO: email uniqe validation
             });
         });
 }
@@ -93,7 +88,6 @@ exports.addOwner = (req,res, next) =>
                 btnLabel: 'Dodaj',
                 formAction: '/owners/add',
                 navLocation: 'owner',
-                validation: 'owner',
                 validationErrors: err.errors
             });
         });

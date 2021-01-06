@@ -6,7 +6,6 @@
 <!--                <form class="form" method="post"  action="<%= /*formAction*/%>" novalidate onsubmit="return validateForm();">-->
                 <form class="form" method="post"  action="<%= formAction%>" novalidate>
                     <input type="hidden" name="id" value="<%= registration.id %>">
-<!--    TODO: owner & vechicle no error message-->
                     <label for="owner">Właściciel:<sup>*</sup></label>
                     <select name="owner_id" id="owner" required <%= (formMode === 'showDetails') ? 'disabled' : '' %>
                             class="<%= validationErrors.find(e => e.path.includes('owner')) ? 'error-input' : '' %>" >
@@ -14,7 +13,7 @@
                         <% for(let i=0; i<allOwners.length; i++) { let owner = allOwners[i]; %>
                                <option value="<%= owner.id %>"
                                        label="<%= owner.firstName + ' ' + owner.lastName %>"
-                                    <%= owner.id.toString() === registration.owner_id.toString() ? 'selected' : ''%>></option>
+                                    <%= owner.id.toString() === registration.owner_id ? 'selected' : ''%>></option>
                         <% } %>
                     </select>
                     <span id="errorOwner" class="errors-text">
@@ -30,7 +29,7 @@
                         <% for(let i=0; i<allVehicles.length; i++) { let vehicle = allVehicles[i]; %>
                         <option value="<%= vehicle.id %>"
                                 label="<%= vehicle.make + ' ' + vehicle.model %>"
-                                <%= vehicle.id.toString() === registration.vehicle_id.toString() ? 'selected' : ''%>></option>
+                                <%= vehicle.id.toString() === registration.vehicle_id ? 'selected' : ''%>></option>
                         <% } %>
                     </select>
                     <span id="errorVehicle" class="errors-text">
@@ -86,7 +85,9 @@
                     <% } %>
 
                     <div class="form-buttons">
-                        <p id="errorsSummary" class="errors-text"></p>
+                        <p id="errorsSummary" class="errors-text"><% if(validationErrors.length>0){%>
+                                <%= "Formularz zawiera błędy" %>
+                            <% } %></p>
                         <% if (formMode !== 'showDetails') { %>
                         <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
                         <a class="form-button-cancel" href="/registrations">Anuluj</a>

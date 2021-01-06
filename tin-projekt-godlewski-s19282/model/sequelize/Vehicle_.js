@@ -50,6 +50,7 @@ const Vehicle = sequelize.define('Vehicle', {
     firstRegistrationDate: {
         type: Sequelize.DATEONLY,
         allowNull: true,
+        unique: true,
         validate: {
             notEmpty: {
                 msg: "Pole jest wymagane"
@@ -72,6 +73,9 @@ const Vehicle = sequelize.define('Vehicle', {
             isMoreThanZero(val) {
                 if(val<=0)
                     throw new Error('Pojemność silnika musi być większa od zera')
+            },
+            isNumeric: {
+                msg: "Pojemność silnika musi być liczbą"
             }
         }
     }

@@ -6,7 +6,7 @@ exports.showVehicleList = (req,res,next) => {
             res.render('pages/vehicle/list',{
                 vehicles: vehicles,
                 navLocation: 'vehicle',
-                validation: 'none',
+                formMode: '',
                 validationErrors:[]
             });
         });
@@ -21,7 +21,6 @@ exports.showAddVehicleForm = (req,res, next) =>
         btnLabel: 'Dodaj',
         formAction: '/vehicles/add',
         navLocation: 'vehicle',
-        validation: 'vehicle',
         validationErrors:[]
     });
 }
@@ -36,7 +35,6 @@ exports.showVehicleDetails = (req,res, next) =>
                 pageTitle: 'Dane pojazdu',
                 formAction: '',
                 navLocation: 'vehicle',
-                validation: 'none',
                 validationErrors:[]
             })
         })
@@ -53,7 +51,6 @@ exports.showEditVehicleForm = (req,res, next) =>
                 btnLabel: 'Edytuj',
                 formAction: '/vehicles/edit',
                 navLocation: 'vehicle',
-                validation: 'vehicle',
                 validationErrors:[]
             });
         });
@@ -75,8 +72,11 @@ exports.updateVehicle = (req,res, next) =>
                 btnLabel: 'Edytuj',
                 formAction: '/vehicles/edit',
                 navLocation: 'vehicle',
-                validation: 'vehicle',
-                validationErrors: err.errors
+                validationErrors: err.errors.forEach(e => {
+                    if(e.path.includes('vin') && e.type === 'unique violation') {
+                        e.message = "Podany numer VIN jest już używany";
+                    }
+                })
             });
         });
 }
@@ -85,6 +85,7 @@ exports.addVehicle = (req,res, next) =>
     VehicleRepository.createVehicle(req.body)
         .then( () => res.redirect('/vehicles'))
         .catch(err => {
+
             res.render('pages/vehicle/form', {
                 vehicle: req.body,
                 pageTitle: 'Dodaj pojazd',
@@ -92,8 +93,11 @@ exports.addVehicle = (req,res, next) =>
                 btnLabel: 'Dodaj',
                 formAction: '/vehicles/add',
                 navLocation: 'vehicle',
-                validation: 'vehicle',
-                validationErrors: err.errors
+                validationErrors: err.errors.forEach(e => {
+                    if(e.path.includes('vin') && e.type === 'unique violation') {
+                        e.message = "Podany numer VIN jest już używany";
+                    }
+                })
             });
         });
 }

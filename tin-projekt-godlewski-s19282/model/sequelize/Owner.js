@@ -37,7 +37,6 @@ const Owner = sequelize.define('Owner', {
     email: {
         type: Sequelize.STRING(30),
         allowNull: false,
-        unique: true,
         validate: {
             notEmpty: {
                 msg: "Pole jest wymagane"
@@ -48,6 +47,10 @@ const Owner = sequelize.define('Owner', {
             },
             isEmail: {
                 msg: 'Pole powinno zawierać prawidłowy adres email'
+            },
+            isUnique: {
+                args: true,
+                msg: "Podany adres email jest już używany"
             }
         }
     },
@@ -63,7 +66,7 @@ const Owner = sequelize.define('Owner', {
                 msg: "Pole powinno zawierać od 7 do 12 znaków"
             },
             isNumeric: {
-                msg: 'Pole musi być liczbą'
+                msg: "Pole musi być liczbą"
             }
         }
     }

@@ -8,7 +8,7 @@ exports.showOwnerVehicleList = (req,res,next) => {
             res.render('pages/ownerVehicle/list',{
                 registrations: registrations,
                 navLocation: 'ownerVehicle',
-                validation: 'none',
+                formMode: '',
                 validationErrors:[]
             });
         });
@@ -33,7 +33,6 @@ exports.showAddOwnerVehicleForm = (req,res, next) =>
                 btnLabel: 'Dodaj',
                 formAction: '/registrations/add',
                 navLocation: 'ownerVehicle',
-                validation: 'ownerVehicle',
                 validationErrors:[]
             });
         });
@@ -61,7 +60,6 @@ exports.showOwnerVehicleDetails = (req,res, next) =>
                 pageTitle: 'Dane rejestracji',
                 formAction: '',
                 navLocation: 'ownerVehicle',
-                validation: 'none',
                 validationErrors:[]
             });
         });
@@ -90,7 +88,6 @@ exports.showEditOwnerVehicleForm = (req,res, next) =>
                 btnLabel: 'Edytuj',
                 formAction: '/registrations/edit',
                 navLocation: 'ownerVehicle',
-                validation: 'ownerVehicle',
                 validationErrors:[]
             });
         });
@@ -127,8 +124,14 @@ exports.updateRegistration = (req,res, next) =>
                 btnLabel: 'Edytuj',
                 formAction: '/registrations/edit',
                 navLocation: 'ownerVehicle',
-                validation: 'ownerVehicle',
-                validationErrors: err.errors
+                validationErrors: err.errors.forEach(e => {
+                    if(e.path.includes('registrationNumber') && e.type === 'unique violation') {
+                        e.message = "Podany numer rejestracyjny jest już używany";
+                    }
+                    if(e.path.includes('insuranceNumber') && e.type === 'unique violation') {
+                        e.message = "Podany numer ubezpieczenia jest już używany";
+                    }
+                })
             });
         });
 }
@@ -158,8 +161,14 @@ exports.addRegistration = (req,res, next) =>
                 btnLabel: 'Dodaj',
                 formAction: '/registrations/add',
                 navLocation: 'ownerVehicle',
-                validation: 'ownerVehicle',
-                validationErrors: err.errors
+                validationErrors: err.errors.forEach(e => {
+                    if(e.path.includes('registrationNumber') && e.type === 'unique violation') {
+                        e.message = "Podany numer rejestracyjny jest już używany";
+                    }
+                    if(e.path.includes('insuranceNumber') && e.type === 'unique violation') {
+                        e.message = "Podany numer ubezpieczenia jest już używany";
+                    }
+                })
             });
         });
 }

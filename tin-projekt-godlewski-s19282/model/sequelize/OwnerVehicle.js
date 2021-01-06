@@ -37,7 +37,7 @@ const OwnerVehicle = sequelize.define('OwnerVehicle', {
             {
                 const date = new Date(reqDate);
                 const dateFrom = new Date(this.dateFrom);
-                if(date<dateFrom)
+                if(date<dateFrom && reqDate!=null)
                     throw new Error("Data końca rejestracji nie może być wcześniejsza niż data początku rejestracji");
             }
 
@@ -47,6 +47,7 @@ const OwnerVehicle = sequelize.define('OwnerVehicle', {
     registrationNumber: {
         type: Sequelize.STRING(9),
         allowNull: false,
+        unique: true,
         validate: {
             isRegistrationNumber(val){
                 val = val.toString().trim();
@@ -60,6 +61,7 @@ const OwnerVehicle = sequelize.define('OwnerVehicle', {
     insuranceNumber: {
         type: Sequelize.INTEGER,
         allowNull: true,
+        unique: true,
         validate: {
             notEmpty: {
                 msg: "Pole jest wymagane"
@@ -77,7 +79,7 @@ const OwnerVehicle = sequelize.define('OwnerVehicle', {
             notSelected(val)
             {
                 if(val==='')
-                    throw new Error('Musisz wybrać właściciela')
+                    throw new Error('Musisz wybrać właściciela');
             }
         }
     },
@@ -87,7 +89,7 @@ const OwnerVehicle = sequelize.define('OwnerVehicle', {
         validate: {
             notSelected(val) {
                 if (val === '')
-                    throw new Error('Musisz wybrać pojazd')
+                    throw new Error('Musisz wybrać pojazd');
             }
         }
     }

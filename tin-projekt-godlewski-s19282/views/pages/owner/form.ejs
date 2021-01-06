@@ -1,10 +1,8 @@
 <%- include('../../fragments/header.ejs') %>
             <main>
-<!--                <script type="application/javascript" src="/_js/validationOwnerForm.js"></script>-->
                 <h2><%= pageTitle%></h2>
 
-<!--                <form class="form" method="post" action="<%= /*formAction*/ %>" novalidate onsubmit="return validateForm()">-->
-                <form class="form" method="post" action="<%= formAction %>" novalidate>
+                <form class="form" method="post" action="<%= formAction %>" novalidate> <!--onsubmit="return validateForm()"-->
                     <input type="hidden" name="id" value="<%= owner.id %>">
 
                     <label for="firstName">Imię:<sup>*</sup></label>
@@ -81,7 +79,9 @@
                         </table>
                     <% } %>
                     <div class="form-buttons">
-                        <p id="errorsSummary" class="errors-text"></p>
+                        <p id="errorsSummary" class="errors-text"><% if(validationErrors.length>0){%>
+                                <%= "Formularz zawiera błędy" %>
+                            <% } %></p>
                         <% if (formMode !== 'showDetails') { %>
                         <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
                         <a class="form-button-cancel" href="/owners">Anuluj</a>
