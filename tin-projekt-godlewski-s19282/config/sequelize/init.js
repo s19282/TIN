@@ -37,9 +37,9 @@ module.exports = () => {
         .then( vehicles => {
             if( !vehicles || vehicles.length === 0 ) {
                 return Vehicle.bulkCreate([
-                    { vin: 'JMZBA14P201131802', make: 'Mazda', model: '323f', firstRegistrationDate: 1994-12-20, engineCapacity: 1840 },
-                    { vin: 'JF1GR8H64BL000001', make: 'Subaru', model: 'Impreza WRX STI', firstRegistrationDate: 2012-11-10, engineCapacity: 2500 },
-                    { vin: 'JTHBC96S000000001', make: 'Lexus', model: 'GS450H', firstRegistrationDate: 2007-6-5, engineCapacity: 3500 }
+                    { vin: 'JMZBA14P201131802', make: 'Mazda', model: '323f', firstRegistrationDate: '1994-12-20', engineCapacity: 1840 },
+                    { vin: 'JF1GR8H64BL000001', make: 'Subaru', model: 'Impreza WRX STI', firstRegistrationDate: '2012-11-10', engineCapacity: 2500 },
+                    { vin: 'JTHBC96S000000001', make: 'Lexus', model: 'GS450H', firstRegistrationDate: '2007-06-05', engineCapacity: 3500 }
                     ])
                     .then( () => {
                         return Owner.findAll();

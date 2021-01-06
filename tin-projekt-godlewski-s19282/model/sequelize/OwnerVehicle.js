@@ -15,15 +15,32 @@ const OwnerVehicle = sequelize.define('OwnerVehicle', {
             notEmpty: {
                 msg: "Pole jest wymagane"
             },
-            isSameOrBefore: Date.now()
+            isSameOrBefore(reqDate){
+                const today = new Date();
+                const date = new Date(reqDate);
+                if(date>today)
+                    throw new Error("Data nie może być z przyszłości");
+            }
         }
     },
     dateTo: {
         type: Sequelize.DATEONLY,
         allowNull: true,
         validate: {
-            isSameOrBefore: Date.now(),
-            isSameOrAfter: this.dateFrom
+            isSameOrBefore(reqDate){
+                const today = new Date();
+                const date = new Date(reqDate);
+                if(date>today)
+                    throw new Error("Data nie może być z przyszłości");
+            },
+            isSameOrAfter(reqDate)
+            {
+                const date = new Date(reqDate);
+                const dateFrom = new Date(this.dateFrom);
+                if(date<dateFrom)
+                    throw new Error("Data końca rejestracji nie może być wcześniejsza niż data początku rejestracji");
+            }
+
 
         }
     },

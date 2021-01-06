@@ -54,7 +54,12 @@ const Vehicle = sequelize.define('Vehicle', {
             notEmpty: {
                 msg: "Pole jest wymagane"
             },
-            isBefore: new Date().setDate(new Date().getDate()+1)
+            isSameOrBefore(reqDate){
+                const today = new Date();
+                const date = new Date(reqDate);
+                if(date>today)
+                    throw new Error("Data nie może być z przyszłości");
+            }
         }
     },
     engineCapacity: {

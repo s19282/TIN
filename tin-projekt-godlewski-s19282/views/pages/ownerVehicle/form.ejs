@@ -6,7 +6,7 @@
 <!--                <form class="form" method="post"  action="<%= /*formAction*/%>" novalidate onsubmit="return validateForm();">-->
                 <form class="form" method="post"  action="<%= formAction%>" novalidate>
                     <input type="hidden" name="id" value="<%= registration.id %>">
-
+<!--    TODO: owner & vechicle no error message-->
                     <label for="owner">Właściciel:<sup>*</sup></label>
                     <select name="owner_id" id="owner" required <%= (formMode === 'showDetails') ? 'disabled' : '' %>
                             class="<%= validationErrors.find(e => e.path.includes('owner')) ? 'error-input' : '' %>" >

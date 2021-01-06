@@ -105,7 +105,7 @@ exports.updateRegistration = (req,res, next) =>
 {
     if(req.body.dateTo==='')    req.body.dateTo=null;
 
-    let allOwners, allVehicles, registration;
+    let allOwners, allVehicles;
     //todo: remove registration variable
     OwnerRepository.getOwners()
         .then(owners => {
@@ -116,10 +116,7 @@ exports.updateRegistration = (req,res, next) =>
             allVehicles = vehicles;
             return RegistrationRepository.updateRegistration(req.body.id,req.body)
         })
-        .then( (reg) => {
-            registration = reg;
-            res.redirect('/registrations');
-        })
+        .then( () => { res.redirect('/registrations')})
         .catch(err => {
             res.render('pages/ownerVehicle/form', {
                 registration: req.body,
@@ -153,7 +150,7 @@ exports.addRegistration = (req,res, next) =>
         .then( () => res.redirect('/registrations'))
         .catch(err => {
             res.render('pages/ownerVehicle/form', {
-                registration: {},
+                registration: req.body,
                 allOwners: allOwners,
                 allVehicles: allVehicles,
                 pageTitle: 'Dodaj rejestrację',
