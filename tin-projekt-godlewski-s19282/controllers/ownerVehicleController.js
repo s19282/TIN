@@ -106,7 +106,7 @@ exports.updateRegistration = (req,res, next) =>
     if(req.body.dateTo==='')    req.body.dateTo=null;
 
     let allOwners, allVehicles;
-    //todo: remove registration variable
+
     OwnerRepository.getOwners()
         .then(owners => {
             allOwners=owners;

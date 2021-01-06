@@ -14,7 +14,7 @@
                         <% for(let i=0; i<allOwners.length; i++) { let owner = allOwners[i]; %>
                                <option value="<%= owner.id %>"
                                        label="<%= owner.firstName + ' ' + owner.lastName %>"
-                                    <%= (registration.id && owner.id.toString() === registration.owner_id.toString()) ? 'selected' : ''%>></option>
+                                    <%= owner.id.toString() === registration.owner_id.toString() ? 'selected' : ''%>></option>
                         <% } %>
                     </select>
                     <span id="errorOwner" class="errors-text">
@@ -30,7 +30,7 @@
                         <% for(let i=0; i<allVehicles.length; i++) { let vehicle = allVehicles[i]; %>
                         <option value="<%= vehicle.id %>"
                                 label="<%= vehicle.make + ' ' + vehicle.model %>"
-                                <%= (registration.id && vehicle.id.toString() === registration.vehicle_id.toString()) ? 'selected' : ''%>></option>
+                                <%= vehicle.id.toString() === registration.vehicle_id.toString() ? 'selected' : ''%>></option>
                         <% } %>
                     </select>
                     <span id="errorVehicle" class="errors-text">

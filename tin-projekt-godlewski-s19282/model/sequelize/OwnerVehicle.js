@@ -72,11 +72,24 @@ const OwnerVehicle = sequelize.define('OwnerVehicle', {
     },
     owner_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notSelected(val)
+            {
+                if(val==='')
+                    throw new Error('Musisz wybrać właściciela')
+            }
+        }
     },
     vehicle_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notSelected(val) {
+                if (val === '')
+                    throw new Error('Musisz wybrać pojazd')
+            }
+        }
     }
 
 });
