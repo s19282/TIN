@@ -50,45 +50,47 @@
                             <a href="/owners/edit/<%= owner.id %>" class="list-actions-button-edit">Edytuj</a>
                         </div>
                     <% } %>
-                    <% if (formMode === 'showDetails' ) { %>
-<!--                    TODO: || formMode === 'edit'-->
-                        <h2>
-                            Szczegóły rejestracji
-                        </h2>
-                        <table class="table-list">
-                            <thead>
-                            <tr>
-                                <th>Vin</th>
-                                <th>Data aktualnej rejestracji od</th>
-                                <th>Data aktualnej rejestracji do</th>
-                                <th>Numer rejestracyjny</th>
-                                <th>Numer ubezpieczenia</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <% for (let o of owner.ownerVehicles) { %>
-                                <tr>
-                                    <td><a href="/vehicles/details/<%= o.vehicle.id %>"><%= o.vehicle.make %></a></td>
-                                    <td><%= o.dateFrom %></td>
-                                    <td><%= o.dateTo %></td>
-                                    <td><%= o.registrationNumber %></td>
-                                    <td><%= o.insuranceNumber %></td>
-                                </tr>
-                            <% } %>
-                            </tbody>
-                        </table>
-                    <% } %>
                     <div class="form-buttons">
                         <p id="errorsSummary" class="errors-text"><% if(validationErrors.length>0){%>
                                 <%= "Formularz zawiera błędy" %>
                             <% } %></p>
                         <% if (formMode !== 'showDetails') { %>
                         <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
-                        <a class="form-button-cancel" href="/owners">Anuluj</a>
-                        <% } else { %>
-                            <a class="form-button-cancel" href="/owners">Powrót</a>
                         <% } %>
                     </div>
                 </form>
+                <% if (formMode === 'showDetails' ) { %>
+                    <!--                    TODO: || formMode === 'edit'-->
+                    <h2>
+                        Szczegóły rejestracji
+                    </h2>
+                    <table class="table-list">
+                        <thead>
+                        <tr>
+                            <th>Vin</th>
+                            <th>Data aktualnej rejestracji od</th>
+                            <th>Data aktualnej rejestracji do</th>
+                            <th>Numer rejestracyjny</th>
+                            <th>Numer ubezpieczenia</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% for (let o of owner.ownerVehicles) { %>
+                            <tr>
+                                <td><a href="/vehicles/details/<%= o.vehicle.id %>"><%= o.vehicle.make %></a></td>
+                                <td><%= o.dateFrom %></td>
+                                <td><%= o.dateTo %></td>
+                                <td><%= o.registrationNumber %></td>
+                                <td><%= o.insuranceNumber %></td>
+                            </tr>
+                        <% } %>
+                        </tbody>
+                    </table>
+                <% } %>
+                <% if (formMode !== 'showDetails') { %>
+                <a class="form-button-cancel" href="/owners">Anuluj</a>
+                <% } else { %>
+                    <a class="form-button-cancel" href="/owners">Powrót</a>
+                <% } %>
             </main>
 <%- include('../../fragments/footer.ejs') %>

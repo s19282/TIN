@@ -1,6 +1,5 @@
 <%- include('../../fragments/header.ejs') %>
             <main>
-                <script type="application/javascript" src="/_js/validationCarForm.js"></script>
                 <h2><%= pageTitle%></h2>
 
 <!--                <form class="form" method="post" action="<%= /*formAction*/%>" novalidate onsubmit="return validateForm()">-->
@@ -62,74 +61,76 @@
                             <a href="/vehicles/edit/<%= vehicle.id %>" class="list-actions-button-edit">Edytuj</a>
                         </div>
                     <% } %>
-                    <% if (formMode === 'showDetails' || formMode === 'edit') { %>
-                        <h2>
-                            Aktualni właściciele auta
-                        </h2>
-                        <table class="table-list">
-                            <thead>
-                            <tr>
-                                <th>Imię</th>
-                                <th>Nazwisko</th>
-                                <th>Adres email</th>
-                                <th>Data rejestracji od</th>
-                                <th>Numer rejestracyjny</th>
-                                <th>Numer ubezpieczenia</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <% for (let r of vehicle.ownerVehicles) { %>
-                                <tr>
-                                    <td><a href="/owners/details/<%= r.owner.id %>"><%= r.owner.firstName %></a></td>
-                                    <td><%= r.lastName %></td>
-                                    <td><%= r.email%></td>
-                                    <td><%= r.dateFrom %></td>
-                                    <td><%= r.registrationNumber %></td>
-                                    <td><%= r.insuranceNumber %></td>
-                                </tr>
-                            <% } %>
-                            </tbody>
-                        </table>
-                        <h2>
-                            Poprzedni właściciele auta
-                        </h2>
-                        <table class="table-list">
-                            <thead>
-                            <tr>
-                                <th>Imię</th>
-                                <th>Nazwisko</th>
-                                <th>Adres email</th>
-                                <th>Data rejestracji od</th>
-                                <th>Data rejestracji do</th>
-                                <th>Numer rejestracyjny</th>
-                                <th>Numer ubezpieczenia</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <% for (let r of vehicle.ownerVehicles) { if (r.dateTo==null) continue;%>
-                                <tr>
-                                    <td><a href="/owners/details/<%= r.owner.id %>"><%= r.owner.firstName %></a></td>
-                                    <td><%= r.lastName %></td>
-                                    <td><%= r.email%></td>
-                                    <td><%= r.dateFrom %></td>
-                                    <td><%= r.registrationNumber %></td>
-                                    <td><%= r.insuranceNumber %></td>
-                                </tr>
-                            <% } %>
-                            </tbody>
-                        </table>
-                    <% } %>
                     <div class="form-buttons">
                         <p id="errorsSummary" class="errors-text"><% if(validationErrors.length>0){%>
                                 <%= "Formularz zawiera błędy" %>
                             <% } %></p>
                         <% if (formMode !== 'showDetails') { %>
                         <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
-                        <a class="form-button-cancel" href="/vehicles">Anuluj</a>
-                        <% } else { %>
-                            <a class="form-button-cancel" href="/vehicles">Powrót</a>
                         <% } %>
                     </div>
                 </form>
+                <% if (formMode === 'showDetails' || formMode === 'edit') { %>
+                    <h2>
+                        Aktualni właściciele auta
+                    </h2>
+                    <table class="table-list">
+                        <thead>
+                        <tr>
+                            <th>Imię</th>
+                            <th>Nazwisko</th>
+                            <th>Adres email</th>
+                            <th>Data rejestracji od</th>
+                            <th>Numer rejestracyjny</th>
+                            <th>Numer ubezpieczenia</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% for (let r of vehicle.ownerVehicles) { %>
+                            <tr>
+                                <td><a href="/owners/details/<%= r.owner.id %>"><%= r.owner.firstName %></a></td>
+                                <td><%= r.lastName %></td>
+                                <td><%= r.email%></td>
+                                <td><%= r.dateFrom %></td>
+                                <td><%= r.registrationNumber %></td>
+                                <td><%= r.insuranceNumber %></td>
+                            </tr>
+                        <% } %>
+                        </tbody>
+                    </table>
+                    <h2>
+                        Poprzedni właściciele auta
+                    </h2>
+                    <table class="table-list">
+                        <thead>
+                        <tr>
+                            <th>Imię</th>
+                            <th>Nazwisko</th>
+                            <th>Adres email</th>
+                            <th>Data rejestracji od</th>
+                            <th>Data rejestracji do</th>
+                            <th>Numer rejestracyjny</th>
+                            <th>Numer ubezpieczenia</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% for (let r of vehicle.ownerVehicles) { if (r.dateTo==null) continue;%>
+                        <tr>
+                            <td><a href="/owners/details/<%= r.owner.id %>"><%= r.owner.firstName %></a></td>
+                            <td><%= r.lastName %></td>
+                            <td><%= r.email%></td>
+                            <td><%= r.dateFrom %></td>
+                            <td><%= r.registrationNumber %></td>
+                            <td><%= r.insuranceNumber %></td>
+                        </tr>
+                        <% } %>
+                        </tbody>
+                    </table>
+                <% } %>
+                <% if (formMode !== 'showDetails') { %>
+                <a class="form-button-cancel" href="/vehicles">Anuluj</a>
+                <% } else { %>
+                    <a class="form-button-cancel" href="/vehicles">Powrót</a>
+                <% } %>
             </main>
 <%- include('../../fragments/footer.ejs') %>
