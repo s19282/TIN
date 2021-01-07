@@ -88,8 +88,8 @@
                         <% for (let r of vehicle.ownerVehicles) { if (r.dateTo!=null) continue; %>
                             <tr>
                                 <td><a href="/owners/details/<%= r.owner.id %>"><%= r.owner.firstName %></a></td>
-                                <td><%= r.lastName %></td>
-                                <td><%= r.email%></td>
+                                <td><%= r.owner.lastName %></td>
+                                <td><%= r.owner.email%></td>
                                 <td><%= r.dateFrom %></td>
                                 <td><%= r.registrationNumber %></td>
                                 <td><%= r.insuranceNumber %></td>
@@ -116,8 +116,8 @@
                         <% for (let r of vehicle.ownerVehicles) { if (r.dateTo==null) continue;%>
                         <tr>
                             <td><a href="/owners/details/<%= r.owner.id %>"><%= r.owner.firstName %></a></td>
-                            <td><%= r.lastName %></td>
-                            <td><%= r.email%></td>
+                            <td><%= r.owner.lastName %></td>
+                            <td><%= r.owner.email%></td>
                             <td><%= r.dateFrom %></td>
                             <td><%= r.dateTo %></td>
                             <td><%= r.registrationNumber %></td>
