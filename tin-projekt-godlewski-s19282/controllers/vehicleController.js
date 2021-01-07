@@ -1,9 +1,11 @@
 const VehicleRepository = require('../repository/sequelize/VehicleRepository');
+const AnnouncementRepository = require('../repository/sequelize/AnnouncementRepository');
 
 exports.showVehicleList = (req,res,next) => {
     VehicleRepository.getVehicles()
         .then(vehicles =>{
             res.render('pages/vehicle/list',{
+                announcements: AnnouncementRepository.getAnnouncements(),
                 vehicles: vehicles,
                 navLocation: 'vehicle',
                 formMode: '',
@@ -16,6 +18,7 @@ exports.showAddVehicleForm = (req,res, next) =>
 {
     res.render('pages/vehicle/form', {
         vehicle: {},
+        announcements: AnnouncementRepository.getAnnouncements(),
         pageTitle: 'Dodaj pojazd',
         formMode: 'createNew',
         btnLabel: 'Dodaj',
@@ -31,6 +34,7 @@ exports.showVehicleDetails = (req,res, next) =>
         .then(vehicle => {
             res.render('pages/vehicle/form', {
                 vehicle: vehicle,
+                announcements: AnnouncementRepository.getAnnouncements(),
                 formMode: 'showDetails',
                 pageTitle: 'Dane pojazdu',
                 formAction: '',
@@ -46,6 +50,7 @@ exports.showEditVehicleForm = (req,res, next) =>
         .then(vehicle => {
             res.render('pages/vehicle/form', {
                 vehicle: vehicle,
+                announcements: AnnouncementRepository.getAnnouncements(),
                 formMode: 'edit',
                 pageTitle: 'Edytuj dane pojazdu',
                 btnLabel: 'Edytuj',
@@ -68,6 +73,7 @@ exports.updateVehicle = (req,res, next) =>
             res.render('pages/vehicle/form', {
                 vehicle: req.body,
                 pageTitle: 'Edytuj pojazd',
+                announcements: AnnouncementRepository.getAnnouncements(),
                 formMode: 'createNew',
                 btnLabel: 'Edytuj',
                 formAction: '/vehicles/edit',
@@ -89,6 +95,7 @@ exports.addVehicle = (req,res, next) =>
             res.render('pages/vehicle/form', {
                 vehicle: req.body,
                 pageTitle: 'Dodaj pojazd',
+                announcements: AnnouncementRepository.getAnnouncements(),
                 formMode: 'createNew',
                 btnLabel: 'Dodaj',
                 formAction: '/vehicles/add',

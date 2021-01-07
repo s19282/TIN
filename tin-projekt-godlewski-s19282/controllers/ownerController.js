@@ -1,10 +1,12 @@
 const OwnerRepository = require('../repository/sequelize/OwnerRepository');
+const AnnouncementRepository = require('../repository/sequelize/AnnouncementRepository');
 
 exports.showOwnerList = (req,res,next) => {
     OwnerRepository.getOwners()
         .then(owners =>{
             res.render('pages/owner/list',{
                 owners: owners,
+                announcements: AnnouncementRepository.getAnnouncements(),
                 navLocation: 'owner',
                 formMode: '',
                 validationErrors:[]
@@ -17,6 +19,7 @@ exports.showAddOwnerForm = (req,res, next) =>
     res.render('pages/owner/form', {
         owner: {},
         pageTitle: 'Dodaj właściciela',
+        announcements: AnnouncementRepository.getAnnouncements(),
         formMode: 'createNew',
         btnLabel: 'Dodaj',
         formAction: '/owners/add',
@@ -31,6 +34,7 @@ exports.showOwnerDetails = (req,res, next) =>
         .then(owner => {
             res.render('pages/owner/form', {
                 owner: owner,
+                announcements: AnnouncementRepository.getAnnouncements(),
                 formMode: 'showDetails',
                 pageTitle: 'Dane właściciela',
                 formAction: '',
@@ -46,6 +50,7 @@ exports.showEditOwnerForm = (req,res, next) =>
         .then(owner => {
             res.render('pages/owner/form', {
                 owner: owner,
+                announcements: AnnouncementRepository.getAnnouncements(),
                 formMode: 'edit',
                 pageTitle: 'Edytuj dane właściciela',
                 btnLabel: 'Edytuj',
@@ -67,6 +72,7 @@ exports.updateOwner = (req,res, next) =>
         .catch(err => {
             res.render('pages/owner/form', {
                 owner: req.body,
+                announcements: AnnouncementRepository.getAnnouncements(),
                 formMode: 'edit',
                 pageTitle: 'Edytuj dane właściciela',
                 btnLabel: 'Edytuj',
@@ -83,6 +89,7 @@ exports.addOwner = (req,res, next) =>
         .catch(err => {
             res.render('pages/owner/form', {
                 owner: req.body,
+                announcements: AnnouncementRepository.getAnnouncements(),
                 pageTitle: 'Dodaj właściciela',
                 formMode: 'createNew',
                 btnLabel: 'Dodaj',

@@ -1,12 +1,14 @@
 const RegistrationRepository = require('../repository/sequelize/RegistrationRepository');
 const OwnerRepository = require('../repository/sequelize/OwnerRepository');
 const VehicleRepository = require('../repository/sequelize/VehicleRepository');
+const AnnouncementRepository = require('../repository/sequelize/AnnouncementRepository');
 
 exports.showOwnerVehicleList = (req,res,next) => {
     RegistrationRepository.getRegistration()
         .then(registrations =>  {
             res.render('pages/ownerVehicle/list',{
                 registrations: registrations,
+                announcements: AnnouncementRepository.getAnnouncements(),
                 navLocation: 'ownerVehicle',
                 formMode: '',
                 validationErrors:[]
@@ -27,6 +29,7 @@ exports.showAddOwnerVehicleForm = (req,res, next) =>
             res.render('pages/ownerVehicle/form',{
                 registration: {},
                 allOwners: allOwners,
+                announcements: AnnouncementRepository.getAnnouncements(),
                 allVehicles: allVehicles,
                 pageTitle: 'Dodaj rejestrację',
                 formMode: 'createNew',
@@ -54,6 +57,7 @@ exports.showOwnerVehicleDetails = (req,res, next) =>
         .then( registration =>{
             res.render('pages/ownerVehicle/form', {
                 registration: registration,
+                announcements: AnnouncementRepository.getAnnouncements(),
                 allOwners: allOwners,
                 allVehicles: allVehicles,
                 formMode: 'showDetails',
@@ -81,6 +85,7 @@ exports.showEditOwnerVehicleForm = (req,res, next) =>
         .then(registration => {
             res.render('pages/ownerVehicle/form', {
                 registration: registration,
+                announcements: AnnouncementRepository.getAnnouncements(),
                 allOwners: allOwners,
                 allVehicles: allVehicles,
                 formMode: 'edit',
@@ -117,6 +122,7 @@ exports.updateRegistration = (req,res, next) =>
         .catch(err => {
             res.render('pages/ownerVehicle/form', {
                 registration: req.body,
+                announcements: AnnouncementRepository.getAnnouncements(),
                 allOwners: allOwners,
                 allVehicles: allVehicles,
                 formMode: 'edit',
@@ -156,6 +162,7 @@ exports.addRegistration = (req,res, next) =>
                 registration: req.body,
                 allOwners: allOwners,
                 allVehicles: allVehicles,
+                announcements: AnnouncementRepository.getAnnouncements(),
                 pageTitle: 'Dodaj rejestrację',
                 formMode: 'createNew',
                 btnLabel: 'Dodaj',

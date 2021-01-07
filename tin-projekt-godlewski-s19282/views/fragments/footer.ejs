@@ -1,11 +1,8 @@
             <div class="rightPanel">
-                <h4>
-                    Przypominamy, że z powodu obecnej sytuacji epidemiologicznej obsługa interesantów
-                    odbywa się wyłącznie telefonicznie lub mailowo.
-                </h4>
-                <h4>
-                    W związku z epidemią czas na rejestrację pojazdu zostaje wydłużony z 30 do 180 dni.
-                </h4>
+                <% for(let i=0; i<announcements.length; i++) { let announcement = announcements[i]; %>
+                    <% console.log(announcements.length+"-------------------------");%>
+                    <h4><%= announcement.text %></h4>
+                <% } %>
             </div>
         </div>
         <footer onmouseenter="changeFooter()">
