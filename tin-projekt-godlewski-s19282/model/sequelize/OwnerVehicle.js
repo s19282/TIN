@@ -47,7 +47,6 @@ const OwnerVehicle = sequelize.define('OwnerVehicle', {
     registrationNumber: {
         type: Sequelize.STRING(9),
         allowNull: false,
-        unique: true,
         validate: {
             isRegistrationNumber(val){
                 val = val.toString().trim();
@@ -61,7 +60,6 @@ const OwnerVehicle = sequelize.define('OwnerVehicle', {
     insuranceNumber: {
         type: Sequelize.INTEGER,
         allowNull: true,
-        unique: true,
         validate: {
             notEmpty: {
                 msg: "Pole jest wymagane"

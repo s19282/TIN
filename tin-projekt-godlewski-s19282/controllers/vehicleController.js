@@ -78,11 +78,7 @@ exports.updateVehicle = (req,res, next) =>
                 btnLabel: 'Edytuj',
                 formAction: '/vehicles/edit',
                 navLocation: 'vehicle',
-                validationErrors: err.errors.forEach(e => {
-                    if(e.path.includes('vin') && e.type === 'unique violation') {
-                        e.message = "Podany numer VIN jest już używany";
-                    }
-                })
+                validationErrors: err.errors
             });
         });
 }

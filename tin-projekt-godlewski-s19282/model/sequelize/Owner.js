@@ -47,10 +47,6 @@ const Owner = sequelize.define('Owner', {
             },
             isEmail: {
                 msg: 'Pole powinno zawierać prawidłowy adres email'
-            },
-            isUnique: {
-                args: true,
-                msg: "Podany adres email jest już używany"
             }
         }
     },
