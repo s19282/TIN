@@ -35,7 +35,7 @@ const Owner = sequelize.define('Owner', {
         }
     },
     email: {
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING(60),
         allowNull: false,
         unique: true,
         validate: {
