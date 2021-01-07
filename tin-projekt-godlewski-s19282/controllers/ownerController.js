@@ -67,18 +67,29 @@ exports.deleteOwner = (req,res, next) =>
 }
 exports.updateOwner = (req,res, next) =>
 {
+    let errors;
     OwnerRepository.updateOwner(req.body.id,req.body)
         .then( () => res.redirect('/owners'))
         .catch(err => {
+            errors=err.errors;
+            errors.forEach(e => {
+                if (e.path.includes('email') && e.type === 'unique violation') {
+                    e.message = "Podany adres email jest już używany";
+                }
+            });
+            return OwnerRepository.getOwnerById(req.body.id);
+        })
+        .then(owner => {
             res.render('pages/owner/form', {
-                owner: req.body,
+
+                owner: {...req.body,ownerVehicles: owner.ownerVehicles},
                 announcements: AnnouncementRepository.getAnnouncements(),
                 formMode: 'edit',
                 pageTitle: 'Edytuj dane właściciela',
                 btnLabel: 'Edytuj',
                 formAction: '/owners/edit',
                 navLocation: 'owner',
-                validationErrors: err.errors
+                validationErrors: errors
             });
         });
 }
@@ -87,6 +98,12 @@ exports.addOwner = (req,res, next) =>
     OwnerRepository.createOwner(req.body)
         .then( () => res.redirect('/owners'))
         .catch(err => {
+            let errors = err.errors;
+            errors.forEach(e => {
+                if (e.path.includes('email') && e.type === 'unique violation') {
+                    e.message = "Podany adres email jest już używany";
+                }
+            });
             res.render('pages/owner/form', {
                 owner: req.body,
                 announcements: AnnouncementRepository.getAnnouncements(),
@@ -95,7 +112,7 @@ exports.addOwner = (req,res, next) =>
                 btnLabel: 'Dodaj',
                 formAction: '/owners/add',
                 navLocation: 'owner',
-                validationErrors: err.errors
+                validationErrors: errors
             });
         });
 }

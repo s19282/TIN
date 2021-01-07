@@ -2,8 +2,7 @@
             <main>
                 <h2><%= pageTitle%></h2>
 
-<!--                <form class="form" method="post"  action="<%= /*formAction*/%>" novalidate onsubmit="return validateForm();">-->
-                <form class="form" method="post"  action="<%= formAction%>" novalidate>
+                <form class="form" methood="post"  action="<%= formAction %>" novalidate onsubmit="return validateForm();">
                     <input type="hidden" name="id" value="<%= registration.id %>">
                     <label for="owner">Właściciel:<sup>*</sup></label>
                     <select name="owner_id" id="owner" required <%= (formMode === 'showDetails') ? 'disabled' : '' %>
@@ -12,7 +11,7 @@
                         <% for(let i=0; i<allOwners.length; i++) { let owner = allOwners[i]; %>
                                <option value="<%= owner.id %>"
                                        label="<%= owner.firstName + ' ' + owner.lastName %>"
-                                    <%= owner.id.toString() === registration.owner_id ? 'selected' : ''%>></option>
+                                    <%= owner.id === parseInt(registration.owner_id,10) ? 'selected' : ''%>></option>
                         <% } %>
                     </select>
                     <span id="errorOwner" class="errors-text">
@@ -28,7 +27,7 @@
                         <% for(let i=0; i<allVehicles.length; i++) { let vehicle = allVehicles[i]; %>
                         <option value="<%= vehicle.id %>"
                                 label="<%= vehicle.make + ' ' + vehicle.model %>"
-                                <%= vehicle.id.toString() === registration.vehicle_id ? 'selected' : ''%>></option>
+                                <%= vehicle.id === parseInt(registration.vehicle_id,10) ? 'selected' : ''%>></option>
                         <% } %>
                     </select>
                     <span id="errorVehicle" class="errors-text">

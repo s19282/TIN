@@ -120,6 +120,15 @@ exports.updateRegistration = (req,res, next) =>
         })
         .then( () => { res.redirect('/registrations')})
         .catch(err => {
+            let errors = err.errors;
+            errors.forEach(e => {
+                if (e.path.includes('registrationNumber') && e.type === 'unique violation') {
+                    e.message = "Podany numer rejestracyjny jest już używany";
+                }
+                if (e.path.includes('insuranceNumber') && e.type === 'unique violation') {
+                    e.message = "Podany numer rejestracyjny jest już używany";
+                }
+            });
             res.render('pages/ownerVehicle/form', {
                 registration: req.body,
                 announcements: AnnouncementRepository.getAnnouncements(),
@@ -130,7 +139,7 @@ exports.updateRegistration = (req,res, next) =>
                 btnLabel: 'Edytuj',
                 formAction: '/registrations/edit',
                 navLocation: 'ownerVehicle',
-                validationErrors: err.errors
+                validationErrors: errors
             });
         });
 }
@@ -151,6 +160,15 @@ exports.addRegistration = (req,res, next) =>
         })
         .then( () => res.redirect('/registrations'))
         .catch(err => {
+            let errors = err.errors;
+            errors.forEach(e => {
+                if (e.path.includes('registrationNumber') && e.type === 'unique violation') {
+                    e.message = "Podany numer rejestracyjny jest już używany";
+                }
+                if (e.path.includes('insuranceNumber') && e.type === 'unique violation') {
+                    e.message = "Podany numer rejestracyjny jest już używany";
+                }
+            });
             res.render('pages/ownerVehicle/form', {
                 registration: req.body,
                 allOwners: allOwners,
@@ -161,7 +179,7 @@ exports.addRegistration = (req,res, next) =>
                 btnLabel: 'Dodaj',
                 formAction: '/registrations/add',
                 navLocation: 'ownerVehicle',
-                validationErrors: err.errors
+                validationErrors: errors
             });
         });
 }

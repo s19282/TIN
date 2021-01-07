@@ -2,8 +2,7 @@
             <main>
                 <h2><%= pageTitle%></h2>
 
-<!--                <form class="form" method="post" action="<%= /*formAction*/%>" novalidate onsubmit="return validateForm()">-->
-                <form class="form" method="post" action="<%=formAction%>" novalidate >
+                <form class="form" method="post" action="<%= formAction%>" novalidate onsubmit="return validateForm()">
                 <input type="hidden" name="id" value="<%= vehicle.id%>">
 
                     <label for="vin">Numer VIN:<sup>*</sup></label>
@@ -86,7 +85,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <% for (let r of vehicle.ownerVehicles) { %>
+                        <% for (let r of vehicle.ownerVehicles) { if (r.dateTo!=null) continue; %>
                             <tr>
                                 <td><a href="/owners/details/<%= r.owner.id %>"><%= r.owner.firstName %></a></td>
                                 <td><%= r.lastName %></td>
@@ -120,6 +119,7 @@
                             <td><%= r.lastName %></td>
                             <td><%= r.email%></td>
                             <td><%= r.dateFrom %></td>
+                            <td><%= r.dateTo %></td>
                             <td><%= r.registrationNumber %></td>
                             <td><%= r.insuranceNumber %></td>
                         </tr>

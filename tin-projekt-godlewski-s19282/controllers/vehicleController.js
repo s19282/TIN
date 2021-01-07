@@ -67,18 +67,28 @@ exports.deleteVehicle = (req,res, next) =>
 }
 exports.updateVehicle = (req,res, next) =>
 {
+    let errors;
     VehicleRepository.updateVehicle(req.body.id,req.body)
         .then( () => res.redirect('/vehicles'))
         .catch(err => {
+            errors=err.errors;
+            errors.forEach(e => {
+                if (e.path.includes('vin') && e.type === 'unique violation') {
+                    e.message = "Podany numer VIN jest już używany";
+                }
+            });
+            return VehicleRepository.getVehicleById(req.body.id);
+        })
+        .then(vehicle =>{
             res.render('pages/vehicle/form', {
-                vehicle: req.body,
+                vehicle: {...req.body,ownerVehicles: vehicle.ownerVehicles},
                 pageTitle: 'Edytuj pojazd',
                 announcements: AnnouncementRepository.getAnnouncements(),
-                formMode: 'createNew',
+                formMode: 'edit',
                 btnLabel: 'Edytuj',
                 formAction: '/vehicles/edit',
                 navLocation: 'vehicle',
-                validationErrors: err.errors
+                validationErrors: errors
             });
         });
 }
@@ -87,7 +97,12 @@ exports.addVehicle = (req,res, next) =>
     VehicleRepository.createVehicle(req.body)
         .then( () => res.redirect('/vehicles'))
         .catch(err => {
-
+            let errors=err.errors;
+            errors.forEach(e => {
+                if (e.path.includes('vin') && e.type === 'unique violation') {
+                    e.message = "Podany numer VIN jest już używany";
+                }
+            });
             res.render('pages/vehicle/form', {
                 vehicle: req.body,
                 pageTitle: 'Dodaj pojazd',
@@ -96,11 +111,7 @@ exports.addVehicle = (req,res, next) =>
                 btnLabel: 'Dodaj',
                 formAction: '/vehicles/add',
                 navLocation: 'vehicle',
-                validationErrors: err.errors.forEach(e => {
-                    if(e.path.includes('vin') && e.type === 'unique violation') {
-                        e.message = "Podany numer VIN jest już używany";
-                    }
-                })
+                validationErrors: errors
             });
         });
 }

@@ -37,6 +37,7 @@ const Owner = sequelize.define('Owner', {
     email: {
         type: Sequelize.STRING(30),
         allowNull: false,
+        unique: true,
         validate: {
             notEmpty: {
                 msg: "Pole jest wymagane"

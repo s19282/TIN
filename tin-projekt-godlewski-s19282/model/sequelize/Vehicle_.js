@@ -11,6 +11,7 @@ const Vehicle = sequelize.define('Vehicle', {
     vin: {
         type: Sequelize.STRING(30),
         allowNull: false,
+        unique: true,
         validate: {
             notEmpty: {
                 msg: "Pole jest wymagane"
