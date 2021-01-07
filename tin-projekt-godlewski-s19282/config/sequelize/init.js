@@ -1,4 +1,5 @@
 const sequelize = require('./sequelize');
+const faker = require('faker/locale/pl');
 
 const Owner = require('../../model/sequelize/Owner');
 const Vehicle = require('../../model/sequelize/Vehicle_');
@@ -12,6 +13,7 @@ module.exports = () => {
     OwnerVehicle.belongsTo(Vehicle, {as: 'vehicle', foreignKey: {name: 'vehicle_id', allowNull: false} });
 
     let allOwners, allVehicles;
+
     return sequelize
         .sync({force: true})
         .then( () => {
@@ -24,9 +26,6 @@ module.exports = () => {
                     {firstName: 'Adam', lastName: 'Zieliński', email: 'adam.zielinski@acme.com', phoneNumber: '653225005'},
                     {firstName: 'Marian', lastName: 'Nowak', email: 'marian.nowak@acme.com', phoneNumber: '625953684'},
                 ])
-                    .then( () => {
-                        return Owner.findAll();
-                    });
             } else {
                 return owners;
             }
