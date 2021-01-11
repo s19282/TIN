@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 const Owner = require("../../model/sequelize/Owner");
-const Registration = require("../../model/sequelize/OwnerVehicle");
+const Registration = require("../../model/sequelize/Registration");
 const Vehicle = require("../../model/sequelize/Vehicle_");
 
 exports.getRegistration = () => {

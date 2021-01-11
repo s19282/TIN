@@ -1,6 +1,6 @@
 const OwnerRepository = require('../repository/sequelize/OwnerRepository');
 const AnnouncementRepository = require('../repository/sequelize/AnnouncementRepository');
-
+//TODO: przerobić na sposób Gustawa
 exports.showOwnerList = (req,res,next) => {
     OwnerRepository.getOwners()
         .then(owners =>{
@@ -82,7 +82,7 @@ exports.updateOwner = (req,res, next) =>
         .then(owner => {
             res.render('pages/owner/form', {
 
-                owner: {...req.body,ownerVehicles: owner.ownerVehicles},
+                owner: {...req.body,registrations: owner.registrations},
                 announcements: AnnouncementRepository.getAnnouncements(),
                 formMode: 'edit',
                 pageTitle: 'Edytuj dane właściciela',

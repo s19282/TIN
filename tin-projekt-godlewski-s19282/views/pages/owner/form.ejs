@@ -74,7 +74,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <% for (let o of owner.ownerVehicles) { %>
+                        <% for (let o of owner.registrations) { %>
                             <tr>
                                 <td><a href="/vehicles/details/<%= o.vehicle.id %>"><%= o.vehicle.vin %></a></td>
                                 <td><%= o.dateFrom %></td>

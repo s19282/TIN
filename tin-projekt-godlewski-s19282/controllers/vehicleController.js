@@ -81,7 +81,7 @@ exports.updateVehicle = (req,res, next) =>
         })
         .then(vehicle =>{
             res.render('pages/vehicle/form', {
-                vehicle: {...req.body,ownerVehicles: vehicle.ownerVehicles},
+                vehicle: {...req.body,registrations: vehicle.registrations},
                 pageTitle: 'Edytuj pojazd',
                 announcements: AnnouncementRepository.getAnnouncements(),
                 formMode: 'edit',

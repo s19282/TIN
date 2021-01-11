@@ -1,5 +1,5 @@
 const Owner = require("../../model/sequelize/Owner");
-const Registration = require("../../model/sequelize/OwnerVehicle");
+const Registration = require("../../model/sequelize/Registration");
 const Vehicle = require("../../model/sequelize/Vehicle_");
 
 exports.getOwners = () =>
@@ -12,7 +12,7 @@ exports.getOwnerById = (ownerId) => {
         {
             include: [{
                 model: Registration,
-                as: 'ownerVehicles',
+                as: 'registrations',
                 include: [{
                     model: Vehicle,
                     as: 'vehicle'

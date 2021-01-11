@@ -3,20 +3,20 @@ const OwnerRepository = require('../repository/sequelize/OwnerRepository');
 const VehicleRepository = require('../repository/sequelize/VehicleRepository');
 const AnnouncementRepository = require('../repository/sequelize/AnnouncementRepository');
 
-exports.showOwnerVehicleList = (req,res,next) => {
+exports.showRegistrationList = (req, res, next) => {
     RegistrationRepository.getRegistration()
         .then(registrations =>  {
-            res.render('pages/ownerVehicle/list',{
+            res.render('pages/registration/list',{
                 registrations: registrations,
                 announcements: AnnouncementRepository.getAnnouncements(),
-                navLocation: 'ownerVehicle',
+                navLocation: 'registration',
                 formMode: '',
                 validationErrors:[]
             });
         });
 }
 
-exports.showAddOwnerVehicleForm = (req,res, next) =>
+exports.showAddRegistrationForm = (req, res, next) =>
 {
     let allOwners, allVehicles;
     OwnerRepository.getOwners()
@@ -26,7 +26,7 @@ exports.showAddOwnerVehicleForm = (req,res, next) =>
         })
         .then(vehicles => {
             allVehicles = vehicles;
-            res.render('pages/ownerVehicle/form',{
+            res.render('pages/registration/form',{
                 registration: {},
                 allOwners: allOwners,
                 announcements: AnnouncementRepository.getAnnouncements(),
@@ -35,13 +35,13 @@ exports.showAddOwnerVehicleForm = (req,res, next) =>
                 formMode: 'createNew',
                 btnLabel: 'Dodaj',
                 formAction: '/registrations/add',
-                navLocation: 'ownerVehicle',
+                navLocation: 'registration',
                 validationErrors:[]
             });
         });
 }
 
-exports.showOwnerVehicleDetails = (req,res, next) =>
+exports.showRegistrationDetails = (req, res, next) =>
 {
     const registrationId = req.params.registrationId;
     let allOwners, allVehicles;
@@ -55,7 +55,7 @@ exports.showOwnerVehicleDetails = (req,res, next) =>
             return RegistrationRepository.getRegistrationById(registrationId);
         })
         .then( registration =>{
-            res.render('pages/ownerVehicle/form', {
+            res.render('pages/registration/form', {
                 registration: registration,
                 announcements: AnnouncementRepository.getAnnouncements(),
                 allOwners: allOwners,
@@ -63,13 +63,13 @@ exports.showOwnerVehicleDetails = (req,res, next) =>
                 formMode: 'showDetails',
                 pageTitle: 'Dane rejestracji',
                 formAction: '',
-                navLocation: 'ownerVehicle',
+                navLocation: 'registration',
                 validationErrors:[]
             });
         });
 }
 
-exports.showEditOwnerVehicleForm = (req,res, next) =>
+exports.showEditRegistrationForm = (req, res, next) =>
 {
     const registrationId = req.params.registrationId;
     let allOwners, allVehicles;
@@ -83,7 +83,7 @@ exports.showEditOwnerVehicleForm = (req,res, next) =>
             return RegistrationRepository.getRegistrationById(registrationId);
         })
         .then(registration => {
-            res.render('pages/ownerVehicle/form', {
+            res.render('pages/registration/form', {
                 registration: registration,
                 announcements: AnnouncementRepository.getAnnouncements(),
                 allOwners: allOwners,
@@ -92,7 +92,7 @@ exports.showEditOwnerVehicleForm = (req,res, next) =>
                 pageTitle: 'Edytuj dane rejestracji',
                 btnLabel: 'Edytuj',
                 formAction: '/registrations/edit',
-                navLocation: 'ownerVehicle',
+                navLocation: 'registration',
                 validationErrors:[]
             });
         });
@@ -129,7 +129,7 @@ exports.updateRegistration = (req,res, next) =>
                     e.message = "Podany numer rejestracyjny jest już używany";
                 }
             });
-            res.render('pages/ownerVehicle/form', {
+            res.render('pages/registration/form', {
                 registration: req.body,
                 announcements: AnnouncementRepository.getAnnouncements(),
                 allOwners: allOwners,
@@ -138,7 +138,7 @@ exports.updateRegistration = (req,res, next) =>
                 pageTitle: 'Edytuj dane rejestracji',
                 btnLabel: 'Edytuj',
                 formAction: '/registrations/edit',
-                navLocation: 'ownerVehicle',
+                navLocation: 'registration',
                 validationErrors: errors
             });
         });
@@ -169,7 +169,7 @@ exports.addRegistration = (req,res, next) =>
                     e.message = "Podany numer rejestracyjny jest już używany";
                 }
             });
-            res.render('pages/ownerVehicle/form', {
+            res.render('pages/registration/form', {
                 registration: req.body,
                 allOwners: allOwners,
                 allVehicles: allVehicles,
@@ -178,7 +178,7 @@ exports.addRegistration = (req,res, next) =>
                 formMode: 'createNew',
                 btnLabel: 'Dodaj',
                 formAction: '/registrations/add',
-                navLocation: 'ownerVehicle',
+                navLocation: 'registration',
                 validationErrors: errors
             });
         });

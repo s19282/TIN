@@ -7,11 +7,11 @@ require('dotenv').config();
 
 const indexRouter = require('./routes/index');
 const ownerRouter = require('./routes/ownerRoute');
-const ownerVehicleRouter = require('./routes/ownerVehicleRoute');
+const registrationRouter = require('./routes/registrationRoute');
 const vehicleRouter = require('./routes/vehicleRoute');
 const sequelizeInit = require('./config/sequelize/init');
 const ownerApiRouter = require('./routes/api/OwnerApiRoute');
-const ownerVehicleApiRouter = require('./routes/api/OwnerVehicleApiRoute');
+const registrationApiRouter = require('./routes/api/RegistrationApiRoute');
 const vehicleApiRouter = require('./routes/api/VehicleApiRoute');
 
 const app = express();
@@ -26,12 +26,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/owners', ownerApiRouter);
-app.use('/api/registrations', ownerVehicleApiRouter);
+app.use('/api/registrations', registrationApiRouter);
 app.use('/api/vehicles', vehicleApiRouter);
 
 app.use('/', indexRouter);
 app.use('/owners', ownerRouter);
-app.use('/registrations', ownerVehicleRouter);
+app.use('/registrations', registrationRouter);
 app.use('/vehicles', vehicleRouter);
 
 // catch 404 and forward to error handler

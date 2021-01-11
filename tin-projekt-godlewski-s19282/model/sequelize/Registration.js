@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../../config/sequelize/sequelize');
 
-const OwnerVehicle = sequelize.define('OwnerVehicle', {
+const Registration = sequelize.define('Registration', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -96,4 +96,4 @@ const OwnerVehicle = sequelize.define('OwnerVehicle', {
 
 });
 
-module.exports = OwnerVehicle;
+module.exports = Registration;

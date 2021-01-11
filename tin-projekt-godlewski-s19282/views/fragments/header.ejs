@@ -10,9 +10,9 @@
             <script src="/_js/validationCommon.js"></script>
             <script src="/_js/validationOwnerForm.js"></script>
         <% } %>
-        <% if(navLocation === 'ownerVehicle' && (formMode === 'edit' || formMode === 'createNem')) { %>
+        <% if(navLocation === 'registration' && (formMode === 'edit' || formMode === 'createNem')) { %>
                 <script src="/_js/validationCommon.js"></script>
-                <script src="/_js/validationOwnersCarsForm.js"></script>
+                <script src="/_js/validationRegistrationForm.js"></script>
         <% } %>
         <% if(navLocation === 'vehicle' && (formMode === 'edit' || formMode === 'createNem')) { %>
                 <script src="/_js/validationCommon.js"></script>
@@ -30,7 +30,7 @@
                 <ul class="list-actions">
                     <li><a href="/" class="<%= navLocation === 'main' ? 'active' : ''%>">Strona główna</a></li>
                     <li><a href="/owners" class="<%= navLocation === 'owner' ? 'active' : ''%>">Właściciele</a></li>
-                    <li><a href="/registrations" class="<%= navLocation === 'ownerVehicle' ? 'active' : ''%>">Pojazdy właścicieli</a></li>
+                    <li><a href="/registrations" class="<%= navLocation === 'registration' ? 'active' : ''%>">Pojazdy właścicieli</a></li>
                     <li><a href="/vehicles" class="<%= navLocation === 'vehicle' ? 'active' : ''%>">Zarejestrowane Pojazdy</a></li>
                 </ul>
             </nav>

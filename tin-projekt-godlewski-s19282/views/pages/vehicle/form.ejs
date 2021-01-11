@@ -85,7 +85,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <% for (let r of vehicle.ownerVehicles) { if (r.dateTo!=null) continue; %>
+                        <% for (let r of vehicle.registrations) { if (r.dateTo!=null) continue; %>
                             <tr>
                                 <td><a href="/owners/details/<%= r.owner.id %>"><%= r.owner.firstName %></a></td>
                                 <td><%= r.owner.lastName %></td>
@@ -113,7 +113,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <% for (let r of vehicle.ownerVehicles) { if (r.dateTo==null) continue;%>
+                        <% for (let r of vehicle.registrations) { if (r.dateTo==null) continue;%>
                         <tr>
                             <td><a href="/owners/details/<%= r.owner.id %>"><%= r.owner.firstName %></a></td>
                             <td><%= r.owner.lastName %></td>

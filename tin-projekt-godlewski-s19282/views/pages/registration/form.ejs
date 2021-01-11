@@ -2,7 +2,7 @@
             <main>
                 <h2><%= pageTitle%></h2>
 
-                <form class="form" methood="post"  action="<%= formAction %>" novalidate onsubmit="return validateForm();">
+                <form class="form" method="post"  action="<%= formAction %>" novalidate onsubmit="return validateForm();">
                     <input type="hidden" name="id" value="<%= registration.id %>">
                     <label for="owner">Właściciel:<sup>*</sup></label>
                     <select name="owner_id" id="owner" required <%= (formMode === 'showDetails') ? 'disabled' : '' %>
