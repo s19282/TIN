@@ -7,6 +7,11 @@ exports.getOwners = () =>
     return Owner.findAll();
 }
 
+exports.findByEmail = (email) =>{
+    return Owner.findOne({where: {email:email}
+    });
+}
+
 exports.getOwnerById = (ownerId) => {
     return Owner.findByPk(ownerId,
         {

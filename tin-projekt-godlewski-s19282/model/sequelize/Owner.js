@@ -66,6 +66,10 @@ const Owner = sequelize.define('Owner', {
                 msg: "Pole musi być liczbą"
             }
         }
+    },
+    password: {
+        type: Sequelize.STRING,
+        allowNull: false
     }
 });
 

@@ -1,5 +1,6 @@
 const sequelize = require('./sequelize');
 const faker = require('faker/locale/pl');
+const authUtil = require('../../util/authUtils');
 
 const Owner = require('../../model/sequelize/Owner');
 const Vehicle = require('../../model/sequelize/Vehicle_');
@@ -26,61 +27,71 @@ module.exports = () => {
                     "firstName": "Lew",
                     "lastName": "Plowright",
                     "email": "lplowright0@youku.com",
-                    "phoneNumber": "6895595807"
+                    "phoneNumber": "6895595807",
+                    "password": authUtil.hashPassword("admin")
                 }, {
                     "id": 2,
                     "firstName": "Shandeigh",
                     "lastName": "Robbins",
                     "email": "srobbins1@zimbio.com",
-                    "phoneNumber": "9379136704"
+                    "phoneNumber": "9379136704",
+                    "password": authUtil.hashPassword("password")
                 }, {
                     "id": 3,
                     "firstName": "Elena",
                     "lastName": "Mycroft",
                     "email": "emycroft2@mayoclinic.com",
-                    "phoneNumber": "5544290679"
+                    "phoneNumber": "5544290679",
+                    "password": authUtil.hashPassword("zaq1@WSX")
                 }, {
                     "id": 4,
                     "firstName": "Eb",
                     "lastName": "Sutch",
                     "email": "esutch3@webmd.com",
-                    "phoneNumber": "3183413073"
+                    "phoneNumber": "3183413073",
+                    "password": authUtil.hashPassword("abc123")
                 }, {
                     "id": 5,
                     "firstName": "Niki",
                     "lastName": "Blackly",
                     "email": "nblackly4@cnbc.com",
-                    "phoneNumber": "8967016503"
+                    "phoneNumber": "8967016503",
+                    "password": authUtil.hashPassword("qwertyuiop")
                 }, {
                     "id": 6,
                     "firstName": "Fayre",
                     "lastName": "Rubinsztein",
                     "email": "frubinsztein5@blogradio.com",
-                    "phoneNumber": "3475963290"
+                    "phoneNumber": "3475963290",
+                    "password": authUtil.hashPassword("qwerty123")
                 }, {
                     "id": 7,
                     "firstName": "Dulciana",
                     "lastName": "Nicholls",
                     "email": "dnicholls6@chron.com",
-                    "phoneNumber": "5744670307"
+                    "phoneNumber": "5744670307",
+                    "password": authUtil.hashPassword("12345678")
                 }, {
                     "id": 8,
                     "firstName": "Townie",
                     "lastName": "Meaddowcroft",
                     "email": "tmeaddowcroft7@wikipedia.org",
-                    "phoneNumber": "5755396415"
+                    "phoneNumber": "5755396415",
+                    "password": authUtil.hashPassword("admin")
                 }, {
                     "id": 9,
                     "firstName": "Meggie",
                     "lastName": "Spere",
                     "email": "mspere8@joomla.org",
-                    "phoneNumber": "4935524923"
+                    "phoneNumber": "4935524923",
+                    "password": authUtil.hashPassword("password1")
                 }, {
                     "id": 10,
                     "firstName": "Ursulina",
                     "lastName": "Jancic",
                     "email": "ujancic9@csmonitor.com",
-                    "phoneNumber": "7017032516"
+                    "phoneNumber": "7017032516",
+                    "password": authUtil.hashPassword("123qwe")
                 }])
             } else {
                 return owners;

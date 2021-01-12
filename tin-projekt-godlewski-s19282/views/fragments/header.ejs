@@ -29,8 +29,12 @@
             <nav>
                 <ul class="list-actions">
                     <li><a href="/" class="<%= navLocation === 'main' ? 'active' : ''%>">Strona główna</a></li>
-                    <li><a href="/owners" class="<%= navLocation === 'owner' ? 'active' : ''%>">Właściciele</a></li>
-                    <li><a href="/registrations" class="<%= navLocation === 'registration' ? 'active' : ''%>">Pojazdy właścicieli</a></li>
+                    <% if(loggedUser) {%>
+                        <li><a href="/owners" class="<%= navLocation === 'owner' ? 'active' : ''%>">Właściciele</a></li>
+                    <%}%>
+                    <% if(loggedUser) {%>
+                        <li><a href="/registrations" class="<%= navLocation === 'registration' ? 'active' : ''%>">Pojazdy właścicieli</a></li>
+                    <%}%>
                     <li><a href="/vehicles" class="<%= navLocation === 'vehicle' ? 'active' : ''%>">Zarejestrowane Pojazdy</a></li>
                 </ul>
             </nav>
