@@ -69,7 +69,13 @@ const Owner = sequelize.define('Owner', {
     },
     password: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        validate:{
+            len: {
+                args: [5,40],
+                msg: "Pole powinno zawierać od 7 do 12 znaków"
+            },
+        }
     }
 });
 

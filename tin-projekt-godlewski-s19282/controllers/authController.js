@@ -7,7 +7,7 @@ exports.login = (req, res, next) => {
 
     OwnerRepository.findByEmail(email)
         .then(owner =>{
-            if(!onwer){
+            if(!owner){
                 res.render('index', {
                     navLocation: '',
                     loginError: "Nieprawidłowy adres email lub hasło"

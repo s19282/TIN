@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const authUtil = require('/util/authUtils');
+const authUtil = require('./util/authUtils');
 require('dotenv').config();
 
 const indexRouter = require('./routes/index');
@@ -28,8 +28,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: process.env.sessionPassword,
-    resave: false
+    resave: false,
+    saveUninitialized: true
 }))
+// TODO: saveUninitialized check once more
 app.use((req, res, next) => {
     res.locals.loggedUser = req.session.loggedUser;
     if(!res.locals.loginError){
