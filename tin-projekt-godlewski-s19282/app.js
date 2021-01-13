@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const authUtil = require('./util/authUtils');
+const i18n = require('i18n');
 require('dotenv').config();
 
 const indexRouter = require('./routes/index');
@@ -25,6 +26,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+i18n.configure({
+    locales: ['pl','en'],
+    directory: path.join(__dirname,'locales'),
+    objectNotation: true,
+    cookie: 'tin_car_registration'
+})
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: process.env.sessionPassword,

@@ -5,7 +5,7 @@
                 <form class="form" method="post" action="<%= formAction %>" novalidate onsubmit="return validateForm()">
                     <input type="hidden" name="id" value="<%= owner.id %>">
 
-                    <label for="firstName">Imię:<sup>*</sup></label>
+                    <label for="firstName"><%= __('owner.fields.firstName') %>:<sup>*</sup></label>
                     <input type="text" name="firstName" id="firstName" placeholder="2-60 znaków"
                            value="<%= owner.firstName %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
                            class="<%= validationErrors.find(e => e.path.includes('firstName')) ? 'error-input' : '' %>" >
@@ -15,7 +15,7 @@
                         <% } %>
                     </span>
 
-                    <label for="lastName">Nazwisko:<sup>*</sup></label>
+                    <label for="lastName"><%= __('owner.fields.lastName') %>:<sup>*</sup></label>
                     <input type="text" name="lastName" id="lastName" placeholder="2-60 znaków"
                            value="<%= owner.lastName %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
                            class="<%= validationErrors.find(e => e.path.includes('lastName')) ? 'error-input' : '' %>" >
@@ -25,7 +25,7 @@
                         <% } %>
                     </span>
 
-                    <label for="email">Email:</label>
+                    <label for="email"><%= __('owner.fields.email') %>:</label>
                     <input type="text" name="email" id="email" placeholder="5-60 znaków"
                            value="<%= owner.email %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
                            class="<%= validationErrors.find(e => e.path.includes('email')) ? 'error-input' : '' %>" >
@@ -35,7 +35,7 @@
                         <% } %>
                     </span>
 
-                    <label for="phoneNumber">Numer telefonu:<sup>*</sup></label>
+                    <label for="phoneNumber"><%= __('owner.fields.phoneNumber') %>:<sup>*</sup></label>
                     <input type="text" name="phoneNumber" id="phoneNumber" placeholder="7-12 znaków"
                            value="<%= owner.phoneNumber %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
                            class="<%= validationErrors.find(e => e.path.includes('phoneNumber')) ? 'error-input' : '' %>" >
@@ -46,7 +46,7 @@
                     </span>
 
                     <% if(formMode!== 'showDetails' && formMode!== '') { %>
-                        <label for="password">Hasło<sup>*</sup></label>
+                        <label for="password"><%= __('owner.fields.password') %>:<sup>*</sup></label>
 <!--                        TODO: change input type to password-->
 <!--                        TODO: add one more password input to check is the same-->
                         <input type="password" name="password" id="password" placeholder="5-40 znaków"
@@ -60,7 +60,7 @@
 
                     <% if(formMode === 'showDetails') { %>
                         <div class="section-buttons">
-                            <a href="/owners/edit/<%= owner.id %>" class="list-actions-button-edit">Edytuj</a>
+                            <a href="/owners/edit/<%= owner.id %>" class="list-actions-button-edit"><%= __('form.actions.edit') %></a>
                         </div>
                     <% } %>
                     <div class="form-buttons">
@@ -74,16 +74,16 @@
                 </form>
                 <% if (formMode === 'showDetails'|| formMode === 'edit' ) { %>
                     <h2>
-                        Szczegóły rejestracji
+                        <%= __('owner.association.h2') %>
                     </h2>
                     <table class="table-list">
                         <thead>
                         <tr>
-                            <th>Vin</th>
-                            <th>Data aktualnej rejestracji od</th>
-                            <th>Data aktualnej rejestracji do</th>
-                            <th>Numer rejestracyjny</th>
-                            <th>Numer ubezpieczenia</th>
+                            <th><%= __('owner.association.fields.vin') %></th>
+                            <th><%= __('owner.association.fields.dataFrom') %></th>
+                            <th><%= __('owner.association.fields.dataTo') %></th>
+                            <th><%= __('owner.association.fields.registrationNumber') %></th>
+                            <th><%= __('owner.association.fields.insuranceNumber') %></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -100,9 +100,9 @@
                     </table>
                 <% } %>
                 <% if (formMode !== 'showDetails') { %>
-                <a class="form-button-cancel" href="/owners">Anuluj</a>
+                <a class="form-button-cancel" href="/owners"><%= __('form.action.cancel') %></a>
                 <% } else { %>
-                    <a class="form-button-cancel" href="/owners">Powrót</a>
+                    <a class="form-button-cancel" href="/owners"><%= __('form.action.return') %></a>
                 <% } %>
             </main>
 <%- include('../../fragments/footer.ejs') %>

@@ -1,14 +1,14 @@
 <%- include('../../fragments/header.ejs') %>
             <main>
-                <h2>Lista właścicieli</h2>
+                <h2><%= __('owner.list.pageTitle') %></h2>
                 <table class="table-list">
                     <thead>
                     <tr>
-                        <th>Imię</th>
-                        <th>Nazwisko</th>
-                        <th>Adres email</th>
-                        <th>Numer telefonu</th>
-                        <th>Akcje</th>
+                        <th><%= __('owner.fields.firstName') %></th>
+                        <th><%= __('owner.fields.lastName') %></th>
+                        <th><%= __('owner.fields.email') %></th>
+                        <th><%= __('owner.fields.phoneNumber') %></th>
+                        <th><%= __('list.actions.title') %></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -21,13 +21,13 @@
                             <td>
                                 <ul class="list-actions">
                                     <li>
-                                        <a href="/owners/details/<%=owner.id%>" class="list-actions-button-details">Szczegóły</a>
+                                        <a href="/owners/details/<%=owner.id%>" class="list-actions-button-details"><%= __('list.actions.details') %></a>
                                     </li>
                                     <li>
-                                        <a href="/owners/edit/<%=owner.id%>" class="list-actions-button-edit">Edytuj</a>
+                                        <a href="/owners/edit/<%=owner.id%>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a>
                                     </li>
                                     <li>
-                                        <a href="/owners/delete/<%=owner.id%>" class="list-actions-button-delete ">Usuń</a>
+                                        <a href="/owners/delete/<%=owner.id%>" class="list-actions-button-delete "><%= __('list.actions.delete') %></a>
                                     </li>
                                 </ul>
                             </td>
@@ -35,6 +35,6 @@
                     <% } %>
                     </tbody>
                 </table>
-                <p><a href="/owners/add" class="button-add">Dodaj nowego właściciela</a> </p>
+                <p><a href="/owners/add" class="button-add"><%= __('owner.list.addNew') %></a> </p>
             </main>
 <%- include('../../fragments/footer.ejs') %>

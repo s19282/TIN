@@ -2,7 +2,7 @@
 <html lang="pl-PL">
     <head>
         <meta charset="UTF-8">
-        <title>Wydział komunikacji</title>
+        <title><%= __('main-page.title') %></title>
         <link rel="icon" type="image/png" href="/_images/icon.png"/>
         <link rel="stylesheet" href="/_css/style.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -24,19 +24,19 @@
     </head>
     <body>
         <header>
-            <h1>Wydział komunikacji</h1>
+            <h1><%= __('main-page.title') %></h1>
             <img src="/_images/icon.png" alt="WK logo">
         </header>
         <div class="centerBox">
             <nav>
                 <ul class="list-actions">
-                    <li><a href="/" class="<%= navLocation === 'main' ? 'active' : ''%>">Strona główna</a></li>
+                    <li><a href="/" class="<%= navLocation === 'main' ? 'active' : ''%>"><%= __('nav.main-page') %></a></li>
                     <% if(loggedUser) {%>
-                        <li><a href="/owners" class="<%= navLocation === 'owner' ? 'active' : ''%>">Właściciele</a></li>
+                        <li><a href="/owners" class="<%= navLocation === 'owner' ? 'active' : ''%>"><%= __('nav.owners') %></a></li>
                     <%}%>
                     <% if(loggedUser) {%>
-                        <li><a href="/registrations" class="<%= navLocation === 'registration' ? 'active' : ''%>">Pojazdy właścicieli</a></li>
+                        <li><a href="/registrations" class="<%= navLocation === 'registration' ? 'active' : ''%>"><%= __('nav.registrations') %></a></li>
                     <%}%>
-                    <li><a href="/vehicles" class="<%= navLocation === 'vehicle' ? 'active' : ''%>">Zarejestrowane Pojazdy</a></li>
+                    <li><a href="/vehicles" class="<%= navLocation === 'vehicle' ? 'active' : ''%>"><%= __('nav.vehicles') %></a></li>
                 </ul>
             </nav>
