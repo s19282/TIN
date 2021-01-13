@@ -1,14 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
-
 .errors-text
 {
     font-size: 0.85em;
     line-height: 2.25rem;
 }
 
-span
+a:link
 {
-    /*display: none;*/
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+a:visited
+{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+a:hover
+{
+    text-decoration: none;
+    color: #484848;
+    font-weight: bold;
+}
+
+a:active
+{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+#logout
+{
+    color: #ff0000;
+    display: flex;
+}
+#logout:hover
+{
+    color: #4a0000;
+}
+
+#login, #login form
+{
+    display: grid;
+    grid-template-columns: 100%;
 }
 
 html
@@ -75,7 +111,7 @@ nav
 {
     background: #c0392b;
 }
-.rightPanel h4
+.rightPanel h4, #login
 {
     background: #cf4435;
     border-radius: 5px;
@@ -86,6 +122,10 @@ nav
 {
     color: #cf4435;
     background: black;
+}
+h3
+{
+    margin:2px;
 }
 nav
 {
@@ -271,6 +311,15 @@ textarea
 {
     overflow: auto;
 }
+#login input
+{
+    border: 1px solid #660303;
+    color:black;
+    border-radius: 5px;
+    padding: 0.5rem;
+    height: 35px;
+    max-width: 250px;
+}
 .form
 {
     display: grid;
@@ -282,7 +331,8 @@ textarea
 .form input[type="text"],
 .form input[type="number"],
 .form input[type="date"],
-.form input[type="email"]
+.form input[type="email"],
+.form input[type="password"]
 {
     border: 1px solid #1b8346;
     color:black;
@@ -322,6 +372,10 @@ abbr[title='required'],
 
 @media all and (max-width: 720px)
 {
+    #login form
+    {
+        grid-template-columns: auto auto;
+    }
     header
     {
         flex-direction: column;
@@ -415,12 +469,17 @@ abbr[title='required'],
     nav ul,
     header,
     main,
-    footer
+    footer,
+    .rightPanel
     {
         margin: 0;
     }
     nav ul li
     {
         flex-basis: 100%;
+    }
+    #login form
+    {
+        grid-template-columns: auto;
     }
 }

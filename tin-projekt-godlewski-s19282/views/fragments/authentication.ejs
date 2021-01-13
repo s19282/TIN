@@ -8,12 +8,12 @@
             <label for="loginPassword">Hasło:</label>
             <input type="password", id="loginPassword" name="password">
 
-            <input type="submit" value="Zaloguj się">
+            <input type="submit" value="Zaloguj się" class="list-actions-button-delete">
             <span id="loginErrors"><%= loginError ? loginError : ''%></span>
         </form>
     </div>
 <% } else { %>
     <span>Jesteś zalogowany jako: <b><%=loggedUser.firstName + " " + loggedUser.lastName %></b></span>
-    <h4><a href="/logout" >Wyloguj się</a></h4>
-<!--    TODO: change css-->
+    <a id="logout" href="/logout" >Wyloguj się</a>
+
 <% } %>
