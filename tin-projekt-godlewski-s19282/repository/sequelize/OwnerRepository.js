@@ -31,7 +31,8 @@ exports.createOwner = (newOwnerData) => {
         firstName: newOwnerData.firstName,
         lastName: newOwnerData.lastName,
         email: newOwnerData.email,
-        phoneNumber: newOwnerData.phoneNumber
+        phoneNumber: newOwnerData.phoneNumber,
+        password: newOwnerData.password
     });
 };
 

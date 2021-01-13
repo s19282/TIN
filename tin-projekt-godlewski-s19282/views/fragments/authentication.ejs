@@ -13,7 +13,7 @@
         </form>
     </div>
 <% } else { %>
-    <span>Jesteś zalogowany jako: <%=loggedUser.firstName + " " + loggedUser.lastName %></span>
+    <span>Jesteś zalogowany jako: <b><%=loggedUser.firstName + " " + loggedUser.lastName %></b></span>
     <h4><a href="/logout" >Wyloguj się</a></h4>
 <!--    TODO: change css-->
 <% } %>

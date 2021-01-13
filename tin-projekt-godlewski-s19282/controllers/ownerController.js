@@ -1,5 +1,7 @@
 const OwnerRepository = require('../repository/sequelize/OwnerRepository');
 const AnnouncementRepository = require('../repository/sequelize/AnnouncementRepository');
+const authUtil = require('../util/authUtils');
+
 //TODO: przerobić na sposób Gustawa
 exports.showOwnerList = (req,res,next) => {
     OwnerRepository.getOwners()
@@ -68,6 +70,8 @@ exports.deleteOwner = (req,res, next) =>
 exports.updateOwner = (req,res, next) =>
 {
     let errors;
+    req.body.password = authUtil.hashPassword(req.body.password);
+
     OwnerRepository.updateOwner(req.body.id,req.body)
         .then( () => res.redirect('/owners'))
         .catch(err => {
@@ -95,6 +99,8 @@ exports.updateOwner = (req,res, next) =>
 }
 exports.addOwner = (req,res, next) =>
 {
+    req.body.password = authUtil.hashPassword(req.body.password);
+
     OwnerRepository.createOwner(req.body)
         .then( () => res.redirect('/owners'))
         .catch(err => {

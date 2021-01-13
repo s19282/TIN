@@ -49,7 +49,7 @@
                         <label for="password">Hasło<sup>*</sup></label>
 <!--                        TODO: change input type to password-->
 <!--                        TODO: add one more password input to check is the same-->
-                        <input type="text" name="password" id="password" placeholder="5-40 znaków"
+                        <input type="password" name="password" id="password" placeholder="5-40 znaków"
                                class="<%= validationErrors.find(e => e.path.includes('password')) ? 'error-input' : '' %>" >
                         <span id="errorPassword" class="errors-text">
                             <% if (validationErrors.find(e => e.path.includes('password'))) { %>

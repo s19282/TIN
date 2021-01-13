@@ -71,10 +71,10 @@ const Owner = sequelize.define('Owner', {
         type: Sequelize.STRING,
         allowNull: false,
         validate:{
-            len: {
-                args: [5,40],
-                msg: "Pole powinno zawierać od 7 do 12 znaków"
-            },
+            isLongerThan(pass){
+                if(pass.length<7)
+                    throw new Error("Pole powinno zawierać przynajmniej 7 znaków");
+            }
         }
     }
 });

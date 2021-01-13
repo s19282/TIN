@@ -26,7 +26,7 @@ module.exports = () => {
                     "id": 1,
                     "firstName": "Lew",
                     "lastName": "Plowright",
-                    "email": "lplowright0@youku.com",
+                    "email": "aa@bb.cc",
                     "phoneNumber": "6895595807",
                     "password": authUtil.hashPassword("admin")
                 }, {
