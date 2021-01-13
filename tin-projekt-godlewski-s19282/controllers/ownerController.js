@@ -99,8 +99,6 @@ exports.updateOwner = (req,res, next) =>
 }
 exports.addOwner = (req,res, next) =>
 {
-    req.body.password = authUtil.hashPassword(req.body.password);
-
     OwnerRepository.createOwner(req.body)
         .then( () => res.redirect('/owners'))
         .catch(err => {

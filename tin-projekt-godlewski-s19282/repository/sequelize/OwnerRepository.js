@@ -1,6 +1,7 @@
 const Owner = require("../../model/sequelize/Owner");
 const Registration = require("../../model/sequelize/Registration");
 const Vehicle = require("../../model/sequelize/Vehicle_");
+const authUtil = require("../../util/authUtils");
 
 exports.getOwners = () =>
 {
@@ -27,6 +28,10 @@ exports.getOwnerById = (ownerId) => {
 };
 
 exports.createOwner = (newOwnerData) => {
+    if(newOwnerData.password.normalize()!==newOwnerData.repeatPassword.normalize())
+        throw new Error('Hasła nie pasują do siebie');
+    newOwnerData.password = authUtil.hashPassword(req.password);
+
     return Owner.create({
         firstName: newOwnerData.firstName,
         lastName: newOwnerData.lastName,

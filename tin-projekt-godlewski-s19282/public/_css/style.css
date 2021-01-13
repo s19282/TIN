@@ -3,38 +3,35 @@
     font-size: 0.85em;
     line-height: 2.25rem;
 }
-
 a:link
 {
     text-decoration: none;
     color: black;
-    font-weight: bold;
 }
 
 a:visited
 {
     text-decoration: none;
     color: black;
-    font-weight: bold;
 }
 
 a:hover
 {
     text-decoration: none;
     color: #484848;
-    font-weight: bold;
 }
 
 a:active
 {
     text-decoration: none;
     color: black;
-    font-weight: bold;
 }
 #logout
 {
     color: #ff0000;
     display: flex;
+    font-weight: bold;
+
 }
 #logout:hover
 {
