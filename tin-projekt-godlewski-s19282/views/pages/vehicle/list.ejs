@@ -1,15 +1,15 @@
 <%- include('../../fragments/header.ejs') %>
             <main>
-                <h2>Lista pojazdów</h2>
+                <h2><%= __('vehicle.list.pageTitle') %></h2>
                 <table class="table-list">
                     <thead>
                         <tr>
-                            <th>VIN</th>
-                            <th>Marka</th>
-                            <th>Model</th>
-                            <th>Data pierwszej rejestracji</th>
-                            <th>Pojemność silnika</th>
-                            <th>Akcje</th>
+                            <th><%= __('vehicle.fields.vin') %></th>
+                            <th><%= __('vehicle.fields.make') %></th>
+                            <th><%= __('vehicle.fields.model') %></th>
+                            <th><%= __('vehicle.fields.firstRegistrationDate') %></th>
+                            <th><%= __('vehicle.fields.engineCapacity') %></th>
+                            <th><%= __('list.actions.title') %></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -23,13 +23,13 @@
                             <td>
                                 <ul class="list-actions">
                                     <li>
-                                        <a href="/vehicles/details/<%=vehicle.id%>" class="list-actions-button-details">Szczegóły</a>
+                                        <a href="/vehicles/details/<%=vehicle.id%>" class="list-actions-button-details"><%= __('list.actions.details') %></a>
                                     </li>
                                     <li>
-                                        <a href="/vehicles/edit/<%=vehicle.id%>" class="list-actions-button-edit">Edytuj</a>
+                                        <a href="/vehicles/edit/<%=vehicle.id%>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a>
                                     </li>
                                     <li>
-                                        <a href="/vehicles/delete/<%=vehicle.id%>" class="list-actions-button-delete ">Usuń</a>
+                                        <a href="/vehicles/delete/<%=vehicle.id%>" class="list-actions-button-delete "><%= __('list.actions.delete') %></a>
                                     </li>
                                 </ul>
                             </td>
@@ -37,6 +37,6 @@
                         <% } %>
                     </tbody>
                 </table>
-                <p><a href="/vehicles/add" class="button-add">Dodaj nowy pojazd</a> </p>
+                <p><a href="/vehicles/add" class="button-add"><%= __('vehicle.list.addNew') %></a> </p>
             </main>
 <%- include('../../fragments/footer.ejs') %>

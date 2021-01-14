@@ -4,12 +4,12 @@
                 <table class="table-list">
                     <thead>
                     <tr>
-                        <th>Imię</th>
-                        <th>Nazwisko</th>
-                        <th>Marka</th>
-                        <th>Model</th>
-                        <th>Numer rejestracyjny</th>
-                        <th>Akcje</th>
+                        <th><%= __('registration.fields.firstName') %></th>
+                        <th><%= __('registration.fields.lastName') %></th>
+                        <th><%= __('registration.fields.make') %></th>
+                        <th><%= __('registration.fields.model') %></th>
+                        <th><%= __('registration.fields.registrationNumber') %></th>
+                        <th><%= __('list.actions.title') %></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -24,13 +24,13 @@
                             <td>
                                 <ul class="list-actions">
                                     <li>
-                                        <a href="/registrations/details/<%=registration.id%>" class="list-actions-button-details">Szczegóły</a>
+                                        <a href="/registrations/details/<%=registration.id%>" class="list-actions-button-details"><%= __('list.actions.details') %></a>
                                     </li>
                                     <li>
-                                        <a href="/registrations/edit/<%=registration.id%>" class="list-actions-button-edit">Edytuj</a>
+                                        <a href="/registrations/edit/<%=registration.id%>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a>
                                     </li>
                                     <li>
-                                        <a href="/registrations/delete/<%=registration.id%>" class="list-actions-button-delete ">Usuń</a>
+                                        <a href="/registrations/delete/<%=registration.id%>" class="list-actions-button-delete "><%= __('list.actions.delete') %></a>
                                     </li>
                                 </ul>
                             </td>

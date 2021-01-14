@@ -67,5 +67,102 @@
         "insuranceNumber": "Numer ubezpieczenia"
       }
     }
+  },
+  "registration": {
+    "fields": {
+      "firstName": "Imię",
+      "lastName": "Nazwisko",
+      "make": "Marka",
+      "model": "Model",
+      "registrationNumber": "Numer rejestracyjny",
+      "insuranceNumber": "Numer ubezpieczenia",
+      "owner": "Właściciel",
+      "chooseOwner": "Wybierz właściciela",
+      "vehicle": "Pojazd",
+      "chooseVehicle": "Wybierz pojazd",
+      "dateTo": "Data aktualnej rejestracji do"
+    },
+    "list": {
+      "title": "Lista właścicieli",
+      "addNew": "Dodaj nowego właściciela auta",
+      "noData": "Brak pracowników w bazie",
+      "pageTitle": "Lista właścicieli"
+    },
+    "form": {
+      "employment": "Historia zatrudnienia",
+      "add": {
+        "pageTitle": "Dodawanie pracownika",
+        "btnLabel": "Dodaj pracownika",
+        "confirm": {
+          "header": "Potwierdzenie operacji",
+          "text": "Pomyślnie dodano pracownika"
+        }
+      },
+      "edit": {
+        "pageTitle": "Edycja pracownika",
+        "btnLabel": "Zapisz zmiany",
+        "confirm": {
+          "header": "Potwierdzenie operacji",
+          "text": "Pomyślnie zaktualizowano pracownika"
+        }
+      }
+    },
+    "association":{
+      "h2": "Szczegóły rejestracji",
+      "fields": {
+        "vin": "VIN",
+        "dataFrom": "Data aktualnej rejestracji od",
+        "dataTo": "Data aktualnej rejestracji do",
+        "registrationNumber": "Numer rejestracyjny",
+        "insuranceNumber": "Numer ubezpieczenia"
+      }
+    }
+  },
+  "vehicle": {
+    "fields": {
+      "vin": "VIN",
+      "make": "Marka",
+      "model": "Model",
+      "firstRegistrationDate": "Data pierwszej rejestracji",
+      "engineCapacity": "Pojemność silnika"
+    },
+    "list": {
+      "title": "Lista właścicieli",
+      "addNew": "Dodaj nowy pojazd",
+      "noData": "Brak pracowników w bazie",
+      "pageTitle": "Lista pojazdów"
+    },
+    "form": {
+      "employment": "Historia zatrudnienia",
+      "add": {
+        "pageTitle": "Dodawanie pracownika",
+        "btnLabel": "Dodaj pracownika",
+        "confirm": {
+          "header": "Potwierdzenie operacji",
+          "text": "Pomyślnie dodano pracownika"
+        }
+      },
+      "edit": {
+        "pageTitle": "Edycja pracownika",
+        "btnLabel": "Zapisz zmiany",
+        "confirm": {
+          "header": "Potwierdzenie operacji",
+          "text": "Pomyślnie zaktualizowano pracownika"
+        }
+      }
+    },
+    "association":{
+      "h2_1": "Aktualni właściciele auta",
+      "h2_2": "Poprzedni właściciele auta",
+      "fields": {
+        "firstName": "Imię",
+        "lastName": "Nazwisko",
+        "email": "Email",
+        "dateFrom": "Data pierwszej rejestracji od",
+        "dateTo": "Data pierwszej rejestracji do",
+        "registrationNumber": "Numer rejestracyjny",
+        "insuranceNumber": "Numer ubezpieczenia"
+      }
+    }
   }
 }

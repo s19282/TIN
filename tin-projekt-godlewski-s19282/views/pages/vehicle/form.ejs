@@ -5,7 +5,7 @@
                 <form class="form" method="post" action="<%= formAction%>" novalidate onsubmit="return validateForm()">
                 <input type="hidden" name="id" value="<%= vehicle.id%>">
 
-                    <label for="vin">Numer VIN:<sup>*</sup></label>
+                    <label for="vin"><%= __('vehicle.fields.vin') %>:<sup>*</sup></label>
                     <input type="text" name="vin" id="vin" placeholder="5-30 znaków"
                            value="<%= vehicle.vin %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
                            class="<%= validationErrors.find(e => e.path.includes('vin')) ? 'error-input' : '' %>" >
@@ -15,7 +15,7 @@
                         <% } %>
                     </span>
 
-                    <label for="make">Marka:<sup>*</sup></label>
+                    <label for="make"><%= __('vehicle.fields.make') %>:<sup>*</sup></label>
                     <input type="text" name="make" id="make" placeholder="2-30 znaków"
                            value="<%= vehicle.make %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
                            class="<%= validationErrors.find(e => e.path.includes('make')) ? 'error-input' : '' %>" >
@@ -25,7 +25,7 @@
                         <% } %>
                     </span>
 
-                    <label for="model">Model:<sup>*</sup></label>
+                    <label for="model"><%= __('vehicle.fields.model') %>:<sup>*</sup></label>
                     <input type="text" name="model" id="model" placeholder="1-30 znaków"
                            value="<%= vehicle.model %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
                            class="<%= validationErrors.find(e => e.path.includes('model')) ? 'error-input' : '' %>" >
@@ -35,7 +35,7 @@
                         <% } %>
                     </span>
 
-                    <label for="firstRegistrationDate">Data pierwszej rejestracji:<sup>*</sup></label>
+                    <label for="firstRegistrationDate"><%= __('vehicle.fields.firstRegistrationDate') %>:<sup>*</sup></label>
                     <input type="date" name="firstRegistrationDate" id="firstRegistrationDate"
                            value="<%= vehicle.firstRegistrationDate %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
                            class="<%= validationErrors.find(e => e.path.includes('firstRegistrationDate')) ? 'error-input' : '' %>" >
@@ -45,7 +45,7 @@
                         <% } %>
                     </span>
 
-                    <label for="engineCapacity">Pojemność silnika:<sup>*</sup></label>
+                    <label for="engineCapacity"><%= __('vehicle.fields.engineCapacity') %>:<sup>*</sup></label>
                     <input type="text" name="engineCapacity" id="engineCapacity"
                            value="<%= vehicle.engineCapacity %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
                            class="<%= validationErrors.find(e => e.path.includes('engineCapacity')) ? 'error-input' : '' %>" >
@@ -57,7 +57,7 @@
 
                     <% if(formMode === 'showDetails') { %>
                         <div class="section-buttons">
-                            <a href="/vehicles/edit/<%= vehicle.id %>" class="list-actions-button-edit">Edytuj</a>
+                            <a href="/vehicles/edit/<%= vehicle.id %>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a>
                         </div>
                     <% } %>
                     <div class="form-buttons">
@@ -71,17 +71,17 @@
                 </form>
                 <% if (formMode === 'showDetails' || formMode === 'edit') { %>
                     <h2>
-                        Aktualni właściciele auta
+                        <%= __('vehicle.association.h2_1') %>
                     </h2>
                     <table class="table-list">
                         <thead>
                         <tr>
-                            <th>Imię</th>
-                            <th>Nazwisko</th>
-                            <th>Adres email</th>
-                            <th>Data rejestracji od</th>
-                            <th>Numer rejestracyjny</th>
-                            <th>Numer ubezpieczenia</th>
+                            <th><%= __('vehicle.association.fields.firstName') %></th>
+                            <th><%= __('vehicle.association.fields.lastName') %></th>
+                            <th><%= __('vehicle.association.fields.email') %></th>
+                            <th><%= __('vehicle.association.fields.dateFrom') %></th>
+                            <th><%= __('vehicle.association.fields.registrationNumber') %></th>
+                            <th><%= __('vehicle.association.fields.insuranceNumber') %></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -103,13 +103,13 @@
                     <table class="table-list">
                         <thead>
                         <tr>
-                            <th>Imię</th>
-                            <th>Nazwisko</th>
-                            <th>Adres email</th>
-                            <th>Data rejestracji od</th>
-                            <th>Data rejestracji do</th>
-                            <th>Numer rejestracyjny</th>
-                            <th>Numer ubezpieczenia</th>
+                            <th><%= __('vehicle.association.fields.firstName') %></th>
+                            <th><%= __('vehicle.association.fields.lastName') %></th>
+                            <th><%= __('vehicle.association.fields.email') %></th>
+                            <th><%= __('vehicle.association.fields.dateFrom') %></th>
+                            <th><%= __('vehicle.association.fields.dateTo') %></th>
+                            <th><%= __('vehicle.association.fields.registrationNumber') %></th>
+                            <th><%= __('vehicle.association.fields.insuranceNumber') %></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -128,9 +128,9 @@
                     </table>
                 <% } %>
                 <% if (formMode !== 'showDetails') { %>
-                <a class="form-button-cancel" href="/vehicles">Anuluj</a>
+                <a class="form-button-cancel" href="/vehicles"><%= __('form.actions.cancel') %></a>
                 <% } else { %>
-                    <a class="form-button-cancel" href="/vehicles">Powrót</a>
+                    <a class="form-button-cancel" href="/vehicles"><%= __('form.actions.return') %></a>
                 <% } %>
             </main>
 <%- include('../../fragments/footer.ejs') %>

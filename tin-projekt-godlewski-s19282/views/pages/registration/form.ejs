@@ -4,10 +4,11 @@
 
                 <form class="form" method="post"  action="<%= formAction %>" novalidate onsubmit="return validateForm();">
                     <input type="hidden" name="id" value="<%= registration.id %>">
-                    <label for="owner">Właściciel:<sup>*</sup></label>
+
+                    <label for="owner"><%= __('registration.fields.owner') %>:<sup>*</sup></label>
                     <select name="owner_id" id="owner" required <%= (formMode === 'showDetails') ? 'disabled' : '' %>
                             class="<%= validationErrors.find(e => e.path.includes('owner')) ? 'error-input' : '' %>" >
-                        <option value="" selected>--- Wybierz właściciela ---</option>
+                        <option value="" selected>--- <%= __('registration.fields.chooseOwner') %> ---</option>
                         <% for(let i=0; i<allOwners.length; i++) { let owner = allOwners[i]; %>
                                <option value="<%= owner.id %>"
                                        label="<%= owner.firstName + ' ' + owner.lastName %>"
@@ -20,10 +21,10 @@
                         <% } %>
                     </span>
 
-                    <label for="vehicle">Pojazd:<sup>*</sup></label>
+                    <label for="vehicle"><%= __('registration.fields.vehicle') %>:<sup>*</sup></label>
                     <select name="vehicle_id" id="vehicle" required <%= (formMode === 'showDetails') ? 'disabled' : '' %>
                             class="<%= validationErrors.find(e => e.path.includes('vehicle')) ? 'error-input' : '' %>" >
-                        <option value="" selected>--- Wybierz pojazd ---</option>
+                        <option value="" selected>--- <%= __('registration.fields.chooseVehicle') %> ---</option>
                         <% for(let i=0; i<allVehicles.length; i++) { let vehicle = allVehicles[i]; %>
                         <option value="<%= vehicle.id %>"
                                 label="<%= vehicle.make + ' ' + vehicle.model %>"
@@ -46,7 +47,7 @@
                         <% } %>
                     </span>
 
-                    <label for="dateTo">Data aktualnej rejestraci do:</label>
+                    <label for="dateTo"><%= __('registration.fields.dateTo') %>:</label>
                     <input type="date" name="dateTo" id="dateTo"
                            value="<%= registration.dateTo %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
                            class="<%= validationErrors.find(e => e.path.includes('dateTo')) ? 'error-input' : '' %>" >
@@ -56,7 +57,7 @@
                         <% } %>
                     </span>
 
-                    <label for="registrationNumber">Numer rejestracyjny:<sup>*</sup></label>
+                    <label for="registrationNumber"><%= __('registration.fields.registrationNumber') %>:<sup>*</sup></label>
                     <input type="text" name="registrationNumber" id="registrationNumber"
                            value="<%= registration.registrationNumber %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
                            class="<%= validationErrors.find(e => e.path.includes('registrationNumber')) ? 'error-input' : '' %>" >
@@ -66,7 +67,7 @@
                         <% } %>
                     </span>
 
-                    <label for="insuranceNumber">Numer ubezpieczenia:<sup>*</sup></label>
+                    <label for="insuranceNumber"><%= __('registration.fields.insuranceNumber') %>:<sup>*</sup></label>
                     <input type="text" name="insuranceNumber" id="insuranceNumber"
                            value="<%= registration.insuranceNumber %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>
                            class="<%= validationErrors.find(e => e.path.includes('insuranceNumber')) ? 'error-input' : '' %>" >
@@ -78,7 +79,7 @@
 
                     <% if(formMode === 'showDetails') { %>
                         <div class="section-buttons">
-                            <a href="/registrations/edit/<%= registration.id %>" class="list-actions-button-edit">Edytuj</a>
+                            <a href="/registrations/edit/<%= registration.id %>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a>
                         </div>
                     <% } %>
 
@@ -88,9 +89,9 @@
                             <% } %></p>
                         <% if (formMode !== 'showDetails') { %>
                         <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
-                        <a class="form-button-cancel" href="/registrations">Anuluj</a>
+                        <a class="form-button-cancel" href="/registrations"><%= __('list.actions.cancel') %></a>
                         <% } else { %>
-                            <a class="form-button-cancel" href="/registrations">Powrót</a>
+                            <a class="form-button-cancel" href="/registrations"><%= __('list.actions.return') %></a>
                         <% } %>
                     </div>
                 </form>
