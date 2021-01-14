@@ -24,7 +24,13 @@
       "cancel": "Anuluj"
     }
   },
+  "authController": {
+    "loginError": "Niepoprawny adres eamil lub hasło"
+  },
   "owner": {
+    "controller": {
+      "emailNotUnique": "Podany adres email jest już używany"
+    },
     "fields": {
       "firstName": "Imię",
       "lastName": "Nazwisko",
@@ -41,19 +47,22 @@
     "form": {
       "employment": "Historia zatrudnienia",
       "add": {
-        "pageTitle": "Dodawanie pracownika",
-        "btnLabel": "Dodaj pracownika",
+        "pageTitle": "Dodaj właściciela",
+        "btnLabel": "Dodaj",
         "confirm": {
           "header": "Potwierdzenie operacji",
           "text": "Pomyślnie dodano pracownika"
         }
       },
       "edit": {
-        "pageTitle": "Edycja pracownika",
-        "btnLabel": "Zapisz zmiany",
+        "pageTitle": "Edytuj dane właściciela",
+        "btnLabel": "Edytuj",
         "confirm": {
           "header": "Potwierdzenie operacji",
           "text": "Pomyślnie zaktualizowano pracownika"
+        },
+        "details": {
+          "pageTitle": "Dane właściciela"
         }
       }
     },
@@ -69,6 +78,10 @@
     }
   },
   "registration": {
+    "controller": {
+      "registrationNumberNotUnique": "Podany numer rejestracyjny jest już używany",
+      "insuranceNumberNotUnique": "Podany numer ubezpieczenia jest już używany"
+    },
     "fields": {
       "firstName": "Imię",
       "lastName": "Nazwisko",
@@ -91,20 +104,23 @@
     "form": {
       "employment": "Historia zatrudnienia",
       "add": {
-        "pageTitle": "Dodawanie pracownika",
-        "btnLabel": "Dodaj pracownika",
+        "pageTitle": "Dodaj rejestrację",
+        "btnLabel": "Dodaj",
         "confirm": {
           "header": "Potwierdzenie operacji",
           "text": "Pomyślnie dodano pracownika"
         }
       },
       "edit": {
-        "pageTitle": "Edycja pracownika",
-        "btnLabel": "Zapisz zmiany",
+        "pageTitle": "Edytuj dane rejestracji",
+        "btnLabel": "Edytuj",
         "confirm": {
           "header": "Potwierdzenie operacji",
           "text": "Pomyślnie zaktualizowano pracownika"
         }
+      },
+      "details": {
+        "pageTitle": "Dane rejestracji"
       }
     },
     "association":{
@@ -119,6 +135,9 @@
     }
   },
   "vehicle": {
+    "controller": {
+      "VINNotUnique": "Podany VIN jest już używany"
+    },
     "fields": {
       "vin": "VIN",
       "make": "Marka",
@@ -135,20 +154,23 @@
     "form": {
       "employment": "Historia zatrudnienia",
       "add": {
-        "pageTitle": "Dodawanie pracownika",
-        "btnLabel": "Dodaj pracownika",
+        "pageTitle": "Dodaj pojazd",
+        "btnLabel": "Dodaj",
         "confirm": {
           "header": "Potwierdzenie operacji",
           "text": "Pomyślnie dodano pracownika"
         }
       },
       "edit": {
-        "pageTitle": "Edycja pracownika",
-        "btnLabel": "Zapisz zmiany",
+        "pageTitle": "Edytuj dane pojazdu",
+        "btnLabel": "Edytuj",
         "confirm": {
           "header": "Potwierdzenie operacji",
           "text": "Pomyślnie zaktualizowano pracownika"
         }
+      },
+      "details": {
+        "pageTitle": "Dane pojazdu"
       }
     },
     "association":{

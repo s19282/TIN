@@ -31,9 +31,9 @@ exports.showAddRegistrationForm = (req, res, next) =>
                 allOwners: allOwners,
                 announcements: AnnouncementRepository.getAnnouncements(),
                 allVehicles: allVehicles,
-                pageTitle: 'Dodaj rejestrację',
+                pageTitle: req.__('registration.form.add.pageTitle'),
                 formMode: 'createNew',
-                btnLabel: 'Dodaj',
+                btnLabel: req.__('registration.form.add.btnLabel'),
                 formAction: '/registrations/add',
                 navLocation: 'registration',
                 validationErrors:[]
@@ -61,7 +61,7 @@ exports.showRegistrationDetails = (req, res, next) =>
                 allOwners: allOwners,
                 allVehicles: allVehicles,
                 formMode: 'showDetails',
-                pageTitle: 'Dane rejestracji',
+                pageTitle: req.__('registration.form.details.pageTitle'),
                 formAction: '',
                 navLocation: 'registration',
                 validationErrors:[]
@@ -89,8 +89,8 @@ exports.showEditRegistrationForm = (req, res, next) =>
                 allOwners: allOwners,
                 allVehicles: allVehicles,
                 formMode: 'edit',
-                pageTitle: 'Edytuj dane rejestracji',
-                btnLabel: 'Edytuj',
+                pageTitle: req.__('registration.form.edit.pageTitle'),
+                btnLabel: req.__('registration.form.edit.btnLabel'),
                 formAction: '/registrations/edit',
                 navLocation: 'registration',
                 validationErrors:[]
@@ -123,10 +123,10 @@ exports.updateRegistration = (req,res, next) =>
             let errors = err.errors;
             errors.forEach(e => {
                 if (e.path.includes('registrationNumber') && e.type === 'unique violation') {
-                    e.message = "Podany numer rejestracyjny jest już używany";
+                    e.message = req.__('registration.controller.registrationNumberNotUnique');
                 }
                 if (e.path.includes('insuranceNumber') && e.type === 'unique violation') {
-                    e.message = "Podany numer rejestracyjny jest już używany";
+                    e.message = req.__('registration.controller.insuranceNumberNotUnique');
                 }
             });
             res.render('pages/registration/form', {
@@ -135,8 +135,8 @@ exports.updateRegistration = (req,res, next) =>
                 allOwners: allOwners,
                 allVehicles: allVehicles,
                 formMode: 'edit',
-                pageTitle: 'Edytuj dane rejestracji',
-                btnLabel: 'Edytuj',
+                pageTitle: req.__('registration.form.edit.pageTitle'),
+                btnLabel: req.__('registration.form.edit.btnLabel'),
                 formAction: '/registrations/edit',
                 navLocation: 'registration',
                 validationErrors: errors
@@ -174,9 +174,9 @@ exports.addRegistration = (req,res, next) =>
                 allOwners: allOwners,
                 allVehicles: allVehicles,
                 announcements: AnnouncementRepository.getAnnouncements(),
-                pageTitle: 'Dodaj rejestrację',
+                pageTitle: req.__('registration.form.add.pageTitle'),
                 formMode: 'createNew',
-                btnLabel: 'Dodaj',
+                btnLabel: req.__('registration.form.add.btnLabel'),
                 formAction: '/registrations/add',
                 navLocation: 'registration',
                 validationErrors: errors

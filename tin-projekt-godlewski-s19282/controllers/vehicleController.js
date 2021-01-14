@@ -19,9 +19,9 @@ exports.showAddVehicleForm = (req,res, next) =>
     res.render('pages/vehicle/form', {
         vehicle: {},
         announcements: AnnouncementRepository.getAnnouncements(),
-        pageTitle: 'Dodaj pojazd',
+        pageTitle: req.__('vehicle.form.add.pageTitle'),
         formMode: 'createNew',
-        btnLabel: 'Dodaj',
+        btnLabel: req.__('vehicle.form.add.btnLabel'),
         formAction: '/vehicles/add',
         navLocation: 'vehicle',
         validationErrors:[]
@@ -36,7 +36,7 @@ exports.showVehicleDetails = (req,res, next) =>
                 vehicle: vehicle,
                 announcements: AnnouncementRepository.getAnnouncements(),
                 formMode: 'showDetails',
-                pageTitle: 'Dane pojazdu',
+                pageTitle: req.__('vehicle.form.details.pageTitle'),
                 formAction: '',
                 navLocation: 'vehicle',
                 validationErrors:[]
@@ -52,8 +52,8 @@ exports.showEditVehicleForm = (req,res, next) =>
                 vehicle: vehicle,
                 announcements: AnnouncementRepository.getAnnouncements(),
                 formMode: 'edit',
-                pageTitle: 'Edytuj dane pojazdu',
-                btnLabel: 'Edytuj',
+                pageTitle: req.__('vehicle.form.edit.pageTitle'),
+                btnLabel: req.__('vehicle.form.edit.btnLabel'),
                 formAction: '/vehicles/edit',
                 navLocation: 'vehicle',
                 validationErrors:[]
@@ -74,7 +74,7 @@ exports.updateVehicle = (req,res, next) =>
             errors=err.errors;
             errors.forEach(e => {
                 if (e.path.includes('vin') && e.type === 'unique violation') {
-                    e.message = "Podany numer VIN jest już używany";
+                    e.message = req.__('vehicle.controller.VINNotUnique');
                 }
             });
             return VehicleRepository.getVehicleById(req.body.id);
@@ -82,10 +82,10 @@ exports.updateVehicle = (req,res, next) =>
         .then(vehicle =>{
             res.render('pages/vehicle/form', {
                 vehicle: {...req.body,registrations: vehicle.registrations},
-                pageTitle: 'Edytuj pojazd',
+                pageTitle: req.__('vehicle.form.edit.pageTitle'),
                 announcements: AnnouncementRepository.getAnnouncements(),
                 formMode: 'edit',
-                btnLabel: 'Edytuj',
+                btnLabel: req.__('vehicle.form.edit.btnLabel'),
                 formAction: '/vehicles/edit',
                 navLocation: 'vehicle',
                 validationErrors: errors
@@ -100,15 +100,15 @@ exports.addVehicle = (req,res, next) =>
             let errors=err.errors;
             errors.forEach(e => {
                 if (e.path.includes('vin') && e.type === 'unique violation') {
-                    e.message = "Podany numer VIN jest już używany";
+                    e.message = req.__('vehicle.controller.VINNotUnique');
                 }
             });
             res.render('pages/vehicle/form', {
                 vehicle: req.body,
-                pageTitle: 'Dodaj pojazd',
+                pageTitle: req.__('vehicle.form.add.pageTitle'),
                 announcements: AnnouncementRepository.getAnnouncements(),
                 formMode: 'createNew',
-                btnLabel: 'Dodaj',
+                btnLabel: req.__('vehicle.form.add.btnLabel'),
                 formAction: '/vehicles/add',
                 navLocation: 'vehicle',
                 validationErrors: errors

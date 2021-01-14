@@ -20,10 +20,10 @@ exports.showAddOwnerForm = (req,res, next) =>
 {
     res.render('pages/owner/form', {
         owner: {},
-        pageTitle: 'Dodaj właściciela',
+        pageTitle: req.__('owner.form.add.pageTitle'),
         announcements: AnnouncementRepository.getAnnouncements(),
         formMode: 'createNew',
-        btnLabel: 'Dodaj',
+        btnLabel: req.__('owner.form.add.btnLabel'),
         formAction: '/owners/add',
         navLocation: 'owner',
         validationErrors:[]
@@ -38,7 +38,7 @@ exports.showOwnerDetails = (req,res, next) =>
                 owner: owner,
                 announcements: AnnouncementRepository.getAnnouncements(),
                 formMode: 'showDetails',
-                pageTitle: 'Dane właściciela',
+                pageTitle: req.__('owner.form.details.pageTitle'),
                 formAction: '',
                 navLocation: 'owner',
                 validationErrors:[]
@@ -54,8 +54,8 @@ exports.showEditOwnerForm = (req,res, next) =>
                 owner: owner,
                 announcements: AnnouncementRepository.getAnnouncements(),
                 formMode: 'edit',
-                pageTitle: 'Edytuj dane właściciela',
-                btnLabel: 'Edytuj',
+                pageTitle: req.__('owner.form.edit.pageTitle'),
+                btnLabel: req.__('owner.form.edit.btnLabel'),
                 formAction: '/owners/edit',
                 navLocation: 'owner',
                 validationErrors:[]
@@ -78,7 +78,7 @@ exports.updateOwner = (req,res, next) =>
             errors=err.errors;
             errors.forEach(e => {
                 if (e.path.includes('email') && e.type === 'unique violation') {
-                    e.message = "Podany adres email jest już używany";
+                    e.message = req.__('owner.controller.emailNotUnique');
                 }
             });
             return OwnerRepository.getOwnerById(req.body.id);
@@ -89,8 +89,8 @@ exports.updateOwner = (req,res, next) =>
                 owner: {...req.body,registrations: owner.registrations},
                 announcements: AnnouncementRepository.getAnnouncements(),
                 formMode: 'edit',
-                pageTitle: 'Edytuj dane właściciela',
-                btnLabel: 'Edytuj',
+                pageTitle: req.__('owner.form.edit.pageTitle'),
+                btnLabel: req.__('owner.form.edit.btnLabel'),
                 formAction: '/owners/edit',
                 navLocation: 'owner',
                 validationErrors: errors
@@ -107,15 +107,15 @@ exports.addOwner = (req,res, next) =>
             let errors = err.errors;
             errors.forEach(e => {
                 if (e.path.includes('email') && e.type === 'unique violation') {
-                    e.message = "Podany adres email jest już używany";
+                    e.message = req.__('owner.controller.emailNotUnique');
                 }
             });
             res.render('pages/owner/form', {
                 owner: req.body,
                 announcements: AnnouncementRepository.getAnnouncements(),
-                pageTitle: 'Dodaj właściciela',
+                pageTitle: req.__('owner.form.add.pageTitle'),
                 formMode: 'createNew',
-                btnLabel: 'Dodaj',
+                btnLabel: req.__('owner.form.add.btnLabel'),
                 formAction: '/owners/add',
                 navLocation: 'owner',
                 validationErrors: errors
