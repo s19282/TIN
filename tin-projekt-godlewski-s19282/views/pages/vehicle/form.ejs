@@ -62,7 +62,7 @@
                     <% } %>
                     <div class="form-buttons">
                         <p id="errorsSummary" class="errors-text"><% if(validationErrors.length>0){%>
-                                <%= "Formularz zawiera błędy" %>
+                                <%= __('form.errorsSummary') %>
                             <% } %></p>
                         <% if (formMode !== 'showDetails') { %>
                         <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />

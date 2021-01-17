@@ -22,7 +22,8 @@
       "return": "Powrót",
       "edit": "Edytuj",
       "cancel": "Anuluj"
-    }
+    },
+    "errorsSummary": "Formularz zawiera błędy"
   },
   "authController": {
     "loginError": "Niepoprawny adres eamil lub hasło"

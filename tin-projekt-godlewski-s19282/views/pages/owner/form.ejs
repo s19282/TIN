@@ -47,8 +47,6 @@
 
                     <% if(formMode!== 'showDetails' && formMode!== '') { %>
                         <label for="password"><%= __('owner.fields.password') %>:<sup>*</sup></label>
-<!--                        TODO: change input type to password-->
-<!--                        TODO: add one more password input to check is the same-->
                         <input type="password" name="password" id="password" placeholder="5-40 znaków"
                                class="<%= validationErrors.find(e => e.path.includes('password')) ? 'error-input' : '' %>" >
                         <span id="errorPassword" class="errors-text">
@@ -65,7 +63,7 @@
                     <% } %>
                     <div class="form-buttons">
                         <p id="errorsSummary" class="errors-text"><% if(validationErrors.length>0){%>
-                                <%= "Formularz zawiera błędy" %>
+                                <%= __('form.errorsSummary') %>
                             <% } %></p>
                         <% if (formMode !== 'showDetails') { %>
                         <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />

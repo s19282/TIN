@@ -28,17 +28,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 i18n.configure({
     locales: ['pl','en'],
-    directory: path.join(__dirname,'locales'),
+    directory: path.join(__dirname, 'locales'),
     objectNotation: true,
     cookie: 'tin_car_registration'
 })
+app.use(i18n.init);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: process.env.sessionPassword,
     resave: false,
     saveUninitialized: true
 }))
-// TODO: saveUninitialized check once more
+
 app.use((req, res, next) => {
     res.locals.loggedUser = req.session.loggedUser;
     if(!res.locals.loginError){
