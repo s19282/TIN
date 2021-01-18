@@ -1,6 +1,12 @@
             <div class="rightPanel">
                 <%- include('authentication.ejs') %>
                 <h4>
+                    <ul>
+                        <li><a href="/changeLang/pl" class="<%= lang === 'pl' ? 'active' : ''%>">PL</a></li>
+                        <li><a href="/changeLang/en" class="<%= lang === 'en' ? 'active' : ''%>">EN</a></li>
+                    </ul>
+                </h4>
+                <h4>
                     Przypominamy, że z powodu obecnej sytuacji epidemiologicznej obsługa interesantów
                     odbywa się wyłącznie telefonicznie lub mailowo.
                 </h4>

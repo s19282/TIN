@@ -38,7 +38,7 @@ app.use(session({
     secret: process.env.sessionPassword,
     resave: false,
     saveUninitialized: true
-}))
+}));
 
 app.use((req, res, next) => {
     res.locals.loggedUser = req.session.loggedUser;
@@ -46,7 +46,14 @@ app.use((req, res, next) => {
         res.locals.loginError = undefined;
     }
     next();
-})
+});
+app.use((req, res, next) => {
+    if(!res.locals.lang) {
+        const currentLang = req.cookies['acme-hr-lang'];
+        res.locals.lang = currentLang;
+    }
+    next();
+});
 app.use('/api/owners', ownerApiRouter);
 app.use('/api/registrations', registrationApiRouter);
 app.use('/api/vehicles', vehicleApiRouter);
