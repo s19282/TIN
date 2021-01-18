@@ -21,16 +21,18 @@ function validateForm()
 
     if (!checkRequired(ownerInput.value))
     {
+        const reqMessage = document.getElementById('errorMessage-required').innerText;
         valid = false;
         ownerInput.classList.add("error-input");
-        errorOwner.innerText = "Pole jest wymagane";
+        errorOwner.innerText = reqMessage;
     }
 
     if (!checkRequired(vehicleInput.value))
     {
+        const reqMessage = document.getElementById('errorMessage-required').innerText;
         valid = false;
         vehicleInput.classList.add("error-input");
-        errorVehicle.innerText = "Pole jest wymagane";
+        errorVehicle.innerText = reqMessage;
     }
 
     let nowDate = new Date(),
@@ -46,59 +48,68 @@ function validateForm()
 
     if (!checkRequired(dateFromInput.value))
     {
+        const reqMessage = document.getElementById('errorMessage-required').innerText;
         valid = false;
         dateFromInput.classList.add("error-input");
-        errorDateFrom.innerText = "Pole jest wymagane";
+        errorDateFrom.innerText = reqMessage;
     }
     else if (!checkDate(dateFromInput.value))
     {
+        const reqMessage = document.getElementById('errorMessage-correctDateFormat').innerText;
         valid = false;
         dateFromInput.classList.add("error-input");
-        errorDateFrom.innerText = "Pole powinno zawierać datę w formacie yyyy-MM-dd (np. 2000-01-01)";
+        errorDateFrom.innerText = reqMessage;
     }
     else if (checkDateIfAfter(dateFromInput.value, nowString))
     {
+        const reqMessage = document.getElementById('errorMessage-notFutureDate').innerText;
         valid = false;
         dateFromInput.classList.add("error-input");
-        errorDateFrom.innerText = "Data nie może być z przyszłości";
+        errorDateFrom.innerText = reqMessage;
     }
     else if (checkRequired(dateToInput.value) && checkDate(dateToInput.value)
         && !checkDateIfAfter(dateToInput.value, dateFromInput.value))
     {
+        const reqMessage = document.getElementById('errorMessage-dateBefore').innerText;
         valid = false;
         dateToInput.classList.add("error-input");
-        errorDateTo.innerText = "Data do powinna być późniejsza niż data od";
+        errorDateTo.innerText = reqMessage;
     }
 
     if (!checkRequired(registrationNumberInput.value))
     {
+        const reqMessage = document.getElementById('errorMessage-required').innerText;
         valid = false;
         registrationNumberInput.classList.add("error-input");
-        errorRegistrationNumber.innerText = "Pole jest wymagane";
+        errorRegistrationNumber.innerText = reqMessage;
     }
     else if (!checkRegistrationNumber(registrationNumberInput.value))
     {
+        const reqMessage = document.getElementById('errorMessage-isRegistrationNumber').innerText;
         valid = false;
         registrationNumberInput.classList.add("error-input");
-        errorRegistrationNumber.innerText = "Pole powinno zawierać prawidłowy numer rejestracyjny";
+        errorRegistrationNumber.innerText = reqMessage;
     }
 
     if (!checkRequired(insuranceNumberInput.value))
     {
+        const reqMessage = document.getElementById('errorMessage-required').innerText;
         valid = false;
         insuranceNumberInput.classList.add("error-input");
-        errorInsuranceNumber.innerText = "Pole jest wymagane";
+        errorInsuranceNumber.innerText = reqMessage;
     }
     else if (!checkInsuranceNumber(insuranceNumberInput.value))
     {
+        const reqMessage = document.getElementById('errorMessage-isInsuranceNumber').innerText;
         valid = false;
         insuranceNumberInput.classList.add("error-input");
-        errorInsuranceNumber.innerText = "Pole powinno zawierać prawidłowy numer ubezpieczenia";
+        errorInsuranceNumber.innerText = reqMessage;
     }
 
     if (!valid)
     {
-        errorsSummary.innerText = "Formularz zawiera błędy";
+        const reqMessage = document.getElementById('errorMessage-formsErrors').innerText;
+        errorsSummary.innerText = reqMessage;
     }
 
     return valid;

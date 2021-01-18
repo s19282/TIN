@@ -70,7 +70,16 @@
                         <% } %>
                     </div>
                 </form>
-                <% if (formMode === 'showDetails'|| formMode === 'edit' ) { %>
+                <div style="display: none">
+                    <span id="errorMessage-required"><%= __('validationMessage.fieldRequired') %></span>
+                    <span id="errorMessage-between2and60"><%= __('validationMessage.fieldBetween2and60') %></span>
+                    <span id="errorMessage-between2and60"><%= __('validationMessage.fieldBetween2and60') %></span>
+                    <span id="errorMessage-between7and60"><%= __('validationMessage.fieldBetween7and60') %></span>
+                    <span id="errorMessage-email"><%= __('validationMessage.fieldEmail') %></span>
+                    <span id="errorMessage-isNumber"><%= __('validationMessage.fieldIsNumber') %></span>
+                    <span id="errorMessage-formsErrors"><%= __('validationMessage.fieldFormsErrors') %></span>
+                </div>
+            <% if (formMode === 'showDetails'|| formMode === 'edit' ) { %>
                     <h2>
                         <%= __('owner.association.h2') %>
                     </h2>

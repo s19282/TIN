@@ -95,5 +95,14 @@
                         <% } %>
                     </div>
                 </form>
+                <div style="display: none">
+                    <span id="errorMessage-required"><%= __('validationMessage.fieldRequired') %></span>
+                    <span id="errorMessage-correctDateFormat"><%= __('validationMessage.fieldCorrectDateFormat') %></span>
+                    <span id="errorMessage-notFutureDate"><%= __('validationMessage.fieldNotFutureDate') %></span>
+                    <span id="errorMessage-dateBefore"><%= __('validationMessage.fieldDateBefore') %></span>
+                    <span id="errorMessage-isRegistrationNumber"><%= __('validationMessage.fieldIsRegistrationNumber') %></span>
+                    <span id="errorMessage-isInsuranceNumber"><%= __('validationMessage.fieldIsInsuranceNumber') %></span>
+                    <span id="errorMessage-formsErrors"><%= __('validationMessage.fieldFormsErrors') %></span>
+                </div>
             </main>
 <%- include('../../fragments/footer.ejs') %>

@@ -20,41 +20,47 @@ function validateForm()
 
     if (!checkRequired(vinInput.value))
     {
+        const reqMessage = document.getElementById('errorMessage-required').innerText;
         valid = false;
         vinInput.classList.add("error-input");
-        errorVin.innerText = "Pole jest wymagane";
+        errorVin.innerText = reqMessage;
     }
     else if (!checkTextLengthRange(vinInput.value, 5, 30))
     {
+        const reqMessage = document.getElementById('errorMessage-between5and30').innerText;
         valid = false;
         vinInput.classList.add("error-input");
-        errorVin.innerText = "Pole powinno zawierać od 5 do 30 znaków";
+        errorVin.innerText = reqMessage;
     }
 
     if (!checkRequired(nameInput.value))
     {
+        const reqMessage = document.getElementById('errorMessage-required').innerText;
         valid = false;
         nameInput.classList.add("error-input");
-        errorName.innerText = "Pole jest wymagane";
+        errorName.innerText = reqMessage;
     }
     else if (!checkTextLengthRange(nameInput.value, 2, 15))
     {
+        const reqMessage = document.getElementById('errorMessage-between2and15').innerText;
         valid = false;
         nameInput.classList.add("error-input");
-        errorName.innerText = "Pole powinno zawierać od 2 do 15 znaków";
+        errorName.innerText = reqMessage;
     }
 
     if (!checkRequired(modelInput.value))
     {
+        const reqMessage = document.getElementById('errorMessage-required').innerText;
         valid = false;
         modelInput.classList.add("error-input");
-        errorModel.innerText = "Pole jest wymagane";
+        errorModel.innerText = reqMessage;
     }
     else if (!checkTextLengthRange(modelInput.value, 1, 20))
     {
+        const reqMessage = document.getElementById('errorMessage-between1and20').innerText;
         valid = false;
         modelInput.classList.add("error-input");
-        errorModel.innerText = "Pole powinno zawierać od 1 do 20 znaków";
+        errorModel.innerText = reqMessage;
     }
 
     let nowDate = new Date(),
@@ -70,33 +76,38 @@ function validateForm()
 
     if (!checkRequired(firstRegistrationDateInput.value))
     {
+        const reqMessage = document.getElementById('errorMessage-required').innerText;
         valid = false;
         firstRegistrationDateInput.classList.add("error-input");
-        errorFirstRegistrationDate.innerText = "Pole jest wymagane";
+        errorFirstRegistrationDate.innerText = reqMessage;
     }
     else if (checkDateIfAfter(firstRegistrationDateInput.value, nowString))
     {
+        const reqMessage = document.getElementById('errorMessage-notFutureDate').innerText;
         valid = false;
         firstRegistrationDateInput.classList.add("error-input");
-        errorFirstRegistrationDate.innerText = "Data nie może być z przyszłości";
+        errorFirstRegistrationDate.innerText = reqMessage;
     }
 
     if (!checkRequired(engineCapacityInput.value))
     {
+        const reqMessage = document.getElementById('errorMessage-required').innerText;
         valid = false;
         engineCapacityInput.classList.add("error-input");
-        errorEngineCapacity.innerText = "Pole jest wymagane";
+        errorEngineCapacity.innerText = reqMessage;
     }
     else if (!checkNumber(engineCapacityInput.value))
     {
-    valid = false;
-    engineCapacityInput.classList.add("error-input");
-    errorEngineCapacity.innerText = "Pole powinno być liczbą";
+        const reqMessage = document.getElementById('errorMessage-isNumber').innerText;
+        valid = false;
+        engineCapacityInput.classList.add("error-input");
+        errorEngineCapacity.innerText = reqMessage;
     }
 
     if (!valid)
     {
-        errorsSummary.innerText = "Formularz zawiera błędy";
+        const reqMessage = document.getElementById('errorMessage-formsErrors').innerText;
+        errorsSummary.innerText = reqMessage;
     }
 
     return valid;

@@ -17,57 +17,65 @@ function validateForm()
 
     if (!checkRequired(firstNameInput.value))
     {
+        const reqMessage = document.getElementById('errorMessage-required').innerText;
         valid = false;
         firstNameInput.classList.add("error-input");
-        errorFirstName.innerText = "Pole jest wymagane";
+        errorFirstName.innerText = reqMessage;
     }
     else if (!checkTextLengthRange(firstNameInput.value, 2, 60))
     {
+        const reqMessage = document.getElementById('errorMessage-between2and60').innerText;
         valid = false;
         firstNameInput.classList.add("error-input");
-        errorFirstName.innerText = "Pole powinno zawierać od 2 do 60 znaków";
+        errorFirstName.innerText = reqMessage;
     }
 
     if (!checkRequired(lastNameInput.value))
     {
+        const reqMessage = document.getElementById('errorMessage-required').innerText;
         valid = false;
         lastNameInput.classList.add("error-input");
-        errorLastName.innerText = "Pole jest wymagane";
+        errorLastName.innerText = reqMessage;
     }
     else if (!checkTextLengthRange(lastNameInput.value, 2, 60))
     {
+        const reqMessage = document.getElementById('errorMessage-between2and60').innerText;
         valid = false;
         lastNameInput.classList.add("error-input");
-        errorLastName.innerText = "Pole powinno zawierać od 2 do 60 znaków";
+        errorLastName.innerText = reqMessage;
     }
 
     if (!checkRequired(phoneNumberInput.value))
     {
+        const reqMessage = document.getElementById('errorMessage-required').innerText;
         valid = false;
         phoneNumberInput.classList.add("error-input");
-        errorPhoneNumber.innerText = "Pole jest wymagane";
+        errorPhoneNumber.innerText = reqMessage;
     }
     else if (!checkTextLengthRange(phoneNumberInput.value, 7, 12))
     {
+        const reqMessage = document.getElementById('errorMessage-between7and60').innerText;
         valid = false;
         phoneNumberInput.classList.add("error-input");
-        errorPhoneNumber.innerText = "Pole powinno zawierać od 7 do 60 znaków";
+        errorPhoneNumber.innerText = reqMessage;
     }
     else if (!checkNumber(phoneNumberInput.value))
     {
+        const reqMessage = document.getElementById('errorMessage-isNumber').innerText;
         valid = false;
         phoneNumberInput.classList.add("error-input");
-        errorPhoneNumber.innerText = "Pole powinno być liczbą";
+        errorPhoneNumber.innerText = reqMessage;
     }
     if (checkRequired(emailInput.value) && !checkEmail(emailInput.value))
     {
+        const reqMessage = document.getElementById('errorMessage-email').innerText;
         valid = false;
         emailInput.classList.add("error-input");
-        errorEmail.innerText = "Pole powinno zawierać prawidłowy adres email";
+        errorEmail.innerText = reqMessage;
     }
     if (!valid)
     {
-        errorsSummary.innerText = "Formularz zawiera błędy";
+        errorsSummary.innerText = document.getElementById('errorMessage-formsErrors').innerText;
     }
 
     return valid;
