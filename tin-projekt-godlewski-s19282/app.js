@@ -36,7 +36,7 @@ app.use(i18n.init);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: process.env.sessionPassword,
-    resave: false,
+    resave: true,
     saveUninitialized: true
 }));
 
@@ -49,8 +49,7 @@ app.use((req, res, next) => {
 });
 app.use((req, res, next) => {
     if(!res.locals.lang) {
-        const currentLang = req.cookies['acme-hr-lang'];
-        res.locals.lang = currentLang;
+        res.locals.lang = req.cookies['tin_car_registration'];
     }
     next();
 });

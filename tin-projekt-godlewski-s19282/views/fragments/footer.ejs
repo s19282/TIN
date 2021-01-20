@@ -1,11 +1,15 @@
             <div class="rightPanel">
                 <%- include('authentication.ejs') %>
                 <h4>
-                    <ul>
-                        <li><a href="/changeLang/pl" class="<%= lang === 'pl' ? 'active' : ''%>">PL</a></li>
-                        <li><a href="/changeLang/en" class="<%= lang === 'en' ? 'active' : ''%>">EN</a></li>
+<!--                    TODO: fix unexpected logout-->
+                    <p><%= __('footer.chooseLang') %></p>
+                    <ul class="chooseLang">
+                        <li class="<%= (lang === 'pl') ? 'active' : ''%>"><a href="/changeLang/pl">PL</a></li>
+                        <li class="<%= (lang === 'en') ? 'active' : ''%>"><a href="/changeLang/en">EN</a></li>
                     </ul>
+
                 </h4>
+<!--                TODO: ask about internalization of db records-->
                 <h4>
                     Przypominamy, że z powodu obecnej sytuacji epidemiologicznej obsługa interesantów
                     odbywa się wyłącznie telefonicznie lub mailowo.

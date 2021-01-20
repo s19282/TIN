@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../../config/sequelize/sequelize');
+const i18n = require('i18n');
 
 const Owner = sequelize.define('Owner', {
     id: {

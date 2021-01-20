@@ -8,15 +8,15 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
         <script src="/_js/script.js"></script>
-        <% if(navLocation === 'owner' && (formMode === 'edit' || formMode === 'createNem')) { %>
+        <% if(navLocation === 'owner' && (formMode === 'edit' || formMode === 'createNew')) { %>
             <script src="/_js/validationCommon.js"></script>
             <script src="/_js/validationOwnerForm.js"></script>
         <% } %>
-        <% if(navLocation === 'registration' && (formMode === 'edit' || formMode === 'createNem')) { %>
+        <% if(navLocation === 'registration' && (formMode === 'edit' || formMode === 'createNew')) { %>
                 <script src="/_js/validationCommon.js"></script>
                 <script src="/_js/validationRegistrationForm.js"></script>
         <% } %>
-        <% if(navLocation === 'vehicle' && (formMode === 'edit' || formMode === 'createNem')) { %>
+        <% if(navLocation === 'vehicle' && (formMode === 'edit' || formMode === 'createNew')) { %>
                 <script src="/_js/validationCommon.js"></script>
                 <script src="/_js/validationVehicleForm.js"></script>
         <% } %>

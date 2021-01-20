@@ -2,19 +2,19 @@ function validateForm()
 {
 
     const vinInput = document.getElementById('vin');
-    const nameInput = document.getElementById('name');
+    const makeInput = document.getElementById('make');
     const modelInput = document.getElementById('model');
     const firstRegistrationDateInput = document.getElementById('firstRegistrationDate');
     const engineCapacityInput = document.getElementById('engineCapacity');
 
     const errorVin = document.getElementById('errorVin');
-    const errorName = document.getElementById('errorName');
+    const errorMake = document.getElementById('errorMake');
     const errorModel = document.getElementById('errorModel');
     const errorFirstRegistrationDate = document.getElementById('errorFirstRegistrationDate');
     const errorEngineCapacity = document.getElementById('errorEngineCapacity');
     const errorsSummary = document.getElementById('errorsSummary');
 
-    resetErrors([vinInput, nameInput, modelInput,firstRegistrationDateInput, engineCapacityInput], [errorVin, errorName, errorModel, errorFirstRegistrationDate, errorEngineCapacity], errorsSummary);
+    resetErrors([vinInput, makeInput, modelInput,firstRegistrationDateInput, engineCapacityInput], [errorVin, errorMake, errorModel, errorFirstRegistrationDate, errorEngineCapacity], errorsSummary);
 
     let valid = true;
 
@@ -33,19 +33,19 @@ function validateForm()
         errorVin.innerText = reqMessage;
     }
 
-    if (!checkRequired(nameInput.value))
+    if (!checkRequired(makeInput.value))
     {
         const reqMessage = document.getElementById('errorMessage-required').innerText;
         valid = false;
-        nameInput.classList.add("error-input");
-        errorName.innerText = reqMessage;
+        makeInput.classList.add("error-input");
+        errorMake.innerText = reqMessage;
     }
-    else if (!checkTextLengthRange(nameInput.value, 2, 15))
+    else if (!checkTextLengthRange(makeInput.value, 2, 15))
     {
         const reqMessage = document.getElementById('errorMessage-between2and15').innerText;
         valid = false;
-        nameInput.classList.add("error-input");
-        errorName.innerText = reqMessage;
+        makeInput.classList.add("error-input");
+        errorMake.innerText = reqMessage;
     }
 
     if (!checkRequired(modelInput.value))

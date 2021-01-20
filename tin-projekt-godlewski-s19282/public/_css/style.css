@@ -3,33 +3,28 @@
     font-size: 0.85em;
     line-height: 2.25rem;
 }
-
 a:link
 {
     text-decoration: none;
     color: black;
-    font-weight: bold;
 }
 
 a:visited
 {
     text-decoration: none;
     color: black;
-    font-weight: bold;
 }
 
 a:hover
 {
     text-decoration: none;
     color: #484848;
-    font-weight: bold;
 }
 
 a:active
 {
     text-decoration: none;
     color: black;
-    font-weight: bold;
 }
 #logout
 {
@@ -81,7 +76,28 @@ footer p
     display: grid;
     grid-template-columns: 1.5fr 7fr 1.5fr;
 }
+.active
+{
+    background: #b50b0b;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.chooseLang
+{
+    list-style-type: none;
+    padding-left:0;
+    list-style-position:inside;
 
+}
+.chooseLang li:hover
+{
+    background: #b50b0b;
+    border-radius: 5px;
+    list-style-type: none;
+    padding-left:0;
+    list-style-position:inside;
+
+}
 footer
 {
     text-align: center;
@@ -196,6 +212,11 @@ main h2
     text-align: center;
     list-style-type: none;
     padding: 0;
+}
+.chooseLang li a
+{
+    display: block;
+    width: 100%;
 }
 .list-actions li
 {

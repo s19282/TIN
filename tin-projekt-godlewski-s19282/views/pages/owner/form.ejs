@@ -73,7 +73,6 @@
                 <div style="display: none">
                     <span id="errorMessage-required"><%= __('validationMessage.fieldRequired') %></span>
                     <span id="errorMessage-between2and60"><%= __('validationMessage.fieldBetween2and60') %></span>
-                    <span id="errorMessage-between2and60"><%= __('validationMessage.fieldBetween2and60') %></span>
                     <span id="errorMessage-between7and60"><%= __('validationMessage.fieldBetween7and60') %></span>
                     <span id="errorMessage-email"><%= __('validationMessage.fieldEmail') %></span>
                     <span id="errorMessage-isNumber"><%= __('validationMessage.fieldIsNumber') %></span>
@@ -107,9 +106,9 @@
                     </table>
                 <% } %>
                 <% if (formMode !== 'showDetails') { %>
-                <a class="form-button-cancel" href="/owners"><%= __('form.action.cancel') %></a>
+                <a class="form-button-cancel" href="/owners"><%= __('form.actions.cancel') %></a>
                 <% } else { %>
-                    <a class="form-button-cancel" href="/owners"><%= __('form.action.return') %></a>
+                    <a class="form-button-cancel" href="/owners"><%= __('form.actions.return') %></a>
                 <% } %>
             </main>
 <%- include('../../fragments/footer.ejs') %>

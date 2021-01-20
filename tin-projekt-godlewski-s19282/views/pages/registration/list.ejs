@@ -1,6 +1,6 @@
 <%- include('../../fragments/header.ejs') %>
             <main>
-                <h2>Lista rejestracji</h2>
+                <h2><%= __('registration.list.title') %></h2>
                 <table class="table-list">
                     <thead>
                     <tr>
@@ -38,6 +38,6 @@
                     <% } %>
                     </tbody>
                 </table>
-                <p><a href="/registrations/add" class="button-add">Dodaj nowego właściciela auta</a> </p>
+                <p><a href="/registrations/add" class="button-add"><%= __('registration.list.addNew') %></a> </p>
             </main>
 <%- include('../../fragments/footer.ejs') %>
