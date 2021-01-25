@@ -10,6 +10,11 @@ import {
     Route
 } from "react-router-dom";
 import OwnerList from "./components/owner/OwnerList";
+import OwnerDetails from "./components/owner/OwnerDetails";
+import OwnerForm from "./components/owner/OwnerForm";
+import RegistrationList from "./components/registration/RegistrationList";
+import RegistrationDetails from "./components/registration/RegistrationDetails";
+import RegistrationForm from "./components/registration/RegistrationForm";
 
 function App() {
   return (
@@ -20,6 +25,13 @@ function App() {
             <Switch>
                 <Route exact path="/" component={MainContent}/>
                 <Route exact path="/owners" component={OwnerList}/>
+                <Route exact path="/owners/details/:ownerId" component={OwnerDetails}/>
+                <Route exact path="/owners/add" component={OwnerForm}/>
+                <Route exact path="/owners/edit/:ownerId" component={OwnerForm}/>
+                <Route exact path="/registration" component={RegistrationList}/>
+                <Route exact path="/registration/details/:registrationId" component={RegistrationDetails}/>
+                <Route exact path="/registration/add" component={RegistrationForm}/>
+                <Route exact paht="/registration/edit/:registrationId" component={RegistrationForm}/>
             </Switch>
             <Announcements/>
             <Footer/>

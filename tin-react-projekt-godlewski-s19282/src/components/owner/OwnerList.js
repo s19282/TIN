@@ -1,9 +1,9 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {getOwnerByIdApiCall} from "../../apiCalls/ownerApiCalls";
+import {getOwnersApiCall} from "../../apiCalls/ownerApiCalls";
 
 function OwnerList(){
-    const ownerList = getOwnerByIdApiCall()
+    const ownerList = getOwnersApiCall();
     return (
         <main>
             <h2>Lista właścicieli</h2>

@@ -4,5 +4,6 @@ export function getOwnersApiCall() {
     return ownerList;
 }
 export function getOwnerByIdApiCall(ownerId) {
-    return ownerDetailsList.find(owner => owner.id === ownerId)
+    const owner = ownerDetailsList.find(owner => owner.id === ownerId);
+    return owner;
 }
