@@ -27,10 +27,12 @@ function App() {
                 <Route exact path="/owners/details/:ownerId" component={OwnerDetails}/>
                 <Route exact path="/owners/add" component={OwnerForm}/>
                 <Route exact path="/owners/edit/:ownerId" component={OwnerForm}/>
+
                 <Route exact path="/registrations" component={RegistrationList}/>
                 <Route exact path="/registrations/details/:registrationId" component={RegistrationDetails}/>
                 <Route exact path="/registrations/add" component={RegistrationForm}/>
                 <Route exact paht="/registrations/edit/:registrationId" component={RegistrationForm}/>
+
                 <Route exact path="/vehicles" component={VehicleList}/>
                 <Route exact path="/vehicles/details/:vehicleId" component={VehicleDetails}/>
                 <Route exact path="/vehicles/add" component={VehicleForm}/>

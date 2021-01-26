@@ -10,16 +10,16 @@ function OwnerDetails(){
 
     return (
         <main>
-            <h2>Szczegóły pracownika</h2>
+            <h2>Szczegóły właściciela</h2>
             <p>Imię: {owner.firstName}</p>
             <p>Nazwisko: {owner.lastName} </p>
             <p>E-mail: {owner.email} </p>
             <p>Numer telefonu: {owner.phoneNumber}</p>
-            <h2>Szczegóły zatrudnienia</h2>
+            <h2>Auta właściciela</h2>
             <table className="table-list">
                 <thead>
                     <tr>
-                        <th>Rejestracja</th>
+                        <th>VIN</th>
                         <th>Data od</th>
                         <th>Data do</th>
                         <th>Numer rejestracyjny</th>
@@ -30,6 +30,7 @@ function OwnerDetails(){
                     {owner.registrations.map(
                         registration =>
                             <tr key={registration.id}>
+                                <td>{registration.vehicle.vin}</td>
                                 <td>{registration.dateFrom}</td>
                                 <td>{registration.dateTo}</td>
                                 <td>{registration.registrationNumber}</td>

@@ -17,7 +17,7 @@ function RegistrationList()
                         <th>Data do</th>
                         <th>Numer rejestracyjny</th>
                         <th>Numer ubezpieczenia</th>
-                        <td>Akcje</td>
+                        <th>Akcje</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,8 +25,10 @@ function RegistrationList()
                     <tr key={registration.id}>
                         <td>{registration.owner.firstName+" "+registration.owner.lastName}</td>
                         <td>{registration.vehicle.make+" "+registration.vehicle.model}</td>
-                        <tr>{registration.dateFrom}</tr>
-                        <tr>{registration.dateTo}</tr>
+                        <td>{registration.dateFrom}</td>
+                        <td>{registration.dateTo}</td>
+                        <td>{registration.registrationNumber}</td>
+                        <td>{registration.insuranceNumber}</td>
                         <td>
                             <ul className="list-actions">
                                 <li><Link to={`registration/details/${registration.id}`} className="list-actions-button-details">Szczegóły</Link></li>
