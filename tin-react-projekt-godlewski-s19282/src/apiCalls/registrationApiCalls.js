@@ -1,8 +1,9 @@
-import {registrationList,registrationDetailsList} from "./registrationApiMockData";
+import {registrationDetailsList} from "./registrationApiMockData";
+const registrationBaseUrl = 'http://localhost:3000/api/registrations';
 
 export function getRegistrationsApiCall()
 {
-    return registrationList;
+    return fetch(registrationBaseUrl);
 }
 export function getRegistrationByIdApiCall(registrationId)
 {
