@@ -1,49 +1,80 @@
 import React from "react";
-import {Link, useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {getOwnerByIdApiCall} from "../../apiCalls/ownerApiCalls";
+import OwnerDetailsData from "./OwnerDetailsData";
 
 
-function OwnerDetails(){
-    let {ownerId} = useParams();
-    ownerId = parseInt(ownerId);
-    const owner = getOwnerByIdApiCall(ownerId);
+class OwnerDetails extends React.Component
+{
+    constructor(props)
+    {
+        super(props);
+        let {ownerId} = props.match.params
+        this.state = {
+            ownerId : ownerId,
+            owner : null,
+            error : null,
+            isLoaded : false,
+            message : null
+        }
+    }
 
-    return (
-        <main>
-            <h2>Szczegóły właściciela</h2>
-            <p>Imię: {owner.firstName}</p>
-            <p>Nazwisko: {owner.lastName} </p>
-            <p>E-mail: {owner.email} </p>
-            <p>Numer telefonu: {owner.phoneNumber}</p>
-            <h2>Auta właściciela</h2>
-            <table className="table-list">
-                <thead>
-                    <tr>
-                        <th>VIN</th>
-                        <th>Data od</th>
-                        <th>Data do</th>
-                        <th>Numer rejestracyjny</th>
-                        <th>Numer ubezpieczenia</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {owner.registrations.map(
-                        registration =>
-                            <tr key={registration.id}>
-                                <td>{registration.vehicle.vin}</td>
-                                <td>{registration.dateFrom}</td>
-                                <td>{registration.dateTo}</td>
-                                <td>{registration.registrationNumber}</td>
-                                <td>{registration.insuranceNumber}</td>
-                            </tr>
-                    )}
-                </tbody>
-            </table>
-            <div className="section-buttons">
-                <Link to="/owners" className="button-back">Powrót</Link>
-            </div>
-        </main>
-    );
+    fetchOwnerDetails = () => {
+        getOwnerByIdApiCall(this.state.ownerId)
+            .then(res => res.json())
+            .then((data) => {
+                if(data.message) {
+                    this.setState({
+                        owner : null,
+                        message : data.message
+                    })
+                }
+                else {
+                    this.setState({
+                        owner : data,
+                        message : null
+                    })
+                }
+                this.setState({
+                    isLoaded: true
+                })
+            },
+            (error) => {
+                this.setState({
+                    isLoaded: true,
+                    error
+                })
+            })
+    }
+
+    componentDidMount() {
+        this.fetchOwnerDetails()
+    }
+
+    render()
+    {
+        const {owner, error, isLoaded, message } = this.state
+        let content;
+
+        if(error)
+            content = <p>Błąd: {error.message}</p>
+        else if (!isLoaded)
+            content = <p>Ładowanie danych właściciela</p>
+        else if (message)
+            content = <p>{message}</p>
+        else
+            content = <OwnerDetailsData ownerData={owner}/>
+
+        return (
+            <main>
+                <h2>Szczegóły właściciela</h2>
+                {content}
+                <div className="section-buttons">
+                    <Link to="/owners" className="button-back">Powrót</Link>
+                </div>
+            </main>
+        )
+    }
 }
 
 export default OwnerDetails

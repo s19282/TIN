@@ -1,5 +1,5 @@
 import React from "react";
-import OwnerListTableRow from "./OwnerListTableRow";
+import OwnerListTableRow from "./OwnerListTableRow_";
 
 function OwnerListTable(props)
 {

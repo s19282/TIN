@@ -1,4 +1,3 @@
-import {ownerDetailsList} from "./ownerApiMockData";
 const ownersBaseUrl = 'http://localhost:3000/api/owners';
 
 export function getOwnersApiCall() {
@@ -6,5 +5,5 @@ export function getOwnersApiCall() {
 }
 export function getOwnerByIdApiCall(ownerId)
 {
-    return ownerDetailsList.find(owner => owner.id === ownerId);
+    return fetch(`${ownersBaseUrl}/${ownerId}`);
 }
