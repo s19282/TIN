@@ -7,7 +7,7 @@ export const vehicleList = [
         "firstRegistrationDate" : "1997-02-15",
         "engineCapacity" : 3000
     }
-]
+];
 
 export const vehicleDetailsList = [
     {
@@ -29,11 +29,11 @@ export const vehicleDetailsList = [
                 "owner" : {
                     "id": 1,
                     "firstName": "Hopkins",
-                    "lastName": "Integer.urna@massanonante.com",
+                    "lastName": "Integer",
                     "email": "non.sapien.molestie@Duiscursus.ca",
                     "phoneNumber": "842149008"
                 }
             }
         ]
     }
-]
+];

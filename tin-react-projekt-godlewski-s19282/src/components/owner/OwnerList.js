@@ -1,45 +1,74 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {getOwnersApiCall} from "../../apiCalls/ownerApiCalls";
+import OwnerListTable from "./OwnerListTable";
 
-function OwnerList(){
-    const ownerList = getOwnersApiCall();
-    return (
-        <main>
-            <h2>Lista właścicieli</h2>
-            <table className="table-list">
-                <thead>
-                    <tr>
-                        <th>Imię</th>
-                        <th>Nazwisko</th>
-                        <th>Email</th>
-                        <th>Numer telefonu</th>
-                        <th>Akcje</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {ownerList.map(owner => (
-                      <tr key={owner.id}>
-                          <td>{owner.firstName}</td>
-                          <td>{owner.lastName}</td>
-                          <td>{owner.email}</td>
-                          <td>{owner.phoneNumber}</td>
-                          <td>
-                              <ul className="list-actions">
-                                  <li><Link to={`owners/details/${owner.id}`} className="list-actions-button-details">Szczegóły</Link></li>
-                                  <li><Link to={`owners/edit/${owner.id}`} className="list-actions-button-edit">Edytuj</Link></li>
-                                  <li><Link to={`owners/delete/${owner.id}`} className="list-actions-button-delete">Usuń</Link></li>
-                              </ul>
-                          </td>
-                      </tr>
-                    ))}
-                </tbody>
-            </table>
-            <p className="section-buttons">
-                <Link to="/owners/add" className="button-add">Dodaj nowego pracownika</Link>
-            </p>
-        </main>
-    );
+class OwnerList extends React.Component
+{
+    constructor(props)
+    {
+        super(props);
+        this.state =
+            {
+                error: null,
+                isLoaded: false,
+                owners: []
+            }
+    }
+
+    componentDidMount()
+    {
+        this.fetchOwnerList()
+    }
+
+    fetchOwnerList = () =>
+    {
+        getOwnersApiCall()
+            .then(res => res.json())
+            .then(
+                (data) =>
+                {
+                    this.setState(
+                        {
+                        isLoaded: true,
+                        owners: data
+                    });
+                },
+                (error) =>
+                {
+                    this.setState(
+                        {
+                        isLoaded: true,
+                        error
+                    })
+                }
+            )
+    }
+
+
+    render()
+    {
+        const {error,isLoaded,owners} = this.state;
+        let content;
+
+        if (error)
+            content = <p>Błąd: {error.message}</p>
+        else if (!isLoaded)
+            content = <p>Ładowanie danych właścicieli...</p>
+        else
+            content = <OwnerListTable ownerList={owners} />
+
+        return (
+            <main>
+                <h2>Lista właścicieli</h2>
+                { content}
+                <p className="section-buttons">
+                    <Link to="/owners/add" className="button-add">Dodaj nowego właściciela</Link>
+                </p>
+            </main >
+        )
+    }
+
 }
 
 export default OwnerList;

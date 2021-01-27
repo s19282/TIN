@@ -1,7 +1,8 @@
-import {ownerDetailsList, ownerList} from "./ownerApiMockData";
+import {ownerDetailsList} from "./ownerApiMockData";
+const ownersBaseUrl = 'http://localhost:3000/api/owners';
 
 export function getOwnersApiCall() {
-    return ownerList;
+    return fetch(ownersBaseUrl);
 }
 export function getOwnerByIdApiCall(ownerId)
 {

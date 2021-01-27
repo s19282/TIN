@@ -2,35 +2,35 @@ export const ownerList = [
     {
         "id": 1,
         "firstName": "Hopkins",
-        "lastName": "Integer.urna@massanonante.com",
+        "lastName": "Integer",
         "email": "non.sapien.molestie@Duiscursus.ca",
         "phoneNumber": "842149008"
     },
     {
         "id": 2,
         "firstName": "Williamson",
-        "lastName": "libero.Morbi.accumsan@pharetra.org",
+        "lastName": "libero",
         "email": "Integer.in.magna@nislNulla.org",
         "phoneNumber": "221817239"
     },
     {
         "id": 3,
         "firstName": "Chen",
-        "lastName": "iaculis@doloregestas.org",
+        "lastName": "iaculis",
         "email": "conubia.nostra.per@fringillaporttitorvulputate.co.uk",
         "phoneNumber": "148204898"
     },
     {
         "id": 4,
         "firstName": "Jimenez",
-        "lastName": "mollis@Cras.com",
+        "lastName": "mollis",
         "email": "eu@gravida.co.uk",
         "phoneNumber": "326240338"
     },
     {
         "id": 5,
         "firstName": "Yates",
-        "lastName": "enim.Sed.nulla@dictumultricies.edu",
+        "lastName": "enim",
         "email": "augue.ut@estmollisnon.co.uk",
         "phoneNumber": "028312186"
     }];
@@ -39,7 +39,7 @@ export const ownerDetailsList = [
     {
         "id": 1,
         "firstName": "Hopkins",
-        "lastName": "Integer.urna@massanonante.com",
+        "lastName": "Integer",
         "email": "non.sapien.molestie@Duiscursus.ca",
         "phoneNumber": "842149008",
         "registrations" : [
@@ -65,7 +65,7 @@ export const ownerDetailsList = [
     {
         "id": 1,
         "firstName": "Hopkins",
-        "lastName": "Integer.urna@massanonante.com",
+        "lastName": "Integer",
         "email": "non.sapien.molestie@Duiscursus.ca",
         "phoneNumber": "842149008",
         "registrations" : [
@@ -91,7 +91,7 @@ export const ownerDetailsList = [
     {
         "id": 2,
         "firstName": "Williamson",
-        "lastName": "libero.Morbi.accumsan@pharetra.org",
+        "lastName": "libero",
         "email": "Integer.in.magna@nislNulla.org",
         "phoneNumber": "221817239",
         "registrations" : [

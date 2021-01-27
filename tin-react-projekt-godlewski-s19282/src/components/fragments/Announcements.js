@@ -3,7 +3,7 @@ import React from "react";
 function Announcements()
 {
     return (
-        <div>
+        <div className="rightPanel">
             <h4>a1</h4>
             <h4>a2</h4>
             <h4>a3</h4>

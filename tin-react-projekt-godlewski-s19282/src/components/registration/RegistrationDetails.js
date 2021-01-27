@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom'
-import {getRegistrationByIdApiCall, getRegistrationsApiCall} from "../../apiCalls/registrationApiCalls";
+import {getRegistrationByIdApiCall} from "../../apiCalls/registrationApiCalls";
 
 function RegistrationDetails({ match }) {
     const registrationId = parseInt(match.params.registrationId);

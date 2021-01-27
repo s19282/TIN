@@ -15,7 +15,7 @@ export const registrationList = [
         "owner" : {
             "id": 1,
             "firstName": "Hopkins",
-            "lastName": "Integer.urna@massanonante.com",
+            "lastName": "Integer",
             "email": "non.sapien.molestie@Duiscursus.ca",
             "phoneNumber": "842149008"
         }
@@ -39,7 +39,7 @@ export const registrationDetailsList = [
         "owner" : {
             "id": 1,
             "firstName": "Hopkins",
-            "lastName": "Integer.urna@massanonante.com",
+            "lastName": "Integer",
             "email": "non.sapien.molestie@Duiscursus.ca",
             "phoneNumber": "842149008"
         }
