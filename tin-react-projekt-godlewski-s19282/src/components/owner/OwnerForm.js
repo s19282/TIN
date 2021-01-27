@@ -22,7 +22,7 @@ class OwnerForm extends React.Component{
                     <div className="form-buttons">
                         <p id="errorsSummary" className="errors-text"></p>
                         <input className="form-button-submit" type="submit" value="Dodaj" />
-                        <Link to="/employees" className="form-button-cancel">Anuluj</Link>
+                        <Link to="/owners" className="form-button-cancel">Anuluj</Link>
                     </div>
                 </form>
             </main>

@@ -36,7 +36,7 @@ function OwnerList(){
                 </tbody>
             </table>
             <p className="section-buttons">
-                <Link href="/owners/add" className="button-add">Dodaj nowego pracownika</Link>
+                <Link to="/owners/add" className="button-add">Dodaj nowego pracownika</Link>
             </p>
         </main>
     );

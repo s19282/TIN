@@ -31,12 +31,12 @@ function App() {
                 <Route exact path="/registrations" component={RegistrationList}/>
                 <Route exact path="/registrations/details/:registrationId" component={RegistrationDetails}/>
                 <Route exact path="/registrations/add" component={RegistrationForm}/>
-                <Route exact paht="/registrations/edit/:registrationId" component={RegistrationForm}/>
+                <Route exact path="/registrations/edit/:registrationId" component={RegistrationForm}/>
 
                 <Route exact path="/vehicles" component={VehicleList}/>
                 <Route exact path="/vehicles/details/:vehicleId" component={VehicleDetails}/>
                 <Route exact path="/vehicles/add" component={VehicleForm}/>
-                <Route exact paht="/vehicles/edit/:vehicleId" component={VehicleForm}/>
+                <Route exact path="/vehicles/edit/:vehicleId" component={VehicleForm}/>
             </Switch>
             <Announcements/>
             <Footer/>

@@ -15,6 +15,7 @@ function VehicleList(){
                         <th>Model</th>
                         <th>Data pierwszej rejestracji</th>
                         <th>Pojemność silnika</th>
+                        <th>Akcje</th>
                     </tr>
                 </thead>
                 <tbody>

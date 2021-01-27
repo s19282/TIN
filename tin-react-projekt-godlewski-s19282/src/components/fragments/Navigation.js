@@ -5,10 +5,10 @@ function Navigation() {
     return (
         <nav>
             <ul>
-                <li><Link href="/">Strona główna</Link></li>
-                <li><Link href="/owners">Właściciele</Link></li>
-                <li><Link href="/registrations">Rejestracje</Link></li>
-                <li><Link href="/vehicles">Pojazdy</Link></li>
+                <li><Link to="/">Strona główna</Link></li>
+                <li><Link to="/owners">Właściciele</Link></li>
+                <li><Link to="/registrations">Rejestracje</Link></li>
+                <li><Link to="/vehicles">Pojazdy</Link></li>
             </ul>
         </nav>
     )

@@ -4,6 +4,7 @@ import {getVehicleByIdApiCall} from "../../apiCalls/vehicleApiCalls";
 
 function VehicleDetails(){
     let {vehicleId} = useParams();
+    vehicleId = parseInt(vehicleId);
     const vehicle = getVehicleByIdApiCall(vehicleId);
     return (
         <main>
@@ -17,7 +18,7 @@ function VehicleDetails(){
             <table className="table-list">
                 <thead>
                 <tr>
-                    <th>Rejestracja</th>
+                    <th>Właściciel</th>
                     <th>Data od</th>
                     <th>Data do</th>
                     <th>Numer rejestracyjny</th>
@@ -28,6 +29,7 @@ function VehicleDetails(){
                 {vehicle.registrations.map(
                     registration =>
                         <tr key={registration.id}>
+                            <td>{registration.owner.firstName+" "+registration.owner.lastName}</td>
                             <td>{registration.dateFrom}</td>
                             <td>{registration.dateTo}</td>
                             <td>{registration.registrationNumber}</td>
