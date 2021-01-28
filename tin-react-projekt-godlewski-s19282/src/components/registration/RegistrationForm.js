@@ -49,7 +49,7 @@ class RegistrationForm extends React.Component{
                     <div className="form-buttons">
                         <p id="errorsSummary" className="errors-text"></p>
                         <input className="form-button-submit" type="submit" value="Dodaj" />
-                        <Link to="/registration" className="form-button-cancel">Anuluj</Link>
+                        <Link to="/registrations" className="form-button-cancel">Anuluj</Link>
                     </div>
                 </form>
             </main>

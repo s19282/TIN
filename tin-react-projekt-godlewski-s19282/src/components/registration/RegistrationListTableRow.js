@@ -6,9 +6,8 @@ function RegistrationListTableRow(props)
     const registration = props.registrationData
     return (
         <tr key={registration.id}>
-            {/*TODO: change to full information*/}
-            <td>{registration.owner_id}</td>
-            <td>{registration.vehicle_id}</td>
+            <td>{registration.owner.firstName+" "+registration.owner.lastName}</td>
+            <td>{registration.vehicle.make+" "+registration.vehicle.model}</td>
             <td>{registration.dateFrom}</td>
             <td>{registration.dateTo}</td>
             <td>{registration.registrationNumber}</td>

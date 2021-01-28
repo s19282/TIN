@@ -26,19 +26,19 @@ function App() {
                 <Route exact path="/" component={MainContent}/>
 
                 <Route exact path="/owners" component={OwnerList}/>
-                <Route exact path="/owners/details/:ownerId" component={OwnerDetails}/>
-                <Route exact path="/owners/add" component={OwnerForm}/>
-                <Route exact path="/owners/edit/:ownerId" component={OwnerForm}/>
+                <Route exact path="/owner/details/:ownerId" component={OwnerDetails}/>
+                <Route exact path="/owner/add" component={OwnerForm}/>
+                <Route exact path="/owner/edit/:ownerId" component={OwnerForm}/>
 
                 <Route exact path="/registrations" component={RegistrationList}/>
-                <Route exact path="/registrations/details/:registrationId" component={RegistrationDetails}/>
-                <Route exact path="/registrations/add" component={RegistrationForm}/>
-                <Route exact path="/registrations/edit/:registrationId" component={RegistrationForm}/>
+                <Route exact path="/registration/details/:registrationId" component={RegistrationDetails}/>
+                <Route exact path="/registration/add" component={RegistrationForm}/>
+                <Route exact path="/registration/edit/:registrationId" component={RegistrationForm}/>
 
                 <Route exact path="/vehicles" component={VehicleList}/>
-                <Route exact path="/vehicles/details/:vehicleId" component={VehicleDetails}/>
-                <Route exact path="/vehicles/add" component={VehicleForm}/>
-                <Route exact path="/vehicles/edit/:vehicleId" component={VehicleForm}/>
+                <Route exact path="/vehicle/details/:vehicleId" component={VehicleDetails}/>
+                <Route exact path="/vehicle/add" component={VehicleForm}/>
+                <Route exact path="/vehicle/edit/:vehicleId" component={VehicleForm}/>
             </Switch>
             <Announcements/>
             <Footer/>

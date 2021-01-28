@@ -51,7 +51,7 @@ class RegistrationList extends React.Component
                 <h2>Lista rejestracji</h2>
                 {content}
                 <p className="section-buttons">
-                    <Link to="/registrations/add" className="button-add">Dodaj nową rejestrację</Link>
+                    <Link to="/registration/add" className="button-add">Dodaj nową rejestrację</Link>
                 </p>
             </main>
         )

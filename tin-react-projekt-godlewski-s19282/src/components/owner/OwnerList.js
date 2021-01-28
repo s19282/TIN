@@ -63,7 +63,7 @@ class OwnerList extends React.Component
                 <h2>Lista właścicieli</h2>
                 { content}
                 <p className="section-buttons">
-                    <Link to="/owners/add" className="button-add">Dodaj nowego właściciela</Link>
+                    <Link to="/owner/add" className="button-add">Dodaj nowego właściciela</Link>
                 </p>
             </main >
         )
