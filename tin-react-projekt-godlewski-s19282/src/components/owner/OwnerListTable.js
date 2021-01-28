@@ -7,13 +7,13 @@ function OwnerListTable(props)
     return (
         <table className="table-list">
             <thead>
-            <tr>
-                <th>Imię</th>
-                <th>Nazwisko</th>
-                <th>Email</th>
-                <th>Numer telefonu</th>
-                <th>Akcje</th>
-            </tr>
+                <tr>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                    <th>Email</th>
+                    <th>Numer telefonu</th>
+                    <th>Akcje</th>
+                </tr>
             </thead>
             <tbody>
             {owners.map(owner =>

@@ -1,11 +1,11 @@
-import {vehicleDetailsList, vehicleList} from "./vehicleApiMockData";
+const vehiclesBaseUrl = 'http://localhost:3000/api/vehicles';
 
 export function getVehiclesApiCall()
 {
-    return vehicleList;
+    return fetch(vehiclesBaseUrl);
 }
 
 export function getVehicleByIdApiCall(vehicleId)
 {
-    return vehicleDetailsList.find(vehicle => vehicle.id === vehicleId);
+    return fetch(`${vehiclesBaseUrl}/${vehicleId}`);
 }
