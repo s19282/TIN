@@ -1,48 +1,80 @@
 import React from "react";
 import {Link, useParams} from 'react-router-dom'
 import {getVehicleByIdApiCall} from "../../apiCalls/vehicleApiCalls";
+import OwnerDetailsData from "../owner/OwnerDetailsData";
+import VehicleDetailsData from "./VehicleDetailsData";
 
-function VehicleDetails(){
-    let {vehicleId} = useParams();
-    vehicleId = parseInt(vehicleId);
-    const vehicle = getVehicleByIdApiCall(vehicleId);
-    return (
-        <main>
-            <h2>Szczegóły pojazdu</h2>
-            <p>VIN: {vehicle.vin}</p>
-            <p>Marka: {vehicle.make}</p>
-            <p>Model: {vehicle.model}</p>
-            <p>Data pierwszej rejestracji: {vehicle.firstRegistrationDate}</p>
-            <p>Pojemność silnika: {vehicle.firstRegistrationDate}</p>
-            <h2>Szczegóły rejestracji</h2>
-            <table className="table-list">
-                <thead>
-                <tr>
-                    <th>Właściciel</th>
-                    <th>Data od</th>
-                    <th>Data do</th>
-                    <th>Numer rejestracyjny</th>
-                    <th>Numer ubezpieczenia</th>
-                </tr>
-                </thead>
-                <tbody>
-                {vehicle.registrations.map(
-                    registration =>
-                        <tr key={registration.id}>
-                            <td>{registration.owner.firstName+" "+registration.owner.lastName}</td>
-                            <td>{registration.dateFrom}</td>
-                            <td>{registration.dateTo}</td>
-                            <td>{registration.registrationNumber}</td>
-                            <td>{registration.insuranceNumber}</td>
-                        </tr>
-                )}
-                </tbody>
-            </table>
-            <div className="section-buttons">
-                <Link to="/vehicles" className="button-back">Powrót</Link>
-            </div>
-        </main>
-    );
+class VehicleDetails extends React.Component
+{
+    constructor(props) {
+        super(props);
+        let{vehicleId} = props.match.params
+        this.state = {
+            vehicleId : vehicleId,
+            vehicle : null,
+            error : null,
+            isLoaded : false,
+            message : null
+        }
+    }
+
+    componentDidMount() {
+        this.fetchVehicleDetails()
+    }
+
+    fetchVehicleDetails = () =>{
+        getVehicleByIdApiCall(this.state.vechicleId)
+            .then(res => res.json())
+            .then((data) => {
+                if(data.message)
+                {
+                    this.setState({
+                        vehicle : null,
+                        message : data.message
+                    })
+                }
+                else
+                {
+                    this.setState({
+                        vehicle : data,
+                        message : null
+                    })
+                }
+                this.setState({
+                    isLoaded : true
+                })
+            },
+            (error) => {
+                this.setState({
+                    isLoaded : true,
+                    error
+                })
+            })
+    }
+
+    render() {
+        const {vehicle, error, isLoaded, message} = this.state
+        let content;
+
+        if(error)
+            content = <p>Błąd: {error.message}</p>
+        else if (!isLoaded)
+            content = <p>Ładowanie danych pojazdu</p>
+        else if (message)
+            content = <p>{message}</p>
+        else
+            content = <VehicleDetailsData vehicleData={vehicle}/>
+
+        return (
+            <main>
+                <h2>Szczegóły pojazdu</h2>
+                {content}
+                <div className="section-buttons">
+                    <Link to="/vehicles" className="button-back">Powrót</Link>
+                </div>
+            </main>
+        )
+    }
 }
 
 export default VehicleDetails
