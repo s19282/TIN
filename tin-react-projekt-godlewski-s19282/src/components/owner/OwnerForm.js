@@ -47,7 +47,7 @@ class OwnerForm extends React.Component{
                     else
                     {
                         this.setState({
-                            emp: data,
+                            owner: data,
                             message: null
                         })
                     }
@@ -64,7 +64,7 @@ class OwnerForm extends React.Component{
             )
     }
 
-    componentDidMound = () =>{
+    componentDidMount = () =>{
         const currentFormMode = this.state.formMode
         if(currentFormMode === formMode.EDIT)
             this.fetchOwnerDetails()
@@ -72,7 +72,7 @@ class OwnerForm extends React.Component{
 
     handleChange = (event) => {
         const {name, value} = event.target
-        const owner = {...this.state.emp}
+        const owner = {...this.state.owner}
         owner[name] = value
 
         const errorMessage = this.validateField(name,value)
@@ -116,8 +116,6 @@ class OwnerForm extends React.Component{
                 errorMessage = "Pole jest wymagane";
             else if (!checkTextLengthRange(fieldValue))
                 errorMessage = "Pole powinno zawierać od 5 do 60 znaków";
-            else if (!checkEmail(fieldValue))
-                errorMessage = "Pole powinno zawierać prawidłowy adres email";
         }
         return errorMessage
     }
@@ -214,7 +212,7 @@ class OwnerForm extends React.Component{
                 'Pomyślnie zaktualizowano nowego właściciela'
             return (
                 <Redirect to={{
-                    pathname: "/employees/",
+                    pathname: "/owners/",
                     state: {
                         notice: notice
                     }
@@ -271,34 +269,22 @@ class OwnerForm extends React.Component{
                         placeholder="2-60 znaków"   //TODO: change placeholder
                         onChange={this.handleChange}
                         value={this.state.owner.phoneNumber}/>
+
+                        <FormInput
+                        type="password"
+                        label="Hasło"
+                        required
+                        error={this.state.errors.password}
+                        name="password"
+                        placeholder="2-60 znaków"   //TODO: change placeholder
+                        onChange={this.handleChange}/>
+
                         <FormButtons
                             formMode={this.state.formMode}
                             error={globalErrorMessage}
                             cancelPath={"/owners"}/>
                 </form>
             </main>
-            // <main>
-            //     <h2>Nowy właściciel</h2>
-            //     <form className="form">
-            //         <label htmlFor="firstName">Imię:<abbr title="required" aria-label="required">*</abbr> </label>
-            //         <input type="text" name="firstName" id="firstName" placeholder="2-60 znaków" value=""/>
-            //         <span id="errorFirstName" className="errors-text"></span>
-            //         <label htmlFor="lastName">Nazwisko:<abbr title="required" aria-label="required">*</abbr> </label>
-            //         <input type="text" name="lastName" id="firstName" placeholder="2-60 znaków" value=""/>
-            //         <span id="errorLastName" className="errors-text"></span>
-            //         <label htmlFor="email">Email:<abbr title="required" aria-label="required">*</abbr></label>
-            //         <input type="email" name="email" id="email" placeholder="np. nazwa@domena.pl" value="" />
-            //         <span id="errorEmail" className="errors-text"></span>
-            //         <label htmlFor="phoneNumber">Numer telefonu:</label>
-            //         <input type="text" name="phoneNumber" id="phoneNumber" placeholder="XxxXxxXxx" value="" />
-            //         <span id="errorPhoneNumber" className="errors-text"></span>
-            //         <div className="form-buttons">
-            //             <p id="errorsSummary" className="errors-text"></p>
-            //             <input className="form-button-submit" type="submit" value="Dodaj" />
-            //             <Link to="/owners" className="form-button-cancel">Anuluj</Link>
-            //         </div>
-            //     </form>
-            // </main>
         )
     }
 }

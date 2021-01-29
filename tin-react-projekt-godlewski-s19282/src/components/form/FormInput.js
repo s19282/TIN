@@ -7,7 +7,7 @@ function FormInput(props){
     return (
         <>
             <label htmlFor={props.name}>
-                {props.label} : {props.required} && <abbr title="required" aria-label="required">*</abbr>
+                {props.label} : {props.required && <abbr title="required" aria-label="required">*</abbr>}
             </label>
             <input
                 type={props.type}
