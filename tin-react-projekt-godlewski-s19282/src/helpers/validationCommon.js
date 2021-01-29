@@ -1,15 +1,3 @@
-function resetErrors(inputs, errorTexts, errorInfo)
-{
-    for(let i=0; i<inputs.length; i++)
-    {
-        inputs[i].classList.remove("error-input");
-    }
-    for(let i=0; i<errorTexts.length; i++)
-    {
-        errorTexts[i].innerText = "";
-    }
-    errorInfo.innerText = "";
-}
 export function checkRequired(value)
 {
     if (!value)
@@ -42,12 +30,12 @@ export function checkEmail(value)
     const re = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
     return re.test(value);
 }
-function checkInsuranceNumber(value)
+export function checkInsuranceNumber(value)
 {
     return checkTextLengthRange(value,9,9);
 }
 
-function checkRegistrationNumber(value)
+export function checkRegistrationNumber(value)
 {
     if (!value)
     {
@@ -59,7 +47,7 @@ function checkRegistrationNumber(value)
     return re.test(value);
 }
 
-function checkNumber(value)
+export function checkNumber(value)
 {
     if (!value)
     {
@@ -69,7 +57,7 @@ function checkNumber(value)
 
 }
 
-function checkDate(value)
+export function checkDate(value)
 {
     if (!value)
     {
@@ -78,7 +66,7 @@ function checkDate(value)
     const pattern = /(\d{4})-(\d{2})-(\d{2})/;
     return pattern.test(value);
 }
-function checkDateIfAfter(value, compareTo)
+export function checkDateIfAfter(value, compareTo)
 {
     if (!value)
     {
@@ -104,7 +92,19 @@ function checkDateIfAfter(value, compareTo)
     return valueDate.getTime() >= compareToDate.getTime();
 }
 
+export function isSameOrBefore(reqDate){
+    const today = new Date();
+    const date = new Date(reqDate);
+    return date>today
+}
 
+export function isSameOrAfter(reqDate)
+{
+    const date = new Date(reqDate);
+    const dateFrom = new Date(this.dateFrom);
+
+    return (date<dateFrom && reqDate!=null);
+}
 
 
 
