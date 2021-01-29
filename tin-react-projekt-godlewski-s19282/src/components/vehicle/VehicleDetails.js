@@ -1,7 +1,6 @@
 import React from "react";
-import {Link, useParams} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {getVehicleByIdApiCall} from "../../apiCalls/vehicleApiCalls";
-import OwnerDetailsData from "../owner/OwnerDetailsData";
 import VehicleDetailsData from "./VehicleDetailsData";
 
 class VehicleDetails extends React.Component

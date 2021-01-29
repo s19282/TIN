@@ -1,7 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {getVehiclesApiCall} from "../../apiCalls/vehicleApiCalls";
-import OwnerListTable from "../owner/OwnerListTable";
 import VehicleListTable from "./VehicleListTable";
 
 class VehicleList extends React.Component

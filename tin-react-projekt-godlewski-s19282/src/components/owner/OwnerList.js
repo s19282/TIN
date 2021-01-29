@@ -8,11 +8,13 @@ class OwnerList extends React.Component
     constructor(props)
     {
         super(props);
+        let notice = props.location.state && props.location.state.notice ? props.location.state.notice : ''
         this.state =
             {
                 error: null,
                 isLoaded: false,
-                owners: []
+                owners: [],
+                notice: notice
             }
     }
 
@@ -65,6 +67,7 @@ class OwnerList extends React.Component
                 <p className="section-buttons">
                     <Link to="/owner/add" className="button-add">Dodaj nowego właściciela</Link>
                 </p>
+                <p className="success">{this.state.notice}</p>
             </main >
         )
     }
