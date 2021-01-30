@@ -1,23 +1,26 @@
 import React from 'react';
 import OwnerDetailsDataRow from "./OwnerDetailsDataRow";
+import { useTranslation } from 'react-i18next';
 
 function OwnerDetailsData(props){
     const owner = props.ownerData
+    const { t } = useTranslation()
+
     return (
         <React.Fragment>
-            <p>Imię: {owner.firstName}</p>
-            <p>Nazwisko: {owner.lastName} </p>
-            <p>E-mail: {owner.email} </p>
-            <p>Numer telefonu: {owner.phoneNumber}</p>
-            <h2>Auta właściciela</h2>
+            <p>{t('owner.fields.firstName')}: {owner.firstName}</p>
+            <p>{t('owner.fields.lastName')}: {owner.lastName} </p>
+            <p>{t('owner.fields.email')}: {owner.email} </p>
+            <p>{t('owner.fields.phoneNumber')}: {owner.phoneNumber}</p>
+            <h2>{t('owner.details.registrations')}</h2>
             <table className="table-list">
                 <thead>
                 <tr>
-                    <th>VIN</th>
-                    <th>Data od</th>
-                    <th>Data do</th>
-                    <th>Numer rejestracyjny</th>
-                    <th>Numer ubezpieczenia</th>
+                    <th>{t('vehicle.fields.vin')}</th>
+                    <th>{t('registration.fields.dateFrom')}</th>
+                    <th>{t('registration.fields.dateTo')}</th>
+                    <th>{t('registration.fields.registrationNumber')}</th>
+                    <th>{t('registration.fields.insuranceNumber')}</th>
                 </tr>
                 </thead>
                 <tbody>

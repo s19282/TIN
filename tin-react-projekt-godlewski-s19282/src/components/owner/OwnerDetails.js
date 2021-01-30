@@ -2,6 +2,9 @@ import React from "react";
 import {Link} from "react-router-dom";
 import {getOwnerByIdApiCall} from "../../apiCalls/ownerApiCalls";
 import OwnerDetailsData from "./OwnerDetailsData";
+import { withTranslation } from 'react-i18next';
+
+
 
 
 class OwnerDetails extends React.Component
@@ -55,6 +58,8 @@ class OwnerDetails extends React.Component
     {
         const {owner, error, isLoaded, message } = this.state
         let content;
+        const { t } = this.props;
+
 
         if(error)
             content = <p>Błąd: {error.message}</p>
@@ -67,14 +72,14 @@ class OwnerDetails extends React.Component
 
         return (
             <main>
-                <h2>Szczegóły właściciela</h2>
+                <h2>{t('owner.details.details')}</h2>
                 {content}
                 <div className="section-buttons">
-                    <Link to="/owners" className="button-back">Powrót</Link>
+                    <Link to="/owners" className="button-back">{t('form.actions.return')}</Link>
                 </div>
             </main>
         )
     }
 }
 
-export default OwnerDetails
+export default withTranslation()(OwnerDetails)

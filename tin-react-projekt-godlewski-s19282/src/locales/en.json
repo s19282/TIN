@@ -1,6 +1,7 @@
 {
   "main-page": {
-    "content": "Home"
+    "content": "Home",
+    "title": "Communications department"
   },
   "nav": {
     "main-page": "Home",
@@ -20,10 +21,15 @@
     "actions": {
       "return": "Return",
       "edit": "Edit",
-      "cancel": "Cancel"
+      "cancel": "Cancel",
+      "add": "Add"
     }
   },
   "owner": {
+    "details": {
+      "details": "Owner details",
+      "registrations": "Owner's vehicles"
+    },
     "fields": {
       "firstName": "First name",
       "lastName": "Last name",
@@ -57,6 +63,7 @@
     }
   },
   "registration": {
+    "details": "Registration details",
     "fields": {
       "dateFrom": "Registration date since",
       "dateTo": "Registration date to",
@@ -89,6 +96,7 @@
     }
   },
   "vehicle": {
+    "details": "Vehicle details",
     "fields": {
       "vin": "VIN",
       "make": "Make",

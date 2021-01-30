@@ -1,6 +1,7 @@
 {
   "main-page": {
-    "content": "Strona główna"
+    "content": "Strona główna",
+    "title": "Wydział komunikacji"
   },
   "nav": {
     "main-page": "Strona główna",
@@ -20,10 +21,15 @@
     "actions": {
       "return": "Powrót",
       "edit": "Edytuj",
-      "cancel": "Anuluj"
+      "cancel": "Anuluj",
+      "add": "Dodaj"
     }
   },
   "owner": {
+    "details": {
+      "details": "Szczegóły właściciela",
+      "registrations": "Auta właściciela"
+    },
     "fields": {
       "firstName": "Imię",
       "lastName": "Nazwisko",
@@ -57,6 +63,7 @@
     }
   },
   "registration": {
+    "details": "Szczegóły rejestracji",
     "fields": {
       "dateFrom": "Data rejestracji od",
       "dateTo": "Data rejestracji do",
@@ -89,6 +96,7 @@
     }
   },
   "vehicle": {
+    "details": "Szczegóły pojazdu",
     "fields": {
       "vin": "VIN",
       "make": "Marka",
