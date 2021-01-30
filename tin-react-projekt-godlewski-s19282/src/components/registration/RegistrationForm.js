@@ -11,11 +11,13 @@ import {
     checkInsuranceNumber,
     checkRegistrationNumber,
     checkRequired,
-    isSameOrAfter,
     isSameOrBefore
 } from "../../helpers/validationCommon";
 import FormInput from "../form/FormInput";
 import FormButtons from "../form/FormButtons";
+import FormSelect from "../form/FormSelect";
+import {getOwnersApiCall} from "../../apiCalls/ownerApiCalls";
+import {getVehiclesApiCall} from "../../apiCalls/vehicleApiCalls";
 
 class RegistrationForm extends React.Component{
     constructor(props) {
@@ -45,11 +47,13 @@ class RegistrationForm extends React.Component{
             },
             formMode : currentFormMode,
             redirect : false,
-            error : null
+            error : null,
+            allOwners : [],
+            allVehicles : []
         }
     }
 
-    fetchRegistrationDetails = () => {
+    fetchRegistrationForm = () => {
         getRegistrationByIdApiCall(this.state.registrationId)
             .then(res => res.json())
             .then(
@@ -81,9 +85,23 @@ class RegistrationForm extends React.Component{
 
     componentDidMount = () => {
         const currentFormMode = this.state.formMode
-        if (currentFormMode === formMode.EDIT) {
-            this.fetchRegistrationDetails()
-        }
+        if (currentFormMode === formMode.EDIT)
+            this.fetchRegistrationForm()
+
+        getVehiclesApiCall()
+            .then(res =>res.json())
+            .then((data) => {
+                this.setState({
+                    allVehicles: data
+                })
+            })
+        getOwnersApiCall()
+            .then(res => res.json())
+            .then((data) =>{
+                this.setState({
+                    allOwners: data
+                })
+            })
     }
 
     handleChange = (event) => {
@@ -96,7 +114,7 @@ class RegistrationForm extends React.Component{
         errors[name] = errorMessage
 
         this.setState({
-            emp: registration,
+            registration: registration,
             errors: errors
         })
     }
@@ -111,16 +129,16 @@ class RegistrationForm extends React.Component{
                 errorMessage = "Pole jest wymagane";
             else if (!checkDate(fieldValue))
                 errorMessage = "Pole powinno zawierać datę";
-            else if (!isSameOrBefore(fieldValue))
+            else if (isSameOrBefore(fieldValue))
                 errorMessage = "Data nie może być z przyszłości";
         }
         if (fieldName === 'dateTo')
         {
-            if (!isSameOrBefore(fieldValue))
+            if (isSameOrBefore(fieldValue))
                 errorMessage = "Data nie może być z przyszłości";
-            else if (isSameOrAfter(fieldValue))
-                errorMessage = "Data końca rejestracji nie może być wcześniejsza niż data początku rejestracji";
-            //    TODO: check if it work
+            // else if (isSameOrAfter(fieldValue))
+            //     errorMessage = "Data końca rejestracji nie może być wcześniejsza niż data początku rejestracji";
+            //    TODO: check if it's possible to get access to other field
         }
 
         if (fieldName === 'registrationNumber')
@@ -222,10 +240,6 @@ class RegistrationForm extends React.Component{
 
 
     render() {
-        // const allOwners = getOwnersApiCall();
-        // const allVehicles = getVehiclesApiCall();
-
-
         const { redirect } = this.state
         if (redirect) {
             const currentFormMode = this.state.formMode
@@ -243,7 +257,6 @@ class RegistrationForm extends React.Component{
         const errorsSummary = this.hasErrors() ? 'Formularz zawiera błędy' : ''
         const fetchError = this.state.error ? `Błąd: ${this.state.error.message}` : ''
         const pageTitle = this.state.formMode === formMode.NEW ? 'Nowa rejestracja' : 'Edycja rejestracji'
-
         const globalErrorMessage = errorsSummary || fetchError || this.state.message
 
         return (
@@ -251,6 +264,28 @@ class RegistrationForm extends React.Component{
                 <h2>{pageTitle}</h2>
                 <form className="form" onSubmit={this.handleSubmit}>
                     {/*TODO: owner & vehicle*/}
+                    <FormSelect
+                        label="Właściciel"
+                        required
+                        error={this.state.errors.owner_id}
+                        name="owner_id"
+                        onChange={this.handleChange}
+                        value={this.state.registration.owner_id}
+                        list={this.state.allOwners}
+                        isOwner={true}
+                        id={this.state.registration.owner_id}
+                    />
+                    <FormSelect
+                        label="Pojazd"
+                        required
+                        error={this.state.errors.vehicle_id}
+                        name="vehicle_id"
+                        onChange={this.handleChange}
+                        value={this.state.registration.vehicle_id}
+                        list={this.state.allVehicles}
+                        isOwner={false}
+                        id={this.state.registration.vehicle_id}
+                    />
                     <FormInput
                         type="date"
                         label="Data rejestracji od"
@@ -284,7 +319,7 @@ class RegistrationForm extends React.Component{
                         required
                         error={this.state.errors.insuranceNumber}
                         name="insuranceNumber"
-                        placeholder="7 cyfr"
+                        placeholder="9 cyfr"
                         onChange={this.handleChange}
                         value={this.state.registration.insuranceNumber}
                     />

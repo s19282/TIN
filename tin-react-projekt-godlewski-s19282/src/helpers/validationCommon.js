@@ -94,13 +94,13 @@ export function isSameOrBefore(reqDate){
     return date>today
 }
 
-export function isSameOrAfter(reqDate)
-{
-    const date = new Date(reqDate);
-    const dateFrom = new Date(this.dateFrom);
-
-    return (date<dateFrom && reqDate!=null);
-}
+// export function isSameOrAfter(reqDate)
+// {
+//     const date = new Date(reqDate);
+//     const dateFrom = new Date(this.dateFrom);
+//
+//     return (date<dateFrom && reqDate!=null);
+// }
 
 export function isMoreThanZero(val) {
     return val<=0

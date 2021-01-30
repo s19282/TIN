@@ -131,7 +131,7 @@ class VehicleForm extends React.Component
             if (!checkRequired(fieldValue))
                 errorMessage = "Pole jest wymagane";
             else if (!checkDate(fieldValue))
-                errorMessage = "Data nie może być z przyszłości";
+                errorMessage = "Niepoprawny format daty";
             else if (isSameOrBefore(fieldValue))
                 errorMessage = "Data nie może być z przyszłości";
         }
