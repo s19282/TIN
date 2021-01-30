@@ -209,7 +209,7 @@ class OwnerForm extends React.Component{
         {
             const currentFormMode = this.state.formMode
             const notice = currentFormMode === formMode.NEW ? 'Pomyślnie dodano nowego właściciela' :
-                'Pomyślnie zaktualizowano nowego właściciela'
+                'Pomyślnie zaktualizowano właściciela'
             return (
                 <Redirect to={{
                     pathname: "/owners/",

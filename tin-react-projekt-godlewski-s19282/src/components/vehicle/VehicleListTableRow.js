@@ -12,9 +12,9 @@ function VehicleListTableRow(props)
             <td>{vehicle.engineCapacity}</td>
             <td>
                 <ul className="list-actions">
-                    <li><Link to={`vehicle/details/${vehicle.id}`} className="list-actions-button-details">Szczegóły</Link></li>
-                    <li><Link to={`vehicle/edit/${vehicle.id}`} className="list-actions-button-edit">Edytuj</Link></li>
-                    <li><Link to={`vehicle/delete/${vehicle.id}`} className="list-actions-button-delete">Usuń</Link></li>
+                    <li><Link to={`/vehicle/details/${vehicle.id}`} className="list-actions-button-details">Szczegóły</Link></li>
+                    <li><Link to={`/vehicle/edit/${vehicle.id}`} className="list-actions-button-edit">Edytuj</Link></li>
+                    <li><Link to={`/vehicle/delete/${vehicle.id}`} className="list-actions-button-delete">Usuń</Link></li>
                 </ul>
             </td>
         </tr>

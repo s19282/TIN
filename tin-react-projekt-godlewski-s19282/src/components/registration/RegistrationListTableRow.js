@@ -14,9 +14,9 @@ function RegistrationListTableRow(props)
             <td>{registration.insuranceNumber}</td>
             <td>
                 <ul className="list-actions">
-                    <li><Link to={`registration/details/${registration.id}`} className="list-actions-button-details">Szczegóły</Link></li>
-                    <li><Link to={`registration/edit/${registration.id}`} className="list-actions-button-edit">Edytuj</Link></li>
-                    <li><Link to={`registration/delete/${registration.id}`} className="list-actions-button-delete">Usuń</Link></li>
+                    <li><Link to={`/registration/details/${registration.id}`} className="list-actions-button-details">Szczegóły</Link></li>
+                    <li><Link to={`/registration/edit/${registration.id}`} className="list-actions-button-edit">Edytuj</Link></li>
+                    <li><Link to={`/registration/delete/${registration.id}`} className="list-actions-button-delete">Usuń</Link></li>
                 </ul>
             </td>
         </tr>

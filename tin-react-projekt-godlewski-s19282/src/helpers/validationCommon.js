@@ -106,7 +106,9 @@ export function isSameOrAfter(reqDate)
     return (date<dateFrom && reqDate!=null);
 }
 
-
+export function isMoreThanZero(val) {
+    return val<=0
+}
 
 
 

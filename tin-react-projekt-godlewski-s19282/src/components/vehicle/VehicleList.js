@@ -6,12 +6,14 @@ import VehicleListTable from "./VehicleListTable";
 class VehicleList extends React.Component
 {
     constructor(props) {
-        super(props);
+        super(props)
+        let notice = props.location.state && props.location.state.notice ? props.location.state.notice : ''
         this.state =
             {
                 error : null,
                 isLoaded : false,
-                vehicles : []
+                vehicles : [],
+                notice: notice
             }
     }
 
@@ -60,6 +62,7 @@ class VehicleList extends React.Component
                 <p className="section-buttons">
                     <Link to="/vehicle/add" className="button-add">Dodaj nowy pojazd</Link>
                 </p>
+                <p className="success">{this.state.notice}</p>
             </main >
         )
     }
