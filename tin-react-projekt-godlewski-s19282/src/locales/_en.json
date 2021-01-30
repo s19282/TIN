@@ -1,0 +1,193 @@
+{
+	"main-page": {
+		"content": "Home",
+		"title": "Communications department",
+		"description": "Application of the communication department to manage vehicles."
+	},
+	"nav": {
+		"main-page": "Home",
+		"owners": "Owners",
+		"vehicles": "Vehicles",
+		"registrations": "Registrations"
+	},
+	"footer": {
+		"chooseLang": "Change language",
+		"login": {
+			"email": "Email",
+			"password": "Password",
+			"logging": "Logging",
+			"login": "Log in",
+			"loggedAs": "You are logged as",
+			"logout": "Log out"
+		}
+	},
+	"list": {
+		"actions": {
+			"title": "Actions",
+			"details": "Details",
+			"edit": "Edit",
+			"delete": "Delete"
+		},
+		"addNew": "list.addNew"
+	},
+	"form": {
+		"actions": {
+			"return": "Return",
+			"edit": "Edit",
+			"cancel": "Cancel"
+		},
+		"errorsSummary": "Form contains error"
+	},
+	"authController": {
+		"loginError": "Incorrect email address or password"
+	},
+	"owner": {
+		"controller": {
+			"emailNotUnique": "This email address is already in use"
+		},
+		"fields": {
+			"firstName": "Name",
+			"lastName": "Surname",
+			"email": "Email",
+			"phoneNumber": "Phone number",
+			"password": "Password"
+		},
+		"list": {
+			"title": "List of owners",
+			"addNew": "Add new owner",
+			"pageTitle": "List of owners"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Add owner",
+				"btnLabel": "Add"
+			},
+			"edit": {
+				"pageTitle": "Edit owner details",
+				"btnLabel": "Edit",
+				"details": {
+					"pageTitle": "Owner details"
+				}
+			},
+			"details": {
+				"pageTitle": "Owner details"
+			}
+		},
+		"association": {
+			"h2": "Registration details",
+			"fields": {
+				"vin": "VIN",
+				"dataFrom": "Date of actual registration from",
+				"dataTo": "Date of actual registration until",
+				"registrationNumber": "Registration number",
+				"insuranceNumber": "Insurance number"
+			}
+		}
+	},
+	"registration": {
+		"controller": {
+			"registrationNumberNotUnique": "This registration number is already in use",
+			"insuranceNumberNotUnique": "This insurance number is already in use"
+		},
+		"fields": {
+			"firstName": "Name",
+			"lastName": "Surname",
+			"make": "Make",
+			"model": "Model",
+			"registrationNumber": "Registration number",
+			"insuranceNumber": "Insurance number",
+			"owner": "Owner",
+			"chooseOwner": "Choose an owner",
+			"vehicle": "Vehicle",
+			"chooseVehicle": "Select a vehicle",
+			"dateTo": "Date of actual registration until"
+		},
+		"list": {
+			"title": "List of registrations",
+			"addNew": "Add new registration",
+			"pageTitle": "List of registrations"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Add registration",
+				"btnLabel": "Add"
+			},
+			"edit": {
+				"pageTitle": "Edit registration details",
+				"btnLabel": "Edit"
+			},
+			"details": {
+				"pageTitle": "Registration details"
+			}
+		},
+		"association": {
+			"h2": "Registration details",
+			"fields": {
+				"vin": "VIN",
+				"dataFrom": "Date of actual registration from",
+				"dataTo": "Date of actual registration until",
+				"registrationNumber": "Registration number",
+				"insuranceNumber": "Insurance number"
+			}
+		}
+	},
+	"vehicle": {
+		"controller": {
+			"VINNotUnique": "This VIN is already in use"
+		},
+		"fields": {
+			"vin": "VIN",
+			"make": "Make",
+			"model": "Model",
+			"firstRegistrationDate": "Date of first registration",
+			"engineCapacity": "Engine capacity"
+		},
+		"list": {
+			"title": "List of owners",
+			"addNew": "Add new vehicle",
+			"pageTitle": "List of vehicles"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Add vehicle",
+				"btnLabel": "Add"
+			},
+			"edit": {
+				"pageTitle": "Edit vehicle details",
+				"btnLabel": "Edit"
+			},
+			"details": {
+				"pageTitle": "Vehicle details"
+			}
+		},
+		"association": {
+			"h2_1": "Current vehicle owners",
+			"h2_2": "Previous vehicle owners",
+			"fields": {
+				"firstName": "Name",
+				"lastName": "Surname",
+				"email": "Email",
+				"dateFrom": "Date of actual registration from",
+				"dateTo": "Date of actual registration until",
+				"registrationNumber": "Registration number",
+				"insuranceNumber": "Insurance number"
+			}
+		}
+	},
+	"validationMessage": {
+		"fieldRequired": "Field is required",
+		"fieldBetween2and60": "Field should contain from 2 to 60 characters",
+		"fieldBetween5and30": "Field should contain from 5 to 30 characters",
+		"fieldBetween2and15": "Field should contain from 2 to 15 characters",
+		"fieldBetween1and20": "Field should contain from 1 to 20 characters",
+		"fieldBetween7and60": "Field should contain from 7 to 60 characters",
+		"fieldNotFutureDate": "First registration date can not be future",
+		"fieldIsNumber": "Field should be a number",
+		"fieldFormsErrors": "Form contains errors",
+		"fieldEmail": "Field must contain a valid email address",
+		"fieldCorrectDateFormat": "Field should contain the date in the format yyyy-MM-dd (np. 2000-01-01)",
+		"fieldDateBefore": "Until Date should be later than the From date",
+		"fieldIsRegistrationNumber": "Field should contain a valid registration number",
+		"fieldIsInsuranceNumber": "Field should contain a valid insurance number"
+	}
+}

@@ -1,0 +1,125 @@
+{
+  "main-page": {
+    "content": "Home"
+  },
+  "nav": {
+    "main-page": "Home",
+    "owners": "Owners",
+    "vehicles": "Vehicles",
+    "registrations": "Registrations"
+  },
+  "list": {
+    "actions": {
+      "title": "Actions",
+      "details": "Details",
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  },
+  "form": {
+    "actions": {
+      "return": "Return",
+      "edit": "Edit",
+      "cancel": "Cancel"
+    }
+  },
+  "owner": {
+    "fields": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "phoneNumber": "Phone number"
+    },
+    "list": {
+      "title": "Owners",
+      "addNew": "Add new owner",
+      "noData": "No owners in database",
+      "pageTitle": "List of owners"
+    },
+    "form": {
+      "registration": "Registration history",
+      "add": {
+        "pageTitle": "Adding owner",
+        "btnLabel": "Add owner",
+        "confirm": {
+          "header": "Confirm",
+          "text": "Owner added successfully"
+        }
+      },
+      "edit": {
+        "pageTitle": "Editing owner",
+        "btnLabel": "Save changes",
+        "confirm": {
+          "header": "Confirm",
+          "text": "Owner updated successfully"
+        }
+      }
+    }
+  },
+  "registration": {
+    "fields": {
+      "dateFrom": "Registration date since",
+      "dateTo": "Registration date to",
+      "registrationNumber": "Registration number",
+      "insuranceNumber": "Insurance number"
+    },
+    "list": {
+      "title": "Registrations",
+      "addNew": "Add new registration",
+      "noData": "No registrations in database",
+      "pageTitle": "List of registrations"
+    },
+    "form": {
+      "add": {
+        "pageTitle": "Adding registration",
+        "btnLabel": "Add registration",
+        "confirm": {
+          "header": "Confirm",
+          "text": "Registration added successfully"
+        }
+      },
+      "edit": {
+        "pageTitle": "Editing registration",
+        "btnLabel": "Save changes",
+        "confirm": {
+          "header": "Confirm",
+          "text": "Registration updated successfully"
+        }
+      }
+    }
+  },
+  "vehicle": {
+    "fields": {
+      "vin": "VIN",
+      "make": "Make",
+      "model": "Model",
+      "firstRegistrationDate": "First registration date",
+      "engineCapacity": "Engine capacity"
+    },
+    "list": {
+      "title": "Vehicles",
+      "addNew": "Add new vehicle",
+      "noData": "No vehicles in database",
+      "pageTitle": "List of vehicles"
+    },
+    "form": {
+      "registration": "Registered vehicles",
+      "add": {
+        "pageTitle": "Adding owner",
+        "btnLabel": "Add vehicle",
+        "confirm": {
+          "header": "Confirm",
+          "text": "Vehicle added successfully"
+        }
+      },
+      "edit": {
+        "pageTitle": "Editing vehicle",
+        "btnLabel": "Save changes",
+        "confirm": {
+          "header": "Confirm",
+          "text": "Vehicle updated successfully"
+        }
+      }
+    }
+  }
+}

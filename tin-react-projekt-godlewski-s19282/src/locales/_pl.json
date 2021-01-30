@@ -1,0 +1,226 @@
+{
+	"main-page": {
+		"content": "Strona główna",
+		"title": "Wydział komunikacji",
+		"description": "Aplikacja wydziału komunikacji pozwalająca zarządzać pojazdami."
+	},
+	"nav": {
+		"main-page": "Strona główna",
+		"owners": "Właściciele",
+		"vehicles": "Pojazdy",
+		"registrations": "Rejestracje"
+	},
+	"footer": {
+		"chooseLang": "Zmień język",
+		"login": {
+			"email": "Email",
+			"password": "Hasło",
+			"logging": "Logowanie",
+			"login": "Zaloguj się",
+			"loggedAs": "Jesteś zalogowany jako",
+			"logout": "Wyloguj się"
+		}
+	},
+	"list": {
+		"actions": {
+			"title": "Akcje",
+			"details": "Szczegóły",
+			"edit": "Edytuj",
+			"delete": "Usuń",
+			"return": "list.actions.return"
+		}
+	},
+	"form": {
+		"actions": {
+			"return": "Powrót",
+			"edit": "Edytuj",
+			"cancel": "Anuluj"
+		},
+		"errorsSummary": "Formularz zawiera błędy",
+		"action": {
+			"return": "form.action.return"
+		}
+	},
+	"authController": {
+		"loginError": "Niepoprawny adres eamil lub hasło"
+	},
+	"owner": {
+		"controller": {
+			"emailNotUnique": "Podany adres email jest już używany"
+		},
+		"fields": {
+			"firstName": "Imię",
+			"lastName": "Nazwisko",
+			"email": "Email",
+			"phoneNumber": "Numer telefonu",
+			"password": "Hasło"
+		},
+		"list": {
+			"title": "Lista właścicieli",
+			"addNew": "Dodaj nowego właściciela",
+			"noData": "Brak pracowników w bazie",
+			"pageTitle": "Lista właścicieli"
+		},
+		"form": {
+			"employment": "Historia zatrudnienia",
+			"add": {
+				"pageTitle": "Dodaj właściciela",
+				"btnLabel": "Dodaj",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano pracownika"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edytuj dane właściciela",
+				"btnLabel": "Edytuj",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano pracownika"
+				},
+				"details": {
+					"pageTitle": "Dane właściciela"
+				}
+			},
+			"details": {
+				"pageTitle": "owner.form.details.pageTitle"
+			}
+		},
+		"association": {
+			"h2": "Szczegóły rejestracji",
+			"fields": {
+				"vin": "VIN",
+				"dataFrom": "Data aktualnej rejestracji od",
+				"dataTo": "Data aktualnej rejestracji do",
+				"registrationNumber": "Numer rejestracyjny",
+				"insuranceNumber": "Numer ubezpieczenia"
+			}
+		}
+	},
+	"registration": {
+		"controller": {
+			"registrationNumberNotUnique": "Podany numer rejestracyjny jest już używany",
+			"insuranceNumberNotUnique": "Podany numer ubezpieczenia jest już używany"
+		},
+		"fields": {
+			"firstName": "Imię",
+			"lastName": "Nazwisko",
+			"make": "Marka",
+			"model": "Model",
+			"registrationNumber": "Numer rejestracyjny",
+			"insuranceNumber": "Numer ubezpieczenia",
+			"owner": "Właściciel",
+			"chooseOwner": "Wybierz właściciela",
+			"vehicle": "Pojazd",
+			"chooseVehicle": "Wybierz pojazd",
+			"dateTo": "Data aktualnej rejestracji do"
+		},
+		"list": {
+			"title": "Lista właścicieli",
+			"addNew": "Dodaj nowego właściciela auta",
+			"noData": "Brak pracowników w bazie",
+			"pageTitle": "Lista właścicieli"
+		},
+		"form": {
+			"employment": "Historia zatrudnienia",
+			"add": {
+				"pageTitle": "Dodaj rejestrację",
+				"btnLabel": "Dodaj",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano pracownika"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edytuj dane rejestracji",
+				"btnLabel": "Edytuj",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano pracownika"
+				}
+			},
+			"details": {
+				"pageTitle": "Dane rejestracji"
+			}
+		},
+		"association": {
+			"h2": "Szczegóły rejestracji",
+			"fields": {
+				"vin": "VIN",
+				"dataFrom": "Data aktualnej rejestracji od",
+				"dataTo": "Data aktualnej rejestracji do",
+				"registrationNumber": "Numer rejestracyjny",
+				"insuranceNumber": "Numer ubezpieczenia"
+			}
+		}
+	},
+	"vehicle": {
+		"controller": {
+			"VINNotUnique": "Podany VIN jest już używany"
+		},
+		"fields": {
+			"vin": "VIN",
+			"make": "Marka",
+			"model": "Model",
+			"firstRegistrationDate": "Data pierwszej rejestracji",
+			"engineCapacity": "Pojemność silnika"
+		},
+		"list": {
+			"title": "Lista właścicieli",
+			"addNew": "Dodaj nowy pojazd",
+			"noData": "Brak pracowników w bazie",
+			"pageTitle": "Lista pojazdów"
+		},
+		"form": {
+			"employment": "Historia zatrudnienia",
+			"add": {
+				"pageTitle": "Dodaj pojazd",
+				"btnLabel": "Dodaj",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano pracownika"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edytuj dane pojazdu",
+				"btnLabel": "Edytuj",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano pracownika"
+				}
+			},
+			"details": {
+				"pageTitle": "Dane pojazdu"
+			}
+		},
+		"association": {
+			"h2_1": "Aktualni właściciele auta",
+			"h2_2": "Poprzedni właściciele auta",
+			"fields": {
+				"firstName": "Imię",
+				"lastName": "Nazwisko",
+				"email": "Email",
+				"dateFrom": "Data pierwszej rejestracji od",
+				"dateTo": "Data pierwszej rejestracji do",
+				"registrationNumber": "Numer rejestracyjny",
+				"insuranceNumber": "Numer ubezpieczenia"
+			}
+		}
+	},
+	"validationMessage": {
+		"fieldRequired": "Pole jest wymagane",
+		"fieldBetween2and60": "Pole powinno zawierać od 2 do 60 znaków",
+		"fieldBetween5and30": "Pole powinno zawierać od 5 do 30 znaków",
+		"fieldBetween2and15": "Pole powinno zawierać od 2 do 15 znaków",
+		"fieldBetween1and20": "Pole powinno zawierać od 1 do 20 znaków",
+		"fieldNotFutureDate": "Data nie może być z przyszłości",
+		"fieldIsNumber": "Pole powinno być liczbą",
+		"fieldFormsErrors": "Formularz zawiera błędy",
+		"fieldBetween7and60": "Pole powinno zawierać od 7 do 60 znaków",
+		"fieldEmail": "Pole musi zawierać poprawny adres email",
+		"fieldCorrectDateFormat": "Pole powinno zawierać datę w formacie yyyy-MM-dd (np. 2000-01-01)",
+		"fieldDateBefore": "Data do powinna być późniejsza niż data od",
+		"fieldIsRegistrationNumber": "Pole powinno zawierać prawidłowy numer rejestracyjny",
+		"fieldIsInsuranceNumber": "Pole powinno zawierać prawidłowy numer ubezpieczenia"
+	}
+}

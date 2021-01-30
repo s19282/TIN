@@ -1,0 +1,125 @@
+{
+  "main-page": {
+    "content": "Strona główna"
+  },
+  "nav": {
+    "main-page": "Strona główna",
+    "owners": "Właściciele",
+    "vehicles": "Pojazdy",
+    "registrations": "Rejestracje"
+  },
+  "list": {
+    "actions": {
+      "title": "Akcje",
+      "details": "Szczegóły",
+      "edit": "Edytuj",
+      "delete": "Usuń"
+    }
+  },
+  "form": {
+    "actions": {
+      "return": "Powrót",
+      "edit": "Edytuj",
+      "cancel": "Anuluj"
+    }
+  },
+  "owner": {
+    "fields": {
+      "firstName": "Imię",
+      "lastName": "Nazwisko",
+      "email": "Email",
+      "phoneNumber": "Numer telefonu"
+    },
+    "list": {
+      "title": "Właściciele",
+      "addNew": "Dodaj nowego właściciela",
+      "noData": "Brak właścicieli w bazie",
+      "pageTitle": "Lista właścicieli"
+    },
+    "form": {
+      "registration": "Historia rejestracji",
+      "add": {
+        "pageTitle": "Dodawanie właściciela",
+        "btnLabel": "Dodaj właściciela",
+        "confirm": {
+          "header": "Potwierdzenie operacji",
+          "text": "Pomyślnie dodano właściciela"
+        }
+      },
+      "edit": {
+        "pageTitle": "Edycja właściciela",
+        "btnLabel": "Zapisz zmiany",
+        "confirm": {
+          "header": "Potwierdzenie operacji",
+          "text": "Pomyślnie zaktualizowano właściciela"
+        }
+      }
+    }
+  },
+  "registration": {
+    "fields": {
+      "dateFrom": "Data rejestracji od",
+      "dateTo": "Data rejestracji do",
+      "registrationNumber": "Numer rejestracyjny",
+      "insuranceNumber": "Numer ubezpieczenia"
+    },
+    "list": {
+      "title": "Rejestracje",
+      "addNew": "Dodaj nową rejestrację",
+      "noData": "Brak rejestracji w bazie",
+      "pageTitle": "Lista rejestracji"
+    },
+    "form": {
+      "add": {
+        "pageTitle": "Dodawanie rejestracji",
+        "btnLabel": "Dodaj rejestrację",
+        "confirm": {
+          "header": "Potwierdzenie operacji",
+          "text": "Pomyślnie dodano rejestrację"
+        }
+      },
+      "edit": {
+        "pageTitle": "Edycja rejestracji",
+        "btnLabel": "Zapisz zmiany",
+        "confirm": {
+          "header": "Potwierdzenie operacji",
+          "text": "Pomyślnie zaktualizowano rejestrację"
+        }
+      }
+    }
+  },
+  "vehicle": {
+    "fields": {
+      "vin": "VIN",
+      "make": "Marka",
+      "model": "Model",
+      "firstRegistrationDate": "Data pierwszej rejestracji",
+      "engineCapacity": "Pojemność silnika"
+    },
+    "list": {
+      "title": "Pojazdy",
+      "addNew": "Dodaj nowy pojazd",
+      "noData": "Brak właścicieli w bazie",
+      "pageTitle": "Lista właścicieli"
+    },
+    "form": {
+      "registration": "Zarejestrowane pojazdy",
+      "add": {
+        "pageTitle": "Dodawanie pojazdu",
+        "btnLabel": "Dodaj pojazd",
+        "confirm": {
+          "header": "Potwierdzenie operacji",
+          "text": "Pomyślnie dodano pojazd"
+        }
+      },
+      "edit": {
+        "pageTitle": "Edycja pojazdu",
+        "btnLabel": "Zapisz zmiany",
+        "confirm": {
+          "header": "Potwierdzenie operacji",
+          "text": "Pomyślnie zaktualizowano pojazd"
+        }
+      }
+    }
+  }
+}
