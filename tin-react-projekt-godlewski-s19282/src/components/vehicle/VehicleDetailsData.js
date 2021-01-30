@@ -5,7 +5,7 @@ function VehicleDetailsData(props)
 {
     const vehicle = props.vehicleData
     return (
-        <React.Framgent>
+        <React.Fragment>
             <p>VIN: {vehicle.vin}</p>
             <p>Marka: {vehicle.make}</p>
             <p>Model: {vehicle.model}</p>
@@ -26,10 +26,10 @@ function VehicleDetailsData(props)
                 {vehicle.registrations.map(
                     registration =>
                         <VehicleDetailsDataRow registrationData={registration} key={registration.id}/>
-                )}
+                        )}
                 </tbody>
             </table>
-        </React.Framgent>
+        </React.Fragment>
     )
 }
 

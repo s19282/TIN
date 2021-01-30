@@ -22,7 +22,7 @@ class VehicleDetails extends React.Component
     }
 
     fetchVehicleDetails = () =>{
-        getVehicleByIdApiCall(this.state.vechicleId)
+        getVehicleByIdApiCall(this.state.vehicleId)
             .then(res => res.json())
             .then((data) => {
                 if(data.message)
@@ -62,7 +62,7 @@ class VehicleDetails extends React.Component
         else if (message)
             content = <p>{message}</p>
         else
-            content = <VehicleDetailsData vehicleData={vehicle}/>
+             content = <VehicleDetailsData vehicleData={vehicle}/>
 
         return (
             <main>
