@@ -50,19 +50,15 @@ export function checkRegistrationNumber(value)
 export function checkNumber(value)
 {
     if (!value)
-    {
         return false;
-    }
-    return !isNaN(value);
+    return isNaN(value);
 
 }
 
 export function checkDate(value)
 {
     if (!value)
-    {
         return false;
-    }
     const pattern = /(\d{4})-(\d{2})-(\d{2})/;
     return pattern.test(value);
 }

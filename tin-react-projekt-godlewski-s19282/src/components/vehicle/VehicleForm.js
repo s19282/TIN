@@ -4,25 +4,37 @@ import {addVehicleApiCall, getVehicleByIdApiCall, updateVehicleApiCall} from "..
 import FormInput from "../form/FormInput";
 import FormButtons from "../form/FormButtons";
 import {Redirect} from "react-router-dom";
-import {checkNumber, checkRequired, checkTextLengthRange, isMoreThanZero, isSameOrBefore} from "../../helpers/validationCommon";
+import {
+    checkDate,
+    checkNumber,
+    checkRequired,
+    checkTextLengthRange,
+    isMoreThanZero,
+    isSameOrBefore
+} from "../../helpers/validationCommon";
 
-class VehicleForm extends React.Component{
-    constructor(props) {
+class VehicleForm extends React.Component
+{
+    constructor(props)
+    {
         super(props);
 
         const paramsVehicleId = props.match.params.vehicleId
         const currentFormMode = paramsVehicleId ? formMode.EDIT : formMode.NEW
 
-        this.state = {
+        this.state =
+        {
             vehicleId : paramsVehicleId,
-            vehicle : {
+            vehicle :
+            {
                 vin : '',
                 make : '',
                 model : '',
                 firstRegistrationDate : '',
                 engineCapacity : ''
             },
-            errors : {
+            errors :
+            {
                 vin : '',
                 make : '',
                 model : '',
@@ -35,16 +47,20 @@ class VehicleForm extends React.Component{
         }
     }
 
-    fetchVehicleDetails = () => {
+    fetchVehicleDetails = () =>
+    {
         getVehicleByIdApiCall(this.state.vehicleId)
             .then(res => res.json())
             .then(
                 (data) => {
-                    if (data.message) {
+                    if (data.message)
+                    {
                         this.setState({
                             message: data.message
                         })
-                    } else {
+                    }
+                    else
+                    {
                         this.setState({
                             vehicle: data,
                             message: null
@@ -54,7 +70,8 @@ class VehicleForm extends React.Component{
                         isLoaded: true,
                     })
                 },
-                (error) => {
+                (error) =>
+                {
                     this.setState({
                         isLoaded: true,
                         error
@@ -62,14 +79,15 @@ class VehicleForm extends React.Component{
                 })
     }
 
-    componentDidMount = () => {
+    componentDidMount = () =>
+    {
         const currentFormMode = this.state.formMode
-        if (currentFormMode === formMode.EDIT) {
+        if (currentFormMode === formMode.EDIT)
             this.fetchVehicleDetails()
-        }
     }
 
-    handleChange = (event) => {
+    handleChange = (event) =>
+    {
         const { name, value } = event.target
         const vehicle = { ...this.state.vehicle }
         vehicle[name] = value
@@ -84,78 +102,91 @@ class VehicleForm extends React.Component{
         })
     }
 
-    validateField = (fieldName, fieldValue) => {
+    validateField = (fieldName, fieldValue) =>
+    {
         let errorMessage = '';
-        if (fieldName === 'vin') {
-            if (!checkRequired(fieldValue)) {
+        if (fieldName === 'vin')
+        {
+            if (!checkRequired(fieldValue))
                 errorMessage = 'Pole jest wymagane'
-            } else if (!checkTextLengthRange(fieldValue, 5, 30)) {
+            else if (!checkTextLengthRange(fieldValue, 5, 30))
                 errorMessage = 'Pole powinno zawierać od 5 do 30 znaków'
-            }
         }
-        if (fieldName === 'make') {
-            if (!checkRequired(fieldValue)) {
+        if (fieldName === 'make')
+        {
+            if (!checkRequired(fieldValue))
                 errorMessage = 'Pole jest wymagane'
-            } else if (!checkTextLengthRange(fieldValue, 2, 30)) {
+            else if (!checkTextLengthRange(fieldValue, 2, 30))
                 errorMessage = 'Pole powinno zawierać od 2 do 30 znaków'
-            }
         }
-        if (fieldName === 'model') {
-            if (!checkRequired(fieldValue)) {
+        if (fieldName === 'model')
+        {
+            if (!checkRequired(fieldValue))
                 errorMessage = 'Pole jest wymagane'
-            } else if (!checkTextLengthRange(fieldValue, 1, 30)) {
+            else if (!checkTextLengthRange(fieldValue, 1, 30))
                 errorMessage = 'Pole powinno zawierać od 1 do 30 znaków'
-            }
         }
-        if (fieldName === 'firstRegistrationDate') {
-            if (!checkRequired(fieldValue)) {
+        if (fieldName === 'firstRegistrationDate')
+        {
+            if (!checkRequired(fieldValue))
                 errorMessage = "Pole jest wymagane";
-            } else if (!isSameOrBefore(fieldValue)) {
+            else if (!checkDate(fieldValue))
                 errorMessage = "Data nie może być z przyszłości";
-            }
+            else if (isSameOrBefore(fieldValue))
+                errorMessage = "Data nie może być z przyszłości";
         }
-        if (fieldName === 'engineCapacity') {
-            if (!checkRequired(fieldValue)) {
+        if (fieldName === 'engineCapacity')
+        {
+            if (!checkRequired(fieldValue))
                 errorMessage = "Pole jest wymagane";
-            } else if (!checkNumber(fieldValue)) {
+            else if (checkNumber(fieldValue))
                 errorMessage = "Pojemność silnika musi być liczbą";
-            }else if (!isMoreThanZero(fieldValue)) {
+            else if (isMoreThanZero(fieldValue))
                 errorMessage = "Pojemność silnika musi być większa od zera";
-            }
         }
         return errorMessage
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = (event) =>
+    {
         event.preventDefault();
         const isValid = this.validateForm()
-        if (isValid) {
+        if (isValid)
+        {
             const
                 vehicle = this.state.vehicle,
                 currentFormMode = this.state.formMode
             let
                 promise,
                 response;
-            if (currentFormMode === formMode.NEW) {
+
+            if (currentFormMode === formMode.NEW)
+            {
                 promise = addVehicleApiCall(vehicle)
 
-            } else if (currentFormMode === formMode.EDIT) {
+            }
+            else if (currentFormMode === formMode.EDIT)
+            {
                 const vehicleId = this.state.vehicleId
                 promise = updateVehicleApiCall(vehicleId, vehicle)
             }
-            if (promise) {
+            if (promise)
+            {
                 promise
                     .then(
-                        (data) => {
+                        (data) =>
+                        {
                             response = data
-                            if (response.status === 201 || response.status === 500) {
+                            if (response.status === 201 || response.status === 500)
                                 return data.json()
-                            }
                         })
                     .then(
-                        (data) => {
-                            if (!response.ok && response.status === 500) {
-                                for (const i in data) {
+                        (data) =>
+                        {
+                            if (!response.ok && response.status === 500)
+                            {
+                                for (const i in data)
+                                {
                                     const errorItem = data[i]
                                     const errorMessage = errorItem.message
                                     const fieldName = errorItem.path
@@ -166,23 +197,23 @@ class VehicleForm extends React.Component{
                                         error: null
                                     })
                                 }
-                            } else {
-                                this.setState({ redirect: true })
                             }
+                            else
+                                this.setState({ redirect: true })
                         },
-                        (error) => {
-                            this.setState({ error })
-                        }
+                        (error) => this.setState({ error })
                     )
             }
 
         }
     }
 
-    validateForm = () => {
+    validateForm = () =>
+    {
         const vehicle = this.state.vehicle
         const errors = this.state.errors
-        for (const fieldName in vehicle) {
+        for (const fieldName in vehicle)
+        {
             const fieldValue = vehicle[fieldName]
             const errorMessage = this.validateField(fieldName, fieldValue)
             errors[fieldName] = errorMessage
@@ -193,24 +224,27 @@ class VehicleForm extends React.Component{
         return !this.hasErrors()
     }
 
-    hasErrors = () => {
+    hasErrors = () =>
+    {
         const errors = this.state.errors
-        for (const errorField in this.state.errors) {
-            if (errors[errorField].length > 0) {
+        for (const errorField in this.state.errors)
+        {
+            if (errors[errorField].length > 0)
                 return true
-            }
         }
         return false
     }
 
-    render() {
+    render()
+    {
         const { redirect } = this.state
-        if (redirect) {
+        if (redirect)
+        {
             const currentFormMode = this.state.formMode
             const notice = currentFormMode === formMode.NEW ? 'Pomyślnie dodano nowy pojazd' : 'Pomyślnie zaktualizowano pojazd'
             return (
                 <Redirect to={{
-                    pathname: "/employees/",
+                    pathname: "/vehicles/",
                     state: {
                         notice: notice
                     }
