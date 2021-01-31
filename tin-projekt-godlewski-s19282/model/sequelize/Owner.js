@@ -14,11 +14,11 @@ const Owner = sequelize.define('Owner', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "validation.messages.notEmpty"
+                msg: "notEmpty"
             },
             len: {
                 args: [2,60],
-                msg: "validation.messages.len_2_60"
+                msg: "len_2_60"
             },
         }
     },
@@ -27,11 +27,11 @@ const Owner = sequelize.define('Owner', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "validation.messages.notEmpty"
+                msg: "notEmpty"
             },
             len: {
                 args: [2,60],
-                msg: "validation.messages.len_2_60"
+                msg: "len_2_60"
             },
         }
     },
@@ -41,14 +41,14 @@ const Owner = sequelize.define('Owner', {
         unique: true,
         validate: {
             notEmpty: {
-                msg: "validation.messages.notEmpty"
+                msg: "notEmpty"
             },
             len: {
                 args: [5,60],
-                msg: "validation.messages.len_5_60"
+                msg: "len_5_60"
             },
             isEmail: {
-                msg: "validation.messages.notEmail"
+                msg: "notEmail"
             }
         }
     },
@@ -57,14 +57,14 @@ const Owner = sequelize.define('Owner', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "validation.messages.notEmpty"
+                msg: "notEmpty"
             },
             len: {
                 args: [7,13],
-                msg: "validation.messages.len_7_13"
+                msg: "len_7_13"
             },
             isNumeric: {
-                msg: "validation.messages.notNumber"
+                msg: "notNumber"
             }
         }
     },
@@ -74,7 +74,7 @@ const Owner = sequelize.define('Owner', {
         validate:{
             len: {
                 args: [7,50],
-                msg: "validation.messages.len_7_50"
+                msg: "len_7_50"
             }
         }
     }

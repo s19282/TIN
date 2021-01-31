@@ -215,13 +215,12 @@ class VehicleForm extends React.Component
     {
         const vehicle = this.state.vehicle
         const errors = this.state.errors
-        const { t } = this.props;
 
         for (const fieldName in vehicle)
         {
             const fieldValue = vehicle[fieldName]
             const errorMessage = this.validateField(fieldName, fieldValue)
-            errors[fieldName] = t(errorMessage)
+            errors[fieldName] = errorMessage
         }
         this.setState({
             errors: errors

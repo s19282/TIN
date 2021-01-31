@@ -14,11 +14,11 @@ const Vehicle = sequelize.define('Vehicle', {
         unique: true,
         validate: {
             notEmpty: {
-                msg: "validation.messages.notEmpty"
+                msg: "notEmpty"
             },
             len: {
                 args: [5,30],
-                msg: "validation.messages.len_5_30"
+                msg: "len_5_30"
             }
         }
     },
@@ -27,11 +27,11 @@ const Vehicle = sequelize.define('Vehicle', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "validation.messages.notEmpty"
+                msg: "notEmpty"
             },
             len: {
                 args: [2,30],
-                msg: "validation.messages.len_2_30"
+                msg: "len_2_30"
             }
         }
     },
@@ -40,11 +40,11 @@ const Vehicle = sequelize.define('Vehicle', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "validation.messages.notEmpty"
+                msg: "notEmpty"
             },
             len: {
                 args: [1,30],
-                msg: "validation.messages.len_1_30"
+                msg: "len_1_30"
             }
         }
     },
@@ -54,13 +54,13 @@ const Vehicle = sequelize.define('Vehicle', {
         unique: true,
         validate: {
             notEmpty: {
-                msg: "validation.messages.notEmpty"
+                msg: "notEmpty"
             },
             isSameOrBefore(reqDate){
                 const today = new Date();
                 const date = new Date(reqDate);
                 if(date>today)
-                    throw new Error("validation.messages.notFutureDate");
+                    throw new Error("notFutureDate");
             }
         }
     },
@@ -69,14 +69,14 @@ const Vehicle = sequelize.define('Vehicle', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "validation.messages.notEmpty"
+                msg: "notEmpty"
             },
             isMoreThanZero(val) {
                 if(val<=0)
-                    throw new Error("validation.messages.greaterThan0")
+                    throw new Error("greaterThan0")
             },
             isNumeric: {
-                msg: "validation.messages.notNumber"
+                msg: "notNumber"
             }
         }
     }

@@ -6,6 +6,7 @@ import {checkEmail, checkNumber, checkRequired, checkTextLengthRange} from "../.
 import FormInput from "../form/FormInput";
 import FormButtons from "../form/FormButtons";
 import {withTranslation} from 'react-i18next';
+import { formValidationKeys } from '../../helpers/formHelper'
 
 class OwnerForm extends React.Component{
     constructor(props) {
@@ -88,46 +89,45 @@ class OwnerForm extends React.Component{
 
     validateField = (fieldName, fieldValue) =>
     {
-        const { t } = this.props;
         let errorMessage = '';
         if (fieldName === 'firstName')
         {
             if(!checkRequired(fieldValue))
-                errorMessage = t('validation.messages.notEmpty');
+                errorMessage = formValidationKeys.notEmpty
             else if(!checkTextLengthRange(fieldValue,2,60))
-                errorMessage = t('validation.messages.len_2_60');
+                errorMessage = formValidationKeys.len_2_60
         }
         if (fieldName === 'lastName')
         {
             if(!checkRequired(fieldValue))
-                errorMessage = t('validation.messages.notEmpty');
+                errorMessage = formValidationKeys.notEmpty
             else if(!checkTextLengthRange(fieldValue,2,60))
-                errorMessage = t('validation.messages.len_2_60');
+                errorMessage = formValidationKeys.len_2_60
         }
         if(fieldName === 'email')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = t('validation.messages.notEmpty');
+                errorMessage = formValidationKeys.notEmpty
             else if (!checkTextLengthRange(fieldValue,5,60))
-                errorMessage = t('validation.messages.len_5_60');
+                errorMessage = formValidationKeys.len_5_60
             else if (!checkEmail(fieldValue))
-                errorMessage = t('validation.messages.notEmail');
+                errorMessage = formValidationKeys.notEmail
         }
         if(fieldName === 'phoneNumber')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = t('validation.messages.notEmpty');
+                errorMessage = formValidationKeys.notEmpty
             else if (!checkTextLengthRange(fieldValue,7,13))
-                errorMessage = t('validation.messages.len_7_13');
-            else if(!checkNumber(fieldValue))
-                errorMessage = t('validation.messages.notNumber');
+                errorMessage = formValidationKeys.len_7_13
+            else if(checkNumber(fieldValue))
+                errorMessage = formValidationKeys.notNumber
         }
         if(fieldName === 'password')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = t('validation.messages.notEmpty');
+                errorMessage = formValidationKeys.notEmpty
             else if (!checkTextLengthRange(fieldValue,7,50))
-                errorMessage = t('validation.messages.len_7_50');
+                errorMessage = formValidationKeys.len_7_50
         }
         return errorMessage
     }
@@ -190,13 +190,12 @@ class OwnerForm extends React.Component{
     validateForm = () => {
         const owner = this.state.owner
         const errors = this.state.errors
-        const { t } = this.props;
 
         for(const fieldName in owner)
         {
             const fieldValue = owner[fieldName]
             const errorMessage = this.validateField(fieldName,fieldValue)
-            errors[fieldName] = t(errorMessage)
+            errors[fieldName] = errorMessage
         }
         this.setState({
             errors: errors
@@ -215,8 +214,7 @@ class OwnerForm extends React.Component{
 
     render() {
         const {redirect} = this.state
-        const { t } = this.props;
-
+        const { t } = this.props
 
         if(redirect)
         {

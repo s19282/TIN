@@ -13,13 +13,13 @@ const Registration = sequelize.define('Registration', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "validation.messages.notEmpty"
+                msg: "notEmpty"
             },
             isSameOrBefore(reqDate){
                 const today = new Date();
                 const date = new Date(reqDate);
                 if(date>today)
-                    throw new Error("validation.messages.notFutureDate");
+                    throw new Error("notFutureDate");
             }
         }
     },
@@ -31,14 +31,14 @@ const Registration = sequelize.define('Registration', {
                 const today = new Date();
                 const date = new Date(reqDate);
                 if(date>today)
-                    throw new Error("validation.messages.notFutureDate");
+                    throw new Error("notFutureDate");
             },
             isSameOrAfter(reqDate)
             {
                 const date = new Date(reqDate);
                 const dateFrom = new Date(this.dateFrom);
                 if(date<dateFrom && reqDate!=null)
-                    throw new Error("validation.messages.notBeforeFromDate");
+                    throw new Error("notBeforeFromDate");
             }
 
 
@@ -53,7 +53,7 @@ const Registration = sequelize.define('Registration', {
                 val = val.toString().trim();
                 const re = /^([A-Z]{2,3}) (\d{4,5})$/i;
                 if(!re.test(val))
-                    throw new Error("validation.messages.notRegistrationNumber");
+                    throw new Error("notRegistrationNumber");
             }
         }
 
@@ -64,11 +64,11 @@ const Registration = sequelize.define('Registration', {
         unique: true,
         validate: {
             notEmpty: {
-                msg: "validation.messages.notEmpty"
+                msg: "notEmpty"
             },
             len: {
                 args: [9,9],
-                msg: "validation.messages.notInsuranceNumber"
+                msg: "notInsuranceNumber"
             }
         }
     },
@@ -79,7 +79,7 @@ const Registration = sequelize.define('Registration', {
             notSelected(val)
             {
                 if(val==='')
-                    throw new Error("validation.messages.notEmpty");
+                    throw new Error("notEmpty");
             }
         }
     },
@@ -89,7 +89,7 @@ const Registration = sequelize.define('Registration', {
         validate: {
             notSelected(val) {
                 if (val === '')
-                    throw new Error("validation.messages.notEmpty");
+                    throw new Error("notEmpty");
             }
         }
     }

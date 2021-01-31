@@ -220,12 +220,11 @@ class RegistrationForm extends React.Component{
     validateForm = () => {
         const registration = this.state.registration
         const errors = this.state.errors
-        const { t } = this.props;
 
         for (const fieldName in registration)
         {
             const fieldValue = registration[fieldName]
-            errors[fieldName] = t(this.validateField(fieldName, fieldValue))
+            errors[fieldName] = this.validateField(fieldName, fieldValue)
         }
         this.setState({
             errors: errors
