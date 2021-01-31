@@ -13,13 +13,13 @@ const Registration = sequelize.define('Registration', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "validation.messages.notEmpty"
             },
             isSameOrBefore(reqDate){
                 const today = new Date();
                 const date = new Date(reqDate);
                 if(date>today)
-                    throw new Error("Data nie może być z przyszłości");
+                    throw new Error("validation.messages.notFutureDate");
             }
         }
     },
@@ -31,14 +31,14 @@ const Registration = sequelize.define('Registration', {
                 const today = new Date();
                 const date = new Date(reqDate);
                 if(date>today)
-                    throw new Error("Data nie może być z przyszłości");
+                    throw new Error("validation.messages.notFutureDate");
             },
             isSameOrAfter(reqDate)
             {
                 const date = new Date(reqDate);
                 const dateFrom = new Date(this.dateFrom);
                 if(date<dateFrom && reqDate!=null)
-                    throw new Error("Data końca rejestracji nie może być wcześniejsza niż data początku rejestracji");
+                    throw new Error("validation.messages.notBeforeFromDate");
             }
 
 
@@ -53,7 +53,7 @@ const Registration = sequelize.define('Registration', {
                 val = val.toString().trim();
                 const re = /^([A-Z]{2,3}) (\d{4,5})$/i;
                 if(!re.test(val))
-                    throw new Error('Pole powinno zawierać prawidłowy numer rejestracyjny');
+                    throw new Error("validation.messages.notRegistrationNumber");
             }
         }
 
@@ -64,11 +64,11 @@ const Registration = sequelize.define('Registration', {
         unique: true,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "validation.messages.notEmpty"
             },
             len: {
                 args: [9,9],
-                msg: "Pole powinno zawierać 9 znaków"
+                msg: "validation.messages.notInsuranceNumber"
             }
         }
     },
@@ -79,7 +79,7 @@ const Registration = sequelize.define('Registration', {
             notSelected(val)
             {
                 if(val==='')
-                    throw new Error('Musisz wybrać właściciela');
+                    throw new Error("validation.messages.notEmpty");
             }
         }
     },
@@ -89,7 +89,7 @@ const Registration = sequelize.define('Registration', {
         validate: {
             notSelected(val) {
                 if (val === '')
-                    throw new Error('Musisz wybrać pojazd');
+                    throw new Error("validation.messages.notEmpty");
             }
         }
     }

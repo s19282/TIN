@@ -56,7 +56,7 @@ class OwnerList extends React.Component
         const { t } = this.props;
 
         if (error)
-            content = <p>Błąd: {error.message}</p>
+            content = <p>{t('validation.error')}: {error.message}</p>
         else if (!isLoaded)
             content = <p>{t('owner.list.loadingData')}</p>
         else

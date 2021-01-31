@@ -28,19 +28,29 @@
   "owner": {
     "details": {
       "details": "Szczegóły właściciela",
-      "registrations": "Auta właściciela"
+      "registrations": "Auta właściciela",
+      "loadingData": "Ładowanie danych właściciela..."
     },
     "fields": {
       "firstName": "Imię",
       "lastName": "Nazwisko",
       "email": "Email",
-      "phoneNumber": "Numer telefonu"
+      "phoneNumber": "Numer telefonu",
+      "password": "Hasło"
+    },
+    "placeHolders": {
+      "firstName": "2-60 znaków",
+      "lastName": "2-60 znaków",
+      "email": "np. nazwa@domena.pl",
+      "phoneNumber": "7-13 znaków",
+      "password": "7-50 znaków"
     },
     "list": {
       "title": "Właściciele",
       "addNew": "Dodaj nowego właściciela",
       "noData": "Brak właścicieli w bazie",
-      "pageTitle": "Lista właścicieli"
+      "pageTitle": "Lista właścicieli",
+      "loadingData": "Ładowanie danych właścicieli..."
     },
     "form": {
       "registration": "Historia rejestracji",
@@ -63,18 +73,28 @@
     }
   },
   "registration": {
-    "details": "Szczegóły rejestracji",
+    "details": {
+      "details": "Szczegóły rejestracji",
+      "loadingData": "Ładowanie danych rejestracji..."
+    },
     "fields": {
+      "owner": "Właściciel",
+      "vehicle": "Pojazd",
       "dateFrom": "Data rejestracji od",
       "dateTo": "Data rejestracji do",
       "registrationNumber": "Numer rejestracyjny",
       "insuranceNumber": "Numer ubezpieczenia"
     },
+    "placeHolders": {
+      "registrationNumber": "format: AA(A) 1111(1)",
+      "insuranceNumber": "9 cyfr"
+    },
     "list": {
       "title": "Rejestracje",
       "addNew": "Dodaj nową rejestrację",
       "noData": "Brak rejestracji w bazie",
-      "pageTitle": "Lista rejestracji"
+      "pageTitle": "Lista rejestracji",
+      "loadingData": "Ładowanie danych rejestracji..."
     },
     "form": {
       "add": {
@@ -96,7 +116,11 @@
     }
   },
   "vehicle": {
-    "details": "Szczegóły pojazdu",
+    "details": {
+      "details": "Szczegóły pojazdu",
+      "loadingData": "Ładowanie danych pojazdu...",
+      "ownersOfVehicle": "Właściciele pojazdu"
+    },
     "fields": {
       "vin": "VIN",
       "make": "Marka",
@@ -104,11 +128,17 @@
       "firstRegistrationDate": "Data pierwszej rejestracji",
       "engineCapacity": "Pojemność silnika"
     },
+    "placeHolders": {
+      "vin": "5-30 znaków",
+      "make": "2-30 znaków",
+      "model": "1-30 znaków"
+    },
     "list": {
       "title": "Pojazdy",
       "addNew": "Dodaj nowy pojazd",
       "noData": "Brak właścicieli w bazie",
-      "pageTitle": "Lista właścicieli"
+      "pageTitle": "Lista właścicieli",
+      "loadingData": "Ładowanie danych pojazdów..."
     },
     "form": {
       "registration": "Zarejestrowane pojazdy",
@@ -129,5 +159,27 @@
         }
       }
     }
+  },
+  "validation": {
+    "messages": {
+      "notEmpty": "Pole jest wymagane",
+      "len_2_60": "Pole powinno zawierać od 2 do 60 znaków",
+      "len_5_60": "Pole powinno zawierać od 5 do 60 znaków",
+      "len_5_30": "Pole powinno zawierać od 5 do 30 znaków",
+      "len_2_30": "Pole powinno zawierać od 2 do 30 znaków",
+      "len_1_30": "Pole powinno zawierać od 1 do 30 znaków",
+      "len_7_13": "Pole powinno zawierać od 7 do 13 znaków",
+      "len_7_50": "Pole powinno zawierać od 7 do 50 znaków",
+      "notEmail": "Pole powinno zawierać prawidłowy adres email",
+      "notNumber": "Pole powinno zawierać jedynie cyfry",
+      "notDate": "Pole powinno zawierać datę",
+      "notFutureDate": "Data nie może być z przyszłości",
+      "notBeforeFromDate": "Data końca rejestracji nie może być wcześniejsza niż data początku rejestracji",
+      "notRegistrationNumber": "Pole powinno zawierać prawidłowy numer rejestracyjny",
+      "notInsuranceNumber": "Pole powinno zawierać prawidłowy numer ubezpieczenia",
+      "greaterThan0": "Pojemność silnika musi być większa od zera"
+    },
+    "error": "Błąd",
+    "formContainsErrors": "Formularz zawiera błędy"
   }
 }

@@ -2,10 +2,10 @@ import React from "react";
 import {Redirect} from "react-router-dom";
 import formMode from "../../helpers/formHelper";
 import {addOwnerApiCall, getOwnerByIdApiCall, updateOwnerApiCall} from "../../apiCalls/ownerApiCalls";
-import {checkRequired, checkTextLengthRange, checkEmail, checkNumber} from "../../helpers/validationCommon";
+import {checkEmail, checkNumber, checkRequired, checkTextLengthRange} from "../../helpers/validationCommon";
 import FormInput from "../form/FormInput";
 import FormButtons from "../form/FormButtons";
-import { withTranslation } from 'react-i18next';
+import {withTranslation} from 'react-i18next';
 
 class OwnerForm extends React.Component{
     constructor(props) {
@@ -190,12 +190,13 @@ class OwnerForm extends React.Component{
     validateForm = () => {
         const owner = this.state.owner
         const errors = this.state.errors
+        const { t } = this.props;
 
         for(const fieldName in owner)
         {
             const fieldValue = owner[fieldName]
             const errorMessage = this.validateField(fieldName,fieldValue)
-            errors[fieldName] = errorMessage
+            errors[fieldName] = t(errorMessage)
         }
         this.setState({
             errors: errors
@@ -286,7 +287,7 @@ class OwnerForm extends React.Component{
 
                         <FormInput
                         type="password"
-                        label="Hasło"
+                        label={t('owner.fields.password')}
                         required
                         error={this.state.errors.password}
                         name="password"

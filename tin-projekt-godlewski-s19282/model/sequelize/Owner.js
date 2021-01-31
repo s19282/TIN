@@ -10,28 +10,28 @@ const Owner = sequelize.define('Owner', {
         primaryKey: true
     },
     firstName: {
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING,
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "validation.messages.notEmpty"
             },
             len: {
                 args: [2,60],
-                msg: "Pole powinno zawierać od 2 do 60 znaków"
+                msg: "validation.messages.len_2_60"
             },
         }
     },
     lastName: {
-        type: Sequelize.STRING(40),
+        type: Sequelize.STRING,
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "validation.messages.notEmpty"
             },
             len: {
                 args: [2,60],
-                msg: "Pole powinno zawierać od 2 do 60 znaków"
+                msg: "validation.messages.len_2_60"
             },
         }
     },
@@ -41,14 +41,14 @@ const Owner = sequelize.define('Owner', {
         unique: true,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "validation.messages.notEmpty"
             },
             len: {
                 args: [5,60],
-                msg: "Pole powinno zawierać od 5 do 60 znaków"
+                msg: "validation.messages.len_5_60"
             },
             isEmail: {
-                msg: 'Pole powinno zawierać prawidłowy adres email'
+                msg: "validation.messages.notEmail"
             }
         }
     },
@@ -57,14 +57,14 @@ const Owner = sequelize.define('Owner', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "validation.messages.notEmpty"
             },
             len: {
-                args: [7,12],
-                msg: "Pole powinno zawierać od 7 do 12 znaków"
+                args: [7,13],
+                msg: "validation.messages.len_7_13"
             },
             isNumeric: {
-                msg: "Pole musi być liczbą"
+                msg: "validation.messages.notNumber"
             }
         }
     },
@@ -72,9 +72,9 @@ const Owner = sequelize.define('Owner', {
         type: Sequelize.STRING,
         allowNull: false,
         validate:{
-            isLongerThan(pass){
-                if(pass.length<7)
-                    throw new Error("Pole powinno zawierać przynajmniej 7 znaków");
+            len: {
+                args: [7,50],
+                msg: "validation.messages.len_7_50"
             }
         }
     }

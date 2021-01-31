@@ -1,19 +1,22 @@
 import React from "react";
 import VehicleListTableRow from "./VehicleListTableRow";
+import { useTranslation } from 'react-i18next';
 
 function VehicleListTable(props)
 {
     const vehicles = props.vehicleList;
+    const { t } = useTranslation();
+
     return (
         <table className="table-list">
             <thead>
                 <tr>
-                    <th>Vin</th>
-                    <th>Marka</th>
-                    <th>Model</th>
-                    <th>Data pierwszej rejestracji</th>
-                    <th>Pojemność silnika</th>
-                    <th>Akcje</th>
+                    <th>{t('vehicle.fields.vin')}</th>
+                    <th>{t('vehicle.fields.make')}</th>
+                    <th>{t('vehicle.fields.model')}</th>
+                    <th>{t('vehicle.fields.firstRegistrationDate')}</th>
+                    <th>{t('vehicle.fields.engineCapacity')}</th>
+                    <th>{t('list.actions.title')}</th>
                 </tr>
             </thead>
             <tbody>

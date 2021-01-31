@@ -52,7 +52,7 @@ class RegistrationList extends React.Component
 
         return (
             <main>
-                <h2>Lista rejestracji</h2>
+                <h2>{t('registration.list.pageTitle')}</h2>
                 {content}
                 <p className="section-buttons">
                     <Link to="/registration/add" className="button-add">{t('registration.list.addNew')}</Link>

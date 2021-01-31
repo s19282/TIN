@@ -28,19 +28,29 @@
   "owner": {
     "details": {
       "details": "Owner details",
-      "registrations": "Owner's vehicles"
+      "registrations": "Owner's vehicles",
+      "loadingData": "Loading owner's data"
     },
     "fields": {
       "firstName": "First name",
       "lastName": "Last name",
       "email": "Email",
-      "phoneNumber": "Phone number"
+      "phoneNumber": "Phone number",
+      "password": "Password"
+    },
+    "placeHolders": {
+      "firstName": "2-60 characters",
+      "lastName": "2-60 characters",
+      "email": "eg. name@domian.com",
+      "phoneNumber": "7-13 characters",
+      "password": "7-50 characters"
     },
     "list": {
       "title": "Owners",
       "addNew": "Add new owner",
       "noData": "No owners in database",
-      "pageTitle": "List of owners"
+      "pageTitle": "List of owners",
+      "loadingData": "Loading owners"
     },
     "form": {
       "registration": "Registration history",
@@ -63,18 +73,28 @@
     }
   },
   "registration": {
-    "details": "Registration details",
+    "details":{
+      "details": "Registration details",
+      "loadingData": "Loading registration's data"
+    },
     "fields": {
+      "owner": "Owner",
+      "vehicle": "Vehicle",
       "dateFrom": "Registration date since",
       "dateTo": "Registration date to",
       "registrationNumber": "Registration number",
       "insuranceNumber": "Insurance number"
     },
+    "placeHolders": {
+      "registrationNumber": "format: AA(A) 1111(1)",
+      "insuranceNumber": "9 digits"
+    },
     "list": {
       "title": "Registrations",
       "addNew": "Add new registration",
       "noData": "No registrations in database",
-      "pageTitle": "List of registrations"
+      "pageTitle": "List of registrations",
+      "loadingData": "Loading registrations"
     },
     "form": {
       "add": {
@@ -96,19 +116,29 @@
     }
   },
   "vehicle": {
-    "details": "Vehicle details",
+    "details": {
+      "details": "Vehicle details",
+      "loadingData": "Loading vehicle's data",
+      "ownersOfVehicle": "Owners of vehicle"
+    },
     "fields": {
       "vin": "VIN",
       "make": "Make",
       "model": "Model",
       "firstRegistrationDate": "First registration date",
-      "engineCapacity": "Engine capacity"
+    "engineCapacity": "Engine capacity"
+    },
+    "placeHolders": {
+      "vin": "5-30 characters",
+      "make": "2-30 characters",
+      "model": "1-30 characters"
     },
     "list": {
       "title": "Vehicles",
       "addNew": "Add new vehicle",
       "noData": "No vehicles in database",
-      "pageTitle": "List of vehicles"
+      "pageTitle": "List of vehicles",
+      "loadingData": "Loading vehicles"
     },
     "form": {
       "registration": "Registered vehicles",
@@ -129,5 +159,27 @@
         }
       }
     }
+  },
+  "validation": {
+    "messages": {
+      "notEmpty": "Field is required",
+      "len_2_60": "Field should contain between 2 and 60 characters",
+      "len_5_60": "Field should contain between 5 and 60 characters",
+      "len_5_30": "Field should contain between 5 and 30 characters",
+      "len_2_30": "Field should contain between 2 and 30 characters",
+      "len_1_30": "Field should contain between 1 and 30 characters",
+      "len_7_13": "Field should contain between 7 and 13 characters",
+      "len_7_50": "Field should contain between 7 and 50 characters",
+      "notEmail": "Field must contain a valid email address",
+      "notNumber": "Field should be a number",
+      "notDate": "Field should contain date",
+      "notFutureDate": "Date can not be future",
+      "notBeforeFromDate": "The registration end date cannot be earlier than the registration start date ",
+      "notRegistrationNumber": "Field should contain a valid registration number",
+      "notInsuranceNumber": "Field should contain a valid insurance number",
+      "greaterThan0": "Engine capacity should be greater than 0"
+    },
+    "error": "Error",
+    "formContainsErrors": "From contains errors"
   }
 }

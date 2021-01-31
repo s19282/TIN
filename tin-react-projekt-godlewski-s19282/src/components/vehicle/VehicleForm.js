@@ -12,6 +12,7 @@ import {
     isMoreThanZero,
     isSameOrBefore
 } from "../../helpers/validationCommon";
+import { withTranslation } from 'react-i18next';
 
 class VehicleForm extends React.Component
 {
@@ -105,44 +106,46 @@ class VehicleForm extends React.Component
     validateField = (fieldName, fieldValue) =>
     {
         let errorMessage = '';
+        const { t } = this.props;
+
         if (fieldName === 'vin')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = 'Pole jest wymagane'
+                errorMessage = t('validation.messages.notEmpty');
             else if (!checkTextLengthRange(fieldValue, 5, 30))
-                errorMessage = 'Pole powinno zawierać od 5 do 30 znaków'
+                errorMessage = t('validation.messages.len_5_30');
         }
         if (fieldName === 'make')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = 'Pole jest wymagane'
+                errorMessage = t('validation.messages.notEmpty');
             else if (!checkTextLengthRange(fieldValue, 2, 30))
-                errorMessage = 'Pole powinno zawierać od 2 do 30 znaków'
+                errorMessage = t('validation.messages.len_2_30');
         }
         if (fieldName === 'model')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = 'Pole jest wymagane'
+                errorMessage = t('validation.messages.notEmpty');
             else if (!checkTextLengthRange(fieldValue, 1, 30))
-                errorMessage = 'Pole powinno zawierać od 1 do 30 znaków'
+                errorMessage = t('validation.messages.len_1_30');
         }
         if (fieldName === 'firstRegistrationDate')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = "Pole jest wymagane";
+                errorMessage = t('validation.messages.notEmpty');
             else if (!checkDate(fieldValue))
-                errorMessage = "Niepoprawny format daty";
+                errorMessage = t('validation.messages.notDate');
             else if (isSameOrBefore(fieldValue))
-                errorMessage = "Data nie może być z przyszłości";
+                errorMessage = t('validation.messages.notFutureDate');
         }
         if (fieldName === 'engineCapacity')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = "Pole jest wymagane";
+                errorMessage = t('validation.messages.notEmpty');
             else if (checkNumber(fieldValue))
-                errorMessage = "Pojemność silnika musi być liczbą";
+                errorMessage = t('validation.messages.notNumber');
             else if (isMoreThanZero(fieldValue))
-                errorMessage = "Pojemność silnika musi być większa od zera";
+                errorMessage = t('validation.messages.greaterThan0');
         }
         return errorMessage
     }
@@ -212,11 +215,13 @@ class VehicleForm extends React.Component
     {
         const vehicle = this.state.vehicle
         const errors = this.state.errors
+        const { t } = this.props;
+
         for (const fieldName in vehicle)
         {
             const fieldValue = vehicle[fieldName]
             const errorMessage = this.validateField(fieldName, fieldValue)
-            errors[fieldName] = errorMessage
+            errors[fieldName] = t(errorMessage)
         }
         this.setState({
             errors: errors
@@ -238,10 +243,12 @@ class VehicleForm extends React.Component
     render()
     {
         const { redirect } = this.state
+        const { t } = this.props;
+
         if (redirect)
         {
             const currentFormMode = this.state.formMode
-            const notice = currentFormMode === formMode.NEW ? 'Pomyślnie dodano nowy pojazd' : 'Pomyślnie zaktualizowano pojazd'
+            const notice = currentFormMode === formMode.NEW ? t('vehicle.form.add.confirm.text') : t('vehicle.form.edit.confirm.text')
             return (
                 <Redirect to={{
                     pathname: "/vehicles/",
@@ -252,9 +259,9 @@ class VehicleForm extends React.Component
             )
         }
 
-        const errorsSummary = this.hasErrors() ? 'Formularz zawiera błędy' : ''
-        const fetchError = this.state.error ? `Błąd: ${this.state.error.message}` : ''
-        const pageTitle = this.state.formMode === formMode.NEW ? 'Nowy pojazd' : 'Edycja pojazdu'
+        const errorsSummary = this.hasErrors() ? t('validation.formContainsErrors') : ''
+        const fetchError = this.state.error ? `${t('validation.error')}: ${this.state.error.message}` : ''
+        const pageTitle = this.state.formMode === formMode.NEW ? t('vehicle.form.add.pageTitle') : t('vehicle.form.edit.pageTitle')
 
         const globalErrorMessage = errorsSummary || fetchError || this.state.message
 
@@ -264,37 +271,37 @@ class VehicleForm extends React.Component
                 <form className="form" onSubmit={this.handleSubmit}>
                     <FormInput
                         type="text"
-                        label="VIN"
+                        label={t('vehicle.fields.vin')}
                         required
                         error={this.state.errors.vin}
                         name="vin"
-                        placeholder="5-30 znaków"
+                        placeholder={t('vehicle.placeHolders.vin')}
                         onChange={this.handleChange}
                         value={this.state.vehicle.vin}
                     />
                     <FormInput
                         type="text"
-                        label="Marka"
+                        label={t('vehicle.fields.make')}
                         required
                         error={this.state.errors.make}
                         name="make"
-                        placeholder="2-60 znaków"
+                        placeholder={t('vehicle.placeHolders.make')}
                         onChange={this.handleChange}
                         value={this.state.vehicle.make}
                     />
                     <FormInput
                         type="text"
-                        label="Model"
+                        label={t('vehicle.fields.model')}
                         required
                         error={this.state.errors.model}
                         name="model"
-                        placeholder="np. nazwa@domena.pl"
+                        placeholder={t('vehicle.placeHolders.model')}
                         onChange={this.handleChange}
                         value={this.state.vehicle.model}
                     />
                     <FormInput
                         type="date"
-                        label="Data pierwszej rejestracji"
+                        label={t('vehicle.fields.firstRegistrationDate')}
                         required
                         error={this.state.errors.firstRegistrationDate}
                         name="firstRegistrationDate"
@@ -303,11 +310,10 @@ class VehicleForm extends React.Component
                     />
                     <FormInput
                         type="text"
-                        label="Pojemność silnika"
+                        label={t('vehicle.fields.engineCapacity')}
                         required
                         error={this.state.errors.engineCapacity}
                         name="engineCapacity"
-                        placeholder="np. nazwa@domena.pl"
                         onChange={this.handleChange}
                         value={this.state.vehicle.engineCapacity}
                     />
@@ -322,4 +328,4 @@ class VehicleForm extends React.Component
     }
 }
 
-export default VehicleForm
+export default withTranslation() (VehicleForm)

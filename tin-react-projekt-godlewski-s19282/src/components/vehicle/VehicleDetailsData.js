@@ -1,25 +1,28 @@
 import React from "react";
 import VehicleDetailsDataRow from "./VehicleDetailsDataRow";
+import { useTranslation } from 'react-i18next';
 
 function VehicleDetailsData(props)
 {
     const vehicle = props.vehicleData
+    const { t } = useTranslation();
+
     return (
         <React.Fragment>
-            <p>VIN: {vehicle.vin}</p>
-            <p>Marka: {vehicle.make}</p>
-            <p>Model: {vehicle.model}</p>
-            <p>Data pierwszej rejestracji: {vehicle.firstRegistrationDate}</p>
-            <p>Pojemność silnika: {vehicle.firstRegistrationDate}</p>
-            <h2>Szczegóły rejestracji</h2>
+            <p>{t('vehicle.fields.vin')}: {vehicle.vin}</p>
+            <p>{t('vehicle.fields.make')}: {vehicle.make}</p>
+            <p>{t('vehicle.fields.model')}: {vehicle.model}</p>
+            <p>{t('vehicle.fields.firstRegistrationDate')}: {vehicle.firstRegistrationDate}</p>
+            <p>{t('vehicle.fields.engineCapacity')}: {vehicle.firstRegistrationDate}</p>
+            <h2>{t('vehicle.details.ownersOfVehicle')}</h2>
             <table className="table-list">
                 <thead>
                 <tr>
-                    <th>Właściciel</th>
-                    <th>Data od</th>
-                    <th>Data do</th>
-                    <th>Numer rejestracyjny</th>
-                    <th>Numer ubezpieczenia</th>
+                    <th>{t('registration.fields.owner')}</th>
+                    <th>{t('registration.fields.dateFrom')}</th>
+                    <th>{t('registration.fields.dateTo')}</th>
+                    <th>{t('registration.fields.registrationNumber')}</th>
+                    <th>{t('registration.fields.insuranceNumber')}</th>
                 </tr>
                 </thead>
                 <tbody>

@@ -7,7 +7,7 @@ function RegistrationDetailsData(props) {
 
     return (
         <React.Fragment>
-            <p>{t('registration.fields.owner')}:{registration.owner.firstName+" "+registration.owner.lastName}</p>
+            <p>{t('registration.fields.owner')}: {registration.owner.firstName+" "+registration.owner.lastName}</p>
             <p>{t('registration.fields.vehicle')}: {registration.vehicle.make+" "+registration.vehicle.model}</p>
             <p>{t('registration.fields.dateFrom')}: {registration.dateFrom}</p>
             <p>{t('registration.fields.dateTo')}: {registration.dateTo}</p>

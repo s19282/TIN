@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import {getVehiclesApiCall} from "../../apiCalls/vehicleApiCalls";
 import VehicleListTable from "./VehicleListTable";
+import { withTranslation } from 'react-i18next';
 
 class VehicleList extends React.Component
 {
@@ -47,20 +48,21 @@ class VehicleList extends React.Component
     {
         const {error, isLoaded, vehicles} = this.state;
         let content;
+        const { t } = this.props;
 
         if (error)
-            content = <p>Błąd: {error.message}</p>
+            content = <p>{t('validation.error')}: {error.message}</p>
         else if (!isLoaded)
-            content = <p>Ładowanie danych pojazdów...</p>
+            content = <p>{t('vehicle.list.loadingData')}</p>
         else
             content = <VehicleListTable vehicleList={vehicles}/>
 
         return (
             <main>
-                <h2>Lista pojazdów</h2>
+                <h2>{t('vehicle.list.pageTitle')}</h2>
                 {content}
                 <p className="section-buttons">
-                    <Link to="/vehicle/add" className="button-add">Dodaj nowy pojazd</Link>
+                    <Link to="/vehicle/add" className="button-add">{t('vehicle.list.addNew')}</Link>
                 </p>
                 <p className="success">{this.state.notice}</p>
             </main >
@@ -68,4 +70,4 @@ class VehicleList extends React.Component
     }
 }
 
-export default VehicleList;
+export default withTranslation() (VehicleList);

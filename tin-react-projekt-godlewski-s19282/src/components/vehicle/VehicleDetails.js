@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom'
 import {getVehicleByIdApiCall} from "../../apiCalls/vehicleApiCalls";
 import VehicleDetailsData from "./VehicleDetailsData";
+import { withTranslation } from 'react-i18next';
 
 class VehicleDetails extends React.Component
 {
@@ -54,11 +55,12 @@ class VehicleDetails extends React.Component
     render() {
         const {vehicle, error, isLoaded, message} = this.state
         let content;
+        const { t } = this.props;
 
         if(error)
-            content = <p>Błąd: {error.message}</p>
+            content = <p>{t('validation.error')}: {error.message}</p>
         else if (!isLoaded)
-            content = <p>Ładowanie danych pojazdu</p>
+            content = <p>{t('vehicle.details.loadingData')}</p>
         else if (message)
             content = <p>{message}</p>
         else
@@ -66,14 +68,14 @@ class VehicleDetails extends React.Component
 
         return (
             <main>
-                <h2>Szczegóły pojazdu</h2>
+                <h2>{t('vehicle.details.details')}</h2>
                 {content}
                 <div className="section-buttons">
-                    <Link to="/vehicles" className="button-back">Powrót</Link>
+                    <Link to="/vehicles" className="button-back">{t('form.actions.return')}</Link>
                 </div>
             </main>
         )
     }
 }
 
-export default VehicleDetails
+export default withTranslation() (VehicleDetails)

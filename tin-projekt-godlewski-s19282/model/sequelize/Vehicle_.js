@@ -9,29 +9,29 @@ const Vehicle = sequelize.define('Vehicle', {
         primaryKey: true,
     },
     vin: {
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING,
         allowNull: false,
         unique: true,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "validation.messages.notEmpty"
             },
             len: {
                 args: [5,30],
-                msg: "Pole powinno zawierać od 5 do 30 znaków"
+                msg: "validation.messages.len_5_30"
             }
         }
     },
     make: {
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING,
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "validation.messages.notEmpty"
             },
             len: {
                 args: [2,30],
-                msg: "Pole powinno zawierać od 5 do 30 znaków"
+                msg: "validation.messages.len_2_30"
             }
         }
     },
@@ -40,11 +40,11 @@ const Vehicle = sequelize.define('Vehicle', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "validation.messages.notEmpty"
             },
             len: {
                 args: [1,30],
-                msg: "Pole powinno zawierać od 5 do 30 znaków"
+                msg: "validation.messages.len_1_30"
             }
         }
     },
@@ -54,13 +54,13 @@ const Vehicle = sequelize.define('Vehicle', {
         unique: true,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "validation.messages.notEmpty"
             },
             isSameOrBefore(reqDate){
                 const today = new Date();
                 const date = new Date(reqDate);
                 if(date>today)
-                    throw new Error("Data nie może być z przyszłości");
+                    throw new Error("validation.messages.notFutureDate");
             }
         }
     },
@@ -69,14 +69,14 @@ const Vehicle = sequelize.define('Vehicle', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "validation.messages.notEmpty"
             },
             isMoreThanZero(val) {
                 if(val<=0)
-                    throw new Error('Pojemność silnika musi być większa od zera')
+                    throw new Error("validation.messages.greaterThan0")
             },
             isNumeric: {
-                msg: "Pojemność silnika musi być liczbą"
+                msg: "validation.messages.notNumber"
             }
         }
     }
