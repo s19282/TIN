@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import {getOwnersApiCall} from "../../apiCalls/ownerApiCalls";
 import OwnerListTable from "./OwnerListTable";
+import { withTranslation } from 'react-i18next';
 
 class OwnerList extends React.Component
 {
@@ -52,20 +53,21 @@ class OwnerList extends React.Component
     {
         const {error,isLoaded,owners} = this.state;
         let content;
+        const { t } = this.props;
 
         if (error)
             content = <p>Błąd: {error.message}</p>
         else if (!isLoaded)
-            content = <p>Ładowanie danych właścicieli...</p>
+            content = <p>{t('owner.list.loadingData')}</p>
         else
             content = <OwnerListTable ownerList={owners} />
 
         return (
             <main>
-                <h2>Lista właścicieli</h2>
+                <h2>{t('owner.list.pageTitle')}</h2>
                 {content}
                 <p className="section-buttons">
-                    <Link to="/owner/add" className="button-add">Dodaj nowego właściciela</Link>
+                    <Link to="/owner/add" className="button-add">{t('owner.list.addNew')}</Link>
                 </p>
                 <p className="success">{this.state.notice}</p>
             </main >
@@ -74,4 +76,4 @@ class OwnerList extends React.Component
 
 }
 
-export default OwnerList;
+export default withTranslation()(OwnerList);

@@ -1,15 +1,18 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 
 function RegistrationDetailsData(props) {
     const registration = props.registrationData
+    const { t } = useTranslation();
+
     return (
         <React.Fragment>
-            <p>Właściciel:{registration.owner.firstName+" "+registration.owner.lastName}</p>
-            <p>Pojazd: {registration.vehicle.make+" "+registration.vehicle.model}</p>
-            <p>Data od: {registration.dateFrom}</p>
-            <p>Data do: {registration.dateTo}</p>
-            <p>Numer rejestracyjny: {registration.registrationNumber}</p>
-            <p>Numer ubezpieczenia: {registration.insuranceNumber}</p>
+            <p>{t('registration.fields.owner')}:{registration.owner.firstName+" "+registration.owner.lastName}</p>
+            <p>{t('registration.fields.vehicle')}: {registration.vehicle.make+" "+registration.vehicle.model}</p>
+            <p>{t('registration.fields.dateFrom')}: {registration.dateFrom}</p>
+            <p>{t('registration.fields.dateTo')}: {registration.dateTo}</p>
+            <p>{t('registration.fields.registrationNumber')}: {registration.registrationNumber}</p>
+            <p>{t('registration.fields.insuranceNumber')}: {registration.insuranceNumber}</p>
         </React.Fragment>
     )
 }

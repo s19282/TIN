@@ -2,9 +2,10 @@ import React from "react";
 import {Redirect} from "react-router-dom";
 import formMode from "../../helpers/formHelper";
 import {addOwnerApiCall, getOwnerByIdApiCall, updateOwnerApiCall} from "../../apiCalls/ownerApiCalls";
-import {checkRequired,checkTextLengthRange,checkEmail} from "../../helpers/validationCommon";
+import {checkRequired, checkTextLengthRange, checkEmail, checkNumber} from "../../helpers/validationCommon";
 import FormInput from "../form/FormInput";
 import FormButtons from "../form/FormButtons";
+import { withTranslation } from 'react-i18next';
 
 class OwnerForm extends React.Component{
     constructor(props) {
@@ -87,35 +88,46 @@ class OwnerForm extends React.Component{
 
     validateField = (fieldName, fieldValue) =>
     {
+        const { t } = this.props;
         let errorMessage = '';
-        if (fieldName === 'firstName'){
+        if (fieldName === 'firstName')
+        {
             if(!checkRequired(fieldValue))
-                errorMessage = 'Pole jest wymagane'
+                errorMessage = t('validation.messages.notEmpty');
             else if(!checkTextLengthRange(fieldValue,2,60))
-                errorMessage = 'Pole powinno zawierać od 2 do 60 znaków'
+                errorMessage = t('validation.messages.len_2_60');
         }
         if (fieldName === 'lastName')
         {
             if(!checkRequired(fieldValue))
-                errorMessage = 'Pole jest wymagane'
+                errorMessage = t('validation.messages.notEmpty');
             else if(!checkTextLengthRange(fieldValue,2,60))
-                errorMessage = 'Pole powinno zawierać od 2 do 60 znaków'
+                errorMessage = t('validation.messages.len_2_60');
         }
         if(fieldName === 'email')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = "Pole jest wymagane";
-            else if (!checkTextLengthRange(fieldValue))
-                errorMessage = "Pole powinno zawierać od 5 do 60 znaków";
+                errorMessage = t('validation.messages.notEmpty');
+            else if (!checkTextLengthRange(fieldValue,5,60))
+                errorMessage = t('validation.messages.len_5_60');
             else if (!checkEmail(fieldValue))
-                errorMessage = "Pole powinno zawierać prawidłowy adres email";
+                errorMessage = t('validation.messages.notEmail');
         }
         if(fieldName === 'phoneNumber')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = "Pole jest wymagane";
-            else if (!checkTextLengthRange(fieldValue))
-                errorMessage = "Pole powinno zawierać od 5 do 60 znaków";
+                errorMessage = t('validation.messages.notEmpty');
+            else if (!checkTextLengthRange(fieldValue,7,13))
+                errorMessage = t('validation.messages.len_7_13');
+            else if(!checkNumber(fieldValue))
+                errorMessage = t('validation.messages.notNumber');
+        }
+        if(fieldName === 'password')
+        {
+            if (!checkRequired(fieldValue))
+                errorMessage = t('validation.messages.notEmpty');
+            else if (!checkTextLengthRange(fieldValue,7,50))
+                errorMessage = t('validation.messages.len_7_50');
         }
         return errorMessage
     }
@@ -135,7 +147,6 @@ class OwnerForm extends React.Component{
                 promise = addOwnerApiCall(owner)
             else if(currentFormMode === formMode.EDIT)
             {
-                console.log(owner) //TODO: delete
                 const ownerId = this.state.ownerId
                 promise = updateOwnerApiCall(ownerId,owner)
             }
@@ -152,7 +163,6 @@ class OwnerForm extends React.Component{
                         (data) => {
                             if(!response.ok && response.status === 500)
                             {
-                                console.log(data) //TODO: delete
                                 for(const i in data)
                                 {
                                     const errorItem = data[i]
@@ -171,7 +181,6 @@ class OwnerForm extends React.Component{
                         },
                         (error) =>{
                             this.setState({error})
-                            console.log(error) //TODO: delete
                         }
                     )
             }
@@ -205,11 +214,16 @@ class OwnerForm extends React.Component{
 
     render() {
         const {redirect} = this.state
+        const { t } = this.props;
+
+
         if(redirect)
         {
             const currentFormMode = this.state.formMode
-            const notice = currentFormMode === formMode.NEW ? 'Pomyślnie dodano nowego właściciela' :
-                'Pomyślnie zaktualizowano właściciela'
+            const notice = currentFormMode === formMode.NEW
+                ? t('owner.form.add.confirm.text')
+                : t('owner.form.edit.confirm.text')
+
             return (
                 <Redirect to={{
                     pathname: "/owners/",
@@ -220,9 +234,9 @@ class OwnerForm extends React.Component{
             )
         }
 
-        const errorsSummary = this.hasErrors() ? 'Formularz zawiera błędy' : ''
-        const fetchError = this.state.error ? `Błąd: ${this.state.error.message}` : ''
-        const pageTitle = this.state.formMode === formMode.NEW ? 'Nowy właściciel' : 'Edycja właściciela'
+        const errorsSummary = this.hasErrors() ? t('validation.formContainsErrors') : ''
+        const fetchError = this.state.error ? `${t('validation.error')}: ${this.state.error.message}` : ''
+        const pageTitle = this.state.formMode === formMode.NEW ? t('owner.form.add.pageTitle') : t('owner.form.edit.pageTitle')
 
         const globalErrorMessage = errorsSummary || fetchError || this.state.message
 
@@ -232,41 +246,41 @@ class OwnerForm extends React.Component{
                 <form className="form" onSubmit={this.handleSubmit}>
                     <FormInput
                         type="text"
-                        label="Imię"
+                        label={t('owner.fields.firstName')}
                         required
                         error={this.state.errors.firstName}
                         name="firstName"
-                        placeholder="2-60 znaków"
+                        placeholder={t('owner.placeHolders.firstName')}
                         onChange={this.handleChange}
                         value={this.state.owner.firstName}/>
 
                         <FormInput
                         type="text"
-                        label="Nazwisko"
+                        label={t('owner.fields.lastName')}
                         required
                         error={this.state.errors.lastName}
                         name="lastName"
-                        placeholder="2-60 znaków"
+                        placeholder={t('owner.placeHolders.lastName')}
                         onChange={this.handleChange}
                         value={this.state.owner.lastName}/>
 
                         <FormInput
                         type="text"
-                        label="Email"
+                        label={t('owner.fields.email')}
                         required
                         error={this.state.errors.email}
                         name="email"
-                        placeholder="np. nazwa@domena.pl"
+                        placeholder={t('owner.placeHolders.email')}
                         onChange={this.handleChange}
                         value={this.state.owner.email}/>
 
                         <FormInput
                         type="text"
-                        label="Numer telefonu"
+                        label={t('owner.fields.phoneNumber')}
                         required
                         error={this.state.errors.phoneNumber}
                         name="phoneNumber"
-                        placeholder="2-60 znaków"   //TODO: change placeholder
+                        placeholder={t('owner.placeHolders.phoneNumber')}
                         onChange={this.handleChange}
                         value={this.state.owner.phoneNumber}/>
 
@@ -276,7 +290,7 @@ class OwnerForm extends React.Component{
                         required
                         error={this.state.errors.password}
                         name="password"
-                        placeholder="2-60 znaków"   //TODO: change placeholder
+                        placeholder={t('owner.placeHolders.password')}
                         onChange={this.handleChange}/>
 
                         <FormButtons
@@ -289,4 +303,4 @@ class OwnerForm extends React.Component{
     }
 }
 
-export default OwnerForm
+export default withTranslation()(OwnerForm)

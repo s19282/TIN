@@ -1,9 +1,12 @@
 import {Link} from "react-router-dom";
 import React from "react";
+import { useTranslation } from 'react-i18next';
 
 function RegistrationListTableRow(props)
 {
     const registration = props.registrationData
+    const { t } = useTranslation();
+
     return (
         <tr key={registration.id}>
             <td>{registration.owner.firstName+" "+registration.owner.lastName}</td>
@@ -14,9 +17,9 @@ function RegistrationListTableRow(props)
             <td>{registration.insuranceNumber}</td>
             <td>
                 <ul className="list-actions">
-                    <li><Link to={`/registration/details/${registration.id}`} className="list-actions-button-details">Szczegóły</Link></li>
-                    <li><Link to={`/registration/edit/${registration.id}`} className="list-actions-button-edit">Edytuj</Link></li>
-                    <li><Link to={`/registration/delete/${registration.id}`} className="list-actions-button-delete">Usuń</Link></li>
+                    <li><Link to={`/registration/details/${registration.id}`} className="list-actions-button-details">{t('list.actions.details')}</Link></li>
+                    <li><Link to={`/registration/edit/${registration.id}`} className="list-actions-button-edit">{t('list.actions.edit')}</Link></li>
+                    <li><Link to={`/registration/delete/${registration.id}`} className="list-actions-button-delete">{t('list.actions.delete')}</Link></li>
                 </ul>
             </td>
         </tr>

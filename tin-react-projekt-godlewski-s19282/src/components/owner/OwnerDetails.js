@@ -62,9 +62,9 @@ class OwnerDetails extends React.Component
 
 
         if(error)
-            content = <p>Błąd: {error.message}</p>
+            content = <p>{t('validation.error')}: {error.message}</p>
         else if (!isLoaded)
-            content = <p>Ładowanie danych właściciela</p>
+            content = <p>{t('owner.details.loadingData')}</p>
         else if (message)
             content = <p>{message}</p>
         else

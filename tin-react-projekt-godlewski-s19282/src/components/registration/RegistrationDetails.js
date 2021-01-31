@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom'
 import {getRegistrationByIdApiCall} from "../../apiCalls/registrationApiCalls";
 import RegistrationDetailsData from "./RegistrationDetailsData";
+import { withTranslation } from 'react-i18next';
 
 class RegistrationDetails extends React.Component {
     constructor(props) {
@@ -50,11 +51,12 @@ class RegistrationDetails extends React.Component {
     render() {
         const {registration, error, isLoaded, message} = this.state
         let content;
+        const { t } = this.props;
 
         if (error)
-            content = <p>Błąd: {error.message}</p>
+            content = <p>{t('validation.error')}: {error.message}</p>
         else if (!isLoaded)
-            content = <p>Pobieranie danych rejestracji...</p>
+            content = <p>{t('registration.details.loadingData')}</p>
         else if (message)
             content = <p>{message}</p>
         else
@@ -62,14 +64,14 @@ class RegistrationDetails extends React.Component {
 
         return (
             <main>
-                <h2>Szczegóły rejestracji</h2>
+                <h2>{t('registration.details.details')}</h2>
                 {content}
                 <div className="section-buttons">
-                    <Link to="/registrations" className="button-back">Powrót</Link>
+                    <Link to="/registrations" className="button-back">{t('form.actions.return')}</Link>
                 </div>
             </main>
         )
     }
 }
 
-export default RegistrationDetails
+export default withTranslation() (RegistrationDetails)

@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom'
 import {getRegistrationsApiCall} from "../../apiCalls/registrationApiCalls";
 import RegistrationListTable from "./RegistrationListTable";
+import { withTranslation } from 'react-i18next';
 
 class RegistrationList extends React.Component
 {
@@ -40,11 +41,12 @@ class RegistrationList extends React.Component
     render() {
         const {error, isLoaded, registrations} = this.state
         let content;
+        const { t } = this.props;
 
         if (error)
-            content = <p>Błąd: {error.message}</p>
+            content = <p>{t('validation.error')}: {error.message}</p>
         else if (!isLoaded)
-            content = <p>Ładowanie danych rejestracji...</p>
+            content = <p>{t('registration.list.loadingData')}</p>
         else
             content = <RegistrationListTable registrationsList={registrations} />
 
@@ -53,7 +55,7 @@ class RegistrationList extends React.Component
                 <h2>Lista rejestracji</h2>
                 {content}
                 <p className="section-buttons">
-                    <Link to="/registration/add" className="button-add">Dodaj nową rejestrację</Link>
+                    <Link to="/registration/add" className="button-add">{t('registration.list.addNew')}</Link>
                 </p>
                 <p className="success">{this.state.notice}</p>
             </main>
@@ -61,4 +63,4 @@ class RegistrationList extends React.Component
     }
 }
 
-export default RegistrationList
+export default withTranslation() (RegistrationList)

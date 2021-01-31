@@ -18,6 +18,8 @@ import FormButtons from "../form/FormButtons";
 import FormSelect from "../form/FormSelect";
 import {getOwnersApiCall} from "../../apiCalls/ownerApiCalls";
 import {getVehiclesApiCall} from "../../apiCalls/vehicleApiCalls";
+import { withTranslation } from 'react-i18next';
+
 
 class RegistrationForm extends React.Component{
     constructor(props) {
@@ -122,20 +124,21 @@ class RegistrationForm extends React.Component{
     validateField = (fieldName, fieldValue) =>
     {
         let errorMessage = '';
+        const { t } = this.props;
 
         if (fieldName === 'dateFrom')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = "Pole jest wymagane";
+                errorMessage = t('validation.messages.notEmpty');
             else if (!checkDate(fieldValue))
-                errorMessage = "Pole powinno zawierać datę";
+                errorMessage = t('validation.messages.notDate');
             else if (isSameOrBefore(fieldValue))
-                errorMessage = "Data nie może być z przyszłości";
+                errorMessage = t('validation.messages.notFutureDate');
         }
         if (fieldName === 'dateTo')
         {
             if (isSameOrBefore(fieldValue))
-                errorMessage = "Data nie może być z przyszłości";
+                errorMessage = t('validation.messages.notFutureDate');
             // else if (isSameOrAfter(fieldValue))
             //     errorMessage = "Data końca rejestracji nie może być wcześniejsza niż data początku rejestracji";
             //    TODO: check if it's possible to get access to other field
@@ -144,17 +147,17 @@ class RegistrationForm extends React.Component{
         if (fieldName === 'registrationNumber')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = "Pole jest wymagane";
+                errorMessage = t('validation.messages.notEmpty');
             else if (!checkRegistrationNumber(fieldValue))
-                errorMessage = "Pole powinno zawierać prawidłowy numer rejestracyjny";
+                errorMessage = t('validation.messages.notRegistrationNumber');
         }
 
         if (fieldName === 'insuranceNumber')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = "Pole jest wymagane";
+                errorMessage = t('validation.messages.notEmpty');
             else if (!checkInsuranceNumber(fieldValue))
-                errorMessage = "Pole powinno zawierać prawidłowy numer ubezpieczenia";
+                errorMessage = t('validation.messages.notInsuranceNumber');
         }
 
         return errorMessage;
@@ -241,9 +244,11 @@ class RegistrationForm extends React.Component{
 
     render() {
         const { redirect } = this.state
+        const { t } = this.props;
+
         if (redirect) {
             const currentFormMode = this.state.formMode
-            const notice = currentFormMode === formMode.NEW ? 'Pomyślnie dodano nową rejestrację' : 'Pomyślnie zaktualizowano rejestrację'
+            const notice = currentFormMode === formMode.NEW ? t('registration.form.add.confirm.text') : t('registration.form.edit.confirm.text')
             return (
                 <Redirect to={{
                     pathname: "/registrations/",
@@ -254,18 +259,17 @@ class RegistrationForm extends React.Component{
             )
         }
 
-        const errorsSummary = this.hasErrors() ? 'Formularz zawiera błędy' : ''
-        const fetchError = this.state.error ? `Błąd: ${this.state.error.message}` : ''
-        const pageTitle = this.state.formMode === formMode.NEW ? 'Nowa rejestracja' : 'Edycja rejestracji'
+        const errorsSummary = this.hasErrors() ? t('validation.formContainsErrors') : ''
+        const fetchError = this.state.error ? `${t('validation.error')}: ${this.state.error.message}` : ''
+        const pageTitle = this.state.formMode === formMode.NEW ? t('registration.form.add.pageTitle') : t('registration.form.edit.pageTitle')
         const globalErrorMessage = errorsSummary || fetchError || this.state.message
 
         return (
             <main>
                 <h2>{pageTitle}</h2>
                 <form className="form" onSubmit={this.handleSubmit}>
-                    {/*TODO: owner & vehicle*/}
                     <FormSelect
-                        label="Właściciel"
+                        label={t('registration.fields.owner')}
                         required
                         error={this.state.errors.owner_id}
                         name="owner_id"
@@ -276,7 +280,7 @@ class RegistrationForm extends React.Component{
                         id={this.state.registration.owner_id}
                     />
                     <FormSelect
-                        label="Pojazd"
+                        label={t('registration.fields.vehicle')}
                         required
                         error={this.state.errors.vehicle_id}
                         name="vehicle_id"
@@ -288,7 +292,7 @@ class RegistrationForm extends React.Component{
                     />
                     <FormInput
                         type="date"
-                        label="Data rejestracji od"
+                        label={t('registration.fields.dateFrom')}
                         required
                         error={this.state.errors.dateFrom}
                         name="dateFrom"
@@ -297,7 +301,7 @@ class RegistrationForm extends React.Component{
                     />
                     <FormInput
                         type="date"
-                        label="Data rejestracji do"
+                        label={t('registration.fields.dateTo')}
                         error={this.state.errors.dateTo}
                         name="dateTo"
                         onChange={this.handleChange}
@@ -305,21 +309,21 @@ class RegistrationForm extends React.Component{
                     />
                     <FormInput
                         type="text"
-                        label="Numer rejestracyjny"
+                        label={t('registration.fields.registrationNumber')}
                         required
                         error={this.state.errors.registrationNumber}
                         name="registrationNumber"
-                        placeholder="AAA 11111"
+                        placeholder={t('registration.placeHolders.registrationNumber')}
                         onChange={this.handleChange}
                         value={this.state.registration.registrationNumber}
                     />
                     <FormInput
                         type="text"
-                        label="Numer ubezpieczenia"
+                        label={t('registration.fields.insuranceNumber')}
                         required
                         error={this.state.errors.insuranceNumber}
                         name="insuranceNumber"
-                        placeholder="9 cyfr"
+                        placeholder={t('registration.placeHolders.insuranceNumber')}
                         onChange={this.handleChange}
                         value={this.state.registration.insuranceNumber}
                     />
@@ -335,4 +339,4 @@ class RegistrationForm extends React.Component{
     }
 }
 
-export default RegistrationForm
+export default withTranslation() (RegistrationForm)
