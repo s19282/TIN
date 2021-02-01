@@ -15,6 +15,7 @@ const sequelizeInit = require('./config/sequelize/init');
 const ownerApiRouter = require('./routes/api/OwnerApiRoute');
 const registrationApiRouter = require('./routes/api/RegistrationApiRoute');
 const vehicleApiRouter = require('./routes/api/VehicleApiRoute');
+const authApiRouter = require('./routes/api/AuthApiRoute');
 const session = require('express-session');
 const app = express();
 const cors = require('cors');
@@ -60,6 +61,7 @@ app.use((req, res, next) => {
 app.use('/api/owners', ownerApiRouter);
 app.use('/api/registrations', registrationApiRouter);
 app.use('/api/vehicles', vehicleApiRouter);
+app.use('/api/auth', authApiRouter);
 app.use('/', indexRouter);
 app.use('/owners', authUtil.permitAuthenticatedUser, ownerRouter);
 app.use('/registrations', authUtil.permitAuthenticatedUser, registrationRouter);
