@@ -14,37 +14,71 @@ import RegistrationForm from "./components/registration/RegistrationForm";
 import VehicleList from "./components/vehicle/VehicleList";
 import VehicleDetails from "./components/vehicle/VehicleDetails";
 import VehicleForm from "./components/vehicle/VehicleForm";
+import LoginForm from "./components/other/LoginForm";
+import ProtectedRoute from "./components/other/ProtectedRoute";
+import {getCurrentUser} from "./helpers/authHelper";
 
 
-function App() {
-  return (
-    <Router>
-        <div>
-            <Header/>
-            <Navigation/>
-            <Switch>
-                <Route exact path="/" component={MainContent}/>
+class App extends React.Component
+{
+    constructor(props) {
+        super(props)
+        this.state = {
+            user: undefined,
+            prevPath: ''
+        }
+    }
 
-                <Route exact path="/owners" component={OwnerList}/>
-                <Route exact path="/owner/details/:ownerId" component={OwnerDetails}/>
-                <Route exact path="/owner/add" component={OwnerForm}/>
-                <Route exact path="/owner/edit/:ownerId" component={OwnerForm}/>
+    handleLogin = (user) => {
+        localStorage.setItem("user", user)
+        this.setState({ user: user })
+    }
 
-                <Route exact path="/registrations" component={RegistrationList}/>
-                <Route exact path="/registration/details/:registrationId" component={RegistrationDetails}/>
-                <Route exact path="/registration/add" component={RegistrationForm}/>
-                <Route exact path="/registration/edit/:registrationId" component={RegistrationForm}/>
+    handleLogout = () => {
+        localStorage.removeItem("user");
+        this.setState({ user: undefined })
+    }
 
-                <Route exact path="/vehicles" component={VehicleList}/>
-                <Route exact path="/vehicle/details/:vehicleId" component={VehicleDetails}/>
-                <Route exact path="/vehicle/add" component={VehicleForm}/>
-                <Route exact path="/vehicle/edit/:vehicleId" component={VehicleForm}/>
-            </Switch>
-            <Announcements/>
-            <Footer/>
-        </div>
-    </Router>
-  );
+    componentDidMount() {
+        const currentUser = getCurrentUser()
+        this.setState({ user: currentUser })
+    }
+
+
+    render() {
+        return (
+            <Router>
+                <div>
+                    <Header/>
+                    <Navigation handleLogout={this.handleLogout} />
+                    <Switch>
+                        <Route exact path="/login" render={(props) => (
+                            <LoginForm handleLogin = {this.handleLogin} />
+                        )}/>
+
+                        <Route exact path="/" component={MainContent}/>
+
+                        <ProtectedRoute exact={true} path="/owners" component={OwnerList} />
+                        <ProtectedRoute exact={true} path="/owner/details/:ownerId" component={OwnerDetails} />
+                        <ProtectedRoute exact={true} path="/owner/add" component={OwnerForm} />
+                        <ProtectedRoute exact={true} path="/owner/edit/:ownerId" component={OwnerForm} />
+
+                        <ProtectedRoute exact={true} path="/registrations" component={RegistrationList} />
+                        <ProtectedRoute exact={true} path="/registration/details/:registrationId" component={RegistrationDetails} />
+                        <ProtectedRoute exact={true} path="/registration/add" component={RegistrationForm} />
+                        <ProtectedRoute exact={true} path="/registration/edit/:registrationId" component={RegistrationForm} />
+
+                        <Route exact path="/vehicles" component={VehicleList}/>
+                        <ProtectedRoute exact={true} path="/vehicle/details/:vehicleId" component={VehicleDetails} />
+                        <ProtectedRoute exact={true} path="/vehicle/add" component={VehicleForm} />
+                        <ProtectedRoute exact={true} path="/vehicle/edit/:vehicleId" component={VehicleForm} />
+                    </Switch>
+                    <Announcements/>
+                    <Footer/>
+                </div>
+            </Router>
+        );
+    }
 }
 
 export default App;
