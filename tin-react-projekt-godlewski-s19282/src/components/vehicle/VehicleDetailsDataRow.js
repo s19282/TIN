@@ -1,4 +1,5 @@
 import React from "react";
+import {isAuthenticated} from "../../helpers/authHelper";
 
 function VehicleDetailsDataRow(props)
 {
@@ -9,7 +10,9 @@ function VehicleDetailsDataRow(props)
             <td>{registration.dateFrom}</td>
             <td>{registration.dateTo}</td>
             <td>{registration.registrationNumber}</td>
-            <td>{registration.insuranceNumber}</td>
+            {isAuthenticated() &&
+                <td>{registration.insuranceNumber}</td>
+            }
         </tr>
     )
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import VehicleDetailsDataRow from "./VehicleDetailsDataRow";
 import { useTranslation } from 'react-i18next';
+import {isAuthenticated} from "../../helpers/authHelper";
 
 function VehicleDetailsData(props)
 {
@@ -15,6 +16,7 @@ function VehicleDetailsData(props)
             <p>{t('vehicle.fields.firstRegistrationDate')}: {vehicle.firstRegistrationDate}</p>
             <p>{t('vehicle.fields.engineCapacity')}: {vehicle.firstRegistrationDate}</p>
             <h2>{t('vehicle.details.ownersOfVehicle')}</h2>
+
             <table className="table-list">
                 <thead>
                 <tr>
@@ -22,7 +24,9 @@ function VehicleDetailsData(props)
                     <th>{t('registration.fields.dateFrom')}</th>
                     <th>{t('registration.fields.dateTo')}</th>
                     <th>{t('registration.fields.registrationNumber')}</th>
-                    <th>{t('registration.fields.insuranceNumber')}</th>
+                    {isAuthenticated() &&
+                        <th>{t('registration.fields.insuranceNumber')}</th>
+                    }
                 </tr>
                 </thead>
                 <tbody>

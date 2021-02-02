@@ -71,7 +71,7 @@ class App extends React.Component
                             <ProtectedRoute exact={true} path="/registration/edit/:registrationId" component={RegistrationForm} />
 
                             <Route exact path="/vehicles" component={VehicleList}/>
-                            <ProtectedRoute exact={true} path="/vehicle/details/:vehicleId" component={VehicleDetails} />
+                            <Route exact={true} path="/vehicle/details/:vehicleId" component={VehicleDetails} />
                             <ProtectedRoute exact={true} path="/vehicle/add" component={VehicleForm} />
                             <ProtectedRoute exact={true} path="/vehicle/edit/:vehicleId" component={VehicleForm} />
                         </Switch>
