@@ -4,11 +4,11 @@ export function getCurrentUser() {
 
 export function isAuthenticated() {
     const user = getCurrentUser()
-    // if (user) {
-    //     return true
-    // }
-    // return false
+    if (user) {
+        return true
+    }
+    return false
     //TODO: remove if it will work
-    return !!user;
+    // return !!user;
 }
 

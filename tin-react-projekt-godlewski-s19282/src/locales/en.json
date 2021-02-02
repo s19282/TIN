@@ -22,7 +22,8 @@
       "return": "Return",
       "edit": "Edit",
       "cancel": "Cancel",
-      "add": "Add"
+      "add": "Add",
+      "login": "Log in"
     }
   },
   "owner": {
@@ -159,6 +160,10 @@
         }
       }
     }
+  },
+  "auth": {
+    "pageTitle": "Login",
+    "logout": "Logout"
   },
   "validation": {
     "messages": {

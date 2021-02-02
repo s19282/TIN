@@ -4,7 +4,7 @@ const ownersBaseUrl = 'http://localhost:3000/api/owners';
 
 export function getOwnersApiCall() {
     const user = getCurrentUser()
-    let token
+    let token;
     if (user && user.token) {
         token = user.token
     }

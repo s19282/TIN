@@ -116,7 +116,7 @@ class LoginForm extends React.Component
 
     render() {
         const { t } = this.props
-        const errorsSummary = this.hasErrors() ? t('validation.messages.formContainsErrors') : ''
+        const errorsSummary = this.hasErrors() ? t('validation.formContainsErrors') : ''
         const fetchError = this.state.error ? `${t('validation.error')}: ${this.state.error.message}` : ''
         const globalErrorMessage = errorsSummary || fetchError || this.state.message
 
@@ -129,7 +129,7 @@ class LoginForm extends React.Component
                             name="email"
                             value={this.state.user.email}
                             error={this.state.errors.email}
-                            label={t('emp.fields.email')}
+                            label={t('owner.fields.email')}
                             onChange={this.handleChange}
                             type="text"
                         />
@@ -137,7 +137,7 @@ class LoginForm extends React.Component
                             name="password"
                             value={this.state.user.password}
                             error={this.state.errors.password}
-                            label={t('emp.fields.password')}
+                            label={t('owner.fields.password')}
                             onChange={this.handleChange}
                             type="password"
                         />

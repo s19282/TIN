@@ -50,30 +50,32 @@ class App extends React.Component
             <Router>
                 <div>
                     <Header/>
-                    <Navigation handleLogout={this.handleLogout} />
-                    <Switch>
-                        <Route exact path="/login" render={(props) => (
-                            <LoginForm handleLogin = {this.handleLogin} />
-                        )}/>
+                    <div className="centerBox">
+                        <Navigation handleLogout={this.handleLogout} />
+                        <Switch>
+                            <Route exact path="/login" render={(props) => (
+                                <LoginForm handleLogin = {this.handleLogin} />
+                            )}/>
 
-                        <Route exact path="/" component={MainContent}/>
+                            <Route exact path="/" component={MainContent}/>
 
-                        <ProtectedRoute exact={true} path="/owners" component={OwnerList} />
-                        <ProtectedRoute exact={true} path="/owner/details/:ownerId" component={OwnerDetails} />
-                        <ProtectedRoute exact={true} path="/owner/add" component={OwnerForm} />
-                        <ProtectedRoute exact={true} path="/owner/edit/:ownerId" component={OwnerForm} />
+                            <Route exact={true} path="/owners" component={OwnerList} />
+                            <ProtectedRoute exact={true} path="/owner/details/:ownerId" component={OwnerDetails} />
+                            <ProtectedRoute exact={true} path="/owner/add" component={OwnerForm} />
+                            <ProtectedRoute exact={true} path="/owner/edit/:ownerId" component={OwnerForm} />
 
-                        <ProtectedRoute exact={true} path="/registrations" component={RegistrationList} />
-                        <ProtectedRoute exact={true} path="/registration/details/:registrationId" component={RegistrationDetails} />
-                        <ProtectedRoute exact={true} path="/registration/add" component={RegistrationForm} />
-                        <ProtectedRoute exact={true} path="/registration/edit/:registrationId" component={RegistrationForm} />
+                            <ProtectedRoute exact={true} path="/registrations" component={RegistrationList} />
+                            <ProtectedRoute exact={true} path="/registration/details/:registrationId" component={RegistrationDetails} />
+                            <ProtectedRoute exact={true} path="/registration/add" component={RegistrationForm} />
+                            <ProtectedRoute exact={true} path="/registration/edit/:registrationId" component={RegistrationForm} />
 
-                        <Route exact path="/vehicles" component={VehicleList}/>
-                        <ProtectedRoute exact={true} path="/vehicle/details/:vehicleId" component={VehicleDetails} />
-                        <ProtectedRoute exact={true} path="/vehicle/add" component={VehicleForm} />
-                        <ProtectedRoute exact={true} path="/vehicle/edit/:vehicleId" component={VehicleForm} />
-                    </Switch>
-                    <Announcements/>
+                            <Route exact path="/vehicles" component={VehicleList}/>
+                            <ProtectedRoute exact={true} path="/vehicle/details/:vehicleId" component={VehicleDetails} />
+                            <ProtectedRoute exact={true} path="/vehicle/add" component={VehicleForm} />
+                            <ProtectedRoute exact={true} path="/vehicle/edit/:vehicleId" component={VehicleForm} />
+                        </Switch>
+                        <Announcements/>
+                    </div>
                     <Footer/>
                 </div>
             </Router>
