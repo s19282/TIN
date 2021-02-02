@@ -10,7 +10,7 @@ export function getRegistrationsApiCall()
         token = user.token
     }
     const options = {
-        method: 'POST',
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token
@@ -26,7 +26,7 @@ export function getRegistrationByIdApiCall(registrationId)
         token = user.token
     }
     const options = {
-        method: 'POST',
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token

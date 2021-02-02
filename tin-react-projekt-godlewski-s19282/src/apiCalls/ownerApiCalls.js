@@ -9,7 +9,7 @@ export function getOwnersApiCall() {
         token = user.token
     }
     const options = {
-        method: 'POST',
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token
@@ -25,7 +25,7 @@ export function getOwnerByIdApiCall(ownerId)
         token = user.token
     }
     const options = {
-        method: 'POST',
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token

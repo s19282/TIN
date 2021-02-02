@@ -58,14 +58,15 @@ app.use((req, res, next) => {
     }
     next();
 });
+app.use('/api/auth', authApiRouter);
 app.use('/api/owners', ownerApiRouter);
 app.use('/api/registrations', registrationApiRouter);
 app.use('/api/vehicles', vehicleApiRouter);
-app.use('/api/auth', authApiRouter);
+
 app.use('/', indexRouter);
 app.use('/owners', authUtil.permitAuthenticatedUser, ownerRouter);
 app.use('/registrations', authUtil.permitAuthenticatedUser, registrationRouter);
-app.use('/vehicles', vehicleRouter);
+app.use('/vehicles', authUtil.permitAuthenticatedUser, vehicleRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

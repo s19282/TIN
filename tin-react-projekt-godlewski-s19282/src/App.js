@@ -15,8 +15,9 @@ import VehicleList from "./components/vehicle/VehicleList";
 import VehicleDetails from "./components/vehicle/VehicleDetails";
 import VehicleForm from "./components/vehicle/VehicleForm";
 import LoginForm from "./components/other/LoginForm";
-import ProtectedRoute from "./components/other/ProtectedRoute";
+//import ProtectedRoute from "./components/other/ProtectedRoute";
 import {getCurrentUser} from "./helpers/authHelper";
+import {ProtectedRoute} from "./components/other/ProtectedRoute";
 
 
 class App extends React.Component
@@ -53,13 +54,13 @@ class App extends React.Component
                     <div className="centerBox">
                         <Navigation handleLogout={this.handleLogout} />
                         <Switch>
-                            <Route exact path="/login" render={(props) => (
+                            <Route exact path="/login" render={() => (
                                 <LoginForm handleLogin = {this.handleLogin} />
                             )}/>
 
                             <Route exact path="/" component={MainContent}/>
 
-                            <Route exact={true} path="/owners" component={OwnerList} />
+                            <ProtectedRoute exact={true} path="/owners" component={OwnerList} />
                             <ProtectedRoute exact={true} path="/owner/details/:ownerId" component={OwnerDetails} />
                             <ProtectedRoute exact={true} path="/owner/add" component={OwnerForm} />
                             <ProtectedRoute exact={true} path="/owner/edit/:ownerId" component={OwnerForm} />

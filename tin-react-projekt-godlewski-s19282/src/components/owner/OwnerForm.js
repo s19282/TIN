@@ -1,5 +1,5 @@
 import React from "react";
-import {Redirect, withRouter} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import formMode from "../../helpers/formHelper";
 import {addOwnerApiCall, getOwnerByIdApiCall, updateOwnerApiCall} from "../../apiCalls/ownerApiCalls";
 import {checkEmail, checkNumber, checkRequired, checkTextLengthRange} from "../../helpers/validationCommon";
@@ -122,6 +122,7 @@ class OwnerForm extends React.Component{
             else if(checkNumber(fieldValue))
                 errorMessage = formValidationKeys.notNumber
         }
+        //TODO: change not null
         if(fieldName === 'password')
         {
             if (!checkRequired(fieldValue))
