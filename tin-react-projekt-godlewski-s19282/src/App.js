@@ -15,9 +15,9 @@ import VehicleList from "./components/vehicle/VehicleList";
 import VehicleDetails from "./components/vehicle/VehicleDetails";
 import VehicleForm from "./components/vehicle/VehicleForm";
 import LoginForm from "./components/other/LoginForm";
-//import ProtectedRoute from "./components/other/ProtectedRoute";
+import ProtectedRoute from "./components/other/ProtectedRoute";
 import {getCurrentUser} from "./helpers/authHelper";
-import {ProtectedRoute} from "./components/other/ProtectedRoute";
+//import {ProtectedRoute} from "./components/other/ProtectedRoute";
 
 
 class App extends React.Component
