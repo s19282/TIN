@@ -4,6 +4,7 @@ const router = express.Router();
 const announcementApiController = require('../../api/AnnouncementAPI');
 
 router.get('/', announcementApiController.getAnnouncements);
+router.get('/admin', announcementApiController.getAnnouncementsAdmin);
 router.get('/:announcementId', announcementApiController.getAnnouncementById);
 router.post('/', announcementApiController.createAnnouncement);
 router.put('/:announcementId', announcementApiController.updateAnnouncement);

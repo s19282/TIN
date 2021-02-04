@@ -16,7 +16,7 @@ const Announcement = sequelize.define('Announcement', {
     },
     expirationDate: {
         type: Sequelize.DATEONLY,
-        allowNull: true
+        allowNull: false
     },
     text:{
         type: Sequelize.STRING(300),

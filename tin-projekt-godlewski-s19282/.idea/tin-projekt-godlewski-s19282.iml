@@ -8,5 +8,14 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="@types/dotenv-defaults" level="application" />
+    <orderEntry type="library" name="@types/express" level="application" />
+    <orderEntry type="library" name="@types/express-ejs-layouts" level="application" />
+    <orderEntry type="library" name="@types/node" level="application" />
+    <orderEntry type="library" name="@types/node-dir" level="application" />
+    <orderEntry type="library" name="@types/react" level="application" />
+    <orderEntry type="library" name="@types/sequelize" level="application" />
+    <orderEntry type="library" name="@types/typescript-deferred" level="application" />
+    <orderEntry type="library" name="p5" level="application" />
   </component>
 </module>

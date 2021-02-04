@@ -9,6 +9,15 @@ exports.getAnnouncements = (req, res, next) => {
             console.log(err);
         });
 };
+exports.getAnnouncementsAdmin = (req, res, next) => {
+    Announcement.getAnnouncementsAdmin()
+        .then(announcements => {
+            res.status(200).json(announcements);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+};
 
 exports.getAnnouncementById = (req, res, next) => {
     const announcementId = req.params.announcementId;

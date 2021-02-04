@@ -1,8 +1,21 @@
 const Announcement = require('../../model/sequelize/Announcement');
 
-exports.getAnnouncements = () =>
+exports.getAnnouncementsAdmin = () =>
 {
     return Announcement.findAll();
+}
+exports.getAnnouncements = () =>
+{
+    return Announcement.findAll({
+        where:
+        {
+            expirationDate:
+                {
+                    //TODO: not work
+                    $gte: new Date().getUTCDate()
+                }
+        }
+    });
 }
 
 exports.getAnnouncementById = (announcementId) =>{

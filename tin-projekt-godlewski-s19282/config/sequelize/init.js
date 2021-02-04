@@ -243,7 +243,7 @@ module.exports = () => {
             if( !announcement || announcement.length === 0 ) {
                 return Announcement.bulkCreate([
                     {dateOfPublication: new Date(),expirationDate: '2021-05-05',text:'Przypominamy, że z powodu obecnej sytuacji epidemiologicznej obsługa interesantów odbywa się wyłącznie telefonicznie lub mailowo.'},
-                    {dateOfPublication: new Date(),expirationDate: '2021-05-05',text:'W związku z epidemią czas na rejestrację pojazdu zostaje wydłużony z 30 do 180 dni.'}
+                    {dateOfPublication: new Date(),expirationDate: '2018-05-05',text:'W związku z epidemią czas na rejestrację pojazdu zostaje wydłużony z 30 do 180 dni.'}
                 ])
                     .then( () => {
                         return Announcement.findAll();
