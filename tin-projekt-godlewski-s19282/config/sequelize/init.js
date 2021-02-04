@@ -6,17 +6,36 @@ const Owner = require('../../model/sequelize/Owner');
 const Vehicle = require('../../model/sequelize/Vehicle_');
 const Registration = require('../../model/sequelize/Registration');
 const Announcement = require('../../model/sequelize/Announcement');
+const Role = require('../../model/sequelize/Role');
 
 module.exports = () => {
     Owner.hasMany(Registration, {as: 'registrations', foreignKey: {name: 'owner_id', allowNull: false}, constraints: true, onDelete: 'CASCADE'});
     Registration.belongsTo(Owner, {as: 'owner', foreignKey: {name: 'owner_id', allowNull: false} } );
     Vehicle.hasMany(Registration, {as: 'registrations', foreignKey: {name: 'vehicle_id', allowNull: false}, constraints: true, onDelete: 'CASCADE'});
     Registration.belongsTo(Vehicle, {as: 'vehicle', foreignKey: {name: 'vehicle_id', allowNull: false} });
+    Role.hasMany(Owner, {as: 'user', foreignKey: {name: 'role_id', allowNull: false}, constraints: true, onDelete: 'CASCADE'});
+    Owner.belongsTo(Role, {as: 'role', foreignKey: {name: 'role_id', allowNull: false} } );
 
     let allOwners, allVehicles;
     let registrations;
     return sequelize
         .sync({force: true})
+        .then( () => {
+            return Role.findAll();
+        })
+        .then(role => {
+            if( !role || role.length === 0 ) {
+                return Role.bulkCreate([
+                    {name:'admin'},
+                    {name:'user'}
+                ])
+                    .then( () => {
+                        return Role.findAll();
+                    });
+            } else {
+                return role;
+            }
+        })
         .then( () => {
             return Owner.findAll();
         })
@@ -28,14 +47,16 @@ module.exports = () => {
                     "lastName": "Plowright",
                     "email": "aa@bb.cc",
                     "phoneNumber": "6895595807",
-                    "password": authUtil.hashPassword("admin")
+                    "password": authUtil.hashPassword("admin"),
+                    "role_id" : "1"
                 }, {
                     "id": 2,
                     "firstName": "Shandeigh",
                     "lastName": "Robbins",
                     "email": "srobbins1@zimbio.com",
                     "phoneNumber": "9379136704",
-                    "password": authUtil.hashPassword("password")
+                    "password": authUtil.hashPassword("password"),
+                    "role_id" : "1"
                 }, {
                     "id": 3,
                     "firstName": "Elena",
@@ -57,41 +78,6 @@ module.exports = () => {
                     "email": "nblackly4@cnbc.com",
                     "phoneNumber": "8967016503",
                     "password": authUtil.hashPassword("qwertyuiop")
-                }, {
-                    "id": 6,
-                    "firstName": "Fayre",
-                    "lastName": "Rubinsztein",
-                    "email": "frubinsztein5@blogradio.com",
-                    "phoneNumber": "3475963290",
-                    "password": authUtil.hashPassword("qwerty123")
-                }, {
-                    "id": 7,
-                    "firstName": "Dulciana",
-                    "lastName": "Nicholls",
-                    "email": "dnicholls6@chron.com",
-                    "phoneNumber": "5744670307",
-                    "password": authUtil.hashPassword("12345678")
-                }, {
-                    "id": 8,
-                    "firstName": "Townie",
-                    "lastName": "Meaddowcroft",
-                    "email": "tmeaddowcroft7@wikipedia.org",
-                    "phoneNumber": "5755396415",
-                    "password": authUtil.hashPassword("admin")
-                }, {
-                    "id": 9,
-                    "firstName": "Meggie",
-                    "lastName": "Spere",
-                    "email": "mspere8@joomla.org",
-                    "phoneNumber": "4935524923",
-                    "password": authUtil.hashPassword("password1")
-                }, {
-                    "id": 10,
-                    "firstName": "Ursulina",
-                    "lastName": "Jancic",
-                    "email": "ujancic9@csmonitor.com",
-                    "phoneNumber": "7017032516",
-                    "password": authUtil.hashPassword("123qwe")
                 }])
             } else {
                 return owners;
@@ -138,41 +124,6 @@ module.exports = () => {
                     "model": "H2",
                     "firstRegistrationDate": "1972-11-06",
                     "engineCapacity": 10504
-                }, {
-                    "id": 6,
-                    "vin": "KNDPB3A21D7902129",
-                    "make": "GMC",
-                    "model": "1500",
-                    "firstRegistrationDate": "2005-02-21",
-                    "engineCapacity": 14908
-                }, {
-                    "id": 7,
-                    "vin": "1G6DJ5EV6A0905458",
-                    "make": "Mercury",
-                    "model": "Milan",
-                    "firstRegistrationDate": "1964-10-09",
-                    "engineCapacity": 9721
-                }, {
-                    "id": 8,
-                    "vin": "WA1WMAFP2EA073410",
-                    "make": "Lincoln",
-                    "model": "MKX",
-                    "firstRegistrationDate": "2012-05-06",
-                    "engineCapacity": 11639
-                }, {
-                    "id": 9,
-                    "vin": "1G6DH8E51C0392605",
-                    "make": "Oldsmobile",
-                    "model": "Silhouette",
-                    "firstRegistrationDate": "1972-08-03",
-                    "engineCapacity": 3384
-                }, {
-                    "id": 10,
-                    "vin": "5NPET4AC9AH310164",
-                    "make": "Tesla",
-                    "model": "Roadster",
-                    "firstRegistrationDate": "2016-02-28",
-                    "engineCapacity": 9329
                 }])
                     .then( () => {
                         return Owner.findAll();
@@ -238,7 +189,7 @@ module.exports = () => {
                     "dateTo": "2000-06-18",
                     "registrationNumber": "THE 5847",
                     "insuranceNumber": "625687190",
-                    "owner_id": 6,
+                    "owner_id": 2,
                     "vehicle_id": 2
                 }, {
                     "id": 6,
@@ -247,7 +198,7 @@ module.exports = () => {
                     "registrationNumber": "CS 12949",
                     "insuranceNumber": "662932677",
                     "owner_id": 1,
-                    "vehicle_id": 9
+                    "vehicle_id": 4
                 }, {
                     "id": 7,
                     "dateFrom": "1972-10-16",
@@ -262,8 +213,8 @@ module.exports = () => {
                     "dateTo": "2004-12-03",
                     "registrationNumber": "HA 07809",
                     "insuranceNumber": "245093711",
-                    "owner_id": 9,
-                    "vehicle_id": 6
+                    "owner_id": 1,
+                    "vehicle_id": 5
                 }, {
                     "id": 9,
                     "dateFrom": "1991-10-15",
@@ -278,8 +229,8 @@ module.exports = () => {
                     "dateTo": "2015-04-30",
                     "registrationNumber": "JAW 00344",
                     "insuranceNumber": "695179236",
-                    "owner_id": 8,
-                    "vehicle_id": 8
+                    "owner_id": 4,
+                    "vehicle_id": 5
                 }]);
             } else {
                 return registration;
@@ -292,7 +243,7 @@ module.exports = () => {
             if( !announcement || announcement.length === 0 ) {
                 return Announcement.bulkCreate([
                     {dateOfPublication: new Date(),expirationDate: '2021-05-05',text:'Przypominamy, że z powodu obecnej sytuacji epidemiologicznej obsługa interesantów odbywa się wyłącznie telefonicznie lub mailowo.'},
-                    {dateOfPublication: new Date(),expirationDate: '2021-05-05',text:'W związku z epidemią czas na rejestrację pojazdu zostaje wydłużony z 30 do 180 dni.'},
+                    {dateOfPublication: new Date(),expirationDate: '2021-05-05',text:'W związku z epidemią czas na rejestrację pojazdu zostaje wydłużony z 30 do 180 dni.'}
                 ])
                     .then( () => {
                         return Announcement.findAll();

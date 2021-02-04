@@ -20,7 +20,8 @@ exports.login = (req,res) => {
                     const token = jwt.sign(
                         {
                             email: user.email,
-                            userId: user.id
+                            userId: user.id,
+                            role: user.role_id
                         },
                         config.secret,
                         {expiresIn: '1h'}

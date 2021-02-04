@@ -77,6 +77,11 @@ const Owner = sequelize.define('Owner', {
                 msg: "len_7_50"
             }
         }
+    },
+    role_id:{
+        type: Sequelize.INTEGER,
+        default: true,
+        defaultValue: 2
     }
 });
 
