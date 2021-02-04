@@ -19,9 +19,10 @@ import FormSelect from "../form/FormSelect";
 import {getOwnersApiCall} from "../../apiCalls/ownerApiCalls";
 import {getVehiclesApiCall} from "../../apiCalls/vehicleApiCalls";
 import { withTranslation } from 'react-i18next';
+import { formValidationKeys } from '../../helpers/formHelper'
 
-
-class RegistrationForm extends React.Component{
+class RegistrationForm extends React.Component
+{
     constructor(props) {
         super(props);
 
@@ -126,19 +127,31 @@ class RegistrationForm extends React.Component{
         let errorMessage = '';
         const { t } = this.props;
 
+        if (fieldName === 'owner_id')
+        {
+            if (!checkRequired(fieldValue))
+                errorMessage = formValidationKeys.notEmpty
+        }
+
+        if (fieldName === 'vehicle_id')
+        {
+            if (!checkRequired(fieldValue))
+                errorMessage = formValidationKeys.notEmpty
+        }
+
         if (fieldName === 'dateFrom')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = t('validation.messages.notEmpty');
+                errorMessage = formValidationKeys.notEmpty
             else if (!checkDate(fieldValue))
-                errorMessage = t('validation.messages.notDate');
+                errorMessage = formValidationKeys.notDate
             else if (isSameOrBefore(fieldValue))
-                errorMessage = t('validation.messages.notFutureDate');
+                errorMessage = formValidationKeys.notFutureDate
         }
         if (fieldName === 'dateTo')
         {
             if (isSameOrBefore(fieldValue))
-                errorMessage = t('validation.messages.notFutureDate');
+                errorMessage = formValidationKeys.notFutureDate
             // else if (isSameOrAfter(fieldValue))
             //     errorMessage = "Data końca rejestracji nie może być wcześniejsza niż data początku rejestracji";
             //    TODO: check if it's possible to get access to other field
@@ -147,17 +160,17 @@ class RegistrationForm extends React.Component{
         if (fieldName === 'registrationNumber')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = t('validation.messages.notEmpty');
+                errorMessage = formValidationKeys.notEmpty
             else if (!checkRegistrationNumber(fieldValue))
-                errorMessage = t('validation.messages.notRegistrationNumber');
+                errorMessage = formValidationKeys.notRegistrationNumber
         }
 
         if (fieldName === 'insuranceNumber')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = t('validation.messages.notEmpty');
+                errorMessage = formValidationKeys.notEmpty
             else if (!checkInsuranceNumber(fieldValue))
-                errorMessage = t('validation.messages.notInsuranceNumber');
+                errorMessage = formValidationKeys.notInsuranceNumber
         }
 
         return errorMessage;
@@ -270,7 +283,6 @@ class RegistrationForm extends React.Component{
             <main>
                 <h2>{pageTitle}</h2>
                 <form className="form" onSubmit={this.handleSubmit}>
-                    {/*TODO: fix if not selected no error*/}
                     <FormSelect
                         label={t('registration.fields.owner')}
                         required

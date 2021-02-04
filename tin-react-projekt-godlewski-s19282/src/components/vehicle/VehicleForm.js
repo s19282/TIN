@@ -1,5 +1,5 @@
 import React from "react";
-import formMode from "../../helpers/formHelper";
+import formMode, {formValidationKeys} from "../../helpers/formHelper";
 import {addVehicleApiCall, getVehicleByIdApiCall, updateVehicleApiCall} from "../../apiCalls/vehicleApiCalls";
 import FormInput from "../form/FormInput";
 import FormButtons from "../form/FormButtons";
@@ -111,41 +111,41 @@ class VehicleForm extends React.Component
         if (fieldName === 'vin')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = t('validation.messages.notEmpty');
+                errorMessage = formValidationKeys.notEmpty
             else if (!checkTextLengthRange(fieldValue, 5, 30))
-                errorMessage = t('validation.messages.len_5_30');
+                errorMessage = formValidationKeys.len_5_30
         }
         if (fieldName === 'make')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = t('validation.messages.notEmpty');
+                errorMessage = formValidationKeys.notEmpty
             else if (!checkTextLengthRange(fieldValue, 2, 30))
-                errorMessage = t('validation.messages.len_2_30');
+                errorMessage = formValidationKeys.len_2_30
         }
         if (fieldName === 'model')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = t('validation.messages.notEmpty');
+                errorMessage = formValidationKeys.notEmpty
             else if (!checkTextLengthRange(fieldValue, 1, 30))
-                errorMessage = t('validation.messages.len_1_30');
+                errorMessage = formValidationKeys.len_1_50
         }
         if (fieldName === 'firstRegistrationDate')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = t('validation.messages.notEmpty');
+                errorMessage = formValidationKeys.notEmpty
             else if (!checkDate(fieldValue))
-                errorMessage = t('validation.messages.notDate');
+                errorMessage = formValidationKeys.notDate
             else if (isSameOrBefore(fieldValue))
-                errorMessage = t('validation.messages.notFutureDate');
+                errorMessage = formValidationKeys.notFutureDate
         }
         if (fieldName === 'engineCapacity')
         {
             if (!checkRequired(fieldValue))
-                errorMessage = t('validation.messages.notEmpty');
+                errorMessage = formValidationKeys.notEmpty
             else if (checkNumber(fieldValue))
-                errorMessage = t('validation.messages.notNumber');
+                errorMessage = formValidationKeys.notNumber
             else if (isMoreThanZero(fieldValue))
-                errorMessage = t('validation.messages.greaterThan0');
+                errorMessage = formValidationKeys.greaterThan0
         }
         return errorMessage
     }

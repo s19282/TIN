@@ -1,5 +1,8 @@
 import React from "react";
+import {useTranslation} from "react-i18next";
 import FormSelectOption from "./FormSelectOption";
+import {getValidationErrorKey} from "../../helpers/formHelper";
+
 
 function FormSelect(props)
 {
@@ -7,6 +10,11 @@ function FormSelect(props)
     const name = props.name
     const errorSpanId = 'error' + name[0].toUpperCase() + name.slice(1)
     const list = props.list
+
+    const error = props.error
+    const errorKey = getValidationErrorKey(error)
+    const { t } = useTranslation();
+    const translatedErrorMessage = t(errorKey)
 
     return (
         <>
@@ -26,7 +34,13 @@ function FormSelect(props)
                 ))}
 
             </select>
-            <span id={errorSpanId} className={"errors-text"}>{props.errors}</span>
+            <span id={errorSpanId} className={"errors-text"} >
+                {
+                    translatedErrorMessage!=="validation.messages."
+                        ? translatedErrorMessage
+                        : ""
+                }
+            </span>
         </>
     )
 }
