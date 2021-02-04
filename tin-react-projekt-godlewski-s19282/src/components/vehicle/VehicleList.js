@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import {getVehiclesApiCall} from "../../apiCalls/vehicleApiCalls";
 import VehicleListTable from "./VehicleListTable";
 import { withTranslation } from 'react-i18next';
+import {isAuthenticated} from "../../helpers/authHelper";
 
 class VehicleList extends React.Component
 {
@@ -61,9 +62,11 @@ class VehicleList extends React.Component
             <main>
                 <h2>{t('vehicle.list.pageTitle')}</h2>
                 {content}
-                <p className="section-buttons">
-                    <Link to="/vehicle/add" className="button-add">{t('vehicle.list.addNew')}</Link>
-                </p>
+                {isAuthenticated() &&
+                    <p className="section-buttons">
+                        <Link to="/vehicle/add" className="button-add">{t('vehicle.list.addNew')}</Link>
+                    </p>
+                }
                 <p className="success">{this.state.notice}</p>
             </main >
         )

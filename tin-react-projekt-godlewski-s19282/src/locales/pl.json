@@ -148,8 +148,8 @@
     "list": {
       "title": "Pojazdy",
       "addNew": "Dodaj nowy pojazd",
-      "noData": "Brak właścicieli w bazie",
-      "pageTitle": "Lista właścicieli",
+      "noData": "Brak pojazdów w bazie",
+      "pageTitle": "Lista pojazdów",
       "loadingData": "Ładowanie danych pojazdów..."
     },
     "form": {
