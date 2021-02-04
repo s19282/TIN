@@ -59,7 +59,7 @@ export function updateRegistrationApiCall(registrationId, registration)
     if (user && user.token) {
         token = user.token
     }
-    const url = `${registrationBaseUrl}/${registrationId}` //TODO: check once more
+    const url = `${registrationBaseUrl}/${registrationId}`
     const registrationString = JSON.stringify(registration)
     const options = {
         method: 'PUT',
@@ -78,7 +78,7 @@ export function deleteRegistrationApiCall(registrationId)
     if (user && user.token) {
         token = user.token
     }
-    const url = `${registrationBaseUrl}/${registrationId}` //TODO: check once more
+    const url = `${registrationBaseUrl}/${registrationId}`
 
     const options = {
         method: 'DELETE',

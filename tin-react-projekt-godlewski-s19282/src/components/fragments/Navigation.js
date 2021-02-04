@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import { withTranslation } from 'react-i18next';
 import {isAdmin, isAuthenticated} from "../../helpers/authHelper";
 
@@ -9,23 +9,22 @@ class Navigation extends React.Component
     {
         const { t } = this.props;
         const loginLogoutLink = isAuthenticated()
-            //todo: remove a and format button in css
             ? <button id="logoutButton" onClick={this.props.handleLogout}>{t('auth.logout')}</button>
-            : <Link to="/login">{t('form.actions.login')}</Link>
+            : <NavLink exact={true} activeClassName={"active"} to="/login">{t('form.actions.login')}</NavLink>
 
         return (
             <nav>
                 <ul>
-                    <li><Link to="/">{t('nav.main-page')}</Link></li>
-                    <li><Link to="/owners">{t('nav.owners')}</Link></li>
-                    <li><Link to="/registrations">{t('nav.registrations')}</Link></li>
-                    <li><Link to="/vehicles">{t('nav.vehicles')}</Link></li>
+                    <li><NavLink exact={true} activeClassName={"active"} to="/">{t('nav.main-page')}</NavLink></li>
+                    <li><NavLink exact={true} activeClassName={"active"} to="/owners">{t('nav.owners')}</NavLink></li>
+                    <li><NavLink exact={true} activeClassName={"active"} to="/registrations">{t('nav.registrations')}</NavLink></li>
+                    <li><NavLink texact={true} activeClassName={"active"} to="/vehicles">{t('nav.vehicles')}</NavLink></li>
                     {isAdmin() &&
-                        <li><Link to="/announcements">{t('nav.announcements')}</Link></li>
+                        <li><NavLink exact={true} activeClassName={"active"} to="/announcements">{t('nav.announcements')}</NavLink></li>
                     }
                     <li className='lang'>{loginLogoutLink}</li>
                     {!isAuthenticated() &&
-                        <li><Link to="/owner/add">{t('nav.register')}</Link></li>
+                        <li><NavLink exact={true} activeClassName={"active"} to="/owner/add">{t('nav.register')}</NavLink></li>
                     }
                 </ul>
             </nav>

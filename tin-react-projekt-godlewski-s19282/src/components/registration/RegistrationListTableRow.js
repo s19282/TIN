@@ -2,9 +2,7 @@ import {Link} from "react-router-dom";
 import React from "react";
 import { withTranslation } from 'react-i18next';
 import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css';
 import {deleteRegistrationApiCall} from "../../apiCalls/registrationApiCalls";
-
 
 class RegistrationListTableRow extends React.Component
 {
