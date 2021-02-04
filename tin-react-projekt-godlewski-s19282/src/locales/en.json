@@ -19,7 +19,13 @@
       "title": "Actions",
       "details": "Details",
       "edit": "Edit",
-      "delete": "Delete"
+      "delete": "Delete",
+      "confirm": {
+        "title": "Confirm to delete",
+        "message": "Are you sure to do this.",
+        "yes": "Yes",
+        "no": "No"
+      }
     }
   },
   "form": {

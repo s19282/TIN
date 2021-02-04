@@ -47,7 +47,7 @@ class Announcements extends React.Component
                     </ul>
                 </h4>
                 {announcements.map(announcement =>
-                    <h4>{announcement.text}</h4>
+                    <h4 key={announcement.id}>{announcement.text}</h4>
                 )}
             </div>
         )

@@ -61,7 +61,9 @@ class App extends React.Component
                                    )}/>
 
                             <Route exact path="/" component={MainContent}/>
-
+                            {/*//todo logging cache*/}
+                            {/*//todo language cache*/}
+                            {/*//todo selected css*/}
                             <ProtectedRoute exact={true} path="/announcements" component={AnnouncementList} />
                             <ProtectedRoute exact={true} path="/announcement/details/:announcementId" component={AnnouncementDetails} />
                             <ProtectedRoute exact={true} path="/announcement/add" component={AnnouncementForm} />

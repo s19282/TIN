@@ -19,7 +19,13 @@
       "title": "Akcje",
       "details": "Szczegóły",
       "edit": "Edytuj",
-      "delete": "Usuń"
+      "delete": "Usuń",
+      "confirm": {
+        "title": "Potwierdź aby usunąć",
+        "message": "Czy na pewno chcesz to zrobić.",
+        "yes": "Tak",
+        "no": "Nie"
+      }
     }
   },
   "form": {
