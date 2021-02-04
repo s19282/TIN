@@ -10,7 +10,9 @@
     "main-page": "Strona główna",
     "owners": "Właściciele",
     "vehicles": "Pojazdy",
-    "registrations": "Rejestracje"
+    "registrations": "Rejestracje",
+    "announcements": "Ogłoszenia",
+    "register": "Zarejestruj się"
   },
   "list": {
     "actions": {
@@ -161,6 +163,34 @@
           "header": "Potwierdzenie operacji",
           "text": "Pomyślnie zaktualizowano pojazd"
         }
+      }
+    }
+  },
+  "announcement": {
+    "details": {
+      "details" : "Szczegóły ogłoszenia"
+    },
+    "fields": {
+      "dateOfPublication": "Data publikacji",
+      "expirationDate": "Data wygaśnięcia",
+      "text": "Text"
+    },
+    "list": {
+      "title": "Lista ogłoszeń",
+      "addNew": "Dodaj nowe ogłoszenie",
+      "pageTitle": "Lista ogłoszeń"
+    },
+    "form": {
+      "add": {
+        "pageTitle": "Dodaj ogłoszenie",
+        "btnLabel": "Add"
+      },
+      "edit": {
+        "pageTitle": "Edytuj szczegóły ogłoszenia",
+        "btnLabel": "Edytuj"
+      },
+      "details": {
+        "pageTitle": "Szczegóły ogłoszenia"
       }
     }
   },

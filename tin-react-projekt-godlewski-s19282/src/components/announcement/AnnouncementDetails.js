@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {getAnnouncementsByIdApiCall} from "../../apiCalls/announcementApiCalls";
+import {getAnnouncementByIdApiCall} from "../../apiCalls/announcementApiCalls";
 import AnnouncementDetailsData from "./AnnouncementDetailsData";
 import { withTranslation } from 'react-i18next';
 
@@ -10,11 +10,11 @@ class AnnouncementDetails extends React.Component
     constructor(props)
     {
         super(props);
-        let {announcementId: announcementId} = props.match.params
+        let {announcementId} = props.match.params
         this.state =
         {
             announcementId : announcementId,
-            owner : null,
+            announcement : null,
             error : null,
             isLoaded : false,
             message : null
@@ -22,7 +22,7 @@ class AnnouncementDetails extends React.Component
     }
 
     fetchAnnouncementDetails = () => {
-        getAnnouncementsByIdApiCall(this.state.announcementId)
+        getAnnouncementByIdApiCall(this.state.announcementId)
             .then(res => res.json())
             .then((data) => {
                 if(data.message) {
@@ -63,7 +63,7 @@ class AnnouncementDetails extends React.Component
         if(error)
             content = <p>{t('validation.error')}: {error.message}</p>
         else if (!isLoaded)
-            content = <p>{t('ownerrr.details.loadingData')}</p>
+            content = <p>{t('announcement.details.loadingData')}</p>
         else if (message)
             content = <p>{message}</p>
         else
@@ -71,7 +71,7 @@ class AnnouncementDetails extends React.Component
 
         return (
             <main>
-                <h2>{t('ownerrr.details.details')}</h2>
+                <h2>{t('announcement.details.details')}</h2>
                 {content}
                 <div className="section-buttons">
                     <Link to="/announcements" className="button-back">{t('form.actions.return')}</Link>

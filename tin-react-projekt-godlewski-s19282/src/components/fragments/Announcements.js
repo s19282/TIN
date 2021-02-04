@@ -1,8 +1,31 @@
 import React from "react";
 import {withTranslation} from "react-i18next";
+import {getAnnouncementsApiCall} from "../../apiCalls/announcementApiCalls";
 
 class Announcements extends React.Component
 {
+    constructor(props)
+    {
+        super(props);
+        this.state = {announcements: []}
+    }
+
+    componentDidMount()
+    {
+        this.fetchAnnouncementList()
+    }
+
+    fetchAnnouncementList = () =>
+    {
+        getAnnouncementsApiCall()
+            .then(res => res.json())
+            .then(
+                (data) =>
+                {
+                    this.setState({announcements: data});
+                }
+            )
+    }
     handleLanguageChange = (language) => {
         const { i18n } = this.props
         i18n.changeLanguage(language, (err, t) => {
@@ -11,6 +34,7 @@ class Announcements extends React.Component
     }
     render()
     {
+        const {announcements} = this.state;
         const { t } = this.props;
 
         return (
@@ -22,8 +46,9 @@ class Announcements extends React.Component
                         <li><button onClick={() => { this.handleLanguageChange('en') }}>EN</button></li>
                     </ul>
                 </h4>
-                <h4>a2</h4>
-                <h4>a3</h4>
+                {announcements.map(announcement =>
+                    <h4>{announcement.text}</h4>
+                )}
             </div>
         )
     }

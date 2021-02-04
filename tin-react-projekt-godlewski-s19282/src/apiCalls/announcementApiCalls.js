@@ -2,7 +2,7 @@ import {getCurrentUser} from "../helpers/authHelper";
 
 const announcementsBaseUrl = 'http://localhost:3000/api/announcements';
 
-export function getAnnouncementApiCall() {
+export function getAnnouncementsApiCall() {
     const user = getCurrentUser()
     let token;
     if (user && user.token) {
@@ -15,7 +15,7 @@ export function getAnnouncementApiCall() {
             'Authorization': 'Bearer ' + token
         }
     }
-    return fetch(announcementsBaseUrl,options);
+    return fetch(announcementsBaseUrl+"/admin",options);
 }
 export function getAnnouncementByIdApiCall(announcementId)
 {

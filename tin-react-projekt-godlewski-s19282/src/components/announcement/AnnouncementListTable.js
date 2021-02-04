@@ -14,6 +14,8 @@ function AnnouncementListTable(props)
                     <th>{t('announcement.fields.dateOfPublication')}</th>
                     <th>{t('announcement.fields.expirationDate')}</th>
                     <th>{t('announcement.fields.text')}</th>
+                    <th>{t('list.actions.title')}</th>
+
                 </tr>
             </thead>
             <tbody>

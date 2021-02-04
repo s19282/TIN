@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {getAnnouncementApiCall} from "../../apiCalls/announcementApiCalls";
+import {getAnnouncementsApiCall} from "../../apiCalls/announcementApiCalls";
 import AnnouncementListTable from "./AnnouncementListTable";
 import { withTranslation } from 'react-i18next';
 
@@ -26,7 +26,7 @@ class AnnouncementList extends React.Component
 
     fetchAnnouncementList = () =>
     {
-        getAnnouncementApiCall()
+        getAnnouncementsApiCall()
             .then(res => res.json())
             .then(
                 (data) =>
@@ -64,10 +64,10 @@ class AnnouncementList extends React.Component
 
         return (
             <main>
-                <h2>{t('announcements.list.pageTitle')}</h2>
+                <h2>{t('announcement.list.pageTitle')}</h2>
                 {content}
                 <p className="section-buttons">
-                    <Link to="/announcement/add" className="button-add">{t('announcements.list.addNew')}</Link>
+                    <Link to="/announcement/add" className="button-add">{t('announcement.list.addNew')}</Link>
                 </p>
                 <p className="success">{this.state.notice}</p>
             </main >

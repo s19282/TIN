@@ -7,9 +7,9 @@ function AnnouncementDetailsData(props){
 
     return (
         <React.Fragment>
-            <p>{t('announcement.fields.firstName')}: {announcement.dateOfPublication}</p>
-            <p>{t('announcement.fields.lastName')}: {announcement.expirationDate} </p>
-            <p>{t('announcement.fields.email')}: {announcement.text} </p>
+            <p>{t('announcement.fields.dateOfPublication')}: {announcement.dateOfPublication}</p>
+            <p>{t('announcement.fields.expirationDate')}: {announcement.expirationDate} </p>
+            <p>{t('announcement.fields.text')}: {announcement.text} </p>
         </React.Fragment>
     )
 }

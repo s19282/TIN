@@ -10,7 +10,9 @@
     "main-page": "Home",
     "owners": "Owners",
     "vehicles": "Vehicles",
-    "registrations": "Registrations"
+    "registrations": "Registrations",
+    "announcements": "Announcements",
+    "register": "Sign up"
   },
   "list": {
     "actions": {
@@ -161,6 +163,34 @@
           "header": "Confirm",
           "text": "Vehicle updated successfully"
         }
+      }
+    }
+  },
+  "announcement": {
+    "details": {
+      "details" : "Details of announcement"
+    },
+    "fields": {
+      "dateOfPublication": "Date of Publication",
+      "expirationDate": "Expiration date ",
+      "text": "Text"
+    },
+    "list": {
+      "title": "List of announcements",
+      "addNew": "Add new announcement",
+      "pageTitle": "List of announcements"
+    },
+    "form": {
+      "add": {
+        "pageTitle": "Add announcement",
+        "btnLabel": "Add"
+      },
+      "edit": {
+        "pageTitle": "Edit announcement details",
+        "btnLabel": "Edit"
+      },
+      "details": {
+        "pageTitle": "Announcement details"
       }
     }
   },
