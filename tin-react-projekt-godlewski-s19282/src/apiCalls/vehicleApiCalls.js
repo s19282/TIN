@@ -49,5 +49,23 @@ export function updateVehicleApiCall(vehicleId, vehicle) {
     return fetch(url, options);
 }
 
+export function deleteVehicleApiCall(vehicleId) {
+    const url = `${vehiclesBaseUrl}/${vehicleId}`
+
+    const user = getCurrentUser()
+    let token
+    if (user && user.token) {
+        token = user.token
+    }
+    const options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
+    }
+    return fetch(url, options);
+}
+
 
 

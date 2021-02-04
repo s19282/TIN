@@ -2,11 +2,10 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { withTranslation } from 'react-i18next';
 import FormInput from '../form/FormInput'
-import FormButtons from '../form/FormButtons'
 import { loginApiCall } from '../../apiCalls/authApiCalls'
 import { checkRequired } from '../../helpers/validationCommon'
 import { formValidationKeys } from '../../helpers/formHelper'
-import LoginButton from "../form/LoginButton (conflicted)";
+import LoginButton from "../form/LoginButton";
 
 class LoginForm extends React.Component
 {

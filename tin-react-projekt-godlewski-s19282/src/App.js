@@ -17,7 +17,6 @@ import VehicleForm from "./components/vehicle/VehicleForm";
 import LoginForm from "./components/other/LoginForm";
 import ProtectedRoute from "./components/other/ProtectedRoute";
 import {getCurrentUser} from "./helpers/authHelper";
-//import {ProtectedRoute} from "./components/other/ProtectedRoute";
 
 
 class App extends React.Component
@@ -65,16 +64,19 @@ class App extends React.Component
                             <ProtectedRoute exact={true} path="/owner/details/:ownerId" component={OwnerDetails} />
                             <ProtectedRoute exact={true} path="/owner/add" component={OwnerForm} />
                             <ProtectedRoute exact={true} path="/owner/edit/:ownerId" component={OwnerForm} />
+                            <ProtectedRoute exact={true} path="/owner/delete/:ownerId" component={OwnerList} />
 
                             <ProtectedRoute exact={true} path="/registrations" component={RegistrationList} />
                             <ProtectedRoute exact={true} path="/registration/details/:registrationId" component={RegistrationDetails} />
                             <ProtectedRoute exact={true} path="/registration/add" component={RegistrationForm} />
                             <ProtectedRoute exact={true} path="/registration/edit/:registrationId" component={RegistrationForm} />
+                            <ProtectedRoute exact={true} path="/registration/delete/:registrationId" component={RegistrationList} />
 
                             <Route exact path="/vehicles" component={VehicleList}/>
                             <Route exact={true} path="/vehicle/details/:vehicleId" component={VehicleDetails} />
                             <ProtectedRoute exact={true} path="/vehicle/add" component={VehicleForm} />
                             <ProtectedRoute exact={true} path="/vehicle/edit/:vehicleId" component={VehicleForm} />
+                            <ProtectedRoute exact={true} path="/vehicle/delete/:vehicleId" component={VehicleList} />
                         </Switch>
                         <Announcements/>
                     </div>

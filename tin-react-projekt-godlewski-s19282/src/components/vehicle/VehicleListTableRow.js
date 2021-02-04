@@ -1,6 +1,8 @@
 import {Link} from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { isAuthenticated } from '../../helpers/authHelper'
+import {deleteRegistrationApiCall} from "../../apiCalls/registrationApiCalls";
+import {deleteVehicleApiCall} from "../../apiCalls/vehicleApiCalls";
 
 function VehicleListTableRow(props)
 {
@@ -21,7 +23,8 @@ function VehicleListTableRow(props)
                             <li><Link to={`/vehicle/edit/${vehicle.id}`} className="list-actions-button-edit">{t('list.actions.edit')}</Link></li>
                         }
                         {isAuthenticated() &&
-                            <li><Link to={`/vehicle/delete/${vehicle.id}`} className="list-actions-button-delete">{t('list.actions.delete')}</Link></li>
+                            <li><Link to={`/vehicle/delete/${vehicle.id}`} className="list-actions-button-delete"
+                                      onClick={()=>deleteVehicleApiCall(vehicle.id).then(()=>window.location.reload())}>{t('list.actions.delete')}</Link></li>
                         }
                     </ul>
                 </td>

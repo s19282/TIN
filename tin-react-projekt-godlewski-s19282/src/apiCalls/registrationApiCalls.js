@@ -71,3 +71,21 @@ export function updateRegistrationApiCall(registrationId, registration)
     }
     return fetch(url,options);
 }
+export function deleteRegistrationApiCall(registrationId)
+{
+    const user = getCurrentUser()
+    let token
+    if (user && user.token) {
+        token = user.token
+    }
+    const url = `${registrationBaseUrl}/${registrationId}` //TODO: check once more
+
+    const options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
+    }
+    return fetch(url,options);
+}
