@@ -20,6 +20,7 @@ class Navigation extends React.Component
                     <li><Link to="/owners">{t('nav.owners')}</Link></li>
                     <li><Link to="/registrations">{t('nav.registrations')}</Link></li>
                     <li><Link to="/vehicles">{t('nav.vehicles')}</Link></li>
+                    <li><Link to="/announcements">{t('nav.announcements')}</Link></li>
                     <li className='lang'>{loginLogoutLink}</li>
                 </ul>
             </nav>

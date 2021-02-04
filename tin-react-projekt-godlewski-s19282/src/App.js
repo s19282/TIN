@@ -17,7 +17,9 @@ import VehicleForm from "./components/vehicle/VehicleForm";
 import LoginForm from "./components/other/LoginForm";
 import ProtectedRoute from "./components/other/ProtectedRoute";
 import {getCurrentUser} from "./helpers/authHelper";
-
+import AnnouncementDetails from "./components/announcement/AnnouncementDetails";
+import AnnouncementList from "./components/announcement/AnnouncementList";
+import AnnouncementForm from "./components/announcement/AnnouncementForm";
 
 class App extends React.Component
 {
@@ -59,6 +61,12 @@ class App extends React.Component
                                    )}/>
 
                             <Route exact path="/" component={MainContent}/>
+
+                            <ProtectedRoute exact={true} path="/announcements" component={AnnouncementList} />
+                            <ProtectedRoute exact={true} path="/announcement/details/:announcementId" component={AnnouncementDetails} />
+                            <ProtectedRoute exact={true} path="/announcement/add" component={AnnouncementForm} />
+                            <ProtectedRoute exact={true} path="/announcement/edit/:announcementId" component={AnnouncementForm} />
+                            <ProtectedRoute exact={true} path="/announcement/delete/:announcementId" component={AnnouncementList} />
 
                             <ProtectedRoute exact={true} path="/owners" component={OwnerList} />
                             <ProtectedRoute exact={true} path="/owner/details/:ownerId" component={OwnerDetails} />
