@@ -25,7 +25,7 @@ class LoginForm extends React.Component
             prevPath: ''
         }
     }
-
+    //todo: make file with duplicated methods
     handleChange = (event) => {
         const { name, value } = event.target
         const user = { ...this.state.user }
@@ -115,6 +115,7 @@ class LoginForm extends React.Component
     }
 
     render() {
+
         const { t } = this.props
         const errorsSummary = this.hasErrors() ? t('validation.formContainsErrors') : ''
         const fetchError = this.state.error ? `${t('validation.error')}: ${this.state.error.message}` : ''
@@ -123,7 +124,7 @@ class LoginForm extends React.Component
         return (
             <main>
                 <div id="login">
-                    <h3>{t('auth.pageTitle')}</h3>
+                    <h2>{t('auth.pageTitle')}</h2>
                     <form className="form" method="post" onSubmit={this.handleSubmit}>
                         <FormInput
                             name="email"

@@ -70,7 +70,7 @@ class App extends React.Component
 
                             <ProtectedRoute exact={true} path="/owners" component={OwnerList} />
                             <ProtectedRoute exact={true} path="/owner/details/:ownerId" component={OwnerDetails} />
-                            <ProtectedRoute exact={true} path="/owner/add" component={OwnerForm} />
+                            <Route exact={true} path="/owner/add" component={OwnerForm} />
                             <ProtectedRoute exact={true} path="/owner/edit/:ownerId" component={OwnerForm} />
                             <ProtectedRoute exact={true} path="/owner/delete/:ownerId" component={OwnerList} />
 
