@@ -5,7 +5,6 @@ import {deleteVehicleApiCall} from "../../apiCalls/vehicleApiCalls";
 import { withTranslation } from 'react-i18next';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
-import {deleteOwnerApiCall} from "../../apiCalls/ownerApiCalls";
 
 class VehicleListTableRow extends React.Component
 {

@@ -211,7 +211,6 @@ class AnnouncementForm extends React.Component{
                         required
                         error={this.state.errors.text}
                         name="text"
-                        placeholder={t('announcement.placeHolders.text')}
                         onChange={this.handleChange}
                         value={this.state.announcement.text}/>
 
@@ -221,7 +220,6 @@ class AnnouncementForm extends React.Component{
                         required
                         error={this.state.errors.expirationDate}
                         name="expirationDate"
-                        placeholder={t('announcement.placeHolders.expirationDate')}
                         onChange={this.handleChange}
                         value={this.state.announcement.expirationDate}/>
 

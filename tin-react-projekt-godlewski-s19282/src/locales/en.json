@@ -184,7 +184,8 @@
     "list": {
       "title": "List of announcements",
       "addNew": "Add new announcement",
-      "pageTitle": "List of announcements"
+      "pageTitle": "List of announcements",
+      "loadingData": "Loading announcement's data"
     },
     "form": {
       "add": {

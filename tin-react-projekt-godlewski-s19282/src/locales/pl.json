@@ -184,7 +184,8 @@
     "list": {
       "title": "Lista ogłoszeń",
       "addNew": "Dodaj nowe ogłoszenie",
-      "pageTitle": "Lista ogłoszeń"
+      "pageTitle": "Lista ogłoszeń",
+      "loadingData": "Ładowanie danych ogłoszeń..."
     },
     "form": {
       "add": {

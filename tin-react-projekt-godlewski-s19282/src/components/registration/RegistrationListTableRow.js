@@ -8,6 +8,7 @@ import {deleteRegistrationApiCall} from "../../apiCalls/registrationApiCalls";
 
 class RegistrationListTableRow extends React.Component
 {
+    //todo notice after removed
     submit = (id) => {
         const { t } = this.props
         confirmAlert({
