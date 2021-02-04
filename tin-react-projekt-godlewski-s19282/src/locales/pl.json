@@ -3,6 +3,9 @@
     "content": "Strona główna",
     "title": "Wydział komunikacji"
   },
+  "rightPanel": {
+    "selectLang": "Wybierz język"
+  },
   "nav": {
     "main-page": "Strona główna",
     "owners": "Właściciele",

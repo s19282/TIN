@@ -49,14 +49,15 @@ class App extends React.Component
     render() {
         return (
             <Router>
-                <div>
                     <Header/>
                     <div className="centerBox">
                         <Navigation handleLogout={this.handleLogout} />
                         <Switch>
-                            <Route exact path="/login" render={() => (
-                                <LoginForm handleLogin = {this.handleLogin} />
-                            )}/>
+                            <Route exact
+                                   path="/login"
+                                   render={() => (
+                                       <LoginForm handleLogin={this.handleLogin} />
+                                   )}/>
 
                             <Route exact path="/" component={MainContent}/>
 
@@ -78,7 +79,6 @@ class App extends React.Component
                         <Announcements/>
                     </div>
                     <Footer/>
-                </div>
             </Router>
         );
     }

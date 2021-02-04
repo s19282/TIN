@@ -28,7 +28,7 @@ a:active
 }
 #logout
 {
-    color: #ff0000;
+    /*color: #ff0000;*/
     display: flex;
 }
 #logout:hover
@@ -36,11 +36,6 @@ a:active
     color: #4a0000;
 }
 
-#login, #login form
-{
-    display: grid;
-    grid-template-columns: 100%;
-}
 
 html
 {
@@ -51,6 +46,7 @@ html
 }
 body
 {
+    width: 100%;
     min-width: 360px;
     display: flex;
     flex-direction: column;
@@ -98,6 +94,11 @@ footer p
     list-style-position:inside;
 
 }
+.chooseLang li button {
+    all: unset;
+    cursor: pointer;
+    width: 100%;
+}
 footer
 {
     text-align: center;
@@ -127,7 +128,7 @@ nav
 {
     background: #c0392b;
 }
-.rightPanel h4, #login
+.rightPanel h4
 {
     background: #cf4435;
     border-radius: 5px;
@@ -138,6 +139,9 @@ nav
 {
     color: #cf4435;
     background: black;
+}
+.chooseLang li button:hover {
+    color: black;
 }
 h3
 {
@@ -155,8 +159,17 @@ nav ul
     padding: 0;
     list-style-type: none;
 }
-nav ul li a
+#logoutButton
 {
+    padding-left: 0;
+}
+#aButton
+{
+    padding: 0;
+}
+nav ul li a, #logoutButton
+{
+    all: unset;
     display: block;
     color: #000000;
     padding: 1rem 2rem;
@@ -393,10 +406,6 @@ abbr[title='required'],
 
 @media all and (max-width: 720px)
 {
-    #login form
-    {
-        grid-template-columns: auto auto;
-    }
     header
     {
         flex-direction: column;
@@ -498,9 +507,5 @@ abbr[title='required'],
     nav ul li
     {
         flex-basis: 100%;
-    }
-    #login form
-    {
-        grid-template-columns: auto;
     }
 }

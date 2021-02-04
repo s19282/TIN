@@ -6,6 +6,7 @@ import FormButtons from '../form/FormButtons'
 import { loginApiCall } from '../../apiCalls/authApiCalls'
 import { checkRequired } from '../../helpers/validationCommon'
 import { formValidationKeys } from '../../helpers/formHelper'
+import LoginButton from "../form/LoginButton (conflicted)";
 
 class LoginForm extends React.Component
 {
@@ -123,7 +124,7 @@ class LoginForm extends React.Component
         return (
             <main>
                 <div id="login">
-                    <h2>{t('auth.pageTitle')}</h2>
+                    <h3>{t('auth.pageTitle')}</h3>
                     <form className="form" method="post" onSubmit={this.handleSubmit}>
                         <FormInput
                             name="email"
@@ -141,8 +142,7 @@ class LoginForm extends React.Component
                             onChange={this.handleChange}
                             type="password"
                         />
-                        <FormButtons
-                            cancelPath={this.state.prevPath}
+                        <LoginButton
                             error={globalErrorMessage}
                             submitButtonLabel={t('form.actions.login')}
                         />

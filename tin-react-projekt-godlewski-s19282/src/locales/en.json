@@ -3,6 +3,9 @@
     "content": "Home",
     "title": "Communications department"
   },
+  "rightPanel": {
+    "selectLang": "Select language"
+  },
   "nav": {
     "main-page": "Home",
     "owners": "Owners",

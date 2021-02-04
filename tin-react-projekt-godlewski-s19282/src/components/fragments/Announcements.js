@@ -11,10 +11,17 @@ class Announcements extends React.Component
     }
     render()
     {
+        const { t } = this.props;
+
         return (
             <div className="rightPanel">
-                <li className='lang'><button onClick={() => { this.handleLanguageChange('pl') }}>PL</button></li>
-                <li><button onClick={() => { this.handleLanguageChange('en') }}>EN</button></li>
+                <h4>
+                    <p>{t('rightPanel.selectLang')}</p>
+                    <ul className="chooseLang">
+                        <li className='lang'><button onClick={() => { this.handleLanguageChange('pl') }}>PL</button></li>
+                        <li><button onClick={() => { this.handleLanguageChange('en') }}>EN</button></li>
+                    </ul>
+                </h4>
                 <h4>a2</h4>
                 <h4>a3</h4>
             </div>

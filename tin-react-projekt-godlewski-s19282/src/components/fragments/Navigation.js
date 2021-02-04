@@ -9,7 +9,7 @@ class Navigation extends React.Component
     {
         const { t } = this.props;
         const loginLogoutLink = isAuthenticated()
-            ? <button onClick={this.props.handleLogout}>{t('auth.logout')}</button>
+            ? <a id="aButton"><button id="logoutButton" onClick={this.props.handleLogout}>{t('auth.logout')}</button></a>
             : <Link to="/login">{t('form.actions.login')}</Link>
 
         return (
