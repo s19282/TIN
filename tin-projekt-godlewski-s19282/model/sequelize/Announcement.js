@@ -9,12 +9,14 @@ const Announcement = sequelize.define('Announcement', {
         primaryKey: true
     },
     dateOfPublication: {
-            type: Sequelize.DATEONLY,
-            allowNull: false
+        type: Sequelize.DATEONLY,
+        allowNull: false,
+        default: true,
+        defaultValue: new Date()
     },
     expirationDate: {
         type: Sequelize.DATEONLY,
-        allowNull: false
+        allowNull: true
     },
     text:{
         type: Sequelize.STRING(300),

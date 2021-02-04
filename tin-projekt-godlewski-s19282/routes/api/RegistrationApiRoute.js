@@ -4,7 +4,7 @@ const router = express.Router();
 const registrationApiController = require('../../api/RegistrationAPI');
 const isAuth = require('../../middleware/isAuth');
 
-router.get('/', isAuth, registrationApiController.getRegistrations);
+router.get('/', isAuth,registrationApiController.getRegistrations);
 router.get('/:registrationId', isAuth, registrationApiController.getRegistrationById);
 router.post('/', isAuth, registrationApiController.createRegistration);
 router.put('/:registrationId', isAuth, registrationApiController.updateRegistration);

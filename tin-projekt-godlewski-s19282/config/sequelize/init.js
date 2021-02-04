@@ -61,7 +61,7 @@ module.exports = () => {
                     "id": 3,
                     "firstName": "Elena",
                     "lastName": "Mycroft",
-                    "email": "emycroft2@mayoclinic.com",
+                    "email": "ab@cd.ef",
                     "phoneNumber": "5544290679",
                     "password": authUtil.hashPassword("zaq1@WSX")
                 }, {
