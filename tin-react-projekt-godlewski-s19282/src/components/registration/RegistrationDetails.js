@@ -67,7 +67,7 @@ class RegistrationDetails extends React.Component {
                 <h2>{t('registration.details.details')}</h2>
                 {content}
                 <div className="section-buttons">
-                    <Link to="/registrations" className="button-back">{t('form.actions.return')}</Link>
+                    <Link to="/registrations" className="form-button-cancel">{t('form.actions.return')}</Link>
                 </div>
             </main>
         )

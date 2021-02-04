@@ -71,7 +71,7 @@ class VehicleDetails extends React.Component
                 <h2>{t('vehicle.details.details')}</h2>
                 {content}
                 <div className="section-buttons">
-                    <Link to="/vehicles" className="button-back">{t('form.actions.return')}</Link>
+                    <Link to="/vehicles" className="form-button-cancel">{t('form.actions.return')}</Link>
                 </div>
             </main>
         )

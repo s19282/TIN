@@ -75,7 +75,7 @@ class OwnerDetails extends React.Component
                 <h2>{t('owner.details.details')}</h2>
                 {content}
                 <div className="section-buttons">
-                    <Link to="/owners" className="button-back">{t('form.actions.return')}</Link>
+                    <Link to="/owners" className="form-button-cancel">{t('form.actions.return')}</Link>
                 </div>
             </main>
         )

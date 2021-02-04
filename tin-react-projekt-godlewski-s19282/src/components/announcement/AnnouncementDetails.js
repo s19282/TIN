@@ -74,7 +74,7 @@ class AnnouncementDetails extends React.Component
                 <h2>{t('announcement.details.details')}</h2>
                 {content}
                 <div className="section-buttons">
-                    <Link to="/announcements" className="button-back">{t('form.actions.return')}</Link>
+                    <Link to="/announcements" className="form-button-cancel">{t('form.actions.return')}</Link>
                 </div>
             </main>
         )
