@@ -1,35 +1,58 @@
 import {Link} from "react-router-dom";
-import { useTranslation } from 'react-i18next';
+import React from 'react'
 import { isAuthenticated } from '../../helpers/authHelper'
-import {deleteRegistrationApiCall} from "../../apiCalls/registrationApiCalls";
 import {deleteVehicleApiCall} from "../../apiCalls/vehicleApiCalls";
+import { withTranslation } from 'react-i18next';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
+import {deleteOwnerApiCall} from "../../apiCalls/ownerApiCalls";
 
-function VehicleListTableRow(props)
+class VehicleListTableRow extends React.Component
 {
-    const vehicle = props.vehicleData;
-    const { t } = useTranslation();
+    submit = (id) => {
+        const { t } = this.props
+        confirmAlert({
+            title: t('list.actions.confirm.title'),
+            message: t('list.actions.confirm.message'),
+            buttons: [
+                {
+                    label: t('list.actions.confirm.yes'),
+                    onClick: () => deleteVehicleApiCall(id).then(()=>window.location.reload())
+                },
+                {
+                    label: t('list.actions.confirm.no'),
+                    onClick: () => {}
+                }
+            ]
+        });
+    };
 
-    return (
-        <tr key={vehicle.id}>
-            <td>{vehicle.vin}</td>
-            <td>{vehicle.make}</td>
-            <td>{vehicle.model}</td>
-            <td>{vehicle.firstRegistrationDate}</td>
-            <td>{vehicle.engineCapacity}</td>
+    render()
+    {
+        const vehicle = this.props.vehicleData;
+        const { t } = this.props
+        return (
+            <tr key={vehicle.id}>
+                <td>{vehicle.vin}</td>
+                <td>{vehicle.make}</td>
+                <td>{vehicle.model}</td>
+                <td>{vehicle.firstRegistrationDate}</td>
+                <td>{vehicle.engineCapacity}</td>
                 <td>
                     <ul className="list-actions">
                         <li><Link to={`/vehicle/details/${vehicle.id}`} className="list-actions-button-details">{t('list.actions.details')}</Link></li>
                         {isAuthenticated() &&
-                            <li><Link to={`/vehicle/edit/${vehicle.id}`} className="list-actions-button-edit">{t('list.actions.edit')}</Link></li>
+                        <li><Link to={`/vehicle/edit/${vehicle.id}`} className="list-actions-button-edit">{t('list.actions.edit')}</Link></li>
                         }
                         {isAuthenticated() &&
-                            <li><Link to={`/vehicle/delete/${vehicle.id}`} className="list-actions-button-delete"
-                                      onClick={()=>deleteVehicleApiCall(vehicle.id).then(()=>window.location.reload())}>{t('list.actions.delete')}</Link></li>
+                        <li><Link to={`/vehicle/delete/${vehicle.id}`} className="list-actions-button-delete"
+                                  onClick={()=>this.submit(vehicle.id)}>{t('list.actions.delete')}</Link></li>
                         }
                     </ul>
                 </td>
-        </tr>
-    )
+            </tr>
+        )
+    }
 }
-
-export default VehicleListTableRow;
+//todo check if it work witchTranslation(vehicle...)
+export default withTranslation()(VehicleListTableRow);
