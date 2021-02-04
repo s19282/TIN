@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {getAnnouncementsApiCall} from "../../apiCalls/announcementApiCalls";
+import {getAnnouncementsApiCallAdmin} from "../../apiCalls/announcementApiCalls";
 import AnnouncementListTable from "./AnnouncementListTable";
 import { withTranslation } from 'react-i18next';
 
@@ -26,7 +26,7 @@ class AnnouncementList extends React.Component
 
     fetchAnnouncementList = () =>
     {
-        getAnnouncementsApiCall()
+        getAnnouncementsApiCallAdmin()
             .then(res => res.json())
             .then(
                 (data) =>

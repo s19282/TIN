@@ -7,14 +7,14 @@ exports.getAnnouncementsAdmin = () =>
 exports.getAnnouncements = () =>
 {
     return Announcement.findAll({
-        where:
-        {
-            expirationDate:
-                {
-                    //TODO: not work
-                    $gte: new Date().getUTCDate()
-                }
-        }
+        // where:
+        // {
+        //     expirationDate:
+        //         {
+        //             //TODO: not work
+        //             $gte: new Date().getUTCDate()
+        //         }
+        // }
     });
 }
 

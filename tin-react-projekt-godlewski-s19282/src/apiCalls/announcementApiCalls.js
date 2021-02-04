@@ -15,6 +15,21 @@ export function getAnnouncementsApiCall() {
             'Authorization': 'Bearer ' + token
         }
     }
+    return fetch(announcementsBaseUrl,options);
+}
+export function getAnnouncementsApiCallAdmin() {
+    const user = getCurrentUser()
+    let token;
+    if (user && user.token) {
+        token = user.token
+    }
+    const options = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
+    }
     return fetch(announcementsBaseUrl+"/admin",options);
 }
 export function getAnnouncementByIdApiCall(announcementId)

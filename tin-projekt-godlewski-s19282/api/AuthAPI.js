@@ -26,7 +26,7 @@ exports.login = (req,res) => {
                         config.secret,
                         {expiresIn: '1h'}
                     )
-                    res.status(200).json({token: token, userId: user.id})
+                    res.status(200).json({token: token, userId: user.id, roleId: user.role_id})
                 })
                 .catch(err => {
                     res.status(501)

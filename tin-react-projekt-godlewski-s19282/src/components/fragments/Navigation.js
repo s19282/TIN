@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import { withTranslation } from 'react-i18next';
-import {isAuthenticated} from "../../helpers/authHelper";
+import {isAdmin, isAuthenticated} from "../../helpers/authHelper";
 
 class Navigation extends React.Component
 {
@@ -20,7 +20,9 @@ class Navigation extends React.Component
                     <li><Link to="/owners">{t('nav.owners')}</Link></li>
                     <li><Link to="/registrations">{t('nav.registrations')}</Link></li>
                     <li><Link to="/vehicles">{t('nav.vehicles')}</Link></li>
-                    <li><Link to="/announcements">{t('nav.announcements')}</Link></li>
+                    {isAdmin() &&
+                        <li><Link to="/announcements">{t('nav.announcements')}</Link></li>
+                    }
                     <li className='lang'>{loginLogoutLink}</li>
                     {!isAuthenticated() &&
                         <li><Link to="/owner/add">{t('nav.register')}</Link></li>
