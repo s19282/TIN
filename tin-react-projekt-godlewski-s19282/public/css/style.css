@@ -1,3 +1,14 @@
+.success
+{
+    background: #19a256;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bold;
+}
+.invisible
+{
+    display: none;
+}
 .errors-text
 {
     font-size: 0.85em;

@@ -61,14 +61,13 @@ class VehicleList extends React.Component
         return (
             <main>
                 <h2>{t('vehicle.list.pageTitle')}</h2>
+                <p className={this.state.notice===""?"invisible":"success" }>{this.state.notice}</p>
                 {content}
                 {isAuthenticated() &&
                     <p className="section-buttons">
                         <Link to="/vehicle/add" className="button-add">{t('vehicle.list.addNew')}</Link>
                     </p>
-                }
-                <p className="success">{this.state.notice}</p>
-            </main >
+                }</main >
         )
     }
 }

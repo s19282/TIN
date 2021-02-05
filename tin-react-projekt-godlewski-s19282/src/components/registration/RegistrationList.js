@@ -53,11 +53,11 @@ class RegistrationList extends React.Component
         return (
             <main>
                 <h2>{t('registration.list.pageTitle')}</h2>
+                <p className={this.state.notice===""?"invisible":"success" }>{this.state.notice}</p>
                 {content}
                 <p className="section-buttons">
                     <Link to="/registration/add" className="button-add">{t('registration.list.addNew')}</Link>
                 </p>
-                <p className="success">{this.state.notice}</p>
             </main>
         )
     }

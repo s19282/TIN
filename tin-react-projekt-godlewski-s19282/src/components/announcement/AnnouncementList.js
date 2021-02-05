@@ -65,11 +65,11 @@ class AnnouncementList extends React.Component
         return (
             <main>
                 <h2>{t('announcement.list.pageTitle')}</h2>
+                <p className={this.state.notice===""?"invisible":"success" }>{this.state.notice}</p>
                 {content}
                 <p className="section-buttons">
                     <Link to="/announcement/add" className="button-add">{t('announcement.list.addNew')}</Link>
                 </p>
-                <p className="success">{this.state.notice}</p>
             </main >
         )
     }

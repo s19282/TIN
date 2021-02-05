@@ -65,11 +65,11 @@ class OwnerList extends React.Component
         return (
             <main>
                 <h2>{t('owner.list.pageTitle')}</h2>
+                <p className={this.state.notice===""?"invisible":"success" }>{this.state.notice}</p>
                 {content}
                 <p className="section-buttons">
                     <Link to="/owner/add" className="button-add">{t('owner.list.addNew')}</Link>
                 </p>
-                <p className="success">{this.state.notice}</p>
             </main >
         )
     }

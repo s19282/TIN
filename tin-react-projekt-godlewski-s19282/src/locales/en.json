@@ -190,7 +190,10 @@
     "form": {
       "add": {
         "pageTitle": "Add announcement",
-        "btnLabel": "Add"
+        "btnLabel": "Add",
+        "confirm": {
+          "text": "Announcement added successfully"
+        }
       },
       "edit": {
         "pageTitle": "Edit announcement details",

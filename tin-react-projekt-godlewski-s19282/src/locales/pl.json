@@ -190,7 +190,10 @@
     "form": {
       "add": {
         "pageTitle": "Dodaj ogłoszenie",
-        "btnLabel": "Add"
+        "btnLabel": "Add",
+        "confirm": {
+          "text": "Pomyślnie dodano ogłoszenie"
+        }
       },
       "edit": {
         "pageTitle": "Edytuj szczegóły ogłoszenia",
