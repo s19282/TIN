@@ -13,4 +13,3 @@ router.put('/:announcementId', isAuth, isAdmin, announcementApiController.update
 router.delete('/:announcementId', isAuth, isAdmin, announcementApiController.deleteAnnouncement);
 
 module.exports = router;
-

@@ -208,6 +208,9 @@
     "pageTitle": "Logowanie",
     "logout": "Wyloguj"
   },
+  "pageNotFound":{
+    "msg": "Podana strona nie istnieje lub nie posiadasz uprawnień aby ją zobaczyć"
+  },
   "validation": {
     "messages": {
       "notEmpty": "Pole jest wymagane",

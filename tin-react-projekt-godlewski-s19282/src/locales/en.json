@@ -208,6 +208,9 @@
     "pageTitle": "Login",
     "logout": "Logout"
   },
+  "pageNotFound":{
+    "msg": "Website is unavailable or you don't have permission to see it"
+  },
   "validation": {
     "messages": {
       "notEmpty": "Field is required",

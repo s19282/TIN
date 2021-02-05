@@ -73,6 +73,14 @@ header img
     width: 100px;
     height: 69px;
 }
+#notFoundImg
+{
+    width: 30%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 footer p
 {
 

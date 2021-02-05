@@ -20,6 +20,7 @@ import {getCurrentUser} from "./helpers/authHelper";
 import AnnouncementDetails from "./components/announcement/AnnouncementDetails";
 import AnnouncementList from "./components/announcement/AnnouncementList";
 import AnnouncementForm from "./components/announcement/AnnouncementForm";
+import PageNotFound from "./components/other/PageNotFound";
 
 class App extends React.Component
 {
@@ -85,6 +86,7 @@ class App extends React.Component
                             <ProtectedRoute exact={true} path="/vehicle/add" component={VehicleForm} />
                             <ProtectedRoute exact={true} path="/vehicle/edit/:vehicleId" component={VehicleForm} />
                             <ProtectedRoute exact={true} path="/vehicle/delete/:vehicleId" component={VehicleList} />
+                            <Route path="" component={PageNotFound} />
                         </Switch>
                         <Announcements/>
                     </div>
