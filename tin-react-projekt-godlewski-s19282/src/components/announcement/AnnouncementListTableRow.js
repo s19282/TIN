@@ -17,7 +17,6 @@ function AnnouncementListTableRow(props)
                 <ul className="list-actions">
                     <li><Link to={`/announcement/details/${announcement.id}`} className="list-actions-button-details">{t('list.actions.details')}</Link></li>
                     <li><Link to={`/announcement/edit/${announcement.id}`} className="list-actions-button-edit">{t('list.actions.edit')}</Link></li>
-                    {/*TODO: set note REMOVED*/}
                     <li><Link to={`/announcement/delete/${announcement.id}`} className="list-actions-button-delete"
                               onClick={()=>deleteAnnouncementApiCall(announcement.id).then(()=>window.location.reload())}>{t('list.actions.delete')}</Link></li>
                 </ul>

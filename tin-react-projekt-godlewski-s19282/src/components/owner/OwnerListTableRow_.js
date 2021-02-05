@@ -16,7 +16,7 @@ class OwnerListTableRow extends React.Component
             buttons: [
                 {
                     label: t('list.actions.confirm.yes'),
-                    onClick: () => deleteOwnerApiCall(id).then(()=>window.location.reload())
+                    onClick: () => deleteOwnerApiCall(id).then(()=> window.location.reload())
                 },
                 {
                     label: t('list.actions.confirm.no'),
