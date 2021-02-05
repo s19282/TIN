@@ -1,4 +1,6 @@
 const OwnerRepository = require('../repository/sequelize/OwnerRepository');
+const {hashPassword} = require("../util/authUtils");
+
 
 exports.getOwners = (req, res, next) => {
     OwnerRepository.getOwners()
@@ -32,8 +34,10 @@ exports.createOwner = (req, res, next) => {
         .catch(err => {
             if (!err.statusCode) {
                 err.statusCode = 500;
+                console.log(err)
             }
             next(err);
+        //    TODO: replace next with res.json(err)...
         });
 };
 

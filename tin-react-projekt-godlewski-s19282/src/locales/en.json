@@ -221,6 +221,7 @@
       "len_1_30": "Field should contain between 1 and 30 characters",
       "len_7_13": "Field should contain between 7 and 13 characters",
       "len_7_50": "Field should contain between 7 and 50 characters",
+      "len_7_100": "Field should contain between 7 and 100 characters",
       "notEmail": "Field must contain a valid email address",
       "notNumber": "Field should be a number",
       "notDate": "Field should contain date",

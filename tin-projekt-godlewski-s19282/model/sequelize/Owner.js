@@ -73,8 +73,8 @@ const Owner = sequelize.define('Owner', {
         allowNull: false,
         validate:{
             len: {
-                args: [7,50],
-                msg: "len_7_50"
+                args: [7,100],
+                msg: "len_7_100"
             }
         }
     },

@@ -6,7 +6,7 @@ const isAuth = require('../../middleware/isAuth');
 
 router.get('/',isAuth, ownerApiController.getOwners);
 router.get('/:ownerId',isAuth, ownerApiController.getOwnerById);
-router.post('/',isAuth, ownerApiController.createOwner);
+router.post('/', ownerApiController.createOwner);
 router.put('/:ownerId',isAuth, ownerApiController.updateOwner);
 router.delete('/:ownerId',isAuth, ownerApiController.deleteOwner);
 

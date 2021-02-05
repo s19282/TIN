@@ -221,6 +221,7 @@
       "len_1_30": "Pole powinno zawierać od 1 do 30 znaków",
       "len_7_13": "Pole powinno zawierać od 7 do 13 znaków",
       "len_7_50": "Pole powinno zawierać od 7 do 50 znaków",
+      "len_7_100": "Pole powinno zawierać od 7 do 100 znaków",
       "notEmail": "Pole powinno zawierać prawidłowy adres email",
       "notNumber": "Pole powinno zawierać jedynie cyfry",
       "notDate": "Pole powinno zawierać datę",

@@ -130,7 +130,6 @@ class OwnerForm extends React.Component{
         }
         if(fieldName === 'password')
         {
-            console.log(checkTextLength(fieldValue))
             if(!(checkTextLength(fieldValue)===0 && this.state.formMode==="EDIT"))
             {
                 if (!checkRequired(fieldValue))

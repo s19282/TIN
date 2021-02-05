@@ -11,6 +11,7 @@ export const formValidationKeys = {
     len_7_13: 'len_7_13',
     notNumber: 'notNumber',
     len_7_50: 'len_7_50',
+    len_7_100: 'len_7_100',
     len_1_50: 'len_1_50',
     notFutureDate: 'notFutureDate',
     notDate: 'notDate',

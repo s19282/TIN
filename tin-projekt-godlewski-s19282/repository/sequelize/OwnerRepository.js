@@ -1,6 +1,7 @@
 const Owner = require("../../model/sequelize/Owner");
 const Registration = require("../../model/sequelize/Registration");
 const Vehicle = require("../../model/sequelize/Vehicle_");
+const {hashPassword} = require("../../util/authUtils");
 
 exports.getOwners = () =>
 {
@@ -32,7 +33,7 @@ exports.createOwner = (newOwnerData) => {
         lastName: newOwnerData.lastName,
         email: newOwnerData.email,
         phoneNumber: newOwnerData.phoneNumber,
-        password: newOwnerData.password
+        password: hashPassword(newOwnerData.password)
     });
 };
 
