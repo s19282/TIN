@@ -2,7 +2,13 @@ import React from "react";
 import {Redirect} from "react-router-dom";
 import formMode from "../../helpers/formHelper";
 import {addOwnerApiCall, getOwnerByIdApiCall, updateOwnerApiCall} from "../../apiCalls/ownerApiCalls";
-import {checkEmail, checkNumber, checkRequired, checkTextLengthRange} from "../../helpers/validationCommon";
+import {
+    checkEmail,
+    checkNumber,
+    checkRequired,
+    checkTextLength,
+    checkTextLengthRange
+} from "../../helpers/validationCommon";
 import FormInput from "../form/FormInput";
 import FormButtons from "../form/FormButtons";
 import {withTranslation} from 'react-i18next';
@@ -122,13 +128,16 @@ class OwnerForm extends React.Component{
             else if(checkNumber(fieldValue))
                 errorMessage = formValidationKeys.notNumber
         }
-        //TODO: change not null
         if(fieldName === 'password')
         {
-            if (!checkRequired(fieldValue))
-                errorMessage = formValidationKeys.notEmpty
-            else if (!checkTextLengthRange(fieldValue,7,50))
-                errorMessage = formValidationKeys.len_7_50
+            console.log(checkTextLength(fieldValue))
+            if(!(checkTextLength(fieldValue)===0 && this.state.formMode==="EDIT"))
+            {
+                if (!checkRequired(fieldValue))
+                    errorMessage = formValidationKeys.notEmpty
+                else if (!checkTextLengthRange(fieldValue,7,50))
+                    errorMessage = formValidationKeys.len_7_50
+            }
         }
         return errorMessage
     }

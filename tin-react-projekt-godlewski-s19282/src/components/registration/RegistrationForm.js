@@ -125,7 +125,6 @@ class RegistrationForm extends React.Component
     validateField = (fieldName, fieldValue) =>
     {
         let errorMessage = '';
-        const { t } = this.props;
 
         if (fieldName === 'owner_id')
         {

@@ -19,6 +19,9 @@ export function checkTextLengthRange(value, min, max)
     }
     return !(min && length < min);
 
+}export function checkTextLength(value)
+{
+    return value.length;
 }
 export function checkEmail(value)
 {

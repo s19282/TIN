@@ -53,5 +53,5 @@ class VehicleListTableRow extends React.Component
         )
     }
 }
-//todo check if it work witchTranslation(vehicle...)
+
 export default withTranslation()(VehicleListTableRow);
