@@ -43,7 +43,7 @@ class Announcements extends React.Component
                     <p>{t('rightPanel.selectLang')}</p>
                     <ul className="chooseLang">
                         <li className='lang'><button onClick={() => { this.handleLanguageChange('pl') }}>PL</button></li>
-                        <li><button onClick={() => { this.handleLanguageChange('en') }}>EN</button></li>
+                        <li className='lang'><button onClick={() => { this.handleLanguageChange('en') }}>EN</button></li>
                     </ul>
                 </h4>
                 {announcements.map(announcement =>
