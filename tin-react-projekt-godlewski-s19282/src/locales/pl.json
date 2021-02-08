@@ -197,7 +197,10 @@
       },
       "edit": {
         "pageTitle": "Edytuj szczegóły ogłoszenia",
-        "btnLabel": "Edytuj"
+        "btnLabel": "Edytuj",
+        "confirm": {
+          "text": "Pomyślnie edytowano ogłoszenie"
+        }
       },
       "details": {
         "pageTitle": "Szczegóły ogłoszenia"

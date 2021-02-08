@@ -197,7 +197,10 @@
       },
       "edit": {
         "pageTitle": "Edit announcement details",
-        "btnLabel": "Edit"
+        "btnLabel": "Edit",
+        "confirm": {
+          "text": "Announcement edited successfully"
+        }
       },
       "details": {
         "pageTitle": "Announcement details"
